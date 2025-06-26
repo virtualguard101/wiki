@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block fonts %}
+  {% if config.theme.font != false %}
+    {% set text = config.theme.font.get("text", "'Roboto'") %}
+    {% set code = config.theme.font.get("code", "'Roboto Mono'") %}
+    <style>:root { --md-text-font: {{ text }}; --md-code-font: {{ code }}; }</style>
+  {% endif %}
+{% endblock %}

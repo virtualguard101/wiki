@@ -43,6 +43,9 @@ logger.addHandler(handler)
 
 def main():
     try:
+        #—————————————#
+        #  Pre-hooks  #
+        #—————————————#
         ## Update recent notes at index
         # logger.info("Refresh recent notes at index page...")
         # result = subprocess.run(["uv", "run", "scripts/recent_notes.py"], check=True)

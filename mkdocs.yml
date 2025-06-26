@@ -1,1 +1,246 @@
-site_name: My Docs
+# Project information
+site_author: virtualguard101{}
+# site_description: >-
+#   Write your documentation in Markdown and create a professional static site in
+#   minutes – searchable, customizable, in 60+ languages, for all devices
+site_name: virtualguard101's Wiki
+site_url: https://wiki.virtualguard101.com
+repo_url: https://github.com/virtualguard101/wiki
+repo_name: virtualguard101/wiki
+edit_uri: blob/main/docs/
+
+# Configuration
+theme:
+  name: material
+  language: zh
+  custom_dir: overrides
+  favicon: assets/logo.png
+
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  font:
+    text: "'LXGW WenKai Screen', 'Noto Sans SC', 'Microsoft YaHei', sans-serif"
+    code: "'Cascadia Mono', 'LXGW WenKai Screen', 'Noto Sans SC', 'Microsoft YaHei', sans-serif"
+  icon:
+    repo: fontawesome/brands/github
+    logo: octicons/stack-24
+    edit: material/pencil
+    # tag:
+      # default: fontawesome/solid/hashtag
+
+## Plugins
+plugins:
+  - blog
+
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+        remove_comments: true
+      cache_safe: true
+      js_files:
+        - assets/javascripts/mathjax.js
+        # - assets/javascripts/comments.js
+        # - assets/javascripts/links.js
+      css_files:
+        - assets/webfonts/Cascadia Mono/font.css
+        - assets/webfonts/LXGW WenKai Screen/font.css
+        - assets/stylesheets/theme.css
+        - assets/stylesheets/feature.css
+        - assets/stylesheets/temp-patch.css
+
+  # - redirects:
+  #     redirect_maps:
+
+extra_css:
+  - assets/webfonts/Cascadia Mono/font.css
+  - assets/webfonts/LXGW WenKai Screen/font.css
+  - assets/stylesheets/theme.css
+  - assets/stylesheets/feature.css
+  - assets/stylesheets/temp-patch.css
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+hooks:
+  - src/hooks/copyright.py
+  - src/hooks/rss.py
+  - src/hooks/fancybox.py
+  # - src/hooks/
+
+## Extensions
+markdown_extensions:
+  - abbr
+  - tables
+  - attr_list
+  - md_in_html
+  - footnotes
+  - admonition
+  # - callouts
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.highlight:
+      # auto_title: true
+      # linenums: true
+      # anchor_linenums: true
+      # line_spans: __span # When this option is set, each line of a code block is wrapped in a span, which is essential for features like line highlighting to work correctly
+      use_pygments: true
+
+      # https://facelessuser.github.io/pymdown-extensions/extensions/highlight/#extended-pygments-lexer-options
+      extend_pygments_lang:
+        - name: antlr4
+          lang: antlr
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      # 生成可读的 unicode slug
+      # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#+toc.slugify
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {}
+  - toc:
+      # https://python-markdown.github.io/extensions/toc/
+      permalink: true
+      separator: "-"
+      # 生成可读的 unicode slug
+      # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#+toc.slugify
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {}
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+watch:
+  - overrides
+
+# https://www.mkdocs.org/user-guide/configuration/#validation
+validation:
+  links:
+    anchors: warn
+    unrecognized_links: warn
+
+# Additional configuration
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+  analytics:
+    # provider: google
+    # property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/virtualguard101
+
+# Page tree
+# nav:
+#   - Home: index.md
+#   - Getting started:
+#     - License: license.md
+#     - Tutorials:
+#       - tutorials/index.md
+#       - "Blogs":
+#         - tutorials/blogs/engage.md
+#       - "Social cards":
+#         - tutorials/social/custom.md
+#     - Changelog:
+#       - changelog/index.md
+#       - How to upgrade: upgrade.md
+#   - Setup:
+#     - setup/index.md
+#     - Building for offline usage: setup/building-for-offline-usage.md
+#     - Extensions:
+#       - setup/extensions/index.md
+#       - Python Markdown: setup/extensions/python-markdown.md
+#       - Python Markdown Extensions: setup/extensions/python-markdown-extensions.md
+#   - Plugins:
+#     - plugins/index.md
+#     - Typeset: plugins/typeset.md
+#     - Requirements:
+#       - Image processing: plugins/requirements/image-processing.md
+#   - Reference:
+#     - reference/index.md
+#     - Admonitions: reference/admonitions.md
+#   - Insiders:
+#     - insiders/index.md
+#     - How to sponsor: insiders/how-to-sponsor.md
+#     - Additional information:
+#       - Payment and billing: insiders/payment-and-billing.md
+#       - Access management: insiders/access-management.md
+#       - Runtime and cancellation: insiders/runtime-and-cancellation.md
+#       - Privacy: insiders/privacy.md
+#       - License: insiders/license.md
+#       - Support: support.md
+#     - Using Insiders:
+#       - Getting started: insiders/getting-started.md
+#     - Changelog:
+#       - insiders/changelog/index.md
+#       - How to upgrade: insiders/upgrade.md
+#   - Community:
+#     - Contributing:
+#       - contributing/index.md
+#       - Asking a question: https://github.com/squidfunk/mkdocs-material/discussions
+#     - Guides:
+#       - Creating a reproduction: guides/creating-a-reproduction.md
+#     - Community experts program:
+#       - insiders/community-experts-program/index.md
+#   - Blog:
+#     - blog/index.md
