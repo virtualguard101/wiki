@@ -5,11 +5,12 @@
 {% block tabs %}
   {{ super() }}
   <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/scroll-effects.css' | url }}">
   <section class="mdx-container">
     <div class="md-grid md-typeset">
       <div class="mdx-hero">
-        <div class="mdx-hero__image">
-          <img src="assets/images/beihai.jpg" alt="" width="1659" height="1200" draggable="false">
+        <div class="mdx-hero__image scroll-fade" data-src="assets/images/beihai.jpg">
+          <img class="scroll-fade__img" data-src="assets/images/beihai.jpg" alt="" width="1659" height="1200" loading="lazy" draggable="false">
           <p>
             <i>The picture comes from <a href="https://www.bilibili.com/bangumi/play/ss28770?spm_id_from=333.337.0.0">Mine Threebody Animation: Beihai Zhang</a>.</i>
           </p>
@@ -29,4 +30,7 @@
   </section>
 {% endblock %}
 {% block content %}{% endblock %}
-{% block footer %}{% endblock %}
+{% block footer %}
+  {{ super() }}
+  <script src="{{ 'assets/javascripts/scroll-effects.js' | url }}"></script>
+{% endblock %}
