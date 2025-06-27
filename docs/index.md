@@ -1,9 +1,8 @@
 ---
 template: home.html
-title: Home 
+title: virtualguard101's Wiki
 social:
   cards_layout_options:
     title: Welcome to virtualguard's Wiki!
+comments: true
 ---
-
-Welcome to Material for MkDocs.

@@ -76,7 +76,22 @@ theme:
 
 ## Plugins
 plugins:
-  - blog
+  - blog:
+      post_excerpt: required
+      archive_date_format: MMMM yyyy
+      archive_url_date_format: yyyy/MM
+  - rss:
+      match_path: blog/posts/.*
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tag
+      comments_path: "#__comments"
+  # - social:
+  #     cards_layout: default/only/image
+  #     cards_layout_options:
+  #       background_image: assets/images/beihai.jpg
 
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
@@ -116,6 +131,7 @@ hooks:
   - src/hooks/copyright.py
   - src/hooks/rss.py
   - src/hooks/fancybox.py
+  - src/hooks/links.py
   # - src/hooks/
 
 ## Extensions
@@ -190,57 +206,15 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/virtualguard101
 
-# Page tree
-# nav:
-#   - Home: index.md
-#   - Getting started:
-#     - License: license.md
-#     - Tutorials:
-#       - tutorials/index.md
-#       - "Blogs":
-#         - tutorials/blogs/engage.md
-#       - "Social cards":
-#         - tutorials/social/custom.md
-#     - Changelog:
-#       - changelog/index.md
-#       - How to upgrade: upgrade.md
-#   - Setup:
-#     - setup/index.md
-#     - Building for offline usage: setup/building-for-offline-usage.md
-#     - Extensions:
-#       - setup/extensions/index.md
-#       - Python Markdown: setup/extensions/python-markdown.md
-#       - Python Markdown Extensions: setup/extensions/python-markdown-extensions.md
-#   - Plugins:
-#     - plugins/index.md
-#     - Typeset: plugins/typeset.md
-#     - Requirements:
-#       - Image processing: plugins/requirements/image-processing.md
-#   - Reference:
-#     - reference/index.md
-#     - Admonitions: reference/admonitions.md
-#   - Insiders:
-#     - insiders/index.md
-#     - How to sponsor: insiders/how-to-sponsor.md
-#     - Additional information:
-#       - Payment and billing: insiders/payment-and-billing.md
-#       - Access management: insiders/access-management.md
-#       - Runtime and cancellation: insiders/runtime-and-cancellation.md
-#       - Privacy: insiders/privacy.md
-#       - License: insiders/license.md
-#       - Support: support.md
-#     - Using Insiders:
-#       - Getting started: insiders/getting-started.md
-#     - Changelog:
-#       - insiders/changelog/index.md
-#       - How to upgrade: insiders/upgrade.md
-#   - Community:
-#     - Contributing:
-#       - contributing/index.md
-#       - Asking a question: https://github.com/squidfunk/mkdocs-material/discussions
-#     - Guides:
-#       - Creating a reproduction: guides/creating-a-reproduction.md
-#     - Community experts program:
-#       - insiders/community-experts-program/index.md
-#   - Blog:
-#     - blog/index.md
+## Page tree
+nav:
+  - Home: index.md
+  - Blog:
+    - blog/index.md
+  - Projects:
+    - projects/index.md
+    - Analysis:
+      - projects/analysis/3BodySimulator.md
+      - projects/analysis/space-caculator.md
+    - Log:
+      - projects/log/gpu-researching.md
