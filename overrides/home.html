@@ -4,16 +4,57 @@
 {% extends "main.html" %}
 {% block tabs %}
   {{ super() }}
-  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+  <style>
+    .md-header { position: initial; }
+    .md-main__inner { margin: 0; }
+    .md-content { display: block; }
+
+    /* 头图背景容器 */
+    .mdx-hero {
+      position: relative;
+      width: 99vw;
+      margin-left: calc((100% - 99vw) / 2);
+      padding-top: 65.25%; /* 比例 */
+      overflow: hidden;
+    }
+    .mdx-hero__image.scroll-fade {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+    }
+    .mdx-hero__image.scroll-fade .scroll-fade__img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 文本与按钮覆盖于背景 */
+    .mdx-hero__content {
+      position: absolute !important;
+      bottom: 1.5rem !important;
+      left: 2.5rem !important;
+      transform: none !important;
+      z-index: 10 !important;
+      max-width: calc(100% - 3rem) !important;
+      margin: 0 !important;
+      text-align: left !important;
+      color: #ffffff !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+      background: rgba(0, 0, 0, 0) !important;
+      padding: 1rem !important;
+      border-radius: 0.5rem !important;
+    }
+    @media screen and (min-width: 60em) { .md-sidebar--secondary { display: none; } }
+    @media screen and (min-width: 76.25em) { .md-sidebar--primary { display: none; } }
+  </style>
+
   <link rel="stylesheet" href="{{ 'assets/stylesheets/scroll-effects.css' | url }}">
   <section class="mdx-container">
     <div class="md-grid md-typeset">
       <div class="mdx-hero">
         <div class="mdx-hero__image scroll-fade" data-src="assets/images/beihai.jpg">
           <img class="scroll-fade__img" data-src="assets/images/beihai.jpg" alt="" width="1659" height="1200" loading="lazy" draggable="false">
-          <p>
-            <i>The picture comes from <a href="https://www.bilibili.com/bangumi/play/ss28770?spm_id_from=333.337.0.0">Mine Threebody Animation: the Biography of Zhang Beihai</a>.</i>
-          </p>
         </div>
         <div class="mdx-hero__content">
           <h1>Welcome to virtualguard101's Wiki</h1>
@@ -29,20 +70,24 @@
           <a href="{{ 'projects/' | url }}" title="Projects" class="md-button">
             Visit My Projects
           </a>
+          <p class="mdx-hero__caption">
+            <i>The picture comes from <a href="https://www.bilibili.com/bangumi/play/ss28770?spm_id_from=333.337.0.0">Mine Threebody Animation: the Biography of Zhang Beihai</a>.</i>
+          </p>
         </div>
       </div>
     </div>
   </section>
 {% endblock %}
 
-<!-- Content -->
+<!-- 
 {% block content %}
-  {{ super() }}
-  {{ page.content }}
+
 {% endblock %}
+ -->
 
 <!-- Application footer -->
 {% block footer %}
   {{ super() }}
   <script src="{{ 'assets/javascripts/scroll-effects.js' | url }}"></script>
 {% endblock %}
+
