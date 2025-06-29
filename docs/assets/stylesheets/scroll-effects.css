@@ -27,3 +27,73 @@
   width: 100%;
   height: 100%;
 } */
+@media screen and (max-width: 767px) {
+  /* 1. Hero 容器改为垂直布局，居中对齐 */
+  .mdx-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  /* 2. 图片全宽自适应 */
+  .mdx-hero__image img {
+    width: 100%;
+    height: auto;
+  }
+  /* 3. 文本区域全宽并居中 */
+  .mdx-hero__content {
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  /* 4. 调整字体与按钮大小 */
+  .mdx-hero__content h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+  .mdx-hero__content p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  .md-button {
+    display: block;
+    width: auto;
+    margin: 0.75rem auto;
+    padding: 0.6em 1.2em;
+    font-size: 0.95rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .mdx-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  .mdx-hero__image img {
+    width: 100%;
+    height: auto;
+  }
+  .mdx-hero__content {
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  .mdx-hero__content h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+  .mdx-hero__content p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  .md-button {
+    display: block;
+    width: auto;
+    margin: 0.75rem auto;
+    padding: 0.6em 1.2em;
+    font-size: 0.95rem;
+  }
+}
