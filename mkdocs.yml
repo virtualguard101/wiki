@@ -34,7 +34,7 @@ theme:
     # - navigation.instant.prefetch
     # - navigation.instant.progress
     # - navigation.prune
-    - navigation.sections
+    # - navigation.sections
     - navigation.tabs
     # - navigation.tabs.sticky
     - navigation.top
@@ -200,8 +200,8 @@ extra:
     new: Recently added
     deprecated: Deprecated
   analytics:
-    # provider: google
-    # property: !ENV GOOGLE_ANALYTICS_KEY
+    provider: google
+    property: G-3JKT1BJEB6
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/virtualguard101
@@ -209,6 +209,49 @@ extra:
 ## Page tree
 nav:
   - Home: index.md
+  - Notebook: 
+    - notes/index.md
+    - 工具: 
+      - Linux:
+        - 杂项/基础: "notes/Basic Tools/linux/misc.md"
+        - 定时任务: "notes/Basic Tools/linux/crontab.md"
+        - Shell: "notes/Basic Tools/shell.md"
+      - SSH: "notes/Basic Tools/ssh.md"
+      - Git: "notes/Basic Tools/git.md"
+      - 正则表达式: "notes/Basic Tools/re.md"
+      - 构建工具:
+        - GNU Make: "notes/Basic Tools/Build Tools/gnu-make.md"
+        - CMake: "notes/Basic Tools/Build Tools/cmake.md"
+        - vcpkg: "notes/Basic Tools/Build Tools/vcpkg.md"
+        - scons: "notes/Basic Tools/Build Tools/scons.md"
+        - xmake: "notes/Basic Tools/Build Tools/xmake.md"
+    - Job & Schedule:
+      - 部分JD: "notes/Job & Schedule/jd.md"
+      - 一段与AI的聊天记录: "notes/Job & Schedule/schedule.md"
+    - 编程语言:
+      # - Python:
+      - C++:
+        - 基础语法与特性:
+          - 类型 & 结构体: "notes/Programming Language/c++/C++ Fundamental/00-type-structure.md"
+          - 初始化 & 引用: "notes/Programming Language/c++/C++ Fundamental/01-init-reference.md"
+          - 流: "notes/Programming Language/c++/C++ Fundamental/02-stream.md"
+          - 容器: "notes/Programming Language/c++/C++ Fundamental/03-container.md"
+          - 迭代器 & 指针: "notes/Programming Language/c++/C++ Fundamental/04-iterators-pointers.md"
+          - 类 & 模板: "notes/Programming Language/c++/C++ Fundamental/05-classes-template.md"
+          - Lambda表达式: "notes/Programming Language/c++/C++ Fundamental/06-lambda_function.md"
+          - 运算符重载: "notes/Programming Language/c++/C++ Fundamental/07-operator_overload.md"
+          - 特殊成员函数: "notes/Programming Language/c++/C++ Fundamental/08-special_member_functions.md"
+          - 移动语义: "notes/Programming Language/c++/C++ Fundamental/09-moves-semantics.md"
+          - std::optional & 类型安全: "notes/Programming Language/c++/C++ Fundamental/10-type_safety.md"
+          - 智能指针 & RAII: "notes/Programming Language/c++/C++ Fundamental/11-smart_pointer-RAII.md"
+    # - 数据结构与算法:
+    - Misc:
+      - 科学上网:
+        - 透明代理: "notes/Misc/Scientific Internet Access/proxy.md"
+      - 部分资源归档:
+        - Academic: "notes/Misc/resources/academic.md"
+        - Engineering/Job/Misc: "notes/Misc/resources/engineering.md"
+          
   - Blog:
     - blog/index.md
   - Projects:

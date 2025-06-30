@@ -1,4 +1,5 @@
 ---
+icon: material/axis-arrow-info
 template: home.html
 title: virtualguard101's Wiki
 social:
