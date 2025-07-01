@@ -46,10 +46,10 @@ def main():
         #—————————————#
         #  Pre-hooks  #
         #—————————————#
-        ## Update recent notes at index
-        # logger.info("Refresh recent notes at index page...")
-        # result = subprocess.run(["uv", "run", "scripts/recent_notes.py"], check=True)
-        # logger.info("Refresh successfully!")
+        # Update recent notes at index
+        logger.info("Refresh recent notes at index page...")
+        result = subprocess.run(["uv", "run", "src/recent_notes.py"], check=True)
+        logger.info("Refresh successfully!")
         
         # Get commit path & message
         path = input("Commit path: ").strip()

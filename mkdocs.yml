@@ -245,15 +245,15 @@ nav:
           - std::optional & 类型安全: "notes/Programming Language/c++/C++ Fundamental/10-type_safety.md"
           - 智能指针 & RAII: "notes/Programming Language/c++/C++ Fundamental/11-smart_pointer-RAII.md"
     # - 数据结构与算法:
+    - Web 开发:
+      - HTML: "notes/web-dev/html-1.md"
     - Misc:
       - 科学上网:
         - 透明代理: "notes/Misc/Scientific Internet Access/proxy.md"
       - 部分资源归档:
         - Academic: "notes/Misc/resources/academic.md"
         - Engineering/Job/Misc: "notes/Misc/resources/engineering.md"
-    # - Web开发:
-    #   - 
-          
+         
   - Blog:
     - blog/index.md
   - Projects:

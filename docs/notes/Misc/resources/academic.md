@@ -1,8 +1,8 @@
 ---
-title: Academic
 icon: material/pencil-ruler
-date: 2025-04-13 09:05:18
 ---
+
+# Academic Resources Achived
 
 !!! Note 
     计算机理论类资源汇总归档，收录计算机基础课程资料、基础理论、进阶理论资料以及计算机领域的学术资料，**用于记录个人的CS基础学习路线**

@@ -22,11 +22,11 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="notes/Basic Tools/Build Tools/cmake/">CMake</a><span style="font-size:0.8em;">2025-06-25</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="notes/Job & Schedule/schedule/">一段与AI的聊天记录</a><span style="font-size:0.8em;">2025-06-25</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="notes/Job & Schedule/jd/">部分JD</a><span style="font-size:0.8em;">2025-06-17</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="notes/Misc/Scientific Internet Access/proxy/">透明代理</a><span style="font-size:0.8em;">2025-06-17</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="notes/Basic Tools/re/">正则表达式</a><span style="font-size:0.8em;">2025-06-15</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/html-1/">HTML</a><span style="font-size:0.8em;">2025-07-02</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/resources/engineering/">Engineering/Job/Misc Resources Achived</a><span style="font-size:0.8em;">2025-07-02</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/resources/academic/">Academic Resources Achived</a><span style="font-size:0.8em;">2025-07-02</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/Scientific Internet Access/proxy/">透明代理</a><span style="font-size:0.8em;">2025-06-30</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Job & Schedule/schedule/">一段与AI的聊天记录</a><span style="font-size:0.8em;">2025-06-30</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
