@@ -97,3 +97,47 @@
     font-size: 0.95rem;
   }
 }
+@media screen and (max-width: 767px) and (orientation: portrait) {
+  /* 隐藏除标题与按钮外的文本 */
+  .mdx-hero__image p,
+  .mdx-hero__content p {
+    display: none !important;
+  }
+
+  /* 垂直布局并居中所有模块 */
+  .mdx-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  /* 图片容器全屏覆盖，靠右对齐，保留右下角人物 */
+  .mdx-hero__image {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  .mdx-hero__image img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: right bottom;
+  }
+
+  /* 文本区域全宽居中 */
+  .mdx-hero__content {
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* 按钮模块垂直居中 */
+  .md-button.scroll-fade {
+    display: block;
+    margin: 0.75rem auto;
+  }
+}
