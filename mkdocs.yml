@@ -104,14 +104,14 @@ plugins:
       cache_safe: true
       js_files:
         - assets/javascripts/mathjax.js
-        # - assets/javascripts/comments.js
-        # - assets/javascripts/links.js
       css_files:
         - assets/webfonts/Cascadia Mono/font.css
         - assets/webfonts/LXGW WenKai Screen/font.css
         - assets/stylesheets/theme.css
         - assets/stylesheets/feature.css
         - assets/stylesheets/temp-patch.css
+  - git-revision-date-localized:
+      enable_creation_date: true
 
   # - redirects:
   #     redirect_maps:
@@ -251,6 +251,8 @@ nav:
       - 部分资源归档:
         - Academic: "notes/Misc/resources/academic.md"
         - Engineering/Job/Misc: "notes/Misc/resources/engineering.md"
+    # - Web开发:
+    #   - 
           
   - Blog:
     - blog/index.md

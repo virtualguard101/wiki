@@ -125,7 +125,7 @@
 
     - [How to Build Docker Image: Comprehensive Beginners Guide](https://devopscube.com/build-docker-image/)
 
-    - [Devcontainer: Developing inside a Container | Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers)
+    - [MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content)
 
     - [Base images | Docker](https://docs.docker.com/build/building/base-images/)
 

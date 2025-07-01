@@ -15,6 +15,10 @@ date: 2025-04-13 09:07:13
 
 - [The Shell Scripting Tutorial](https://www.shellscript.sh/hints.html)
 
+### Web开发
+
+- [MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content)
+
 <!-- ### [ ] 云原生 && DevOps -->
 
 <!-- - [深入高可用系统原理与设计](https://www.thebyte.com.cn/) -->
