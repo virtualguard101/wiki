@@ -9,7 +9,7 @@ repo_url: https://github.com/virtualguard101/wiki
 repo_name: virtualguard101/wiki
 edit_uri: blob/main/docs/
 
-# Configuration
+## Configuration
 theme:
   name: material
   language: zh
@@ -194,7 +194,7 @@ validation:
     anchors: warn
     unrecognized_links: warn
 
-# Additional configuration
+## Additional configuration
 extra:
   status:
     new: Recently added

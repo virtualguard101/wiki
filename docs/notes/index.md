@@ -14,15 +14,6 @@ comments: true
     **学者应当遵循之物， 唯有知论与证辩。只有时刻保持对一切的质疑，才能避免陷入偏见。**
 
 
-## About Me
-
-=== "English"
-    Get more information in my [Blog Site](https://blog.virtualguard101.com/about/)
-
-=== "中文"
-    参见[我的博客](https://blog.virtualguard101.com/about/)
-
-
 ## Recent Notes 
 
 === "English"
@@ -55,7 +46,7 @@ comments: true
     - [3BodySimulator | Build a C++ Project](https://github.com/virtualguard101/3BodySimulator)：使用 C++ & Python 实现的三体运动可视化模拟
 
 
-## About This Site
+## About This Page
 
 === "English"
 

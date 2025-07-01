@@ -5,10 +5,10 @@ comments: true
 
 # Projects for Practice of CS Learning
 
-## About this page
-
 ![](https://image.tmdb.org/t/p/original/96RT2A47UdzWlUfvIERFyBsLhL2.jpg)
 *Source of the image: [葬送のフリーレン (2023) | TMDB](https://www.themoviedb.org/tv/209867/images/backdrops?language=ja)*
+
+## About This Page
 
 === "English"
 
