@@ -25,3 +25,14 @@ comments: true
     **日志**页用于记录部分**周期长**而**需要持续输入输出**的项目的学习日志以及一些学习过程中可能需要用到的**资料**；
     
     **解析**模块则用于记录部分我已完成主体框架的项目的项目解析（如主要技术栈、构建过程等）。两个模块之间在绝大多数情况下并不存在关联，可能存在的关联信息会在对应的解析/日志中提及。
+
+
+## Statement
+
+=== "English"
+    
+    All of these projects in this page are built for my personal study (at least for now). Please do not use it for purposes other than study and reference, otherwise, the consequences will be borne by yourself!
+
+=== "中文"
+
+    收录于该页面的所有项目皆为我个人作为学习用途而创建，请勿将它们用于学习参考以外的目的，否则后果自负！
