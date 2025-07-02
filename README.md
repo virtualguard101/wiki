@@ -1,6 +1,6 @@
 # virtualguard101's Wiki
 
-The site used for storing my **documentations** who recorded the process of my self-learning in Computer Science.
+The site used for storing my **documentations** which recorded the process of my self-learning in Computer Science.
 
 The main part except **Home** include **Notebook**, **Blog**, **Projects** 3 sections. The infomation of each section is available at the main page of these sections.
 
