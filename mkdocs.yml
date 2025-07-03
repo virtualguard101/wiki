@@ -250,8 +250,9 @@ nav:
  
     # - 数据结构与算法:
     - Web开发:
-      - HTML: "notes/web-dev/html.md"
-      - CSS: "notes/web-dev/css.md"
+      - 入门基础:
+        - HTML: "notes/web-dev/base/html.md"
+        - CSS: "notes/web-dev/base/css.md"
     - Misc:
       - 科学上网:
         - 透明代理: "notes/Misc/Scientific Internet Access/proxy.md"

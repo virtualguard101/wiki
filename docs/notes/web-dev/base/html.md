@@ -107,6 +107,72 @@ HTML 实体引用通常有两种表示方法：
 
 更多关于实体引用的信息，可参考[List of XML and HTML character entity references | Wikipedia](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)
 
+## HTML 元信息
+
+>[“头”里有什么——HTML 元信息 | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata)
+
+以一个 HTML 文档为例：
+```html
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>Test Page</title>
+  </head>
+  <body>
+    <p>Test message</p>
+  </body>
+</html>
+```
+
+在上面的示例中，由`<head></head>`包围的元素就是该 HTML 文档的**头部**，头部中包含的`<meta>`元素就是**元数据**
+
+## 在 HTML 中应用 CSS 和 JavaScript
+
+>[在 HTML 中应用 CSS 和 JavaScript | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#%E5%9C%A8_html_%E4%B8%AD%E5%BA%94%E7%94%A8_css_%E5%92%8C_javascript)
+
+1. CSS
+
+    在 HTML 中应用 CSS 一般有两种方式：
+
+    - 直接插入 CSS 规则集
+
+        ```html
+        <style>
+            .example {
+                property: value;
+                property: value;
+            }
+        </style>
+
+        <section>
+            <div class="example">
+                something here.....
+            </div>
+        </section>
+        ```
+
+    - 链接 CSS 文件
+
+        ```html
+        <link rel="stylesheet" href="path/to/style.css">
+        <section>
+            <div class="example">
+                something here.....
+            </div>
+        </section>
+        ```
+        在这个方式中，`<link>`元素的`rel`属性表明这是样式表；`href`则表明了样式表文件的路径
+
+2. JavaScript
+
+    有多种方法可以在 HTML 上加载 JS，但对于现代浏览器而言，最可靠的方法还是在 HTML 中使用`<script>`元素：
+    ```html
+    <script src="path/to/script.js" defer></script>
+    ```
+
+    上面的示例中，`defer`属性表示向浏览器声明**在解析完成 HTML 后再加载 JavaScript**，可根据实际情况决定是否添加这个属性。
+
 
 [^1]: [HTML | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Glossary/HTML)
 

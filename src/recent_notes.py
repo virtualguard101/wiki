@@ -41,7 +41,7 @@ def main():
     items = []
     for md in recent:
         title, url, date = get_title_relurl_date(md)
-        if title == "virtualguard101's Notebook":
+        if title == "Notebook":
             continue
         items.append(
             f'<li><div style="display:flex; justify-content:space-between; align-items:center;">'
