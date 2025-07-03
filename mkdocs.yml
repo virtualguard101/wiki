@@ -213,18 +213,18 @@ nav:
     - notes/index.md
     - 工具: 
       - Linux:
-        - 杂项/基础: "notes/Basic Tools/linux/misc.md"
-        - 定时任务: "notes/Basic Tools/linux/crontab.md"
-        - Shell: "notes/Basic Tools/shell.md"
-      - SSH: "notes/Basic Tools/ssh.md"
-      - Git: "notes/Basic Tools/git.md"
-      - 正则表达式: "notes/Basic Tools/re.md"
+        - 杂项/基础: "notes/tools/linux/misc.md"
+        - 定时任务: "notes/tools/linux/crontab.md"
+        - Shell: "notes/tools/shell.md"
+      - SSH: "notes/tools/ssh.md"
+      - Git: "notes/tools/git.md"
+      - 正则表达式: "notes/tools/re.md"
       - 构建工具:
-        - GNU Make: "notes/Basic Tools/Build Tools/gnu-make.md"
-        - CMake: "notes/Basic Tools/Build Tools/cmake.md"
-        - vcpkg: "notes/Basic Tools/Build Tools/vcpkg.md"
-        - scons: "notes/Basic Tools/Build Tools/scons.md"
-        - xmake: "notes/Basic Tools/Build Tools/xmake.md"
+        - GNU Make: "notes/tools/build-tools/gnu-make.md"
+        - CMake: "notes/tools/build-tools/cmake.md"
+        - vcpkg: "notes/tools/build-tools/vcpkg.md"
+        - scons: "notes/tools/build-tools/scons.md"
+        - xmake: "notes/tools/build-tools/xmake.md"
     - Job & Schedule:
       - 部分JD: "notes/Job & Schedule/jd.md"
       - 一段与AI的聊天记录: "notes/Job & Schedule/schedule.md"
@@ -232,27 +232,26 @@ nav:
       # - Python:
       - C++:
         - 基础语法与特性:
-          - 类型 & 结构体: "notes/Programming Language/c++/C++ Fundamental/00-type-structure.md"
-          - 初始化 & 引用: "notes/Programming Language/c++/C++ Fundamental/01-init-reference.md"
-          - 流: "notes/Programming Language/c++/C++ Fundamental/02-stream.md"
-          - 容器: "notes/Programming Language/c++/C++ Fundamental/03-container.md"
-          - 迭代器 & 指针: "notes/Programming Language/c++/C++ Fundamental/04-iterators-pointers.md"
-          - 类 & 模板: "notes/Programming Language/c++/C++ Fundamental/05-classes-template.md"
-          - Lambda表达式: "notes/Programming Language/c++/C++ Fundamental/06-lambda_function.md"
-          - 运算符重载: "notes/Programming Language/c++/C++ Fundamental/07-operator_overload.md"
-          - 特殊成员函数: "notes/Programming Language/c++/C++ Fundamental/08-special_member_functions.md"
-          - 移动语义: "notes/Programming Language/c++/C++ Fundamental/09-moves-semantics.md"
-          - std::optional & 类型安全: "notes/Programming Language/c++/C++ Fundamental/10-type_safety.md"
-          - 智能指针 & RAII: "notes/Programming Language/c++/C++ Fundamental/11-smart_pointer-RAII.md"
+          - 类型 & 结构体: "notes/language/c++/C++ Fundamental/00-type-structure.md"
+          - 初始化 & 引用: "notes/language/c++/C++ Fundamental/01-init-reference.md"
+          - 流: "notes/language/c++/C++ Fundamental/02-stream.md"
+          - 容器: "notes/language/c++/C++ Fundamental/03-container.md"
+          - 迭代器 & 指针: "notes/language/c++/C++ Fundamental/04-iterators-pointers.md"
+          - 类 & 模板: "notes/language/c++/C++ Fundamental/05-classes-template.md"
+          - Lambda表达式: "notes/language/c++/C++ Fundamental/06-lambda_function.md"
+          - 运算符重载: "notes/language/c++/C++ Fundamental/07-operator_overload.md"
+          - 特殊成员函数: "notes/language/c++/C++ Fundamental/08-special_member_functions.md"
+          - 移动语义: "notes/language/c++/C++ Fundamental/09-moves-semantics.md"
+          - std::optional & 类型安全: "notes/language/c++/C++ Fundamental/10-type_safety.md"
+          - 智能指针 & RAII: "notes/language/c++/C++ Fundamental/11-smart_pointer-RAII.md"
       - JavaScript:
         - 基础语法与特性:
-          - 快速入门: "notes/Programming Language/javascript/base/js.md"
- 
+          - 快速入门: "notes/language/javascript/base/js.md"
     # - 数据结构与算法:
     - Web开发:
       - 入门基础:
-        - HTML: "notes/web-dev/base/html.md"
-        - CSS: "notes/web-dev/base/css.md"
+        - HTML要点: "notes/web-dev/base/html.md"
+        - CSS要点: "notes/web-dev/base/css.md"
     - Misc:
       - 科学上网:
         - 透明代理: "notes/Misc/Scientific Internet Access/proxy.md"
