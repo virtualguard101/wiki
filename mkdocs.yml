@@ -244,12 +244,14 @@ nav:
           - 移动语义: "notes/Programming Language/c++/C++ Fundamental/09-moves-semantics.md"
           - std::optional & 类型安全: "notes/Programming Language/c++/C++ Fundamental/10-type_safety.md"
           - 智能指针 & RAII: "notes/Programming Language/c++/C++ Fundamental/11-smart_pointer-RAII.md"
+      - JavaScript:
+        - 基础语法与特性:
+          - 快速入门: "notes/Programming Language/javascript/base/js.md"
+ 
     # - 数据结构与算法:
     - Web开发:
       - HTML: "notes/web-dev/html.md"
       - CSS: "notes/web-dev/css.md"
-      - JavaScript:
-        - 基础: "notes/web-dev/javascript/js.md"
     - Misc:
       - 科学上网:
         - 透明代理: "notes/Misc/Scientific Internet Access/proxy.md"

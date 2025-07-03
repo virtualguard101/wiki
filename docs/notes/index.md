@@ -17,7 +17,7 @@ comments: true
 
 === "English"
 
-    This is my notebook written in Chinese, whose layout referred to [Stalo's Wiki](https://note.stalomeow.com/), use for recording my self learing process of **C**omputer **S**cience.  You're welcome to leave a comment. Contact information and other sites(like blog) are available on my [Homepage](https://virtualguard101.com/).
+    This is my notebook written in Chinese, use for recording my self learing process of **C**omputer **S**cience.  You're welcome to leave a comment. Contact information and other sites(like blog) are available on my [Homepage](https://virtualguard101.com/).
 
 === "中文"
 
@@ -32,10 +32,9 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/javascript/js/">JavaScript 基础</a><span style="font-size:0.8em;">2025-07-03</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Programming Language/javascript/base/js/">js</a><span style="font-size:0.8em;">2025-07-03</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/html/">HTML 要点</a><span style="font-size:0.8em;">2025-07-03</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/css/">CSS 要点</a><span style="font-size:0.8em;">2025-07-03</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="index/">virtualguard101's Notebook</a><span style="font-size:0.8em;">2025-07-02</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/resources/engineering/">Engineering/Job/Misc Resources Achived</a><span style="font-size:0.8em;">2025-07-02</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/resources/academic/">Academic Resources Achived</a><span style="font-size:0.8em;">2025-07-02</span></div></li>
 </ul>
