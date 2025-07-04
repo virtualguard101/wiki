@@ -173,6 +173,12 @@ HTML 实体引用通常有两种表示方法：
 
     上面的示例中，`defer`属性表示向浏览器声明**在解析完成 HTML 后再加载 JavaScript**，可根据实际情况决定是否添加这个属性。
 
+## 强调语法
+
+>- [斜体、粗体、下划线…… | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Emphasis_and_importance#%E6%96%9C%E4%BD%93%E3%80%81%E7%B2%97%E4%BD%93%E3%80%81%E4%B8%8B%E5%88%92%E7%BA%BF%E2%80%A6%E2%80%A6)
+
+## HTML 文档架构与布局
+
 
 [^1]: [HTML | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Glossary/HTML)
 
