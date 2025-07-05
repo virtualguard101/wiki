@@ -98,46 +98,49 @@
   }
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
-  /* 隐藏除标题与按钮外的文本 */
-  .mdx-hero__image p,
-  .mdx-hero__content p {
+  /* 1. Hero 容器相对定位，背景铺满全屏 */
+  .mdx-hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  /* 改用背景图方案，隐藏原 img，防止加载失败空白 */
+  .mdx-hero__image,
+  .mdx-hero__image img {
     display: none !important;
   }
-
-  /* 垂直布局并居中所有模块 */
   .mdx-hero {
+    background-image: url("../images/beihai.jpg");
+    background-size: cover;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+  }
+  /* 3. 覆盖内容层，垂直水平居中 */
+  .mdx-hero__content {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 1rem 0;
-  }
-
-  /* 图片容器全屏覆盖，靠右对齐，保留右下角人物 */
-  .mdx-hero__image {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-  }
-  .mdx-hero__image img {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    object-position: right bottom;
-  }
-
-  /* 文本区域全宽居中 */
-  .mdx-hero__content {
-    width: 100%;
+    align-items: center;
     text-align: center;
     padding: 0 1rem;
   }
-
-  /* 按钮模块垂直居中 */
+  /* 4. 隐藏段落，仅保留标题和按钮 */
+  .mdx-hero__content p {
+    display: none !important;
+  }
+  /* 5. 标题与按钮样式 */
+  .mdx-hero__content h1 {
+    margin-bottom: 1rem;
+  }
   .md-button.scroll-fade {
-    display: block;
-    margin: 0.75rem auto;
+    margin: 0.5rem;
+    display: inline-block;
   }
 }
