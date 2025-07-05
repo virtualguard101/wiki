@@ -137,7 +137,7 @@
   }
   /* 5. 标题与按钮样式 */
   .mdx-hero__content h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   .md-button.scroll-fade {
     margin: 0.5rem;
