@@ -179,6 +179,21 @@ HTML 实体引用通常有两种表示方法：
 
 ## HTML 文档架构与布局
 
+>[文档与网站架构 | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Structuring_documents)
+
+其中可重点关注一下[无语义元素](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Structuring_documents#%E6%97%A0%E8%AF%AD%E4%B9%89%E5%85%83%E7%B4%A0)
+
+## 文本格式进阶
+
+>[文本格式进阶 | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features)
+
+虽然在 Markdown 文档中我们已经能够很轻松地使用一些常见的、在 HTML 需要各种复杂语法才能实现的效果，但在一些特殊应用场景下，我们仍需通过插入一些 HTML 代码来实现一些当前 Markdown 文档不支持的语法效果。
+
+[缩略语](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#%E7%BC%A9%E7%95%A5%E8%AF%AD)就是一个简单但典型的例子，其在 Markdown 中并没有对应的语法支持。
+
+!!! important
+    Markdown 本身是一种轻量级的标记语言，主要用于快速生成简单的文本格式，其设计初衷是尽量简洁，不支持复杂的HTML功能
+
 
 [^1]: [HTML | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Glossary/HTML)
 

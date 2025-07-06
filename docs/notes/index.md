@@ -32,7 +32,7 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/base/html/">HTML 要点</a><span style="font-size:0.8em;">2025-07-04</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/base/html/">HTML 要点</a><span style="font-size:0.8em;">2025-07-06</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/javascript/base/js/">JavaScript 快速入门</a><span style="font-size:0.8em;">2025-07-04</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/base/css/">CSS 要点</a><span style="font-size:0.8em;">2025-07-03</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/resources/engineering/">Engineering/Job/Misc Resources Achived</a><span style="font-size:0.8em;">2025-07-02</span></div></li>
