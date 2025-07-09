@@ -14,6 +14,30 @@ HTML（HyperText Markup Language，超文本标记语言）是一种用来告知
 
 针对一个制作精良的网页，可将其对应的 HTML 文件分解为多个不同的**块**，在这些块中也可存在**嵌套**关系。基于 HTML 的设计理念，可简单将其理解为一个**高度嵌套的模块**[^4]。
 
+!!! tip
+    正确理解 HTML 的设计理念对于合理且轻松地应用 HTML 文档有很大的帮助，理解元素之间的嵌套关系是其中最为核心的一点。例如有以下超链接元素：
+    ```html
+    <p>
+        A link to <a href="https://example.com">example site</a>
+    <p>
+    ```
+    其作为一个**超链接元素**的同时也作为一个**文本元素**嵌套于它的上级之中；而下面的这个例子同样也是一个超链接：
+    ```html
+    <a href="https://virtualguard101.com">
+        <h1>virtualguard101's Homepage</h1>
+    </a>
+    ```
+    而这时这个超链接元素就是作为一个上级元素包含它下方的**一级标题元素**了。这两个例子的实际渲染效果如下：
+
+    <p>
+        A link to <a href="https://example.com">example site</a>
+    <p>
+
+    <a href="https://virtualguard101.com">
+        <h1>virtualguard101's Homepage</h1>
+    </a>
+
+
 ### HTML 文档结构基础
 
 >可参考[HTML 基础 | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content)
@@ -80,6 +104,12 @@ HTML（HyperText Markup Language，超文本标记语言）是一种用来告知
     >
     ><!-- 下面这个输入框不包含 disabled 属性，所以用户可以向其中输入 -->
     ><input type="text" />
+
+### `title`属性
+
+>[HTML title Attribute | GeeksForGeeks](https://www.geeksforgeeks.org/html/html-title-attribute/)
+
+`title`属性用于指定有关元素的额外信息。当鼠标移动到元素上时，对应元素会显示这些信息，与后文提到的**缩略语元素**类似，但需要注意`title`是**元素属性**。
     
 ### 属性参考列表
 
@@ -183,7 +213,7 @@ HTML 实体引用通常有两种表示方法：
 
 其中可重点关注一下[无语义元素](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Structuring_documents#%E6%97%A0%E8%AF%AD%E4%B9%89%E5%85%83%E7%B4%A0)
 
-## 文本格式进阶
+## HTML 文本格式进阶
 
 >[文本格式进阶 | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features)
 

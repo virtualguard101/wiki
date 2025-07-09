@@ -71,7 +71,7 @@ selector {
 
     除了**类选择器**和**ID选择器**外，CSS 还支持多个不同类型的选择器，更多信息可参考[不同类型的选择器 | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content#%E4%B8%8D%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%80%89%E6%8B%A9%E5%99%A8)
 
-### 设计理念
+### 设计理念 & 运行原理
 
 CSS 的设计理念基于 HTML，因此其布局也是基于所谓的**盒子模型**[^2]。
 
