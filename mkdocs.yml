@@ -266,5 +266,3 @@ nav:
     - Analysis:
       - projects/analysis/3BodySimulator.md
       - projects/analysis/space-caculator.md
-    - Log:
-      - projects/log/gpu-researching.md

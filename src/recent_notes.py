@@ -1,4 +1,6 @@
 import os
+import logging
+import colorlog
 from pathlib import Path
 from datetime import datetime
 
@@ -9,6 +11,23 @@ START_MARKER = '<!-- recent_notes_start -->'
 END_MARKER = '<!-- recent_notes_end -->'
 MAX_NOTES = 6 
 DATE_FORMAT = '%Y-%m-%d'
+
+# Initialize color log
+handler = colorlog.StreamHandler()
+handler.setFormatter(colorlog.ColoredFormatter(
+    '%(log_color)s%(asctime)s - %(levelname)s - %(message)s',
+    log_colors={
+        'DEBUG':    'cyan',
+        'INFO':     'green',
+        'WARNING':  'yellow',
+        'ERROR':    'red',
+        'CRITICAL': 'bold_red',
+    }
+))
+
+logger = colorlog.getLogger(__name__)
+logger.setLevel(logging.INFO)
+logger.addHandler(handler)
 
 
 def get_title_relurl_date(md_file: Path):
@@ -29,6 +48,7 @@ def get_title_relurl_date(md_file: Path):
 
 
 def main():
+    logger.info("Refreshing recent notes at index page...")
     notes = list(NOTES_DIR.rglob('*.md'))
     if not notes:
         print(f"未在 {NOTES_DIR} 找到任何 Markdown 文件。")
@@ -60,6 +80,9 @@ def main():
     updated = before + START_MARKER + '\n' + new_section + '\n' + END_MARKER + after
     INDEX_FILE.write_text(updated, encoding='utf-8')
     print(f"已更新 {INDEX_FILE}，插入了 {len(recent) - 1} 条笔记链接。")
+    logger.info("Refresh completed successfully!")
+
+
 
 if __name__ == '__main__':
     main()

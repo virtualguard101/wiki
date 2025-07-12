@@ -5,9 +5,25 @@ import sys
 import os
 import logging
 import colorlog
+import yaml
 from pathlib import Path
 
-# init color log
+# Configuration file path
+CONFIG_PATH = Path(__file__).parent / 'build_config.yaml'
+
+def load_config():
+    """Load configuration file"""
+    try:
+        with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
+            return yaml.safe_load(f)
+    except FileNotFoundError:
+        logger.error(f"Config file not found: {CONFIG_PATH}")
+        return None
+    except yaml.YAMLError as e:
+        logger.error(f"Invalid config format: {e}")
+        return None
+
+# Initialize color log
 handler = colorlog.StreamHandler()
 handler.setFormatter(colorlog.ColoredFormatter(
     '%(log_color)s%(asctime)s - %(levelname)s - %(message)s',
@@ -21,73 +37,92 @@ handler.setFormatter(colorlog.ColoredFormatter(
 ))
 
 logger = colorlog.getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 logger.addHandler(handler)
+
+def run_hooks(hooks, hook_type):
+    """Execute hooks of specified type"""
+    for hook in hooks.get(hook_type, []):
+        hook_path = Path(hook)
+        if not hook_path.exists():
+            logger.warning(f"Hook not found: {hook_path}")
+            continue
+        
+        try:
+            logger.info(f"Running hook: {hook_path}")
+            result = subprocess.run(["python", str(hook_path)], check=True)
+            if result.returncode != 0:
+                logger.error(f"Hook failed with code {result.returncode}: {hook_path}")
+        except Exception as e:
+            logger.error(f"Error running hook {hook_path}: {e}")
 
 def main():
     try:
-        ##
-        # Pre-hooks
-        ##
-        # Update recent notes at index
-        logger.info("Refresh recent notes at index page...")
-        result = subprocess.run(["uv", "run", "src/recent_notes.py"], check=True)
-        logger.info("Refresh successfully!")
-
-        hexo_path = Path('../blog/source/_posts')
-        wiki_path = Path('docs/blog/posts')
-        logger.info("Sync blog posts to hexo blog")
-        for file in wiki_path.glob('*.md'):
-            wiki_post = file.name
-            check = hexo_path / wiki_post
-
-            # Check whether the post file is exist in hexo blog or not
-            if check.is_file():
-                subprocess.run(f"cp {file} {str(hexo_path)}", shell=True, check=True)
-            else :
-                subprocess.run(f"cp {file} {str(hexo_path)}", shell=True, check=True)
-        subprocess.run("cd ../blog && uv run build.py", shell=True, check=True)
-        logger.info("Sync successfully!")
+        config = load_config()
+        if not config:
+            return 1
         
-        ##
-        # Sync
-        ##
-        # Get commit path & message
-        path = input("Commit path: ").strip()
-        if not path:
-            raise ValueError("Choose at least a file to commit!")
-            
-        message = input("Commit message: ").strip()
-        if not message:
-            raise ValueError("Can't commit without message!")
-            
+        # Execute pre-commit hooks
+        run_hooks(config['hooks'], 'pre_commit')
+
+        while True:
+            choice = input("Whether you want to sync posts to hexo blog? (y/n): ")
+            if choice == 'n':
+                break
+            elif choice == 'y':
+                # Sync blog posts
+                hexo_path = Path(config['paths']['hexo'])
+                wiki_path = Path(config['paths']['wiki'])
+                logger.info("Syncing blog posts to hexo blog")
+                for file in wiki_path.glob('*.md'):
+                    wiki_post = file.name
+                    dest_path = hexo_path / wiki_post
+                    
+                    # Copy file regardless of existence in hexo blog
+                    subprocess.run(f"cp {file} {str(hexo_path)}", shell=True, check=True)
+                    logger.debug(f"Copied: {file} -> {dest_path}")
+                
+                # Build hexo blog
+                subprocess.run("cd ../blog && uv run build.py", shell=True, check=True)
+                logger.info("Blog build completed successfully!")
+                break
+            else:
+                logger.error("Invalid choice")
+        
         # Git operations
-        logger.info(f"Add path: {path}")
-        subprocess.run(["git", "add", f"{path}"], check=True)
+        commit_paths = input("Enter commit paths: ").strip()
+        if not commit_paths:
+            raise ValueError("Please specify at least one file to commit")
+            
+        commit_message = input("Enter commit message: ").strip()
+        if not commit_message:
+            raise ValueError("Commit message cannot be empty")
         
-        logger.info(f"Commit message: \"{message}\"")
-        subprocess.run(["git", "commit", "-m", f"{message}"], check=True)
+        # Stage files
+        logger.info(f"Staging files: {commit_paths}")
+        subprocess.run(["git", "add"] + commit_paths.split(), check=True)
         
-        logger.info("Push to origin/main...")
+        # Commit changes
+        logger.info(f"Committing with message: \"{commit_message}\"")
+        subprocess.run(["git", "commit", "-m", commit_message], check=True)
+        
+        # Push changes
+        logger.info("Pushing to origin/main...")
         subprocess.run(["git", "push", "origin", "main"], check=True)
         
-        logger.info("Complete!")
+        logger.info("Operation completed successfully!")
         
     except KeyboardInterrupt:
         user = os.getlogin()
-        logger.warning(f"Interrupted by {user}")
+        logger.warning(f"Operation interrupted by user: {user}")
         return 1
         
     except subprocess.CalledProcessError as e:
-        logger.error(f"Process failed with {e.returncode}: {e.cmd}")
+        logger.error(f"Command failed with code {e.returncode}: {e.cmd}")
         if e.stdout:
-            logger.info(f"OUT: {e.stdout}")
+            logger.info(f"Output: {e.stdout.decode().strip()}")
         if e.stderr:
-            logger.error(f"ERROR: {e.stderr}")
-        if "git push" in str(e.cmd):
-            logger.info("Git push error!")
-        elif "git add" in str(e.cmd):
-            logger.info("Git add error!")
+            logger.error(f"Error: {e.stderr.decode().strip()}")
         return 2
         
     except ValueError as e:
@@ -95,7 +130,7 @@ def main():
         return 3
         
     except Exception as e:
-        logger.exception(f"Other errors: {str(e)}")
+        logger.exception(f"Unexpected error: {str(e)}")
         return 4
         
     return 0
