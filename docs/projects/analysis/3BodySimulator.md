@@ -3,8 +3,7 @@ title: 3BodySimulator：Python & C++ 项目标准化构建
 categories:
   - Projects
 date: 2025-05-23 14:18:21
-description: >
-  C++简易项目：使用C++实现三体运动的核心逻辑，Python负责可视化部分；使用vcpkg进行C++包管理；使用CMake进行项目构建。本文主要记录整个项目的构建过程，代码逻辑与实现细节后续视情况完善。
+excerpt: C++简易项目：使用C++实现三体运动的核心逻辑，Python负责可视化部分；使用vcpkg进行C++包管理；使用CMake进行项目构建。本文主要记录整个项目的构建过程，代码逻辑与实现细节后续视情况完善。
 authors:
   - virtualguard101
 tags:

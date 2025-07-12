@@ -3,8 +3,7 @@ title: Arch Linux安装要点记录
 categories:
   - Misc
 date: 2025-05-19 08:52:48
-description: >
-  记录一下在可移动设备/真机上安装和配置Arch Linux的过程安装过程中遇到的一些问题
+excerpt: 记录一下在可移动设备/真机上安装和配置Arch Linux的过程安装过程中遇到的一些问题
 authors:
   - virtualguard101
 tags:

@@ -1,8 +1,7 @@
 ---
 title: docker-compose + nginx快速构建个人站点
 date: 2025-04-26 23:28:57
-description: >
-  本文主要讲解如何从零开始利用docker-compose + nginx快速构建一个个人站点；并利用Github Action实现文章部署自动化；最后是如何使用certbot为站点自动化申请ssl证书。整套配置流程做下来用时基本上不会超过3天。
+excerpt: 本文主要讲解如何从零开始利用docker-compose + nginx快速构建一个个人站点；并利用Github Action实现文章部署自动化；最后是如何使用certbot为站点自动化申请ssl证书。整套配置流程做下来用时基本上不会超过3天。
 # sticky: 1
 authors:
   - virtualguard101

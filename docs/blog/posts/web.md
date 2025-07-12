@@ -3,8 +3,7 @@ title: 个人站点构建要点(改良版) && Web 开发简要实践
 categories:
   - Projects
 date: 2025-06-23 12:38:07
-description: >
-  对今年四月份写的“docker-compose + nginx快速构建个人站点”中提到的构建方式作一下改良，同时根据学到的技能添加一些自定义的玩意，2025暑假期间持续更新
+excerpt: 对今年四月份写的“docker-compose + nginx快速构建个人站点”中提到的构建方式作一下改良，同时根据学到的技能添加一些自定义的玩意，2025暑假期间持续更新
 authors:
   - virtualguard101
 tags:

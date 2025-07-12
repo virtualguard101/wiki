@@ -43,14 +43,19 @@ logger.addHandler(handler)
 
 def main():
     try:
-        #—————————————#
-        #  Pre-hooks  #
-        #—————————————#
+        ##
+        # Pre-hooks
+        ##
         # Update recent notes at index
         logger.info("Refresh recent notes at index page...")
         result = subprocess.run(["uv", "run", "src/recent_notes.py"], check=True)
         logger.info("Refresh successfully!")
+
+        # TODO: Add blog sync function
         
+        ##
+        # Sync
+        ##
         # Get commit path & message
         path = input("Commit path: ").strip()
         if not path:
