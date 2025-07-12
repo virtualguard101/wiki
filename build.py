@@ -1,28 +1,11 @@
 #!/usr/bin/env python3
 
-# import subprocess
-
-# try:
-#     os.system("uv run scripts/recent_notes.py")
-
-#     path, message = input("Commit path: "), input("Commit message: ")
-
-#     # git operation
-#     os.system(f"git add {path}")
-#     os.system(f"git commit -m \"{message}\"")
-#     os.system("git push origin main")
-
-# except KeyboardInterrupt as e:
-#     print("User Interrupted", e)
-
-# except subprocess.CalledProcessError as e:
-#     print(f"Process failed with {e.returncode}: {e.stderr}")
-
 import subprocess
 import sys
 import os
 import logging
 import colorlog
+from pathlib import Path
 
 # init color log
 handler = colorlog.StreamHandler()
@@ -51,7 +34,20 @@ def main():
         result = subprocess.run(["uv", "run", "src/recent_notes.py"], check=True)
         logger.info("Refresh successfully!")
 
-        # TODO: Add blog sync function
+        hexo_path = Path('../blog/source/_posts')
+        wiki_path = Path('docs/blog/posts')
+        logger.info("Sync blog posts to hexo blog")
+        for file in wiki_path.glob('*.md'):
+            wiki_post = file.name
+            check = hexo_path / wiki_post
+
+            # Check whether the post file is exist in hexo blog or not
+            if check.is_file():
+                subprocess.run(f"cp {file} {str(hexo_path)}", shell=True, check=True)
+            else :
+                subprocess.run(f"cp {file} {str(hexo_path)}", shell=True, check=True)
+                subprocess.run("cd ../blog && uv run build.py", shell=True, check=True)
+        logger.info("Sync successfully!")
         
         ##
         # Sync
