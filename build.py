@@ -46,7 +46,7 @@ def main():
                 subprocess.run(f"cp {file} {str(hexo_path)}", shell=True, check=True)
             else :
                 subprocess.run(f"cp {file} {str(hexo_path)}", shell=True, check=True)
-                subprocess.run("cd ../blog && uv run build.py", shell=True, check=True)
+        subprocess.run("cd ../blog && uv run build.py", shell=True, check=True)
         logger.info("Sync successfully!")
         
         ##
