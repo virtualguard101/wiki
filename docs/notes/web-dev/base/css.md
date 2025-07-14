@@ -162,6 +162,18 @@ div(.root-div)
 
 ## 属性选择器
 
+>[属性选择器 | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors)
+
+## 盒模型
+
+盒模型是 CSS 中一个核心的模型概念，这在前文中也有所提及。
+
+- [盒模型 | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Box_model)
+
+## 排版/布局
+
+- [CSS 布局 | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/CSS_layout)
+
 
 [^1]: [Intro to HTML/CSS | MIT Web Lab](https://docs.google.com/presentation/d/1z7mrIg_M6pn828sbvcJ5XjiK3xpgjC-n1lihA4B-yzM/edit?slide=id.g6cf79318c7_0_26#slide=id.g6cf79318c7_0_26)
 

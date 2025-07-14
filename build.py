@@ -66,8 +66,8 @@ def main():
         run_hooks(config['hooks'], 'pre_commit')
 
         while True:
-            choice = input("Whether you want to sync posts to hexo blog? (y/n): ")
-            if choice == 'n':
+            choice = input("Whether you want to sync posts to hexo blog? (y/N): ").strip().lower()
+            if choice == 'n' or choice == '':
                 break
             elif choice == 'y':
                 # Sync blog posts

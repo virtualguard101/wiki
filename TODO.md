@@ -13,7 +13,7 @@
 
     - [UCB CS70 : discrete Math and probability theory | csdiy](https://csdiy.wiki/%E6%95%B0%E5%AD%A6%E8%BF%9B%E9%98%B6/CS70/)
 
-- [ ] 线性代数
+- [ ] Linear Algebra
 
     - [MIT18.06: Linear Algebra | csdiy](https://csdiy.wiki/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/MITLA/)
 
@@ -82,6 +82,8 @@
 ## Advanced & Engineering
 
 - [x] Web Development
+    - [学习 Web 开发 | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development)
+
     - [Web.lab | MIT](https://web.archive.org/web/20250412024231/https://weblab.mit.edu/schedule)
 
     - [MIT Web Development Crash Course | csdiy](https://csdiy.wiki/Web%E5%BC%80%E5%8F%91/mitweb/)
@@ -128,8 +130,3 @@
     - [MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content)
 
     - [Base images | Docker](https://docs.docker.com/build/building/base-images/)
-
-- [ ] FPGA-GPU：实现一个寄存器传输级（RTL）的图形加速器
-    - [项目日志](https://projects.virtualguard101.com/posts/gpu-researching-log/)
-
-    - [从零开始制作一个属于你自己的GPU | 基于FPGA的图形加速器实现原理](https://zhuanlan.zhihu.com/p/714400366?utm_psn=1883987006549374851)
