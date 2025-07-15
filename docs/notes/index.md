@@ -12,16 +12,34 @@ comments: true
 
 === "中文"
     **学者应当遵循之物， 唯有知论与证辩。只有时刻保持对一切的质疑，才能避免陷入偏见。**
+    
+## About Me
+
+=== "English"
+
+    - An undergraduate student at Fujian University of Technology, majoring in Smart Transportation in the first year of undergraduate studies, transfer to the major of Cybersecurity since Sepetember 2025, expected to graduate in 2028.
+
+    - Currently exploring basic theory of Computer Science, ~~also engage in some meaningless tricks~~.
+
+    - Contact information and other sites(like blog) are available on my [Homepage](https://virtualguard101.com/).
+
+=== "中文"
+
+    - 福建理工大学本科生，大一智慧交通专业，2025年9月起转入网络空间安全专业，预计 2028 年毕业。
+
+    - 当前处于计算机基础理论学习阶段，~~偶尔整点毫无意义的花活~~。
+
+    - 联系方式及其他站点参见[我的主页](https://virtualguard101.com/)。
 
 ## About This Page 
 
 === "English"
 
-    This is my notebook written in Chinese, use for recording my self learing process of **C**omputer **S**cience.  You're welcome to leave a comment. Contact information and other sites(like blog) are available on my [Homepage](https://virtualguard101.com/).
+    This is my notebook written in Chinese, use for recording my self learing process of **C**omputer **S**cience. You're welcome to leave a comment.
 
 === "中文"
 
-    这是我的学习笔记，排版参考了[Stalo's Wiki](https://note.stalomeow.com/)，用于记录我的CS自学历程。欢迎在评论区留言。我的联系方式及其他站点参见[我的主页](https://virtualguard101.com/)
+    这是我的学习笔记，排版参考了[Stalo's Wiki](https://note.stalomeow.com/)，用于记录我的CS自学历程。欢迎在评论区留言。
 
 
 ## Recent Notes 
