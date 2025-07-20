@@ -3,7 +3,8 @@
 >[什么是JavaScript? | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/What_is_JavaScript)
 >
 >[Intro to JS | MIT WebLab](https://docs.google.com/presentation/d/14eJA-Zn6UOA0NaMHCbNCGFC_xzBNRLqJN6QsT5kuaK4/edit?slide=id.p#slide=id.p)
-
+>
+>[JSchallenger](https://www.jschallenger.com/dashboard/)
 
 ## 数据类型与运算符
 
@@ -182,6 +183,106 @@ person1 === person2;    // false
 因为在JS引擎看来，`person2`相较于`person1`是一个新的对象，它们的数据储存在内存中的不同位置。
 
 ### 对象拷贝
+
+针对对象、数组等**可迭代对象**的拷贝，仅仅使用`=`赋值是不行的：
+```js
+let arr = [1, 2, 3];
+// don't code like this
+let copy = arr;
+```
+在 JavaScript 中，对于对象和数组等可迭代对象，直接使用赋值操作符（`=`）进行拷贝并不会创建一个新的对象或数组，而是创建了一个引用。这意味着对“拷贝”所做的任何修改都会影响到原始对象或数组，因为它们实际上指向的是同一个内存地址。
+
+正确且便捷的方式（也可手动创建一个新对象并将旧对象的属性逐一复制过去）是使用 ==`...`(Spread Operator, 扩展运算符)==：
+```js
+let arr = [1, 2, 3];
+// shallow copy of arr
+let copy = [...arr];
+
+let obj = {
+    name: "virtualguard",
+    code: 101,
+    email: "virtualguard101@gmail.com"
+};
+// shallow copy of obj
+let cppy = { ...obj };
+```
+
+!!! warning
+    上面所讨论的皆为对象的**浅拷贝**，这意味着如果对象或数组中包含嵌套的对象或数组，那么嵌套的部分仍然是引用，而不是独立的副本。如果需要创建深拷贝，可以使用其他方法，如 `JSON.parse(JSON.stringify(obj))` 或递归拷贝等
+
+## 函数
+
+[常规函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Functions)的语法与大多数主流**动态类型编程语言**并没有什么区别。JavaScript 采用`function`关键字声明或定义函数。
+
+### 箭头函数
+
+在 JavaScript 中，有一种特殊的函数表达方式，其结构大致如下：
+```js
+(parameters) => {
+    // function body
+}
+
+// or with full structure
+const functionName = (parameters) => {
+    // function body
+    return parameters;
+};
+```
+它被形象地称为[**箭头函数**](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions)，是 ES6（ECMAScript 2015）引入的一种新的函数语法，它提供了一种更简洁的方式来写函数表达式。
+
+关于箭头函数与常规函数的区别，可以参考[这篇文章](https://www.geeksforgeeks.org/javascript/difference-between-regular-functions-and-arrow-functions/)
+
+### 回调函数
+
+JavaScript 支持[回调函数](https://developer.mozilla.org/zh-CN/docs/Glossary/Callback_function)，即作为参数传入其他函数的函数。下面是一个简单的例子：
+```js
+const timeoutInfo = () => {
+    console.log("Procees time out");
+};
+setTimeout(timeoutInfo, 5000);
+
+// or pass the function body directly
+setTimeout(
+    () => {
+        console.log("Procees time out");
+    },
+    5000
+);
+```
+
+在上面的例子中，`setTimeout`函数是JavaScript中的一个定时器函数，用于在指定的毫秒数后执行一个函数。它接受两个参数：第一个参数是要执行的函数（即回调函数），第二个参数是延迟的时间（以毫秒为单位）。
+
+!!! warning
+    若采用第一种向函数传入回调函数名的方式，则必须填入的是函数名本身（在上面的例子中就是`timeoutInfo`），而不是`timeoutInfo()`，否则传入的就是回调函数的返回值（这里是`undefined`），而不是它本身
+
+## 类
+
+>[类 | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)
+
+JavaScript 也支持面向对象编程。定义类的语法形式类似C++：
+```js
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    getArea() {
+        return this.width * this.height;
+    };
+}
+
+class Square extends Rectangle {
+    constructor(side) {
+        super(side, side);
+    };
+}
+
+const rect = new Rectangle(4, 6);
+const squa = new Square(5);
+console.log(rect.getArea());    // 24
+console.log(squa.getArea());    // 25
+```
 
 
 [^1]: [Intro to JS | MIT Web Lab](https://docs.google.com/presentation/d/14eJA-Zn6UOA0NaMHCbNCGFC_xzBNRLqJN6QsT5kuaK4/edit?slide=id.ga9ff0d6df4_0_34#slide=id.ga9ff0d6df4_0_34)

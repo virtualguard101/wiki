@@ -50,7 +50,7 @@ def run_hooks(hooks, hook_type):
         
         try:
             logger.info(f"Running hook: {hook_path}")
-            result = subprocess.run(["python", str(hook_path)], check=True)
+            result = subprocess.run([sys.executable, str(hook_path)], check=True)
             if result.returncode != 0:
                 logger.error(f"Hook failed with code {result.returncode}: {hook_path}")
         except Exception as e:

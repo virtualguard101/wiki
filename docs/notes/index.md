@@ -50,11 +50,11 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/javascript/js/">JavaScript 入门要点</a><span style="font-size:0.8em;">2025-07-19</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/base/css/">CSS 要点</a><span style="font-size:0.8em;">2025-07-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/base/html/">HTML 要点</a><span style="font-size:0.8em;">2025-07-07</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/resources/engineering/">Engineering/Job/Misc Resources Achived</a><span style="font-size:0.8em;">2025-07-02</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/resources/academic/">Academic Resources Achived</a><span style="font-size:0.8em;">2025-07-02</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/javascript/callback/">回调函数 & 数组</a><span style="font-size:0.8em;">2025-07-21</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/discrete/intro/">集合与数学符号 & 命题逻辑</a><span style="font-size:0.8em;">2025-07-21</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/javascript/js/">JavaScript 入门要点</a><span style="font-size:0.8em;">2025-07-21</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/base/css/">CSS 要点</a><span style="font-size:0.8em;">2025-07-20</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/base/html/">HTML 要点</a><span style="font-size:0.8em;">2025-07-20</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
