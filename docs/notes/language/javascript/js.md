@@ -217,6 +217,13 @@ let cppy = { ...obj };
 ### 箭头函数
 
 在 JavaScript 中，有一种特殊的函数表达方式，其结构大致如下：
+
+!!! note inline end
+    箭头函数除了左侧包含`return`语句的原始写法，还有一种不含`return`语句的简单写法：
+    ```js
+    const functionName = (parameters) => (parameters);
+    ```
+
 ```js
 (parameters) => {
     // function body

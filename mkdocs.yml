@@ -246,7 +246,7 @@ nav:
           - 智能指针 & RAII: "notes/language/c++/C++ Fundamental/11-smart_pointer-RAII.md"
       - JavaScript:
         - 快速入门: "notes/language/javascript/js.md"
-        - 回调函数 & 数组: "notes/language/javascript/callback.md"
+        - 回调函数简单应用: "notes/language/javascript/callback.md"
     - 数学:
       - 离散数学:
         - 集合与数学符号 & 命题逻辑: "notes/math/discrete/intro.md"
