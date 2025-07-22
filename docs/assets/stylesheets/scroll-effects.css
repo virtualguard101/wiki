@@ -98,6 +98,12 @@
   }
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
+  /* 移动端竖屏隐藏石蒜组件 */
+  #sakana-widget {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 767px) and (orientation: portrait) {
   /* 1. Hero 容器相对定位，背景铺满全屏 */
   .mdx-hero {
     position: relative;
