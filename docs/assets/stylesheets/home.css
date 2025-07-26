@@ -53,3 +53,99 @@
 .md-content {
   display: none;
 }
+
+@media screen and (max-width: 767px) {
+  /* 1. Hero 容器改为垂直布局，居中对齐 */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  /* 2. 图片全宽自适应 */
+  .hero__image img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* 3. 文本区域全宽并居中 */
+  .hero__content {
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* 4. 调整字体与按钮大小 */
+  .hero__content h1 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .hero__content p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .md-button {
+    display: block;
+    width: auto;
+    margin: 0.75rem auto;
+    padding: 0.6em 1.2em;
+    font-size: 0.55rem;
+  }
+}
+
+@media screen and (max-width: 767px) and (orientation: portrait) {
+  /* 移动端竖屏隐藏石蒜组件 */
+  .hero__widget {
+    display: none !important;
+  }
+
+  /* 1. Hero 容器相对定位，背景铺满全屏 */
+  .hero {
+    min-height: 100vh;
+    overflow: hidden;
+    background-image: url("../images/aliya.jpg");
+    background-size: cover;
+    background-position: 25% bottom;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  /* 改用背景图方案，隐藏原 img，防止加载失败空白 */
+  .hero__image,
+  .hero__image img {
+    display: none !important;
+  }
+
+  /* 3. 覆盖内容层，垂直水平居中 */
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* 4. 隐藏段落，仅保留标题和按钮 */
+  .hero__content p {
+    display: none !important;
+  }
+
+  /* 5. 标题与按钮样式 */
+  .hero__content h1 {
+    margin-bottom: 23rem;
+  }
+
+  .md-button.scroll-fade {
+    margin: 0.5rem;
+    display: inline-block;
+  }
+}
+
