@@ -1,113 +1,16 @@
 {% extends "main.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/scroll-effects.css' | url }}">
+{% endblock %}
+
 {% block tabs %}
   {{ super() }}
-  <style>
-    .md-header { position: initial; }
-    .md-main__inner { margin: 0; }
-    .md-content { display: block; }
-
-    /* 头图背景容器 */
-    .mdx-hero {
-      position: relative;
-      width: 99vw;
-      margin-left: calc((100% - 99vw) / 2);
-      padding-top: 48.25%; /* 比例 */
-      overflow: hidden;
-    }
-    .mdx-hero__image.scroll-fade {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: 0;
-    }
-    .mdx-hero__image.scroll-fade .scroll-fade__img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* 文本与按钮覆盖于背景 */
-    .mdx-hero__content {
-      position: absolute !important;
-      bottom: 1.5rem !important;
-      left: 2.5rem !important;
-      transform: none !important;
-      z-index: 10 !important;
-      max-width: calc(100% - 3rem) !important;
-      margin: 0 !important;
-      text-align: left !important;
-      color: #ffffff !important;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
-      background: rgba(0, 0, 0, 0) !important;
-      padding: 1rem !important;
-      border-radius: 0.5rem !important;
-    }
-    @media screen and (min-width: 60em) { .md-sidebar--secondary { display: none; } }
-    @media screen and (min-width: 76.25em) { .md-sidebar--primary { display: none; } }
-  </style>
-
-  <link rel="stylesheet" href="{{ 'assets/stylesheets/scroll-effects.css' | url }}">
-  <section class="mdx-container">
-    <div class="md-grid md-typeset">
-      <div class="mdx-hero">
-        <div class="mdx-hero__image scroll-fade" data-src="assets/images/beihai.jpg">
-          <img class="scroll-fade__img" data-src="assets/images/beihai.jpg" alt="" width="1659" height="1200" loading="lazy" draggable="false">
-        </div>
-        <div class="mdx-hero__content scroll-fade" loading="lazy" draggable="false">
-          <h1 class="scroll-fade">Welcome to virtualguard101's Wiki</h1>
-          <p class="scroll-fade">
-            This site is used for storing my <strong><abbr title="Projects for Practice of CS Self-learning">Project</abbr> Documentations</strong> & <strong><abbr title="Personal notebook written in Chinese, use for recording my self learing process of Computer Science">Notebook</abbr></strong> & <strong>Blog Posts</strong> as a <em>Summary/Backup</em>.
-          </p> 
-          <p class="scroll-fade">
-            You're welcome to click the <strong>button</strong> below to read my posts in this site quickly or visit my <em>Blog Site with Hexo</em> by click the button at navigation.
-          </p>
-          <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}" class="md-button md-button--primary scroll-fade">
-            Read My Notebook
-          </a>
-          <a href="{{ 'blog/' | url }}" title="{{ page.next_page.title | e }}" class="md-button scroll-fade">
-            Visit My Blog
-          </a>
-          <a href="{{ 'projects/' | url }}" title="Projects" class="md-button scroll-fade">
-            View My Projects
-          </a>
-          <p class="scroll-fade">
-            <em>The background comes from <a href="https://www.bilibili.com/bangumi/play/ss28770?spm_id_from=333.337.0.0">Mine Threebody Animation: the Biography of Zhang Beihai</a></em>
-          </p>
-        </div>
-        <!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.7.1/lib/sakana.min.css -->
-        <!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.7.1/lib/sakana.min.js -->
-        <!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.7.1/sakana.min.css -->
-        <!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.7.1/sakana.min.js -->
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.1/lib/sakana.min.css"
-        />
-        <div id="sakana-widget" style="float: right;"></div>
-        <script>
-          function initSakanaWidget() {
-            new SakanaWidget().mount('#sakana-widget');
-          }
-        </script>
-        <script
-          async
-          onload="initSakanaWidget()"
-          src="https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.7.1/sakana.min.js"
-        ></script>
-      </div>
-    </div>
-  </section>
+  {% include "partials/components/_hero.html" %}
 {% endblock %}
 
-<!-- 
-{% block content %}
-
-{% endblock %}
- -->
-
-<!-- Application footer -->
-{% block footer %}
+{% block scripts %}
   {{ super() }}
   <script src="{{ 'assets/javascripts/scroll-effects.js' | url }}"></script>
-
 {% endblock %}
-

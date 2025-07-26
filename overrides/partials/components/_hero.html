@@ -1,0 +1,31 @@
+<section class="mdx-container">
+  <div class="md-grid md-typeset">
+    <div class="hero">
+      <div class="hero__image scroll-fade" data-src="assets/images/beihai.jpg">
+        <img class="scroll-fade__img" data-src="assets/images/beihai.jpg" alt="" width="1659" height="1200" loading="lazy" draggable="false">
+      </div>
+      <div class="hero__content scroll-fade" loading="lazy" draggable="false">
+        <h1 class="scroll-fade">Welcome to virtualguard101's Wiki</h1>
+        <p class="scroll-fade">
+          This site is used for storing my <strong><abbr title="Projects for Practice of CS Self-learning">Project</abbr> Documentations</strong> & <strong><abbr title="Personal notebook written in Chinese, use for recording my self learing process of Computer Science">Notebook</abbr></strong> & <strong>Blog Posts</strong> as a <em>Summary/Backup</em>.
+        </p> 
+        <p class="scroll-fade">
+          You're welcome to click the <strong>button</strong> below to read my posts in this site quickly or visit my <em>Blog Site with Hexo</em> by click the button at navigation.
+        </p>
+        <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}" class="md-button md-button--primary scroll-fade">
+          Read My Notebook
+        </a>
+        <a href="{{ 'blog/' | url }}" title="{{ page.next_page.title | e }}" class="md-button scroll-fade">
+          Visit My Blog
+        </a>
+        <a href="{{ 'projects/' | url }}" title="Projects" class="md-button scroll-fade">
+          View My Projects
+        </a>
+        <p class="scroll-fade">
+          <em>The background comes from <a href="https://www.bilibili.com/bangumi/play/ss28770?spm_id_from=333.337.0.0">Mine Threebody Animation: the Biography of Zhang Beihai</a></em>
+        </p>
+      </div>
+      <div id="sakana-widget-container" class="hero__widget"></div>
+    </div>
+  </div>
+</section>
