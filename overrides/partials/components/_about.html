@@ -12,6 +12,16 @@
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: 0;
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.1);
+    transition: opacity 0.7s ease-in-out, filter 0.7s ease-in-out, transform 0.7s ease-in-out;
+  }
+
+  .about__image.scroll-fade.in-view {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
   }
 
   .about__image.scroll-fade .scroll-fade__img {
