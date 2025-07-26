@@ -24,24 +24,23 @@
   /* Container to center the card */
   .about__card-container {
       position: absolute;
-      top: 0;
+      top: 50%;
       left: 0;
       width: 100%;
-      height: 100%;
+      transform: translateY(-50%);
       display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
+      justify-content: space-between;
+      padding: 2rem 6rem; /* Widen the cards' container */
       z-index: 2; /* Ensure card is above bg_source but below original z-index needs */
   }
 
   /* -- Component: About Card (New) -- */
   .about-card {
-    background: rgba(22, 22, 23, 0.15); /* User-edited: transparent background */
+    background: rgba(22, 22, 23, 0.05); /* User-edited: transparent background */
     color: var(--md-default-fg-color--light, #E0E0E0);
     padding: 2.5rem;
     border-radius: 16px;
-    max-width: 800px;
+    max-width: 650px; /* Make cards wider */
     width: 100%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px) saturate(180%);
@@ -102,7 +101,7 @@
 
   .bg__source {
     position: absolute !important;
-    bottom: 0.5rem !important;
+    bottom: 0.2rem !important;
     left: 2.5rem !important;
     transform: none !important;
     z-index: 10 !important;
@@ -141,7 +140,32 @@
           </li>
           <li>
             <p>
-              Contact details and other sites (like my blog) are available on my <a href="https://virtualguard101.com/" target="_blank" rel="noopener noreferrer">Homepage</a>.
+              Contact details and other sites are available on my <a href="https://virtualguard101.com/" target="_blank" rel="noopener noreferrer">Homepage</a>.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </article>
+    <article class="about-card">
+      <header class="about-card__header">
+        <h1 class="about-card__title">About This Site</h1>
+      </header>
+
+      <div class="about-card__content scroll-fade">
+        <ul>
+          <li>
+            <p>
+              This website is a personal wiki, built with Material for MkDocs.
+            </p>
+          </li>
+          <li>
+            <p>
+              It serves as a platform to document Updates of my Computer Science Learning Journey, share <addr title="Blog page, which is a backup for my Blog page with some Anime style, where use for posting my Website Updates and some Tech Posts.">Insights</addr>, and showcase <addr title="Projects & Assignments Notes">Learning Outcomes</addr>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Feel free to explore the various sections and learn more about my work and interests.
             </p>
           </li>
         </ul>

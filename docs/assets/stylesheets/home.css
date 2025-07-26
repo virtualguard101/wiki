@@ -37,13 +37,17 @@
     width: auto;
     margin: 0.75rem auto;
     padding: 0.6em 1.2em;
-    font-size: 0.55rem;
+    font-size: 0.65rem;
   }
 }
 
 @media screen and (max-width: 767px) and (orientation: portrait) {
   /* 移动端竖屏隐藏石蒜组件 */
   .hero__widget {
+    display: none !important;
+  }
+
+  .about {
     display: none !important;
   }
 
@@ -84,7 +88,7 @@
 
   /* 5. 标题与按钮样式 */
   .hero__content h1 {
-    margin-bottom: 20rem;
+    margin-bottom: 17rem;
   }
 
   .md-button.scroll-fade {
