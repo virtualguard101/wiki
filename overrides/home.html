@@ -7,7 +7,12 @@
 
 {% block tabs %}
   {{ super() }}
-  {% include "partials/components/_hero.html" %}
+  <section class="mdx-container">
+    <div class="md-grid md-typeset">
+      {% include "partials/components/_hero.html" %}
+      {% include "partials/components/_about.html" %}
+    </div>
+  </section>
 {% endblock %}
 
 {% block content %}

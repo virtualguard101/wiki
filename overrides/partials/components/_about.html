@@ -1,0 +1,157 @@
+<style>
+  /* -- Component: about -- */
+  .about {
+    position: relative;
+    width: 99vw;
+    margin-left: calc((100% - 99vw) / 2);
+    padding-top: 65.25%; /* Aspect ratio */
+    overflow: hidden;
+  }
+
+  .about__image.scroll-fade {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+  }
+
+  .about__image.scroll-fade .scroll-fade__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+ 
+  /* Container to center the card */
+  .about__card-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      z-index: 2; /* Ensure card is above bg_source but below original z-index needs */
+  }
+
+  /* -- Component: About Card (New) -- */
+  .about-card {
+    background: rgba(22, 22, 23, 0.15); /* User-edited: transparent background */
+    color: var(--md-default-fg-color--light, #E0E0E0);
+    padding: 2.5rem;
+    border-radius: 16px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(0);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  }
+  
+  .about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  }
+
+  .about-card__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .about-card__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--md-primary-fg-color, #FFFFFF);
+    margin: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--md-primary-fg-color--light);
+    display: inline-block;
+  }
+  
+  .about-card__content ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  .about-card__content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0 0 1.5rem;
+    text-align: justify;
+  }
+  
+  .about-card__content li:last-child p {
+    margin-bottom: 0;
+  }
+
+  .about-card__content a {
+    color: var(--md-accent-fg-color, #2196F3);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px dashed var(--md-accent-fg-color--transparent);
+    transition: color 0.3s, border-bottom-color 0.3s;
+  }
+
+  .about-card__content a:hover {
+    color: var(--md-accent-fg-color--dark);
+    border-bottom-color: var(--md-accent-fg-color--dark);
+  }
+
+  .bg__source {
+    position: absolute !important;
+    bottom: 0.5rem !important;
+    left: 2.5rem !important;
+    transform: none !important;
+    z-index: 10 !important;
+    max-width: calc(100% - 3rem) !important;
+    margin: 0 !important;
+    text-align: center !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+    background: rgba(0, 0, 0, 0) !important;
+    padding: 1rem !important;
+    border-radius: 0.5rem !important;
+  }
+</style>
+<div class="about">
+  <div class="about__image scroll-fade" data-src="assets/images/frieren.jpg">
+    <img class="scroll-fade__img" data-src="assets/images/frieren.jpg" alt="" width="1659" height="1200" loading="lazy" draggable="false">
+  </div>
+
+  <div class="about__card-container">
+    <article class="about-card">
+      <header class="about-card__header">
+        <h1 class="about-card__title">About Me</h1>
+      </header>
+
+      <div class="about-card__content scroll-fade">
+        <ul>
+          <li>
+            <p>
+              An undergraduate at Fujian University of Technology, initially in Smart Transportation, now pursuing Cybersecurity since September 2025. Expected to graduate in 2028.
+            </p>
+          </li>
+          <li>
+            <p>
+              Currently exploring the fundamental theories of Computer Science while continually honing my practical skills.
+            </p>
+          </li>
+          <li>
+            <p>
+              Contact details and other sites (like my blog) are available on my <a href="https://virtualguard101.com/" target="_blank" rel="noopener noreferrer">Homepage</a>.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </div>
+  
+  <div class="bg__source">
+    <p class="scroll-fade">
+      <em>The background comes from <a href="https://www.zerochan.net/4418286?lang=zh" target="_blank" rel="noopener noreferrer">zerochan</a></em>
+    </p>
+  </div>
+</div>

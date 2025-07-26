@@ -84,7 +84,7 @@
 
   /* 5. 标题与按钮样式 */
   .hero__content h1 {
-    margin-bottom: 23rem;
+    margin-bottom: 20rem;
   }
 
   .md-button.scroll-fade {
@@ -92,4 +92,3 @@
     display: inline-block;
   }
 }
-
