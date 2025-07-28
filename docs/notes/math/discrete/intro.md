@@ -168,7 +168,7 @@ $$
     (\forall S \subseteq \mathbb{U})(\exists k \in \mathbb{N})(|S| = k \rightarrow |\wp(S)| = 2^k)
     $$
 
-## 数学符号与命题逻辑
+## 数学符号与数学陈述
 
 >[CS70 Note 1 | UC Berkeley](https://www.eecs70.org/assets/pdf/notes/n1.pdf)
 
@@ -246,17 +246,66 @@ $$
 
 - **蕴含（*implication*）**: $P \Rightarrow Q$（$P$ 蕴含 $Q$，如果 $P$，那么 $Q$）
 
-    蕴含是最重要且微妙的命题形式。在定义中，$P$ 是蕴含的**前提（*hypothesis*）**，$Q$ 则是**结论（*conclusion*）**
+    蕴含是最重要且微妙的命题形式。在定义中，$P$ 是蕴含的**前提（*hypothesis*）**，$Q$ 则是**结论（*conclusion*）**[^1]
 
-    <!-- [ ] 蕴含实例与真值表 -->
+    关于蕴含的实例俯首皆是，例如：
 
-### 量词与括号逻辑规则
+      - **如果** $\Delta \geqslant 0$，**那么**一元二次方程 $ax^2 + bx + c = 0$ 有实根
+
+      - **如果**你能解出这个难题，**那么**你就是一个天才
+
+    ==只有当前提 $P$ 为真而结论 $Q$ 为假时，蕴含关系 $P \Rightarrow Q$ 才为假==
+
+    以下是蕴含关系的真值表：
+
+    | $P$ | $Q$ | $P \Rightarrow Q$ | $\neg P \wedge Q$ |
+    |:---:|:---:|:-----------------:|:-----------------:|
+    |$T$|$T$|$T$|$T$|
+    |$T$|$F$|$F$|$F$|
+    |$F$|$T$|$T$|$T$|
+    |$F$|$F$|$T$|$T$|
+
+    !!! note
+        - ==当前提 $P$ 为假时，$P \Rightarrow Q$ 总为真==。这意味着，许多在自然语言中看似荒谬的陈述，从数学角度而言却是成立的，例如：“如果猪会飞，那么熊就会说话”、“如果 $\sqrt{5}$ 是有理数，那么 $\sqrt{-5}$ 也是有理数”等。==当一个蕴含关系因其前提为假而成立时，我们称其为“空洞真（*vacuously true*）”==
+
+        - 从上面的表格可以看出，==$P \Rightarrow Q$ 在逻辑上等价于 $\neg P \wedge Q$== ——对于 $P$ 和 $Q$ 所有的真值组合，二者都取到了相同的值。在数学语言中，我们将其表示为：==$(P \Rightarrow Q) \equiv (\neg P \wedge Q)$==
+
+    $P \Rightarrow Q$ 是数学定理最常见的表达形式。下面是表述这个关系的不同方式：
+
+    1. 若 $P$ 成立，则 $Q$ 成立
+    2. $Q$ 成立，若 $P$ 成立
+    3. 仅当 $Q$ 成立时，$P$ 才成立
+    4. ==$P$ 是 $Q$ 的充分条件==
+    5. ==$Q$ 是 $P$ 的必要条件==
+
+    特别的，当 $P \Rightarrow Q$ 与 $Q \Rightarrow P$ 同时为真时，则称 ==$P$ 当且仅当 $Q$（可缩写为"$P$ *iff* $Q$"）==，形式上记作 ==$P \Leftrightarrow Q$==。此时，若 $P \Leftrightarrow Q$ 为真， 则 $P$ 与 $Q$ 需要具有**相同的真值**，即**同真或同假**。
+
+    !!! example
+
+        设 $P =$ "$3$ 是奇数", $Q =$ "$4$ 是奇数", $R =$ "$6$ 是偶数";
+
+        显然，在这里 $P$、$R$ 为真，$Q$ 为假，则可推出 $P \Rightarrow R$、$Q \Rightarrow P$、$R \Rightarrow P$ 均为真，其中 $Q \Rightarrow P$ 为空洞真;
+
+        又 $P \Rightarrow R$、$R \Rightarrow P$ 同为真，故可得 $P \Leftrightarrow R$ 为真。
+
+    给定一个蕴涵式 $P \Rightarrow Q$，还可定义其
+    
+    1. 逆否命题: $\neg Q \Rightarrow \neg P$
+    2. 逆命题: $Q \Rightarrow P$
+
+        在上面的例子中，关于蕴涵式 $P \Rightarrow R$ 逆否命题的自然语言描述就是*如果 $6$ 不是偶数，那么 $3$ 就不是奇数*；逆命题则是*如果 $6$ 是偶数，那么 $3$ 就是奇数*。
+    
+    还是关于蕴含关系 $P \Rightarrow Q$，可总结出以下真值表：
+
+    <!-- [ ] 蕴含关系真值表 -->
+
+### 量词与谓词逻辑
 
 #### 量词及其作用域规则
 
 $\forall$ 是**全称量词（*universal quantifier*）**，表示“对于所有”；$\exists$ 是**存在量词（*existential quantifier*）**，表示“存在...（条件）”
 
-在数学逻辑表达式中，常使用括号 $()$、$[]$ 来限定量词的作用域。简单的命题通常遵循以下结构：
+在数学逻辑表达式中，常使用括号 $()$、$[]$、${}$ 来限定量词的作用域。简单的命题通常遵循以下结构：
 
 $$
 (\text{quantifier}\ \text{value}\ \text{domain})(\text{proposition})
@@ -274,3 +323,5 @@ $$
 
 - 第二个括号用于写入量词所 ==约束的命题==，即 $x^2 \geqslant 0$ 这个命题
 
+
+[^1]: $P$ 有时也被称为**前件（*antecedent*）**，而 $Q$ 则被称为**后件（*consequent*）**
