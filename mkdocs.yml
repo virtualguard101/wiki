@@ -112,6 +112,7 @@ plugins:
         - assets/stylesheets/temp-patch.css
   - git-revision-date-localized:
       enable_creation_date: true
+  - mkdocstrings
 
   # - redirects:
   #     redirect_maps:
