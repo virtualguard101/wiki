@@ -124,6 +124,7 @@ extra_css:
   - assets/stylesheets/feature.css
   - assets/stylesheets/temp-patch.css
   - assets/stylesheets/home.css
+  - assets/stylesheets/admonitions.css
 
 extra_javascript:
   - assets/javascripts/mathjax.js
@@ -254,8 +255,12 @@ nav:
     - 数学:
       - 离散数学:
         - 集合 & 数学符号与命题逻辑: "notes/math/discrete/intro.md"
-
-    # - 数据结构与算法:
+        - 证明: "notes/math/discrete/proof.md"
+    - 数据结构与算法:
+      - DSA 简要导入: "notes/dsa/intro.md"
+      # - 数据结构
+      # - 复杂度分析
+      # - 算法
     - Web开发:
       - 入门基础:
         - HTML要点: "notes/web-dev/base/html.md"
