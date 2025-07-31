@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
           delete img.dataset.src;
         }
         el.classList.add("in-view");
-        observer.unobserve(el);
+      } else {
+        entry.target.classList.remove("in-view");
       }
     });
   }, { threshold: 0.2 });
