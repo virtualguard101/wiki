@@ -39,7 +39,7 @@ comments: true
 
 === "中文"
 
-    这是我的学习笔记，排版参考了[Stalo's Wiki](https://note.stalomeow.com/)，用于记录我的CS自学历程。欢迎在评论区留言。
+    这是我的学习笔记，用于记录我的CS自学历程。欢迎在评论区留言。
 
 
 ## Recent Notes 
@@ -50,8 +50,8 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/discrete/proof/">证明</a><span style="font-size:0.8em;">2025-08-03</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/intro/">简要导入</a><span style="font-size:0.8em;">2025-07-31</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/discrete/proof/">证明</a><span style="font-size:0.8em;">2025-07-31</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/discrete/intro/">集合 & 数学符号与命题逻辑</a><span style="font-size:0.8em;">2025-07-30</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/javascript/callback/">回调函数简单应用</a><span style="font-size:0.8em;">2025-07-22</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/javascript/js/">JavaScript 入门要点</a><span style="font-size:0.8em;">2025-07-22</span></div></li>
