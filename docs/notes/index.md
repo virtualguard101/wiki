@@ -50,7 +50,7 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/discrete/proof/">证明</a><span style="font-size:0.8em;">2025-08-05</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/discrete/proof/">证明</a><span style="font-size:0.8em;">2025-08-06</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/intro/">简要导入</a><span style="font-size:0.8em;">2025-07-31</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/discrete/intro/">集合 & 数学符号与命题逻辑</a><span style="font-size:0.8em;">2025-07-30</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/javascript/callback/">回调函数简单应用</a><span style="font-size:0.8em;">2025-07-22</span></div></li>
