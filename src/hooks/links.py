@@ -6,6 +6,12 @@ from mkdocs.structure.files import Files
 from mkdocs.structure.nav import Navigation
 from mkdocs.structure.nav import Link
 
+
+class CustomLink(Link):
+    def __init__(self, **kwargs):
+        self.meta = kwargs.pop('meta', {})
+        super().__init__(**kwargs)
+
 @dataclass
 class LinkData:
     name: str
@@ -17,7 +23,7 @@ class LinkData:
 LINKS = [
     LinkData(
         name='Homepage',
-        url='https://virtualguard101.com',
+        url='https://home.virtualguard101.com',
         description='',  # 添加描述
         button_icon='fontawesome/solid/house',
         link_icon='fontawesome/solid/house',
@@ -62,8 +68,7 @@ def on_config(config: MkDocsConfig):
 def on_nav(nav: Navigation, config: MkDocsConfig, files: Files):
     ''' 导航栏链接 '''
     for l in LINKS:
-        link = Link(title=l.name, url=l.url)
-        link.meta = { 'icon': l.link_icon }
+        link = CustomLink(title=l.name, url=l.url, meta = {'icon': l.link_icon})
         nav.items.append(link)
 
     # # 在index后插入链接（索引1位置）

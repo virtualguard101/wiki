@@ -258,7 +258,8 @@ nav:
         - 证明: "notes/math/discrete/proof.md"
     - 数据结构与算法:
       - DSA 简要导入: "notes/dsa/intro.md"
-      # - 数据结构
+      - 数据结构:
+        - 结构分类与基本数据类型: "notes/dsa/ds/intro.md"
       # - 复杂度分析
       # - 算法
     - Web开发:
