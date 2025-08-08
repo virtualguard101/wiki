@@ -19,8 +19,8 @@
 线性与非线性的区别主要在于数据元素的 ==$n$ 对 $n$== 问题：
 
 - 线性为**一对一**
-- 非线性树状为**一对多**
-- 非线性图为**多对多**
+- 非线性**树**为**一对多**
+- 非线性**图**为**多对多**
 
 
 [^1]: [数据结构分类 | Hello 算法](https://www.hello-algo.com/chapter_data_structure/classification_of_data_structure/)

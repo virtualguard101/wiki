@@ -5,7 +5,19 @@ comments: true
 
 # Notebook
 
-![](../assets/images/index-power.jpg)
+<!-- ![](../assets/images/index-power.jpg) -->
+
+![EECS Learning Path](../assets/images/berkeley-eecs.png)
+
+*Image source: [Course Guides | UC berkeley EECS](https://hkn.eecs.berkeley.edu/courseguides){target="_blank"}*
+
+<!-- <div>
+  <p>
+    <em>
+    Image source: <a href="https://hkn.eecs.berkeley.edu/courseguides" target="_blank">Course Guides | UC berkeley EECS</a>
+    </em>
+  </p>
+</div> -->
 
 === "English"
     **The only things researchers should abied by are debates and dialectics. Only by questioning everything at all times can one avoid falling into prejudice.**  
@@ -50,11 +62,11 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/git/">Git</a><span style="font-size:0.8em;">2025-08-08</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/intro/">结构分类与基本数据类型</a><span style="font-size:0.8em;">2025-08-08</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/intro/">简要导入</a><span style="font-size:0.8em;">2025-08-07</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/discrete/proof/">证明</a><span style="font-size:0.8em;">2025-08-06</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/discrete/intro/">集合 & 数学符号与命题逻辑</a><span style="font-size:0.8em;">2025-07-30</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/javascript/callback/">回调函数简单应用</a><span style="font-size:0.8em;">2025-07-22</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
@@ -76,4 +88,4 @@ comments: true
 
 ![](https://butterblock233.github.io/posts/images/Hello.gif)
 
-*GIF source: [Hello Apple by Meritt Thomas](https://dribbble.com/shots/17347386-Hello-Apple)*
+*GIF source: [Hello Apple by Meritt Thomas](https://dribbble.com/shots/17347386-Hello-Apple){target="_blank"}*

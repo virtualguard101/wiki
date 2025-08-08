@@ -386,6 +386,66 @@ git reset HEAD
 
 实际开发中，特别是团队协作开发，除非是在本地有比较低级的更改或错误需要撤销，一般建议使用`git revert`以确保信息可控。
 
+### Git 子模块
+
+>[Git 子模块 | Altassian](https://www.atlassian.com/zh/git/tutorials/git-submodule)
+
+在浏览Git的远程仓库时，我们或许会看到类似下面的信息：
+
+![git submodules example](../../assets/images/tools/git_submodules.png)
+
+图中[^1]带有哈希值标识的路径就是**Git 子模块**，本质上是一个被当前仓库引用的**子仓库**。
+
+Git 子模块允许开发者将 git 存储库保留为另一个 git 存储库的子目录。Git 子模块只是在特定时间快照下对另一个存储库的引用。Git 子模块允许 Git 存储库合并和跟踪外部代码的版本历史记录。
+
+==一般情况下，Git 不允许直接在一个仓库里嵌套另一个仓库==，在本地运行 Git 时，若尝试在一个存在 Git 仓库的父路径上建立 Git 仓库并执行暂存，会得到类似如下的警告：
+
+```bash
+git add .
+警告：正在添加嵌入式 git 仓库：wiki
+提示： You've added another git repository inside your current repository.
+提示： Clones of the outer repository will not contain the contents of
+提示： the embedded repository and will not know how to obtain it.
+提示： If you meant to add a submodule, use:
+提示：
+提示：  git submodule add <url> wiki
+提示：
+提示： If you added this path by mistake, you can remove it from the
+提示： index with:
+提示：
+提示：  git rm --cached wiki
+提示：
+提示： See "git help submodule" for more information.
+提示： Disable this message with "git config set advice.addEmbeddedRepo false"
+```
+解决的方法就是依照警告提示添加或清除 Git 子模块。
+
+!!! warning
+    若在添加 Git 子模块前就执行了暂存操作，需要首先执行`git rm --cached <submodule_name> -f`强制清除。
+
+- 通过以下命令向一个已经存在的 git 仓库添加 Git 子模块：
+```bash
+git submodule add <url> <repo_name>
+```
+这会在当前的 git 仓库生成一个名为`.gitmodules`的文件，用于记录 Git 子模块的信息，同时会立即克隆子模块（若子模块不存在的话）。
+
+- 递归克隆包含子模块的仓库：
+```bash
+git clone --recurse-submodules <url>
+```
+未携带`--recurse-submodules`参数的克隆操作不会自动下载子模块内容。
+
+- 更新子模块：
+```bash
+git submodule init # 首次克隆时执行即可
+git submodule update
+```
+或合并为一个命令：
+```bash
+git submodule update --init --recursive # 首次克隆
+git submodule update --remote --merge   # 后续更新
+```
+
 ## 工程应用
 
 ![](../../assets/images/tools/git_branch.jpg)
@@ -671,3 +731,6 @@ git lfs help
 git lfs help <command>
 git lfs <command> -h
 ```
+
+
+[^1]: [How to do git submodules and why to use git submodules | stackoverflow](https://stackoverflow.com/questions/31790481/how-to-do-git-submodules-and-why-to-use-git-submodules)
