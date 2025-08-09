@@ -221,6 +221,7 @@ nav:
         - 杂项/基础: "notes/tools/linux/misc.md"
         - 定时任务: "notes/tools/linux/crontab.md"
         - Shell: "notes/tools/shell.md"
+        - 终端复用器: "notes/tools/linux/tmux.md"
       - SSH: "notes/tools/ssh.md"
       - Git: "notes/tools/git.md"
       - 正则表达式: "notes/tools/re.md"
