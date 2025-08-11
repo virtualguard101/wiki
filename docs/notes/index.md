@@ -43,16 +43,29 @@ comments: true
 
     - 联系方式及其他站点参见[我的主页](https://virtualguard101.com/)。
 
-## About This Page 
+## Why and How I use the WIKI
 
 === "English"
 
-    This is my notebook written in Chinese, use for recording my self learing process of **C**omputer **S**cience. You're welcome to leave a comment.
+    It is well known that combining theory with practice is essential for efficiently absorbing knowledge during the learning process. The field of computer science encompasses an extremely vast knowledge system and places great emphasis on practical application skills. 
+    
+    In this context, a learning approach that is both rational and tailored to one's personal circumstances serves as the fundamental condition for efficient CS learning. This personal WIKI was born under such circumstances—it serves as a platform for documenting updates in my computer science learning journey, sharing insights, and showcasing learning outcomes. Throughout my self-study journey in CS, it has played a pivotal role in supporting my learning, thinking, and practical application.
+
+    The image below illustrates my general workflow using this WIKI, for reference only. The process may be adjusted according to actual circumstances during application.
+
+    ![](index.en.drawio.png)
+
+    Feel free to share your thoughts in the comments, I'd greatly appreciate any valuable insights.
 
 === "中文"
 
-    这是我的学习笔记，用于记录我的CS自学历程。欢迎在评论区留言。
+    众所周知，在学习的过程中理论实践相结合才能高效地吸收所学的知识；计算机领域的知识体系极其庞大，且高度注重实际运用能力，在这样的背景下，合理且契合个人实际情况的学习方式就是高效学习CS的基本条件。这个个人 WIKI 正是在这样的背景下诞生的，它作为一个记录计算机科学学习历程更新、分享见解及展示学习成果的平台，在我的CS自学历程中作为一个举足轻重的角色助力我的学习、思考以及实践。
 
+    下图是我利用这个 WIKI 的通用流程，仅供参考。应用过程中，流程会随实际情况做出调整。
+
+    ![](index.drawio.png)
+
+    欢迎在评论区留下你的见解，如果它有价值，我将感激不尽。
 
 ## Recent Notes 
 
@@ -62,11 +75,11 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/discrete/proof/">证明</a><span style="font-size:0.8em;">2025-08-11</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/time/">算法时间复杂度</a><span style="font-size:0.8em;">2025-08-11</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/linux/tmux/">tmux</a><span style="font-size:0.8em;">2025-08-10</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/intro/">结构分类与基本数据类型</a><span style="font-size:0.8em;">2025-08-09</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/index/">笔记说明 & 简要导入</a><span style="font-size:0.8em;">2025-08-08</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/git/">Git</a><span style="font-size:0.8em;">2025-08-08</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
