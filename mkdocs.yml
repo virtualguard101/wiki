@@ -133,11 +133,11 @@ extra_javascript:
   - assets/javascripts/home.js
 
 hooks:
-  - src/hooks/copyright.py
-  - src/hooks/rss.py
-  - src/hooks/fancybox.py
-  - src/hooks/links.py
-  # - src/hooks/
+  - scripts/hooks/copyright.py
+  - scripts/hooks/rss.py
+  - scripts/hooks/fancybox.py
+  - scripts/hooks/links.py
+  # - scripts/hooks/
 
 ## Extensions
 markdown_extensions:

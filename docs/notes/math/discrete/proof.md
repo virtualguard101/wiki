@@ -76,27 +76,14 @@
   - 证明如下：
 
     $$
-    n \text{能被} 9 \text{整除} \Rightarrow \exists l \in \mathbb{Z}\ \text{使得}\ n = 9l
-    $$
-
-    $$
-    \hspace{3cm} \Rightarrow 100a + 10b + c = 9l
-    $$
-
-    $$
-    \hspace{4.8cm} \Rightarrow 99a + 9b + (a + b + c) = 9l
-    $$
-
-    $$
-    \hspace{4.4cm} \Rightarrow a + b + c = 9l - 99a - 9b
-    $$
-
-    $$
-    \hspace{4.5cm} \Rightarrow a + b + c = 9(l - 11a - b)
-    $$
-
-    $$
-    \hspace{7.9cm} \Rightarrow \exists k = l - 11a - b \in \mathbb{Z}\ \text{使得}\ a + b + c = 9k
+    \begin{aligned}
+        n \text{能被} 9 \text{整除} & \Rightarrow \exists l \in \mathbb{Z}\ \text{使得}\ n = 9l \newline
+        & \Rightarrow 100a + 10b + c = 9l \newline
+        & \Rightarrow 99a + 9b + (a + b + c) = 9l \newline
+        & \Rightarrow a + b + c = 9l - 99a - 9b \newline
+        & \Rightarrow a + b + c = 9(l - 11a - b) \newline
+        & \Rightarrow \exists k = l - 11a - b \in \mathbb{Z}\ \text{使得}\ a + b + c = 9k \newline
+    \end{aligned}
     $$
 
     故 定理$3$ 得证。
