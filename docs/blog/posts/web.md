@@ -51,7 +51,7 @@ stateDiagram-v2
     }
 
     state Nginx {
-      Description: High-performance Web Server and Reverse Proxy Handle
+      Description: Running In Container
     }
   }
 
@@ -88,7 +88,7 @@ stateDiagram-v2
   }
 
   state Nginx {
-    Description: High-performance Web Server and Reverse Proxy Handle(Running Globally)
+    Description: Running Globally
   }
 
   service1 --> Nginx: forward
@@ -273,4 +273,4 @@ Ubuntu默认安装python3.10，如果对版本有特殊要求，可以安装一�
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-<!-- [ ] 脚本模板案例 -->
+针对我的个人站点，我为其写了一个集成了**服务注册**、**服务管理**以及**服务删除**三个主要操作的脚本集合，并将其作为一个用户自定义包使用。项目地址可见[GitHub](https://github.com/virtualguard101/WebServicesManager)或我的[个人远程仓库](https://gitea.virtualguard101.com/virtualguard101/webscripts)。

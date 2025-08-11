@@ -33,7 +33,7 @@ comments: true
 
     - Currently exploring basic theory of Computer Science, ~~also engage in some meaningless tricks~~.
 
-    - Contact information and other sites(like blog) are available on my [Homepage](https://virtualguard101.com/).
+    - Contact information and other sites are available on my [Homepage](https://virtualguard101.com/).
 
 === "中文"
 
