@@ -72,7 +72,7 @@ tmux 支持高度自定义，可通过在用户主目录创建名为 `.tmux.conf
     send-keys 'cd ~' C-m
     send-keys 'htop' C-m
 
-    # Go back to the top-left pane (pane 0) and split horizontally for the right 30% pane
+    # Go back to the top-left pane (pane 0) and split horizontally for the right 50% pane
     select-pane -t 0
     split-window -h -p 50 -t 0
     send-keys 'cd ~' C-m

@@ -8,6 +8,19 @@ import colorlog
 import yaml
 from pathlib import Path
 
+# Initialize color log
+handler = colorlog.StreamHandler()
+handler.setFormatter(colorlog.ColoredFormatter(
+    '%(log_color)s%(asctime)s - %(levelname)s - %(message)s',
+    log_colors={
+        'DEBUG':    'cyan',
+        'INFO':     'green',
+        'WARNING':  'yellow',
+        'ERROR':    'red',
+        'CRITICAL': 'bold_red',
+    }
+))
+
 # Configuration file path
 CONFIG_PATH = Path(__file__).parent / 'build_config.yaml'
 
@@ -22,19 +35,6 @@ def load_config():
     except yaml.YAMLError as e:
         logger.error(f"Invalid config format: {e}")
         return None
-
-# Initialize color log
-handler = colorlog.StreamHandler()
-handler.setFormatter(colorlog.ColoredFormatter(
-    '%(log_color)s%(asctime)s - %(levelname)s - %(message)s',
-    log_colors={
-        'DEBUG':    'cyan',
-        'INFO':     'green',
-        'WARNING':  'yellow',
-        'ERROR':    'red',
-        'CRITICAL': 'bold_red',
-    }
-))
 
 logger = colorlog.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -62,14 +62,23 @@ def main():
         if not config:
             return 1
         
-        # Execute pre-commit hooks
-        run_hooks(config['hooks'], 'pre_commit')
+        # Execute pre-commit hooks with user's input
+        while True:
+            hook_choice = input(f"Would you want to run pre_hook? (Y/n): ").strip().lower()
+            if hook_choice == 'y' or hook_choice == '':
+                run_hooks(config['hooks'], 'pre_commit')
+                break
+            elif hook_choice  == 'n':
+                logger.info(f"Cancelled to run hooks")
+                break
+            else:
+                logger.warning(f"Invalid input: {hook_choice}")
 
         while True:
-            choice = input("Whether you want to sync posts to hexo blog? (y/N): ").strip().lower()
-            if choice == 'n' or choice == '':
+            sync_choice = input("Would you want to sync posts to hexo blog? (y/N): ").strip().lower()
+            if sync_choice == 'n' or sync_choice == '':
                 break
-            elif choice == 'y':
+            elif sync_choice == 'y':
                 # Sync blog posts
                 hexo_path = Path(config['paths']['hexo'])
                 wiki_path = Path(config['paths']['wiki'])
@@ -110,7 +119,7 @@ def main():
         logger.info("Pushing to origin/main...")
         subprocess.run(["git", "push", "origin", "main"], check=True)
         
-        logger.info("Operation completed successfully!")
+        logger.info("Process completed successfully!")
         
     except KeyboardInterrupt:
         user = os.getlogin()

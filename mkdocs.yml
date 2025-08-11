@@ -261,7 +261,8 @@ nav:
       - DSA 笔记说明: "notes/dsa/index.md"
       - 数据结构:
         - 结构分类与基本数据类型: "notes/dsa/ds/intro.md"
-      # - 复杂度分析
+      - 复杂度分析:
+        - 时间复杂度: "notes/dsa/anal/time.md"
       # - 算法
     - Web开发:
       - 入门基础:

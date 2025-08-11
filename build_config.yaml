@@ -7,4 +7,4 @@ logging:
   format: "%(log_color)s[%(levelname)s]%(reset)s %(message)s"
 hooks:
   pre_commit: 
-    - "src/recent_notes.py"
+    - "scripts/recent_notes.py"
