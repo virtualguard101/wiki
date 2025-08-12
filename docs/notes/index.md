@@ -75,11 +75,11 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/iter_and_recu/">迭代与递归</a><span style="font-size:0.8em;">2025-08-12</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/time/">算法时间复杂度</a><span style="font-size:0.8em;">2025-08-12</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/discrete/proof/">证明</a><span style="font-size:0.8em;">2025-08-11</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/time/">算法时间复杂度</a><span style="font-size:0.8em;">2025-08-11</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/linux/tmux/">tmux</a><span style="font-size:0.8em;">2025-08-10</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/intro/">结构分类与基本数据类型</a><span style="font-size:0.8em;">2025-08-09</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/index/">笔记说明 & 简要导入</a><span style="font-size:0.8em;">2025-08-08</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
