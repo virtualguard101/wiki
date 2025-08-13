@@ -22,8 +22,8 @@ comments: true
 
 === "English"
     
-    All of these solutions/projects in this page are built for my personal study (at least for now). Please do not use it for purposes other than study and reference, otherwise, the consequences will be borne by yourself!
+    All interpretations/projects included on this page are created by me for personal learning purposes unless otherwise stated. Please do not use them for any purpose other than learning reference or CONTRIBUTION, or bear the consequences at your own risk!
 
 === "中文"
 
-    收录于该页面的所有解读/项目皆为我个人作为学习用途而创建，请勿将它们用于学习参考以外的目的，否则后果自负！
+    收录于该页面的所有解读/项目若无特别声明皆为我个人作为学习用途而创建，请勿将它们用于学习参考或为贡献以外的目的，否则后果自负！
