@@ -126,7 +126,7 @@ extra_css:
   - assets/stylesheets/home.css
   - assets/stylesheets/admonitions.css
   - assets/stylesheets/extra.css
-  # - assets/stylesheets/theme.css
+  - assets/stylesheets/theme.css
 
 extra_javascript:
   - assets/javascripts/mathjax.js
