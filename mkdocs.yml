@@ -121,12 +121,12 @@ plugins:
 extra_css:
   - assets/webfonts/Cascadia Mono/font.css
   - assets/webfonts/LXGW WenKai Screen/font.css
-  # - assets/stylesheets/theme.css
   - assets/stylesheets/feature.css
   - assets/stylesheets/temp-patch.css
   - assets/stylesheets/home.css
   - assets/stylesheets/admonitions.css
   - assets/stylesheets/extra.css
+  # - assets/stylesheets/theme.css
 
 extra_javascript:
   - assets/javascripts/mathjax.js
