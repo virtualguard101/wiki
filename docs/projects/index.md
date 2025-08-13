@@ -1,9 +1,22 @@
 ---
+title: Showcase
 icon: material/folder-cog
 comments: true
+hide:
+  - navigation
+  - toc
+template: projects.html
+projects:
+  - name: 3BodySimulator
+    description: The visualization simulation of three-body motion implemented using C++ & Python.
+    image: 3BodySimulator.gif
+
+  - name: SpaceCaculator
+    description: A calculator for solid geometry implement by python.
+    image: SpaceCaculator.gif
 ---
 
-# Projects & Assignments Notes
+<!-- # Projects & Assignments Notes
 
 ![](https://image.tmdb.org/t/p/original/96RT2A47UdzWlUfvIERFyBsLhL2.jpg)
 *Source of the image: [葬送のフリーレン (2023) | TMDB](https://www.themoviedb.org/tv/209867/images/backdrops?language=ja)*
@@ -26,4 +39,4 @@ comments: true
 
 === "中文"
 
-    收录于该页面的所有解读/项目若无特别声明皆为我个人作为学习用途而创建，请勿将它们用于学习参考或为贡献以外的目的，否则后果自负！
+    收录于该页面的所有解读/项目若无特别声明皆为我个人作为学习用途而创建，请勿将它们用于学习参考或为贡献以外的目的，否则后果自负！ -->

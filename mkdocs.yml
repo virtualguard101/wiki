@@ -1,4 +1,4 @@
-# Project information
+## Project information
 site_author: virtualguard101{}
 # site_description: >-
 #   Write your documentation in Markdown and create a professional static site in
@@ -121,11 +121,12 @@ plugins:
 extra_css:
   - assets/webfonts/Cascadia Mono/font.css
   - assets/webfonts/LXGW WenKai Screen/font.css
-  - assets/stylesheets/theme.css
+  # - assets/stylesheets/theme.css
   - assets/stylesheets/feature.css
   - assets/stylesheets/temp-patch.css
   - assets/stylesheets/home.css
   - assets/stylesheets/admonitions.css
+  - assets/stylesheets/extra.css
 
 extra_javascript:
   - assets/javascripts/mathjax.js
@@ -270,7 +271,6 @@ nav:
       - 入门基础:
         - HTML要点: "notes/web-dev/base/html.md"
         - CSS要点: "notes/web-dev/base/css.md"
-
     - Misc:
       - 科学上网:
         - 透明代理: "notes/Misc/Scientific Internet Access/proxy.md"
@@ -281,6 +281,8 @@ nav:
   - Blog:
     - blog/index.md
   - Projects:
-    - projects/index.md
+    - Showcase: projects/index.md
     - "3BodySimulator: Python & C++ 项目标准化构建": projects/3BodySimulator.md
-    - "SpaceCaculator: Python3面向对象简单应用": projects/space-caculator.md
+    - "SpaceCaculator: Python3面向对象简单应用": projects/SpaceCaculator.md
+  - Credits: 
+    - credits.md

@@ -1,6 +1,6 @@
 ---
 draft: true
-title: SpaceCaculator：Python3面向对象简单应用
+title: SpaceCaculator
 categories:
   - 编程语言
 abbrlink: 27707

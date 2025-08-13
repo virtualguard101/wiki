@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" type="text/css" href="{{ 'assets/stylesheets/showcase.css' | url }}" media="screen"/>
+{% endblock %}
+
+{% block content %}
+<table class="showcase-table">
+{% for row in page.meta.projects|batch(3) %}
+<tr>
+  {% for project in row %}
+  <td>
+    <p><strong><a href="/projects/{{ project.name }}/">{{ project.name }}</a></strong></p>
+    <p>{{ project.description }}</p>
+    <a href="/projects/{{ project.name }}/"><img class="hover-grow" src="/projects/assets/{{ project.image }}"/></a>
+  </td>
+  {% endfor %}
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

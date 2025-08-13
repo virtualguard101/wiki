@@ -1,5 +1,5 @@
 ---
-title: 3BodySimulator：Python & C++ 项目标准化构建
+title: 3BodySimulator
 categories:
   - Projects
 date: 2025-05-23 14:18:21
