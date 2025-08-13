@@ -52,9 +52,9 @@
 
 简单来说，头文件用于定义类的结构，源文件用于实现类的定义细节。
 
-![](../../../../assets/images/cpp/head-source_1.png)
+![](../../../assets/language.assets/cpp/05/head-source_1.png)
 
-![](../../../../assets/images/cpp/head-source_2.png)
+![](../../../assets/language.assets/cpp/05/head-source_2.png)
 
 *以上图片来源于[CS106L](https://web.stanford.edu/class/cs106l/)的课程幻灯片。*
 
@@ -172,7 +172,7 @@ Student::~Student() {
 
 下图展示的是`stream`的继承关系。
 
-![](../../../../assets/images/cpp/iostream_inheritance.png)
+![](../../../assets/language.assets/cpp/05/iostream_inheritance.png)
 
 *以上图片来源于[CS106L](https://web.stanford.edu/class/cs106l/)的课程幻灯片。*
 
