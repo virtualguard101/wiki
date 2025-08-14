@@ -126,8 +126,46 @@ def sum_with_recur(n: int) -> int:
 ??? success "可视化运行"
     <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20sum_with_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Sum%20from%201%20to%20n%20with%20recursive.%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20n%20%2B%20sum_with_recur%28n%20-%201%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20sum%20%3D%20sum_with_recur%285%29%0A%20%20%20%20print%28sum%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
-    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20sum_with_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Sum%20from%201%20to%20n%20with%20recursive.%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20n%20%2B%20sum_with_recur%28n%20-%201%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20sum%20%3D%20sum_with_recur%285%29%0A%20%20%20%20print%28sum%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20sum_with_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Sum%20from%201%20to%20n%20with%20recursive.%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20n%20%2B%20sum_with_recur%28n%20-%201%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20sum%20%3D%20sum_with_recur%285%29%0A%20%20%20%20print%28sum%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false){target="_blank"}
 
-针对该描述可参考下图理解：
+像上面这样，函数在每次递归中**只调用自身一次**，使得整个递归调用链呈线性结构的递归形式，我们称之**线性递归（*Linear Recursion*）**，是最容易理解的递归形式。
 
+可参考下图理解线性递归求和的过程：
 
+![线性递归](../../assets/dsa.assets/anal/iter_and_recu/recursion_sum_depth.png)
+*图片来源：[调用栈 | Hello 算法](https://www.hello-algo.com/chapter_computational_complexity/iteration_and_recursion/#1)*
+
+除了线性递归，还有如下常见的递归形式：
+
+### 尾递归
+
+**尾递归（*Tail Recursion*）**是指递归调用是函数的最后一步操作，且递归调用的结果直接作为函数的返回值，没有额外的计算的递归形式。
+
+尾递归可以被编译器优化为迭代形式（尾递归优化, TRO/TCO），从而减少栈空间的使用，避免栈溢出[^1]。
+
+还是以求和函数为例，下面是它的尾递归版本：
+
+```py
+def tail_recur(n: int, res: int) -> int:
+    """Sum from 0 to n and add with res with tail recursion"""
+    if n == 0:
+        return res
+    return tail_recur(n - 1, res + n)
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20tail_recur%28n%3A%20int,%20res%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Sum%20from%20res%20to%20n%20with%20tail%20recursion%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20res%0A%20%20%20%20return%20tail_recur%28n%20-%201,%20res%20%2B%20n%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20sum%20%3D%20tail_recur%285,%200%29%0A%20%20%20%20print%28sum%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+    
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20tail_recur%28n%3A%20int,%20res%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Sum%20from%20res%20to%20n%20with%20tail%20recursion%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20res%0A%20%20%20%20return%20tail_recur%28n%20-%201,%20res%20%2B%20n%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20sum%20%3D%20tail_recur%285,%200%29%0A%20%20%20%20print%28sum%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+在上面的例子中，尾递归与线性递归的区别在于二者的求和执行点有所不同：
+
+- 线性递归的加法操作在触发终止条件后，即在“归”的过程中**逐步**执行。
+- 尾递归的加法操作则在触发终止条件前，即在“递”的过程中**逐步**执行。
+
+可参考下图理解尾递归求和的过程：
+
+![尾递归](../../assets/dsa.assets/anal/iter_and_recu/tail_recursion_sum.png)
+
+### 互递归
+
+[^1]: [你的递归调用是如何被优化的？TRO 尾递归优化！| Bilibili](https://www.bilibili.com/video/BV1Pb421Y7uP/?spm_id_from=333.337.search-card.all.click&vd_source=bf4f387b9668a681bfdcd3b4b0a3b4ee)

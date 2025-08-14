@@ -111,7 +111,7 @@ def wrap_img(match: re.Match, skip_class, meta):
         return match.group(0)
 
 def on_page_content(html, page, config, **kwargs):
-    log.info(f"Fancybox applied in: {page.file.src_path}")
+    # log.info(f"Fancybox applied in: {page.file.src_path}")
     if os.path.normpath(page.file.src_path) == os.path.normpath("credits.md"):
         return
     # skip emoji img with index as class name from pymdownx.emoji https://facelessuser.github.io/pymdown-extensions/extensions/emoji/
