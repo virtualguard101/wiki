@@ -10,7 +10,7 @@ def get_copyright() -> str:
     tz = datetime.timezone(datetime.timedelta(hours=8))
     now = datetime.datetime.now(tz)
     return inspect.cleandoc(f'''
-        Copyright &copy; 2025-{now.strftime('%Y')} virtualguard. All rights reserved. Built on {now.strftime('%Y-%m-%d (UTC+8)')}.<br>
+        Copyright &copy; 2025-{now.strftime('%Y')} virtualguard101. All rights reserved. Built on {now.strftime('%Y-%m-%d (UTC+8)')}.<br>
         Contents are licensed under the <u><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC 4.0</a></u> license, except when otherwise noted.
         ''')
 

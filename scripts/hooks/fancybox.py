@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import posixpath
 import re
 
@@ -61,6 +62,8 @@ def add_fancybox_js(output, config, head_regex: re.Pattern, body_regex: re.Patte
 # 在 minify 之前执行
 @event_priority(50)
 def on_post_page(output, page, config, **kwargs):
+    if os.path.normpath(page.file.src_path) == os.path.normpath("credits.md"):
+        return
     # Define regular expressions for matching the relevant sections of the HTML code
     head_regex = re.compile(r"<head>(.*?)<\/head>", flags=re.DOTALL)
     body_regex = re.compile(r"<body(.*?)<\/body>", flags=re.DOTALL)
@@ -108,6 +111,9 @@ def wrap_img(match: re.Match, skip_class, meta):
         return match.group(0)
 
 def on_page_content(html, page, config, **kwargs):
+    log.info(f"Fancybox applied in: {page.file.src_path}")
+    if os.path.normpath(page.file.src_path) == os.path.normpath("credits.md"):
+        return
     # skip emoji img with index as class name from pymdownx.emoji https://facelessuser.github.io/pymdown-extensions/extensions/emoji/
     skip_class = ["emojione", "twemoji", "gemoji", "no-fancybox"]
     return re.compile(r"<img(?P<attr>.*?)>").sub(lambda match: wrap_img(match, skip_class, page.meta), html)
