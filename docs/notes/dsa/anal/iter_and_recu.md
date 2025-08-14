@@ -106,3 +106,28 @@ def multiplication_table() -> None:
     在使用循环嵌套时，每增加一层嵌套就会使得迭代操作的数量“提升一个维度”，同时减低代码的可读性，因此应尽量避免使用过深的嵌套。
 
 ## 递归
+
+**递归（*recursion*）**是一种**算法策略**，通常通过函数间接或直接**调用自身**来实现。
+
+顾名思义，递归的过程可分为两个部分：
+
+1. **递**：==在触发**终止条件**前==，通过不断深入调用自身逻辑**简化**传入参数。
+2. **归**：==在触发**终止条件**后==，程序从最深层的调用栈**逐层**释放内存空间并执行返回操作返回。
+
+如果缺乏编程经验与计算机底层理论的知识积累，可能难以理解上面的描述。还是以在学习迭代过程中的求和算法为例，这次我们采用递归形式实现：
+
+```py
+def sum_with_recur(n: int) -> int:
+    """Sum from 1 to n with recursive."""
+    if n == 1:
+        return 1
+    return n + sum_with_recur(n - 1)
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20sum_with_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Sum%20from%201%20to%20n%20with%20recursive.%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20n%20%2B%20sum_with_recur%28n%20-%201%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20sum%20%3D%20sum_with_recur%285%29%0A%20%20%20%20print%28sum%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20sum_with_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Sum%20from%201%20to%20n%20with%20recursive.%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20n%20%2B%20sum_with_recur%28n%20-%201%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20sum%20%3D%20sum_with_recur%285%29%0A%20%20%20%20print%28sum%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+针对该描述可参考下图理解：
+
+

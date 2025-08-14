@@ -125,7 +125,7 @@ extra_css:
   - assets/stylesheets/temp-patch.css
   - assets/stylesheets/home.css
   - assets/stylesheets/admonitions.css
-  - assets/stylesheets/extra.css
+  - assets/stylesheets/credits.css
   - assets/stylesheets/theme.css
 
 extra_javascript:
@@ -266,7 +266,9 @@ nav:
         - 时间复杂度: "notes/dsa/anal/time.md"
       - 数据结构:
         - 结构分类与基本数据类型: "notes/dsa/ds/intro.md"
-      # - 算法
+      # - 算法:
+    # - 软件工程:
+      # - note/software-engineering/
     - Web开发:
       - 入门基础:
         - HTML要点: "notes/web-dev/base/html.md"
