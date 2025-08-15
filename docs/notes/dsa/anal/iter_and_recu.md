@@ -168,4 +168,52 @@ def tail_recur(n: int, res: int) -> int:
 
 ### 互递归
 
+**互递归（*Mutual Recursion*）**是指两个或多个函数通过相互调用形成递归循环。例如，函数 A 调用函数 B，函数 B 又调用函数 A。
+
+互递归常用于处理复杂的逻辑关系或状态转换，==逻辑上类似于尾递归==，但涉及多个函数。
+
+以一个判断整数奇偶性的程序为例，在定义整数奇偶性时，考虑以下思路：
+- 如果一个整数比偶数大 $1$，那么它就是奇数
+- 同理，如果一个整数比奇数大 $1$，那么它就是偶数
+- $0$ 是偶数
+
+显然，前两个陈述可以形成一个判断的调用循环；而第三个陈述就可以作为一个基准条件（递归终止条件）。根据这个思路，我们就可以有以下实现：
+```py
+def is_even(n: int) -> bool:
+    """Judge whether an integer is an even by Mutual Recursion."""
+    if n == 0:
+        return True
+    return is_odd(n - 1)
+
+def is_odd(n: int) -> bool:
+    """Judge whether an integer is an odd by Mutual Recursion."""
+    if n == 0:
+        return False
+    return is_even(n - 1)
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20is_even%28n%3A%20int%29%20-%3E%20bool%3A%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20True%0A%20%20%20%20return%20is_odd%28n%20-%201%29%0A%0Adef%20is_odd%28n%3A%20int%29%20-%3E%20bool%3A%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20is_even%28n%20-%201%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28f%22Is%20it%20%7Bn%7D%20an%20odd%3F%20%7Bis_odd%28n%29%7D%22%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20is_even%28n%3A%20int%29%20-%3E%20bool%3A%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20True%0A%20%20%20%20return%20is_odd%28n%20-%201%29%0A%0Adef%20is_odd%28n%3A%20int%29%20-%3E%20bool%3A%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20is_even%28n%20-%201%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28f%22Is%20it%20%7Bn%7D%20an%20odd%3F%20%7Bis_odd%28n%29%7D%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+也可以将两个函数合并为一个：
+```py
+def is_even(n: int) -> bool:
+    if n == 0:
+        return True
+    else:
+        if (n - 1) == 0:
+            return False
+        else:
+            return is_even((n - 1) - 1)
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20is_even%28n%3A%20int%29%20-%3E%20bool%3A%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20True%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20if%20%28n%20-%201%29%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20is_even%28%28n%20-%201%29%20-%201%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28f%22Is%20it%20%7Bn%7D%20an%20odd%3F%20%7Bis_even%28n%29%7D%22%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20is_even%28n%3A%20int%29%20-%3E%20bool%3A%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20True%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20if%20%28n%20-%201%29%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20is_even%28%28n%20-%201%29%20-%201%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28f%22Is%20it%20%7Bn%7D%20an%20odd%3F%20%7Bis_even%28n%29%7D%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+!!! review
+    回顾前文所介绍的，这个合并版本就相当于将这个程序的递归形式由**互递归**转化为了**尾递归**。之所以将其认定为尾递归，是因为其执行判断操作的时机**在触发递归终止条件前**。
+
+
 [^1]: [你的递归调用是如何被优化的？TRO 尾递归优化！| Bilibili](https://www.bilibili.com/video/BV1Pb421Y7uP/?spm_id_from=333.337.search-card.all.click&vd_source=bf4f387b9668a681bfdcd3b4b0a3b4ee)

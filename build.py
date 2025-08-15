@@ -63,16 +63,19 @@ def main():
             return 1
         
         # Execute pre-commit hooks with user's input
-        while True:
-            hook_choice = input(f"Would you want to run pre_hook? (Y/n): ").strip().lower()
-            if hook_choice == 'y' or hook_choice == '':
-                run_hooks(config['hooks'], 'pre_commit')
-                break
-            elif hook_choice  == 'n':
-                logger.info(f"Cancelled to run hooks")
-                break
-            else:
-                logger.warning(f"Invalid input: {hook_choice}")
+        run_hooks(config['hooks'], 'pre_commit')
+
+        ## Execute pre-commit hooks with user's input
+        # while True:
+        #     hook_choice = input(f"Would you want to run pre_hook? (Y/n): ").strip().lower()
+        #     if hook_choice == 'y' or hook_choice == '':
+        #         run_hooks(config['hooks'], 'pre_commit')
+        #         break
+        #     elif hook_choice  == 'n':
+        #         logger.info(f"Cancelled to run hooks")
+        #         break
+        #     else:
+        #         logger.warning(f"Invalid input: {hook_choice}")
 
         while True:
             sync_choice = input("Would you want to sync posts to hexo blog? (y/N): ").strip().lower()
