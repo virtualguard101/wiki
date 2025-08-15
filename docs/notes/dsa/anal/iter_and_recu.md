@@ -165,8 +165,11 @@ def tail_recur(n: int, res: int) -> int:
 可参考下图理解尾递归求和的过程：
 
 ![尾递归](../../assets/dsa.assets/anal/iter_and_recu/tail_recursion_sum.png)
+*图片来源：[尾递归 | Hello 算法](https://www.hello-algo.com/chapter_computational_complexity/iteration_and_recursion/#2)*
 
 ### 互递归
+
+>[互递归 | composingprograms 中译版](https://composingprograms.netlify.app/1/7#_1-7-2-%E4%BA%92%E9%80%92%E5%BD%92)
 
 **互递归（*Mutual Recursion*）**是指两个或多个函数通过相互调用形成递归循环。例如，函数 A 调用函数 B，函数 B 又调用函数 A。
 
@@ -214,6 +217,56 @@ def is_even(n: int) -> bool:
 
 !!! review
     回顾前文所介绍的，这个合并版本就相当于将这个程序的递归形式由**互递归**转化为了**尾递归**。之所以将其认定为尾递归，是因为其执行判断操作的时机**在触发递归终止条件前**。
+
+### 树递归
+
+**树递归（*Tree Recursion*）**是指一个函数在递归过程中调用自身多次（通常两次或更多），形如树状的分支结构。每次递归产生多个子问题，形似树的分叉。
+
+最经典的树递归案例莫过于**斐波那契数列**：
+```py
+def fibonaci(n: int) -> int:
+    """Fibonaci with recursion"""
+    if n == 1:
+        return 0
+    if n == 2:
+        return 1
+    return fibonaci(n - 2) + fibonaci(n - 1)
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20fibonaci%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20if%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20fibonaci%28n%20-%202%29%20%2B%20fibonaci%28n%20-%201%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20fib%20%3D%20fibonaci%285%29%0A%20%20%20%20print%28fib%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20fibonaci%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20if%20n%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20fibonaci%28n%20-%202%29%20%2B%20fibonaci%28n%20-%201%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20fib%20%3D%20fibonaci%285%29%0A%20%20%20%20print%28fib%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+可结合下图理解调用过程：
+
+![树递归](../../assets/dsa.assets/anal/iter_and_recu/recursion_tree.png)
+*图片来源：[递归树 | Hello 算法](https://www.hello-algo.com/chapter_computational_complexity/iteration_and_recursion/#3_1)*
+
+由于树递归的调用栈呈现出一种形似树枝的分叉结构，故其天然地适合用于解决**分治问题**，例如在数据结构中，树递归在构建[递归对象](https://composingprograms.netlify.app/2/9)时就十分常见。
+
+## 递归调用栈
+
+函数的调用在内存中需要划分一定的栈帧空间，在函数调用结束并返回后这些空间会被系统释放。递归调用在系统层面的本质就是函数在调用过程中持续在调用栈帧上为“新”的函数调用分配内存空间。
+
+以前面的线性递归求和程序为例，我们可以通过显式调用语言封装好的栈（或者自己手搓一个）来将递归问题转化为一个实际的迭代问题：
+```py
+def sum_in_stack(n: int) -> int:
+    stack = []
+    res = 0
+    # 递
+    for i in range(n, 0, -1):
+    # 反向 range，以实现堆栈的 FILO 特性
+        stack.append(i) # 入栈
+    # 归
+    while stack:
+        # 出栈
+        res += stack.pop()
+    return res
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20sum_in_stack%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E9%80%92%0A%20%20%20%20for%20i%20in%20range%28n,%200,%20-1%29%3A%0A%20%20%20%20%23%20%E5%8F%8D%E5%90%91%20range%EF%BC%8C%E4%BB%A5%E5%AE%9E%E7%8E%B0%E5%A0%86%E6%A0%88%E7%9A%84%20FILO%20%E7%89%B9%E6%80%A7%0A%20%20%20%20%20%20%20%20stack.append%28i%29%20%23%20%E5%85%A5%E6%A0%88%0A%20%20%20%20%23%20%E5%BD%92%0A%20%20%20%20while%20stack%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%87%BA%E6%A0%88%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20stack.pop%28%29%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20sum%20%3D%20sum_in_stack%285%29%0A%20%20%20%20print%28sum%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20sum_in_stack%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%E9%80%92%0A%20%20%20%20for%20i%20in%20range%28n,%200,%20-1%29%3A%0A%20%20%20%20%23%20%E5%8F%8D%E5%90%91%20range%EF%BC%8C%E4%BB%A5%E5%AE%9E%E7%8E%B0%E5%A0%86%E6%A0%88%E7%9A%84%20FILO%20%E7%89%B9%E6%80%A7%0A%20%20%20%20%20%20%20%20stack.append%28i%29%20%23%20%E5%85%A5%E6%A0%88%0A%20%20%20%20%23%20%E5%BD%92%0A%20%20%20%20while%20stack%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%87%BA%E6%A0%88%0A%20%20%20%20%20%20%20%20res%20%2B%3D%20stack.pop%28%29%0A%20%20%20%20return%20res%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20sum%20%3D%20sum_in_stack%285%29%0A%20%20%20%20print%28sum%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
 
 
 [^1]: [你的递归调用是如何被优化的？TRO 尾递归优化！| Bilibili](https://www.bilibili.com/video/BV1Pb421Y7uP/?spm_id_from=333.337.search-card.all.click&vd_source=bf4f387b9668a681bfdcd3b4b0a3b4ee)
