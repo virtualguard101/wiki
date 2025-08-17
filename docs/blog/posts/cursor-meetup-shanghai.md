@@ -1,5 +1,5 @@
 ---
-title: Cursor Meetup ShangHai 要点记录
+title: Cursor Meetup ShangHai 要点记录：学生视角下的 AI+ 产品
 date: 2025-08-16 14:00:00
 excerpt: 在朋友的邀请下参加了8月16号在上海浦东软件园举行的 Cursor Meetup，对朋友现场记录的内容做一个整理，同时站在在校大学生视角简单记录一下当前的看法
 cover: https://i.imgur.com/9rjUDU1.jpeg
