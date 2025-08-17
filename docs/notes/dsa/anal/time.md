@@ -97,3 +97,5 @@ $$
   \text{常数阶} < \text{对数阶} < \text{线性阶} < \text{线性对数阶} < \text{平方阶} < \text{指数阶} < \text{阶乘阶} < \text{超指数阶}
 \end{aligned}
 $$
+
+### 常数阶
