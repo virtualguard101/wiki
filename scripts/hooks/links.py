@@ -36,7 +36,7 @@ LINKS = [
     #     link_icon='material/notebook',
     # ),
     LinkData(
-        name='Blog with Hexo',
+        name='Blog with Anime',
         url='https://blog.virtualguard101.com',
         description='',  # 添加描述
         button_icon='fontawesome/solid/blog',

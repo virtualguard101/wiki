@@ -203,6 +203,13 @@ validation:
 
 ## Additional configuration
 extra:
+  alternate:
+    # - name: 简体中文
+    #   link: /
+    #   lang: zh
+    # - name: English
+    #   link: /en/
+    #   lang: en
   status:
     new: Recently added
     deprecated: Deprecated
@@ -212,6 +219,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/virtualguard101
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/virtualguardi01
 
 ## Page tree
 nav:

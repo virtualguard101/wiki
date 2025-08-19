@@ -32,6 +32,7 @@ hide:
 [![bash](https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-ar21.svg)](https://www.gnu.org/software/bash/?utm_source=vectorlogozone&utm_medium=referrer){target="_blank"}
 [![bluetooth](https://www.vectorlogo.zone/logos/bluetooth/bluetooth-ar21.svg)](https://www.bluetooth.com/?utm_source=vectorlogozone&utm_medium=referrer){target="_blank"}
 [![curl](https://www.vectorlogo.zone/logos/curl_haxx/curl_haxx-ar21.svg)](https://curl.haxx.se/?utm_source=vectorlogozone&utm_medium=referrer){target="_blank"}
+[![GeeksforGeeks](https://media.geeksforgeeks.org/gfg-gg-logo.svg)](https://www.geeksforgeeks.org/?utm_source=vectorlogozone&utm_medium=referrer){target="_blank"}
 [![debian](https://www.vectorlogo.zone/logos/debian/debian-ar21.svg)](https://www.debian.org/?utm_source=vectorlogozone&utm_medium=referrer){target="_blank"}
 [![docker](https://www.vectorlogo.zone/logos/docker/docker-ar21.svg)](https://www.docker.com/?utm_source=vectorlogozone&utm_medium=referrer){target="_blank"}
 [![fontawesome](https://www.vectorlogo.zone/logos/font-awesome/font-awesome-ar21.svg)](http://fontawesome.io/?utm_source=vectorlogozone&utm_medium=referrer){target="_blank"}

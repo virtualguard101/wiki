@@ -98,4 +98,53 @@ $$
 \end{aligned}
 $$
 
-### 常数阶
+### 常数阶 $O(1)$
+
+常数阶的操作数与输入数据量无关，即不随输入数据大小的变化而增大，始终为一个常数。
+
+如普通的赋值语句：
+```py
+def assign(n: int) -> int:
+    res = n # 常数阶
+    return res
+```
+
+!!! warning
+    需要注意的是，常数阶的定义是**操作数量与输入数据大小无关**，因此即便一个程序的输入数据大小很大（必须是一个常量），如下面的例子：
+    ```py
+    def sum_to_const(n: int) -> int:
+        """Sum from 0 with step n, size times."""
+        count = 0
+        size = 10000
+        for _ in range(size):
+            count += n
+        return count
+    ```
+    这是一个求和函数，用于将输入数据`n`相加`size`次。
+    
+    虽然我们在编写程序时可以将`size`设置得很大，但在程序运行时，无论输入数据的大小如何，求和的操作次数永远只执行`size`次，即**不随输入数据大小的变化而增大**，因此上面示例的时间复杂度只是一个**常数阶**。
+
+### 线性阶 $O(n)$
+
+线性阶的操作数与输入数据大小 $n$ 呈**线性相关**，常以单层循环的形式出现：
+
+```py
+def for_linear(n: int) -> int:
+    sum = 0 
+    for _ in range(n):
+        count += 1
+    return sum
+```
+
+线性阶算法常出现在[**线性表**](https://www.geeksforgeeks.org/dsa/introduction-to-linear-data-structures/)的遍历中；在这中情景下，输入数据一般为待遍历线性表的长度（或大小）:
+```py
+def throughout_arr(nums: list[int]) -> int:
+    count = 0
+    for num in nums:
+        count += num
+    return count
+```
+
+### 平方阶 $O(n^2)$
+
+平方阶的操作数可以看作是输入数据大小 $n$ 的一个二次函数，通常出现在**嵌套循环**中。

@@ -2,8 +2,8 @@
 /site/
 /env/
 __pycache__/
-uv.lock
 .roo/
 docs/projects/log/
 docs/projects/assets/log/
 docs/draft/
+/en/
