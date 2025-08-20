@@ -276,6 +276,7 @@ nav:
         - 空间复杂度: "notes/dsa/anal/space.md"
       - 数据结构:
         - 结构分类与基本数据类型: "notes/dsa/ds/intro.md"
+        # - 线性表:
       # - 算法:
     # - 软件工程:
       # - note/software-engineering/
