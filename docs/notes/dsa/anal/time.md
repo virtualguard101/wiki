@@ -147,4 +147,110 @@ def throughout_arr(nums: list[int]) -> int:
 
 ### 平方阶 $O(n^2)$
 
-平方阶的操作数可以看作是输入数据大小 $n$ 的一个二次函数，通常出现在**嵌套循环**中。
+平方阶的操作数可以看作是输入数据大小 $n$ 的一个二次函数，通常出现在**嵌套循环**中：
+```py
+def quadratic(n: int) -> int:
+    count = 0
+    for i in range(n):
+        for j in range(n):
+            count += 1
+    return count
+```
+
+在基础算法中，**冒泡排序**就是一个算法时间复杂度为 $O(n^2)$ 的典型案例：
+```py
+def bubble_sort(nums: list[int]) -> list[int]:
+    ops_count = 0
+    for i in range(len(nums) - 1, 0, -1):
+        for j in range(i):
+            if nums[j] > nums[j + 1]:
+                tmp: int = nums[j]
+                nums[j] = nums[j + 1]
+                nums[j + 1] = tmp
+                ops_count += 3
+    return [nums, ops_count]
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20ops_count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%3A%20int%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ops_count%20%2B%3D%203%0A%20%20%20%20return%20%5Bnums,%20ops_count%5D%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%205,%209,%204,%201%5D%0A%20%20%20%20res%20%3D%20bubble_sort%28nums%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20ops_count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%3A%20int%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ops_count%20%2B%3D%203%0A%20%20%20%20return%20%5Bnums,%20ops_count%5D%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%205,%209,%204,%201%5D%0A%20%20%20%20res%20%3D%20bubble_sort%28nums%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+### 指数阶 $O(2^n)$
+
+指数阶的增长速度极快。一个典型的案例是**细胞的分裂**：
+```py
+def exp_cell(n: int) -> int:
+    count = 0
+    base = 1
+    for _ in range(n):
+        for _ in range(base):
+            count += 1
+        base *= 2
+    return count
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20exp_cell%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20*%3D%202%0A%20%20%20%20return%20count%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20ops_count%20%3D%20exp_cell%28n%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20exp_cell%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20*%3D%202%0A%20%20%20%20return%20count%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20ops_count%20%3D%20exp_cell%28n%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+在实际应用中，指数阶常见于 ==递归函数== 中，下面是上方例子的递归改版：
+```py
+def exp_cell_recur(n: int) -> int:
+    if n == 1:
+        return n
+    return exp_cell_recur(n - 1) + exp_cell_recur(n - 1) + 1  # +1 表示递归终止操作
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20exp_cell_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20return%20exp_cell_recur%28n%20-%201%29%20%2B%20exp_cell_recur%28n%20-%201%29%20%2B%201%20%20%23%20%2B1%20%E8%A1%A8%E7%A4%BA%E9%80%92%E5%BD%92%E7%BB%88%E6%AD%A2%E6%93%8D%E4%BD%9C%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20ops_count%20%3D%20exp_cell_recur%28n%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20exp_cell_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20return%20exp_cell_recur%28n%20-%201%29%20%2B%20exp_cell_recur%28n%20-%201%29%20%2B%201%20%20%23%20%2B1%20%E8%A1%A8%E7%A4%BA%E9%80%92%E5%BD%92%E7%BB%88%E6%AD%A2%E6%93%8D%E4%BD%9C%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20ops_count%20%3D%20exp_cell_recur%28n%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+指数阶常见于穷举算法（暴力搜索、回溯等）。对于数据规模较大的问题，指数阶通常是不可介绍的。
+
+### 对数阶 $O(\log n)$
+
+作为指数运算的逆运算，对数运算的原理不难理解；算法中的对数阶也是如此——上面介绍的指数阶可简单理解为“每轮递增为两倍（$O(2^n)$）”，同理，对数阶就可以理解为“每轮缩减到一半（$O(\log_2 n)$）”。
+
+!!! tip "一分为 $m$"
+    准确来说，这里提到的“每轮缩减到一半”只是对数阶的一个典型例子；广义上的对数阶应该是“一分为 $m$”，对应的时间复杂度就是 $O(\log_m n)$；同时，通过**对数换底公式**，我们也可将 $m$ 换成其他等效的底数:
+
+    $$
+    O(\log_m n) = O(\frac{\log_k n}{\log_k m}) = O(\log_k n)
+    $$
+
+    即底数 $m$ 可以在不影响复杂度的前提下转换。故我们在书写对数阶时往往会忽略底数将其直接记为 $O(\log n)$
+
+```py
+def logarithmic(n: int) -> int:
+    count = 0
+    while n > 1:
+        n = n / 2
+        count += 1
+    return count
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2032%0A%20%20%20%20ops_count%20%3D%20logarithmic%28n%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2032%0A%20%20%20%20ops_count%20%3D%20logarithmic%28n%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+与指数阶类似，对数阶也常出现于 ==递归函数== 中：
+```py
+def log_recur(n: int) -> int:
+    if n <= 1:
+        return 0
+    return log_recur(n / 2) + 1
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2032%0A%20%20%20%20ops_count%20%3D%20log_recur%28n%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2032%0A%20%20%20%20ops_count%20%3D%20log_recur%28n%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+对数阶常出现于基于**分治策略**的算法中，其增长缓慢，是仅次于常数阶的理想时间复杂度。
+
+## 最坏情况与平均情况
+
+**最坏情况运行时间**是一种**保证**，可将其视为一个**效率安全值**，使得对应算法能够被全盘接受。==一般在没有特殊说明的情况下，所谓的**算法时间复杂度**指的都是**最坏时间复杂度**==。
+
+**平均时间时间复杂度**则是一种**数学期望**，可以体现算法在随机输入数据下的运行效率，使用 $\Theta (f(n))$ 表示。
+
+在复杂算法中，平均时间复杂度的计算要比最坏时间复杂度复杂度得多，因为很难分析出在数据分布下的整体数学期望。
