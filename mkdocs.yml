@@ -273,6 +273,7 @@ nav:
       - 复杂度分析:
         - 迭代与递归: "notes/dsa/anal/iter_and_recu.md"
         - 时间复杂度: "notes/dsa/anal/time.md"
+        - 空间复杂度: "notes/dsa/anal/space.md"
       - 数据结构:
         - 结构分类与基本数据类型: "notes/dsa/ds/intro.md"
       # - 算法:

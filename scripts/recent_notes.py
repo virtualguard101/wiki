@@ -9,7 +9,7 @@ NOTES_DIR = Path(__file__).parent.parent / 'docs' / 'notes'
 INDEX_FILE = Path(__file__).parent.parent / 'docs' / 'notes' /'index.md'
 START_MARKER = '<!-- recent_notes_start -->'
 END_MARKER = '<!-- recent_notes_end -->'
-MAX_NOTES = 6 
+MAX_NOTES = 11
 DATE_FORMAT = '%Y-%m-%d'
 
 # Initialize color log
