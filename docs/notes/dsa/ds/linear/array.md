@@ -31,7 +31,151 @@
 
 ## 常用操作
 
+*由于顺序表的实现基于数组，且在形式上没有更加复杂的结构，若无特殊说明，下文中提到的"数组"基本就是指代"顺序表"。*
+
 ### 初始化
+
+数组的初始化分为**无初始值**与**给定初始值**两种方式。在未指定初始值的情况下，大多数编程语言会将数组元素的值初始化为 $0$。
+
+### 访问元素
+
+数组元素的存储基于连续的内存空间，这意味着寻址会非常容易——只需记录数组中的首个元素的地址，其余元素的地址均可通过它们与首元素的**地址偏移量**得出，这个偏移量就是数组的**元素索引**。
+
+连续的物理空间存储（这里特指数组，只有数组具有“连续物理空间”这个概念，但这不妨碍数组能够实现顺序表的逻辑结构）使得数组的访问效率极高，==能够在 $O(1)$ 时间内**随机访问**其中的任一元素==：
+```py
+def array_access(nums: list[int]) -> int:
+    """随机访问元素"""
+    random_index = random.randint(0, len(nums) - 1)
+    random_num = nums[random_index]
+    return random_num
+```
+
+### 插入元素
+
+由于数组元素储存的连续性，元素与元素之间没有可以用于存放数据的余地，因此，==想要在数组中插入一个元素，就需要将该元素后的所有元素都**向后移动一位**，然后再重新分配元素索引==：
+
+![数组-插入元素](../../../assets/dsa.assets/ds/linear/array/array_insert_element.png)
+*图片来源：[数组-插入元素 | Hello 算法](https://www.hello-algo.com/chapter_array_and_linkedlist/array/#3)*
+
+```py
+def array_insert(nums: list[int], num: int, index: int) -> None:
+    """将 num 插入 nums 的 index 处"""
+    for i in range(len(nums) - 1, index, -1):
+        # 从右往左向后移动数组元素，搬运区间 [index + 1, len(nums) - 1]
+        nums[i] = nums[i - 1]
+    nums[index] = num
+```
+
+有一点需要注意的是，==在定长数组中==，这样的不加修饰的插入算法会导致最后一个元素在插入后**溢出**，从而丢失数据，解决的方法是在移动元素前先对原数组执行**扩容操作**：
+```py
+def array_insert_improve(nums: list[int], num: int, index: int) -> None:
+    """将 num 插入 nums 的 index 处，插入前执行扩容操作"""
+    if index < 0 or index > len(nums):
+        raise IndexError("Index out of range")
+    nums.append(0)  # 先扩一位
+    for i in range(len(nums) - 1, index, -1):
+        # 从右往左向后移动数组元素，搬运区间 [index + 1, len(nums) - 1]
+        nums[i] = nums[i - 1]
+    nums[index] = num
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20array_insert_improve%28nums%3A%20list%5Bint%5D,%20num%3A%20int,%20index%3A%20int%29%20-%3E%20None%3A%0A%20%20%20%20%22%22%22%E5%B0%86%20num%20%E6%8F%92%E5%85%A5%20nums%20%E7%9A%84%20index%20%E5%A4%84%EF%BC%8C%E6%8F%92%E5%85%A5%E5%89%8D%E6%89%A7%E8%A1%8C%E6%89%A9%E5%AE%B9%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%20len%28nums%29%3A%0A%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20range%22%29%0A%20%20%20%20nums.append%280%29%20%20%23%20%E5%85%88%E6%89%A9%E4%B8%80%E4%BD%8D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%20index,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BB%8E%E5%8F%B3%E5%BE%80%E5%B7%A6%E5%90%91%E5%90%8E%E7%A7%BB%E5%8A%A8%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%EF%BC%8C%E6%90%AC%E8%BF%90%E5%8C%BA%E9%97%B4%20%5Bindex%20%2B%201,%20len%28nums%29%20-%201%5D%0A%20%20%20%20%20%20%20%20nums%5Bi%5D%20%3D%20nums%5Bi%20-%201%5D%0A%20%20%20%20nums%5Bindex%5D%20%3D%20num%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20arr%20%3D%20%5B1,%202,%204,%205%5D%0A%20%20%20%20array_insert_improve%28arr,%203,%202%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20array_insert_improve%28nums%3A%20list%5Bint%5D,%20num%3A%20int,%20index%3A%20int%29%20-%3E%20None%3A%0A%20%20%20%20%22%22%22%E5%B0%86%20num%20%E6%8F%92%E5%85%A5%20nums%20%E7%9A%84%20index%20%E5%A4%84%EF%BC%8C%E6%8F%92%E5%85%A5%E5%89%8D%E6%89%A7%E8%A1%8C%E6%89%A9%E5%AE%B9%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%20len%28nums%29%3A%0A%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20range%22%29%0A%20%20%20%20nums.append%280%29%20%20%23%20%E5%85%88%E6%89%A9%E4%B8%80%E4%BD%8D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%20index,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BB%8E%E5%8F%B3%E5%BE%80%E5%B7%A6%E5%90%91%E5%90%8E%E7%A7%BB%E5%8A%A8%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%EF%BC%8C%E6%90%AC%E8%BF%90%E5%8C%BA%E9%97%B4%20%5Bindex%20%2B%201,%20len%28nums%29%20-%201%5D%0A%20%20%20%20%20%20%20%20nums%5Bi%5D%20%3D%20nums%5Bi%20-%201%5D%0A%20%20%20%20nums%5Bindex%5D%20%3D%20num%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20arr%20%3D%20%5B1,%202,%204,%205%5D%0A%20%20%20%20array_insert_improve%28arr,%203,%202%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+### 删除元素
+
+与插入同理，删除元素就需要将待删除元素后的所有元素都**向前移动一位**：
+![数组-删除元素](../../../assets/dsa.assets/ds/linear/array/array_remove_element.png)
+*图片来源：[数组-删除元素 | Hello 算法](https://www.hello-algo.com/chapter_array_and_linkedlist/array/#4)*
+
+```py
+def array_remove(nums: list[int], index: int) -> None:
+    """删除 nums 中 索引为 index 的元素（元素左移覆盖待删除元素）"""
+    for i in range(index, len(nums) - 1):
+        # 从左往右移动数组元素，搬运区间为 [index + 1, len(nums)]
+        nums[i] = nums[i + 1]
+```
+
+同样的，这段原始算法在不加以修饰的情况下有一个比较明显的问题，就是由于数组长度并未缩短，删除操作后会导致最后一个元素的冗余。解决方法也很简单——直接移除最后一个元素即可：
+
+!!! note
+    若在“定长数组”模型中，通常保留长度不变并只左移，尾部可填充哨兵值。
+```py
+def array_remove_improve(nums: list[int], index: int) -> None:
+    """删除 nums 中 索引为 index 的元素"""
+    if index < 0 or index >= len(nums):
+        raise IndexError("Index out of range")
+    for i in range(index, len(nums) - 1):
+        # 从左往右移动数组元素，搬运区间为 [index + 1, len(nums)]
+        nums[i] = nums[i + 1]
+    nums.pop()
+```
+??? success "可视化运行"
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20array_remove_improve%28nums%3A%20list%5Bint%5D,%20index%3A%20int%29%20-%3E%20None%3A%0A%20%20%20%20%22%22%22%E5%88%A0%E9%99%A4%20nums%20%E4%B8%AD%20%E7%B4%A2%E5%BC%95%E4%B8%BA%20index%20%E7%9A%84%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20len%28nums%29%3A%0A%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20range%22%29%0A%20%20%20%20for%20i%20in%20range%28index,%20len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BB%8E%E5%B7%A6%E5%BE%80%E5%8F%B3%E7%A7%BB%E5%8A%A8%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%EF%BC%8C%E6%90%AC%E8%BF%90%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5Bindex%20%2B%201,%20len%28nums%29%5D%0A%20%20%20%20%20%20%20%20nums%5Bi%5D%20%3D%20nums%5Bi%20%2B%201%5D%0A%20%20%20%20nums.pop%28%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20arr%20%3D%20%5B1,%202,%203,%204,%205%5D%0A%20%20%20%20array_remove_improve%28arr,%202%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    [全屏查看>>>](https://pythontutor.com/render.html#code=def%20array_remove_improve%28nums%3A%20list%5Bint%5D,%20index%3A%20int%29%20-%3E%20None%3A%0A%20%20%20%20%22%22%22%E5%88%A0%E9%99%A4%20nums%20%E4%B8%AD%20%E7%B4%A2%E5%BC%95%E4%B8%BA%20index%20%E7%9A%84%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20len%28nums%29%3A%0A%20%20%20%20%20%20%20%20raise%20IndexError%28%22Index%20out%20of%20range%22%29%0A%20%20%20%20for%20i%20in%20range%28index,%20len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BB%8E%E5%B7%A6%E5%BE%80%E5%8F%B3%E7%A7%BB%E5%8A%A8%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%EF%BC%8C%E6%90%AC%E8%BF%90%E5%8C%BA%E9%97%B4%E4%B8%BA%20%5Bindex%20%2B%201,%20len%28nums%29%5D%0A%20%20%20%20%20%20%20%20nums%5Bi%5D%20%3D%20nums%5Bi%20%2B%201%5D%0A%20%20%20%20nums.pop%28%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20arr%20%3D%20%5B1,%202,%203,%204,%205%5D%0A%20%20%20%20array_remove_improve%28arr,%202%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+
+### 遍历
+
+顺序表的的遍历通常通过**循环结构**实现。根据不同编程语言的封装，通常有**索引遍历**与**对象迭代遍历（直接遍历）**两种方式：
+```py
+def traversal_index(nums: list[int]) -> int:
+    """通过索引遍历数组元素，并求和"""
+    count = 0
+    for i in range(len(nums)):
+        count += nums[i]
+    return count
+
+def traversal_object(nums: list[int]) -> int:
+    """直接对可迭代封装进行迭代遍历，并求和"""
+    count = 0
+    for num in nums:
+        count += num
+    return count
+
+def traversal_enumerate(nums: list[int]) -> list[int]:
+    """同时遍历数据索引与元素，并数组元素求和"""
+    count = 0
+    sum = 0
+    for i, num in enumerate(nums):
+        count += nums[i]
+        sum += num
+    return [count, sum]
+```
+
+### 查找元素
+
+在数组中查找元素需要遍历数组元素，在遍历过程中匹配待查找元素，若匹配则返回对应索引，即**线性查找**：
+```py
+def linear_search(nums: list[int], target: int):
+    for i in range(len(nums)):
+        if nums[i] == target:
+            return i
+    raise ValueError("Target not Found")
+```
+线性查找的时间复杂度为 $O(n - i)$，最坏情况下为 $O(n)$，即始终为匹配到待查找元素。
+
+### 扩容
+
+为保证程序安全性，避免溢出问题，绝大多数编程语言封装的数组无法直接进行任意扩容，即长度不可变。
+
+基于这种“定长数组”模型而实现的顺序表，想要实现扩容，就只能新建一个更大的数组，然后将原数组的元素逐一复制过去：
+```py
+def array_extend(nums: list[int], enlarge: int) -> list[int]:
+    """将 nums 的长度扩展 enlarge 个单位
+    """
+    # 初始化目标数组
+    res = [0] * (len(nums) + enlarge)
+    for i in range (len(nums)):
+        # 复制原数组元素
+        res[i] = nums[i]
+    return res
+```
+
+整个扩展过程的操作时间主要消耗在逐一复制数组元素过程上，相当于遍历原有数组，时间复制为 $O(n)$。
+
+## 顺序表的优缺点
 
 <div style="text-align: center;">
     🚧前方施工中🚧
