@@ -34,6 +34,7 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/linked-list/">链表</a><span style="font-size:0.8em;">2025-08-25</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-08-22</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/space/">算法空间复杂度</a><span style="font-size:0.8em;">2025-08-21</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/time/">算法时间复杂度</a><span style="font-size:0.8em;">2025-08-20</span></div></li>
@@ -43,7 +44,6 @@ comments: true
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/c++/C++ Fundamental/11-smart_pointer-RAII/">RAII 和智能指针</a><span style="font-size:0.8em;">2025-08-13</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/c++/C++ Fundamental/05-classes-template/">类与模板</a><span style="font-size:0.8em;">2025-08-13</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/c++/C++ Fundamental/04-iterators-pointers/">迭代器和指针</a><span style="font-size:0.8em;">2025-08-13</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/intro/">结构分类与基本数据类型</a><span style="font-size:0.8em;">2025-08-13</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 

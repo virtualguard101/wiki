@@ -21,6 +21,10 @@ handler.setFormatter(colorlog.ColoredFormatter(
     }
 ))
 
+logger = colorlog.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+logger.addHandler(handler)
+
 # Configuration file path
 CONFIG_PATH = Path(__file__).parent / 'build_config.yaml'
 
@@ -35,10 +39,6 @@ def load_config():
     except yaml.YAMLError as e:
         logger.error(f"Invalid config format: {e}")
         return None
-
-logger = colorlog.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-logger.addHandler(handler)
 
 def run_hooks(hooks, hook_type):
     """Execute hooks of specified type"""
