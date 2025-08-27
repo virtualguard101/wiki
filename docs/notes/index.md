@@ -34,8 +34,8 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/stack/">栈</a><span style="font-size:0.8em;">2025-08-27</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-08-26</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/stack/">栈</a><span style="font-size:0.8em;">2025-08-26</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/linked-list/">链表</a><span style="font-size:0.8em;">2025-08-26</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/space/">算法空间复杂度</a><span style="font-size:0.8em;">2025-08-21</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/time/">算法时间复杂度</a><span style="font-size:0.8em;">2025-08-20</span></div></li>
