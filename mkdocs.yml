@@ -280,11 +280,13 @@ nav:
           - 顺序表: "notes/dsa/ds/linear/array.md"
           - 链表: "notes/dsa/ds/linear/linked-list.md"
           - 栈: "notes/dsa/ds/linear/stack.md"
-          # [ ] - 队列: "notes/dsa/ds/linear/queue.md"
+          - 队列: "notes/dsa/ds/linear/queue.md"
           # [ ] - 双端队列: "notes/dsa/ds/linear/deque.md"
       # - 算法:
     # - 软件工程:
       # - note/software-engineering/
+    # - 操作系统:
+      # - note/os/
     - Web开发:
       - 入门基础:
         - HTML要点: "notes/web-dev/base/html.md"
