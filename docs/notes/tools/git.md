@@ -409,6 +409,63 @@ Git允许我们在提交树的不同节点间移动，这包括向前和向后�
 !!! note
     需要回到之前的分支，可以使用`git switch [branch_name]`或`git checkout [branch_name]`。
 
+### 临时保存更改
+
+> [Git Stash | Altassian](https://www.atlassian.com/zh/git/tutorials/saving-changes/git-stash)
+
+Git 支持将未提交的更改暂存到一个独立于主版本库的节点上。
+
+- 使用`git stash` 或 `git stash push`命令完成此项工作：
+
+    ```bash
+    git stash
+    ```
+    ```bash
+    git stash push -m "[message]"
+    ```
+
+- 可通过`list`查看`stash`列表：
+
+    ```bash
+    git stash list
+    ```
+
+    使用`git log`命令也可看到`stash`操作记录：
+    ```bash
+    git log --all --graph --decorate --oneline
+      * ec2e1da (refs/stash) WIP on single-test: ed38685 init: init project
+     /|
+    | * d846123 index on single-test: ed38685 init: init project
+    |/
+    * ed38685 (main) init: init project
+    * 9920300 first: init project
+    ```
+
+- 可使用`apply`命令恢复暂存更改：
+
+    ```bash
+    git stash apply stash@{[index]}
+    ```
+
+
+    也可使用`pop`命令进行恢复，相当于**恢复** + **清除节点**的变体，即`apply` + `drop`：
+    ```bash
+    git stash pop stash@{[index]}
+    ```
+
+    二者在没有节点索引参数均默认恢复最新的`stash`节点（stash@{0}）
+
+- 使用`drop`或`clear`命令删除`stash`节点：
+
+    ```bash
+    git stash drop stash@{[index]}
+    ```
+
+    `clear`命令则是清除所有的`stash`节点：
+    ```bash
+    git stash clear
+    ```
+
 ### Git 子模块
 
 >[Git 子模块 | Altassian](https://www.atlassian.com/zh/git/tutorials/git-submodule)
