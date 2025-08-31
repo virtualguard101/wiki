@@ -34,6 +34,9 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/git/">Git</a><span style="font-size:0.8em;">2025-08-31</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/double_linked/">双向链表</a><span style="font-size:0.8em;">2025-08-31</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/deque/">双端队列</a><span style="font-size:0.8em;">2025-08-31</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/queue/">队列</a><span style="font-size:0.8em;">2025-08-30</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/linked-list/">单链表</a><span style="font-size:0.8em;">2025-08-30</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/stack/">栈</a><span style="font-size:0.8em;">2025-08-27</span></div></li>
@@ -41,9 +44,6 @@ comments: true
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/space/">算法空间复杂度</a><span style="font-size:0.8em;">2025-08-21</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/time/">算法时间复杂度</a><span style="font-size:0.8em;">2025-08-20</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/iter_and_recu/">迭代与递归</a><span style="font-size:0.8em;">2025-08-15</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/git/">Git</a><span style="font-size:0.8em;">2025-08-13</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/linux/tmux/">tmux</a><span style="font-size:0.8em;">2025-08-13</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/c++/C++ Fundamental/11-smart_pointer-RAII/">RAII 和智能指针</a><span style="font-size:0.8em;">2025-08-13</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 

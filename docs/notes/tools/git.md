@@ -386,6 +386,29 @@ git reset HEAD
 
 实际开发中，特别是团队协作开发，除非是在本地有比较低级的更改或错误需要撤销，一般建议使用`git revert`以确保信息可控。
 
+### 在提交树上移动
+
+Git允许我们在提交树的不同节点间移动，这包括向前和向后移动。
+
+如果希望移动到某个特定的提交节点，可以使用`git switch`命令：
+
+- **方式1：直接在新位置创建分支（推荐）**
+    ```bash
+    git switch -c [new_branch] [commit-hash]
+    ```
+
+- **方式2：先切换再创建分支**
+    ```bash
+    git checkout [commit-hash]  # 进入分离头指针状态
+    git switch -c [new_branch]  # 基于当前位置创建新分支
+    ```
+
+!!! warning
+    直接使用`git checkout [commit-hash]`会进入分离头指针状态，在这种状态下进行提交可能会丢失工作。建议总是基于目标提交创建新分支。
+
+!!! note
+    需要回到之前的分支，可以使用`git switch [branch_name]`或`git checkout [branch_name]`。
+
 ### Git 子模块
 
 >[Git 子模块 | Altassian](https://www.atlassian.com/zh/git/tutorials/git-submodule)

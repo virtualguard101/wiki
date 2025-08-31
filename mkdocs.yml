@@ -242,9 +242,8 @@ nav:
         - vcpkg: "notes/tools/build-tools/vcpkg.md"
         - scons: "notes/tools/build-tools/scons.md"
         - xmake: "notes/tools/build-tools/xmake.md"
-    - Job & Schedule:
-      - 部分JD: "notes/Job & Schedule/jd.md"
-      - 一段与AI的聊天记录: "notes/Job & Schedule/schedule.md"
+    # - Job & Schedule:
+    #   - 部分JD: "notes/Job/jd.md"
     - 编程语言:
       # - Python:
       - C++:
@@ -281,8 +280,13 @@ nav:
           - 单链表: "notes/dsa/ds/linear/linked-list.md"
           - 栈: "notes/dsa/ds/linear/stack.md"
           - 队列: "notes/dsa/ds/linear/queue.md"
-          # [ ] - 双端队列: "notes/dsa/ds/linear/deque.md"
+        # - 树:
+        #   - 二叉树: "notes/dsa/ds/tree/"
+        # - 图:
+        #   - : "notes/dsa/ds/graph"
       # - 算法:
+      - 双向链表: "notes/dsa/ds/linear/double_linked.md"
+      - 双端队列: "notes/dsa/ds/linear/deque.md"
     # - 软件工程:
       # - note/software-engineering/
     # - 操作系统:
@@ -310,3 +314,4 @@ not_in_nav: |
   templates/
   draft/
   projects/log/
+  "docs/notes/Job/"
