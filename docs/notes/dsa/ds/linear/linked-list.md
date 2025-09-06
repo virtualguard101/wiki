@@ -33,7 +33,7 @@ class LinkedListNode:
         object: 节点存储的数据，可以是任意类型或 None
         next: 指向下一个节点的引用，如果为 None 则表示链表结束
     """
-    def __init__(self, length: int, obj: Optional[Any] = None):
+    def __init__(self, obj: Optional[Any] = None):
         self.object: Optional[Any] = obj
         self.next: Optional['LinkedListNode'] = None
 ```

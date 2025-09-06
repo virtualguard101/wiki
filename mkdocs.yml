@@ -115,6 +115,11 @@ plugins:
       enable_creation_date: true
   - mkdocstrings
   - drawio
+  # - mkdocs-note:
+  #   - notes_root_path: "docs/notes"
+  #   - notes_template: "docs/templates/note.md"
+  #   - attechment_path: "docs/notes/attachments"
+  #   - path_blacklist: "docs/draft"
 
   # - redirects:
   #     redirect_maps:
@@ -314,4 +319,4 @@ not_in_nav: |
   templates/
   draft/
   projects/log/
-  "docs/notes/Job/"
+  notes/Job/
