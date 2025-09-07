@@ -35,6 +35,44 @@ class DoubleLinkedNode:
 
 ### 插入
 
-<div style="text-align: center">
+双向链表插入操作的实现并没有比单链表复杂多少，本质上只是多了一个反向的指针需要处理。
+
+需要注意的是处理指针时指针的连接顺序不要弄错了，这种问题在初学过程中比较容易出现。
+
+![双向链表-插入](../../../assets/dsa.assets/ds/linear/double_linked/dllist_insert.png)
+
+可参考上图标注的顺序逐步实现节点的插入:
+```py
+def insert(self, node: 'DoubleLinkedNode') -> None:
+    """在自身后插入一个节点
+
+    Args:
+        node ('DoubleLinkedNode'): 待插入节点
+    """
+    node.prev = self
+    if self.next:
+        node.next = self.next
+        self.next.prev = node
+    else:
+        node.next = None
+    self.next = node
+```
+
+### 删除
+
+同理，删除操作也需分别改变待删除节点前后节点的指针:
+
+![双向链表-删除](../../../assets/dsa.assets/ds/linear/double_linked/dllist_remove.png)
+
+```py
+def remove(self):
+    """将自身从当前双向链表中剔除
+    """
+    self.prev.next = self.next
+    self.next.prev = self.prev
+```
+
+
+<!-- <div style="text-align: center">
     🚧前方施工中🚧
-</div>
+</div> -->
