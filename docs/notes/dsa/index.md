@@ -8,7 +8,7 @@
 
 ## DSA 学习要点
 
-### 基础入门
+### 基础要点
 
 根据[Hello 算法](https://www.hello-algo.com/chapter_preface/about_the_book/)的介绍，DSA 基础部分的内容可大致分为三个部分：
 
