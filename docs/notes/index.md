@@ -34,8 +34,8 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/cs61b/index/">UCB CS61B: Data Structures and Algorithms 学习要点</a><span style="font-size:0.8em;">2025-09-09</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/deque/">双端队列</a><span style="font-size:0.8em;">2025-09-09</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/cs61b/index/">UCB CS61B-DSA 学习要点</a><span style="font-size:0.8em;">2025-09-10</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/deque/">双端队列</a><span style="font-size:0.8em;">2025-09-10</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/index/">笔记说明 & 简要导入</a><span style="font-size:0.8em;">2025-09-09</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/double_linked/">双向链表</a><span style="font-size:0.8em;">2025-09-07</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/linked-list/">单链表</a><span style="font-size:0.8em;">2025-09-06</span></div></li>
