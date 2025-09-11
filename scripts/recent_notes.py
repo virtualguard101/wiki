@@ -35,6 +35,8 @@ def get_title_relurl_date(md_file: Path):
 
     relpath = md_file.relative_to(INDEX_FILE.parent)
     relurl = relpath.with_suffix('').as_posix() + '/'  # MkDocs URL format
+    if 'index' in relurl:
+        relurl = relurl.replace('index/', '')
     title = None
     with md_file.open('r', encoding='utf-8') as f:
         for line in f:
