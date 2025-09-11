@@ -27,6 +27,10 @@
 
 - [课程讲义 | CS61B Textbook(New)](https://cs61b-2.gitbook.io/cs61b-textbook/1.-introduction)
 
+## 笔记说明 & 杂项
+
+介绍 Java 的部分当前放在[**编程语言模块**](../../language/java/)——一是为了方便管理，二是为了标识**其不作为CS61B的主体部分进行学习记录**。
+
 <!-- <div style="text-align: center">
     🚧前方施工中🚧
 </div> -->

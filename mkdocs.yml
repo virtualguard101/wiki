@@ -124,6 +124,7 @@ plugins:
 
   # - redirects:
   #     redirect_maps:
+  #       "notes/dsa/cs61b/java-intro.md": "notes/language/java/intro.md"
 
 extra_css:
   - assets/webfonts/Cascadia Mono/font.css
@@ -254,7 +255,7 @@ nav:
     - 编程语言:
       # - Python:
       - C++:
-        - 基础语法与特性（Stanford CS106L）:
+        - "Stanford CS106L: Standard C++ Programming":
           - 类型 & 结构体: "notes/language/c++/C++ Fundamental/00-type-structure.md"
           - 初始化 & 引用: "notes/language/c++/C++ Fundamental/01-init-reference.md"
           - 流: "notes/language/c++/C++ Fundamental/02-stream.md"
@@ -270,6 +271,8 @@ nav:
       - JavaScript:
         - 快速入门: "notes/language/javascript/js.md"
         - 回调函数简单应用: "notes/language/javascript/callback.md"
+      - Java:
+        - notes/language/java/index.md
     - 数学:
       - 离散数学:
         - 集合 & 数学符号与命题逻辑: "notes/math/discrete/intro.md"

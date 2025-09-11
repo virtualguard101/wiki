@@ -34,6 +34,7 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/index/">Java 入门要点</a><span style="font-size:0.8em;">2025-09-11</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/cs61b/index/">UCB CS61B(Spring 2021) 学习要点</a><span style="font-size:0.8em;">2025-09-11</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/deque/">双端队列</a><span style="font-size:0.8em;">2025-09-10</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/index/">笔记说明 & 简要导入</a><span style="font-size:0.8em;">2025-09-09</span></div></li>
@@ -43,7 +44,6 @@ comments: true
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/queue/">队列</a><span style="font-size:0.8em;">2025-08-30</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/stack/">栈</a><span style="font-size:0.8em;">2025-08-27</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-08-26</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/space/">算法空间复杂度</a><span style="font-size:0.8em;">2025-08-21</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
