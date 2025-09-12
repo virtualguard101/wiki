@@ -314,7 +314,7 @@ nav:
         - 透明代理: "notes/Misc/Scientific Internet Access/proxy.md"
       - 部分资源收藏:
         - Academy: "notes/Misc/resources/academy.md"
-        - Engineering: "notes/Misc/resources/engineering.md"
+        - Engineering/Misc/Job: "notes/Misc/resources/engineering.md"
          
   - Blog:
     - blog/index.md

@@ -16,4 +16,4 @@ icon: material/pencil-ruler
 
 ## 书籍
 
-- [动手学深度学习](https://zh.d2l.ai/)
+- [《动手学深度学习》](https://zh.d2l.ai/)
