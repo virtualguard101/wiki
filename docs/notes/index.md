@@ -34,6 +34,7 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/resources/academy/">学术资源</a><span style="font-size:0.8em;">2025-09-12</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/class-object/">类与对象</a><span style="font-size:0.8em;">2025-09-12</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/cs61b/">UCB CS61B(Spring 2021) 学习要点</a><span style="font-size:0.8em;">2025-09-12</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/">Java 入门要点</a><span style="font-size:0.8em;">2025-09-12</span></div></li>
@@ -43,7 +44,6 @@ comments: true
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/linked-list/">单链表</a><span style="font-size:0.8em;">2025-09-06</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/git/">Git</a><span style="font-size:0.8em;">2025-08-31</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/queue/">队列</a><span style="font-size:0.8em;">2025-08-30</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/stack/">栈</a><span style="font-size:0.8em;">2025-08-27</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 

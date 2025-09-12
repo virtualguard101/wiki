@@ -312,9 +312,9 @@ nav:
     - Misc:
       - 科学上网:
         - 透明代理: "notes/Misc/Scientific Internet Access/proxy.md"
-      - 部分资源归档:
-        - Academic: "notes/Misc/resources/academic.md"
-        - Engineering/Job/Misc: "notes/Misc/resources/engineering.md"
+      - 部分资源收藏:
+        - Academy: "notes/Misc/resources/academy.md"
+        - Engineering: "notes/Misc/resources/engineering.md"
          
   - Blog:
     - blog/index.md
@@ -329,3 +329,4 @@ not_in_nav: |
   draft/
   projects/log/
   notes/Job/
+  notes/trash/
