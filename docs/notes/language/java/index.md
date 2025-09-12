@@ -6,7 +6,6 @@
 
 Java 的大体形式与 C++ 等主流静态类型语言类似，部分地方甚至与 Python 等动态类型语言相通。
 
-
 ## 重要特性
 
 条件语句、循环语句等这些老生常谈的细节这里就不再赘述，下面记录一些 Java 的部分重要特性以及一些不同于其他语言的特性。
@@ -45,6 +44,9 @@ Java 的大体形式与 C++ 等主流静态类型语言类似，部分地方甚�
 
 ## 如何编写并运行一个 Java 程序
 
+<!-- ![Java编译过程](../../assets/dsa.assets/cs61b/compilation_figure.svg)
+*图片来源: [Essentials | Hug61B](https://joshhug.gitbooks.io/hug61b/content/chap1/chap11.html)* -->
+
 根据前面学习的特性，我们便可以开始着手编写一个简单的 Java 程序。
 
 环境配置这里不再赘述，可以参考[这篇文章](https://www.geeksforgeeks.org/installation-guide/download-and-install-jdk-on-windows-mac-and-linux/)。
@@ -60,7 +62,7 @@ public class HelloWorld {
 ```
 
 !!! important
-    - 需要注意，==包含主调方法（main方法）且使用`public`修饰的类必须与文件同名，且大小写敏感！
+    - 需要注意，==包含主调方法（main方法）且使用`public`修饰的类必须与文件同名，且大小写敏感！==
 
     - 如果类不是`public`的（例如使用默认访问修饰符），则类名可以与文件名不同——但这种方式不推荐，因为不符合Java的惯例，且可能导致代码管理混乱。
 
@@ -73,7 +75,7 @@ public class HelloWorld {
 javac HelloWorld.java
 ```
 
-编译顺利完成后会在当前路径下生成一个与源文件同名的`.class`文件，这个文件是一个包含了**Java字节码**的**可执行文件**，类似于Windows上的`.exe`文件，但需要使用`java`命令（JVM, Java Virtual Machine, Java虚拟机）执行：
+编译顺利完成后会在当前路径下生成一个与源文件同名的`.class`文件，这个文件包含了**Java字节码**，是一种**中间代码**，需要通过JVM（Java Virtual Machine, Java虚拟机）**解释执行**，即Java解释器（`java`），而不是像`.exe`文件那样可以直接在操作系统上运行：
 ```java
 $ java HelloWorld
 Hello, World!

@@ -273,6 +273,7 @@ nav:
         - 回调函数简单应用: "notes/language/javascript/callback.md"
       - Java:
         - notes/language/java/index.md
+        - 类与对象: "notes/language/java/class-object.md"
     - 数学:
       - 离散数学:
         - 集合 & 数学符号与命题逻辑: "notes/math/discrete/intro.md"
