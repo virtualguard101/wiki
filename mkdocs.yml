@@ -118,6 +118,11 @@ plugins:
   - mkdocs-jupyter:
       theme: dark
       execute: true
+      excute_ignore:
+        - "notes/draft/*.ipynb"
+        - "notes/draft/*.py"
+        - "notes/trash/*.ipynb"
+        - "notes/trash/*.py"
   # - mkdocs-note:
   #   - notes_root_path: "docs/notes"
   #   - notes_template: "docs/templates/note.md"
@@ -249,14 +254,13 @@ nav:
         - 终端复用器: "notes/tools/linux/tmux.md"
       - SSH: "notes/tools/ssh.md"
       - Git: "notes/tools/git.md"
-      - 正则表达式: "notes/tools/re.md"
+      - Jupyter Notebook: "notes/tools/jupyter.ipynb"
       - 构建工具:
         - GNU Make: "notes/tools/build-tools/gnu-make.md"
         - CMake: "notes/tools/build-tools/cmake.md"
         - vcpkg: "notes/tools/build-tools/vcpkg.md"
         - scons: "notes/tools/build-tools/scons.md"
         - xmake: "notes/tools/build-tools/xmake.md"
-      - Jupyter Notebook: "notes/tools/jupyter.ipynb"
     # - Job & Schedule:
     #   - 部分JD: "notes/Job/jd.md"
     - 编程语言:
@@ -321,10 +325,11 @@ nav:
         - CSS要点: "notes/web-dev/base/css.md"
     - Misc:
       - 科学上网:
-        - 透明代理: "notes/Misc/Scientific Internet Access/proxy.md"
+        - 透明代理: "notes/misc/scientific-internet-access/proxy.md"
+      - 正则表达式: "notes/misc/re.md"
       - 部分资源收藏:
-        - Academy: "notes/Misc/resources/academy.md"
-        - Engineering/Misc/Job: "notes/Misc/resources/engineering.md"
+        - Academy: "notes/misc/resources/academy.md"
+        - Engineering/Misc/Job: "notes/misc/resources/engineering.md"
          
   - Blog:
     - blog/index.md
