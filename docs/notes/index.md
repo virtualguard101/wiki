@@ -34,6 +34,7 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/shell/">Shell Scripting</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/jupyter/">Jupyter Notebook</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/super-unsuper-learning/">监督学习与非监督学习</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/resources/engineering/">工程/求职/杂项资源</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
@@ -43,7 +44,6 @@ comments: true
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/">Java 入门要点</a><span style="font-size:0.8em;">2025-09-12</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/deque/">双端队列</a><span style="font-size:0.8em;">2025-09-10</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/">笔记说明 & 简要导入</a><span style="font-size:0.8em;">2025-09-09</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/double_linked/">双向链表</a><span style="font-size:0.8em;">2025-09-07</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
@@ -52,21 +52,25 @@ comments: true
 
 === "English"
 
-    - An undergraduate student at Fujian University of Technology, majoring in Smart Transportation in the first year of undergraduate studies, transfer to the major of Cybersecurity since Sepetember 2025, expected to graduate in 2028.
+    - 🔭 An undergraduate student at Fujian University of Technology, majoring in Smart Transportation in the first year of undergraduate studies, transferring to the major of Cybersecurity since September 2025, expected to graduate in 2028.
 
-    - Currently exploring basic theory of Computer Science, ~~also engage in some meaningless tricks~~.
+    - ⚡ Meanwhile an open source amateur.
 
-    - Contact information and other sites are available on my [Homepage](https://virtualguard101.com/).
+    - 🌱 Currently researching Machine Learning/Deep Learning and other fields related to ==**Artificial Intelligence**==, and exploring basic theory of Computer Science, also engaging in some research activities ~~and engage in some meaningless tricks~~.
+
+    - 📫 Contact information and other sites are available on my [Homepage](https://virtualguard101.com/).
 
 === "中文"
 
-    - 福建理工大学本科生，大一智慧交通专业，2025年9月起转入网络空间安全专业，预计 2028 年毕业。
+    - 🔭 福建理工大学本科生，大一智慧交通专业，2025年9月起转入网络空间安全专业，预计 2028 年毕业。
 
-    - 当前处于计算机基础理论学习阶段，~~偶尔整点毫无意义的花活~~。
+    - ⚡ 同时也是一名开源开好者。
 
-    - 联系方式及其他站点参见[我的主页](https://virtualguard101.com/)。
+    - 🌱 目前正在研究机器学习/深度学习等与==**人工智能**==相关的领域，同时也在探索计算机科学的基础理论，并参与一些研究活动，~~以及整些花活~~。
 
-## Why and How do I use the WIKI
+    - 📫 联系方式及其他站点参见[我的主页](https://virtualguard101.com/)。
+
+## Why and How do I use the Wiki
 
 === "English"
 
@@ -89,20 +93,6 @@ comments: true
     ![](index.drawio.png)
 
     欢迎在评论区留下你的见解，如果它有价值，我将感激不尽。
-
-## Learning Outcomes
-
-=== "English"
-
-    - [SpaceCaculator | CS61A](https://github.com/virtualguard101/space-calculator): A calculator for solid geometry implement by python.
-
-    - [3BodySimulator | Build a C++ Project](https://github.com/virtualguard101/3BodySimulator): The visualization simulation of three-body motion implemented using C++ & Python
-
-=== "中文"
-
-    - [SpaceCaculator | CS61A](https://github.com/virtualguard101/space-calculator)：基于Python实现的简易立体几何计算器
-
-    - [3BodySimulator | Build a C++ Project](https://github.com/virtualguard101/3BodySimulator)：使用 C++ & Python 实现的三体运动可视化模拟
 
 
 ![](https://butterblock233.github.io/posts/images/Hello.gif)
