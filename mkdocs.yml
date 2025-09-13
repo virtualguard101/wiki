@@ -250,6 +250,7 @@ nav:
         - vcpkg: "notes/tools/build-tools/vcpkg.md"
         - scons: "notes/tools/build-tools/scons.md"
         - xmake: "notes/tools/build-tools/xmake.md"
+      - Jupyter Notebook: "notes/tools/jupyter.md"
     # - Job & Schedule:
     #   - 部分JD: "notes/Job/jd.md"
     - 编程语言:
@@ -305,6 +306,9 @@ nav:
       # - note/software-engineering/
     # [ ] - 操作系统:
       # - note/os/
+    - 机器学习:
+      - 监督学习与非监督学习: "notes/ml/super-unsuper-learning.md"
+      # - notes/ml/
     - Web开发:
       - 入门基础:
         - HTML要点: "notes/web-dev/base/html.md"

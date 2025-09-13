@@ -2,7 +2,7 @@
 icon: material/tools
 ---
 
-# Engineering/Job/Misc Resources Achived
+# 工程/求职/杂项资源
 
 !!! note
     计算机工程类资源汇总归档，收录实用项目构建、项目标准化、工程化工具使用等计算机工程化相关资料或书籍；同时记录一些实用性网站以及有关求职方面的资源。
