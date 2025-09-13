@@ -19,3 +19,39 @@
 .md-typeset .emojione, .md-typeset .gemoji, .md-typeset .twemoji {
     vertical-align: text-bottom !important;
 }
+
+/* 移除目录中的数字索引 */
+.md-nav__item .md-nav__link:before,
+.md-nav__item .md-nav__link::before,
+.md-nav__item .md-nav__link::after,
+.md-nav__item .md-nav__link:after {
+    display: none !important;
+}
+
+/* 移除侧边栏导航中的数字索引 */
+.md-nav .md-nav__item .md-nav__link:before,
+.md-nav .md-nav__item .md-nav__link::before {
+    content: none !important;
+}
+
+/* 移除页面内目录的数字索引 */
+.md-typeset .toc .toc-item:before,
+.md-typeset .toc .toc-item::before {
+    content: none !important;
+}
+
+/* 移除标题前的数字索引 */
+.md-typeset h1:before,
+.md-typeset h1::before,
+.md-typeset h2:before,
+.md-typeset h2::before,
+.md-typeset h3:before,
+.md-typeset h3::before,
+.md-typeset h4:before,
+.md-typeset h4::before,
+.md-typeset h5:before,
+.md-typeset h5::before,
+.md-typeset h6:before,
+.md-typeset h6::before {
+    content: none !important;
+}

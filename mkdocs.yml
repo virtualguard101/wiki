@@ -196,6 +196,10 @@ markdown_extensions:
       # 生成可读的 unicode slug
       # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#+toc.slugify
       slugify: !!python/object/apply:pymdownx.slugs.slugify {}
+      # 禁用自动编号
+      title: ""
+      baselevel: 1
+      anchorlink: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.emoji:
