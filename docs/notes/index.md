@@ -35,7 +35,6 @@ comments: true
 <!-- recent_notes_start -->
 <ul>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/shell/">Shell Scripting</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/jupyter/">Jupyter Notebook</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/super-unsuper-learning/">监督学习与非监督学习</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/resources/engineering/">工程/求职/杂项资源</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="Misc/resources/academy/">学术资源</a><span style="font-size:0.8em;">2025-09-12</span></div></li>
@@ -44,6 +43,7 @@ comments: true
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/">Java 入门要点</a><span style="font-size:0.8em;">2025-09-12</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/deque/">双端队列</a><span style="font-size:0.8em;">2025-09-10</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/">笔记说明 & 简要导入</a><span style="font-size:0.8em;">2025-09-09</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/double_linked/">双向链表</a><span style="font-size:0.8em;">2025-09-07</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 

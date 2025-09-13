@@ -115,7 +115,9 @@ plugins:
       enable_creation_date: true
   - mkdocstrings
   - drawio
-  - mkdocs-jupyter
+  - mkdocs-jupyter:
+      theme: dark
+      execute: true
   # - mkdocs-note:
   #   - notes_root_path: "docs/notes"
   #   - notes_template: "docs/templates/note.md"
@@ -250,7 +252,7 @@ nav:
         - vcpkg: "notes/tools/build-tools/vcpkg.md"
         - scons: "notes/tools/build-tools/scons.md"
         - xmake: "notes/tools/build-tools/xmake.md"
-      - Jupyter Notebook: "notes/tools/jupyter.md"
+      - Jupyter Notebook: "notes/tools/jupyter.ipynb"
     # - Job & Schedule:
     #   - 部分JD: "notes/Job/jd.md"
     - 编程语言:
