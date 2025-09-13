@@ -5,6 +5,7 @@ import subprocess
 
 
 def main():
+    # [ ] Write a script to manage the posts in general
     pass
 
 

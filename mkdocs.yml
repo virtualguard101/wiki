@@ -80,14 +80,14 @@ plugins:
       post_excerpt: required
       archive_date_format: MMMM yyyy
       archive_url_date_format: yyyy/MM
-  # - rss:
-  #     match_path: blog/posts/.*
-  #     date_from_meta:
-  #       as_creation: date
-  #     categories:
-  #       - categories
-  #       - tag
-  #     comments_path: "#__comments"
+  - rss:
+      match_path: blog/posts/.*
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tag
+      comments_path: "#__comments"
   # - social:
   #     cards_layout: default/only/image
   #     cards_layout_options:
@@ -118,7 +118,7 @@ plugins:
   - mkdocs-jupyter:
       theme: dark
       execute: true
-      excute_ignore:
+      execute_ignore:
         - "notes/draft/*.ipynb"
         - "notes/draft/*.py"
         - "notes/trash/*.ipynb"
