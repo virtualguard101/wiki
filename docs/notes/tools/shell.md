@@ -3,7 +3,7 @@
 >[The Shell Scripting Tutorial](https://www.shellscript.sh/)
 
 !!! note
-    从定义角度来看，`shell`其实应该算是一种**解释型编程语言**，之所以将其放在`tools`而不是`programming language`则是因 shell 在实际应用上作为辅助工具的使用几乎占据了其所有的应用场景；介于其糟糕的接口以及极差的代码复用性，网络上的部分观点甚至都不被认为 shell 是一个真正意义上的编程语言。对于 shell 与普通编程语言的对比，可参考[Shell scripting vs programming language | stackoverflow](https://stackoverflow.com/questions/4955686/shell-scripting-vs-programming-language)
+    从定义角度来看，`shell`其实应该算是一种**解释型编程语言**，之所以将其放在`tools`而不是`programming language`则是因 shell 在实际应用上作为辅助工具的使用几乎占据了其所有的应用场景；介于其糟糕的接口以及极差的代码复用性，网络上的部分观点甚至都不认为 shell 是一个真正意义上的编程语言。对于 shell 与普通编程语言的对比，可参考[Shell scripting vs programming language | stackoverflow](https://stackoverflow.com/questions/4955686/shell-scripting-vs-programming-language)
 
 ## shebang
 
