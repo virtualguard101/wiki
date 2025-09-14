@@ -34,6 +34,7 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func/">成本函数概述</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/model-repr/">模型表示法</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/regression/">回归模型概述</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/jupyter/">Jupyter Notebook</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
@@ -43,7 +44,6 @@ comments: true
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/git/">Git</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/shell/">Shell Scripting</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/re/">正则表达式</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
