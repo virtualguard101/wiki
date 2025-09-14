@@ -34,16 +34,16 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/regression/">回归模型概述</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/c++/C++ Fundamental/11-smart_pointer-RAII/">RAII 和智能指针</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/linux/tmux/">tmux</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/iter_and_recu/">迭代与递归</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/git/">Git</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/shell/">Shell Scripting</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/re/">正则表达式</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/jupyter/">Jupyter Notebook</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/regression/">回归模型</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/re/">正则表达式</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/shell/">Shell Scripting</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/super-unsuper-learning/">监督学习与非监督学习</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/resources/engineering/">工程/求职/杂项资源</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/resources/academy/">学术资源</a><span style="font-size:0.8em;">2025-09-12</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/class-object/">类与对象</a><span style="font-size:0.8em;">2025-09-12</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/cs61b/">UCB CS61B(Spring 2021) 学习要点</a><span style="font-size:0.8em;">2025-09-12</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/">Java 入门要点</a><span style="font-size:0.8em;">2025-09-12</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 

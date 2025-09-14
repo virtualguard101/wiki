@@ -318,7 +318,7 @@ nav:
       # - note/os/
     - 机器学习:
       - 监督学习与非监督学习: "notes/ml/super-unsuper-learning.md"
-      - 回归模型: "notes/ml/regression.md"
+      - 回归模型概述: "notes/ml/regression.md"
       # - notes/ml/
     - Web开发:
       - 入门基础:
