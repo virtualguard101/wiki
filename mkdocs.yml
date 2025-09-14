@@ -117,12 +117,10 @@ plugins:
   - drawio
   - mkdocs-jupyter:
       theme: dark
-      execute: true
-      execute_ignore:
-        - "notes/draft/*.ipynb"
-        - "notes/draft/*.py"
-        - "notes/trash/*.ipynb"
-        - "notes/trash/*.py"
+      execute: false
+      allow_errors: true
+      include_requirejs: true
+      custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
   # - mkdocs-note:
   #   - notes_root_path: "docs/notes"
   #   - notes_template: "docs/templates/note.md"
@@ -144,7 +142,8 @@ extra_css:
 
 extra_javascript:
   - assets/javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  # - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
   - assets/javascripts/sakana-widget.js
   - assets/javascripts/home.js
   - assets/javascripts/links.js
@@ -319,6 +318,7 @@ nav:
     - 机器学习:
       - 监督学习与非监督学习: "notes/ml/super-unsuper-learning.md"
       - 回归模型概述: "notes/ml/regression.md"
+      - 模型表示法: "notes/ml/model-repr.ipynb"
       # - notes/ml/
     - Web开发:
       - 入门基础:

@@ -34,7 +34,9 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/model-repr/">模型表示法</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/regression/">回归模型概述</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/jupyter/">Jupyter Notebook</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/c++/C++ Fundamental/11-smart_pointer-RAII/">RAII 和智能指针</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/linux/tmux/">tmux</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/iter_and_recu/">迭代与递归</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
@@ -42,8 +44,6 @@ comments: true
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/git/">Git</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/shell/">Shell Scripting</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/re/">正则表达式</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/jupyter/">Jupyter Notebook</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/super-unsuper-learning/">监督学习与非监督学习</a><span style="font-size:0.8em;">2025-09-13</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
