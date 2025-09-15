@@ -178,14 +178,20 @@ public class DogLauncher {
 ### 成员访问规则
 
 - **静态成员**：
-  - 可以通过类名访问：`Dog.makeNoise()`
-  - 也可以通过实例访问（不推荐）：`dog.makeNoise()`
-  - ==无法访问实例成员==（技术限制）
+
+    - 可以通过类名访问：`Dog.makeNoise()`
+
+    - 也可以通过实例访问（不推荐）：`dog.makeNoise()`
+
+    - ==无法访问实例成员==（技术限制）
 
 - **实例成员**：
-  - 必须通过实例访问：`dog.reply("test")`
-  - 不能通过类名访问：`Dog.reply()` ❌
-  - 可以访问静态成员：`Dog.makeNoise()`
+
+    - 必须通过实例访问：`dog.reply("test")`
+
+    - 不能通过类名访问：`Dog.reply()` ❌
+
+    - 可以访问静态成员：`Dog.makeNoise()`
 
 ## 通过辅助方法控制程序复杂度
 
