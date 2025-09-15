@@ -322,6 +322,7 @@ nav:
         - 模型表示法: "notes/ml/model-repr.ipynb"
         - 成本函数概述: "notes/ml/cost-func.md"
         - 成本函数可视化: "notes/ml/cost-func-visual.ipynb"
+        - 梯度下降: "notes/ml/gradient.md"
       # - notes/ml/
     - Web开发:
       - 入门基础:
