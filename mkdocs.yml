@@ -118,7 +118,7 @@ plugins:
   - mkdocs-jupyter:
       theme: dark
       execute: false
-      allow_errors: true
+      allow_errors: false
       include_requirejs: true
       custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
   # - mkdocs-note:
@@ -316,11 +316,12 @@ nav:
     # [ ] - 操作系统:
       # - note/os/
     - 机器学习:
-      - 快速入门:
+      - "入门（Coursera: Machine Learning）":
         - 监督学习与非监督学习: "notes/ml/super-unsuper-learning.md"
         - 回归模型概述: "notes/ml/regression.md"
         - 模型表示法: "notes/ml/model-repr.ipynb"
         - 成本函数概述: "notes/ml/cost-func.md"
+        - 成本函数可视化: "notes/ml/cost-func-visual.ipynb"
       # - notes/ml/
     - Web开发:
       - 入门基础:

@@ -34,16 +34,16 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func/">成本函数概述</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/model-repr/">模型表示法</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/regression/">回归模型概述</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/jupyter/">Jupyter Notebook</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/c++/C++ Fundamental/11-smart_pointer-RAII/">RAII 和智能指针</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/linux/tmux/">tmux</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/anal/iter_and_recu/">迭代与递归</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/git/">Git</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/shell/">Shell Scripting</a><span style="font-size:0.8em;">2025-09-14</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func-visual/">成本函数可视化</a><span style="font-size:0.8em;">2025-09-15 18:27:39</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func/">成本函数概述</a><span style="font-size:0.8em;">2025-09-14 22:40:00</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/regression/">回归模型概述</a><span style="font-size:0.8em;">2025-09-14 20:22:34</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/jupyter/">Jupyter Notebook</a><span style="font-size:0.8em;">2025-09-14 20:22:34</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/model-repr/">模型表示法</a><span style="font-size:0.8em;">2025-09-14 20:22:34</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/re/">正则表达式</a><span style="font-size:0.8em;">2025-09-13 21:25:19</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/resources/engineering/">工程/求职/杂项资源</a><span style="font-size:0.8em;">2025-09-13 21:25:19</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/resources/academy/">学术资源</a><span style="font-size:0.8em;">2025-09-13 21:25:19</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/scientific-internet-access/proxy/">透明代理</a><span style="font-size:0.8em;">2025-09-13 21:25:19</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/super-unsuper-learning/">监督学习与非监督学习</a><span style="font-size:0.8em;">2025-09-13 16:42:35</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 

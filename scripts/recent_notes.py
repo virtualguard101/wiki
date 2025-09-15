@@ -1,4 +1,5 @@
 import os
+import subprocess
 import logging
 import colorlog
 import json
@@ -11,7 +12,10 @@ INDEX_FILE = Path(__file__).parent.parent / 'docs' / 'notes' /'index.md'
 START_MARKER = '<!-- recent_notes_start -->'
 END_MARKER = '<!-- recent_notes_end -->'
 MAX_NOTES = 11
-DATE_FORMAT = '%Y-%m-%d'
+# Git日期格式：Sun Sep 14 22:40:00 2025 +0800
+GIT_DATE_FORMAT = '%a %b %d %H:%M:%S %Y %z'
+# 输出日期格式：2025-09-15 08:30:12 +0800
+OUTPUT_DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
 
 # Initialize color log
 handler = colorlog.StreamHandler()
@@ -31,6 +35,47 @@ logger.setLevel(logging.INFO)
 logger.addHandler(handler)
 
 
+def get_commit_date(file_path: Path) -> datetime:
+    """获取最新的提交日期
+
+    Args:
+        file_path (Path): 笔记文件路径
+
+    Returns:
+        commit_date (datetime): 提交日期
+    """
+    try:
+        result = subprocess.run(
+            ["git", "log", "-1", "--format=%ad", file_path],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+
+        commit_date_str = result.stdout.strip()
+        
+        # 检查是否为空字符串
+        if not commit_date_str:
+            logger.warning(f"No commit history for {file_path}, use modified date instead")
+            mod_time = file_path.stat().st_mtime
+            mod_date = datetime.fromtimestamp(mod_time).strftime(OUTPUT_DATE_FORMAT)
+            return mod_date
+        
+        commit_date = datetime.strptime(commit_date_str, GIT_DATE_FORMAT)
+        return commit_date.strftime(OUTPUT_DATE_FORMAT)
+
+    except subprocess.CalledProcessError as e:
+        logger.warning(f"Failed to get commit date for {file_path}: {e}, use modified date instead")
+        mod_time = file_path.stat().st_mtime
+        mod_date = datetime.fromtimestamp(mod_time).strftime(OUTPUT_DATE_FORMAT)
+        return mod_date
+    except ValueError as e:
+        logger.warning(f"Failed to parse commit date for {file_path}: {e}, use modified date instead")
+        mod_time = file_path.stat().st_mtime
+        mod_date = datetime.fromtimestamp(mod_time).strftime(OUTPUT_DATE_FORMAT)
+        return mod_date
+
+
 def get_title_relurl_date(file: Path) -> tuple[str, str, str]:
     """ 提取标题、相对路径（去掉 .md 或 .ipynb 后缀）、修改日期 
 
@@ -40,7 +85,7 @@ def get_title_relurl_date(file: Path) -> tuple[str, str, str]:
     Returns:
         title (str): 标题
         relurl (str): 相对路径
-        mod_date (str): 修改日期
+        commit_date (str): 提交日期
     """
     relpath = file.relative_to(INDEX_FILE.parent)
     relurl = relpath.with_suffix('').as_posix() + '/'  # MkDocs URL 格式
@@ -83,9 +128,10 @@ def get_title_relurl_date(file: Path) -> tuple[str, str, str]:
                     title = line.lstrip('# ').strip()
                     break
     title = title or file.stem
-    mod_time = file.stat().st_mtime
-    mod_date = datetime.fromtimestamp(mod_time).strftime(DATE_FORMAT)
-    return title, relurl, mod_date
+
+    commit_date = get_commit_date(file)
+
+    return title, relurl, commit_date
 
 def main():
     """主调函数
@@ -95,8 +141,8 @@ def main():
     if not notes:
         print(f"未在 {NOTES_DIR} 找到任何 Markdown 或 Jupyter Notebook 文件。")
         return
-    # 按修改时间降序
-    notes.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    # 按提交时间降序
+    notes.sort(key=lambda p: get_commit_date(p), reverse=True)
     recent = notes[:MAX_NOTES]
 
     # 生成 HTML 列表，标题和日期左右对齐，日期字体缩小
