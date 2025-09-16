@@ -129,7 +129,6 @@ plugins:
 
   # - redirects:
   #     redirect_maps:
-  #       "notes/dsa/cs61b/java-intro.md": "notes/language/java/intro.md"
 
 extra_css:
   - assets/webfonts/Cascadia Mono/font.css
@@ -282,14 +281,15 @@ nav:
         - 快速入门: "notes/language/javascript/js.md"
         - 回调函数简单应用: "notes/language/javascript/callback.md"
       - Java:
-        - notes/language/java/index.md
+        - 入门要点: "notes/language/java/intro.md"
         - 类与对象: "notes/language/java/class-object.md"
+      - Rust:
+        - 快速入门: "notes/language/rust/intro.md"
     - 数学:
       - 离散数学:
         - 集合 & 数学符号与命题逻辑: "notes/math/discrete/intro.md"
         - 证明: "notes/math/discrete/proof.md"
     - 数据结构与算法:
-      - notes/dsa/index.md
       - 复杂度分析:
         - 迭代与递归: "notes/dsa/anal/iter_and_recu.md"
         - 时间复杂度: "notes/dsa/anal/time.md"
@@ -308,11 +308,7 @@ nav:
         # - 图:
         #   - : "notes/dsa/ds/graph"
       # - 算法:
-      - UCB CS61B:
-        - notes/dsa/cs61b/index.md
-        # - : notes/dsa/cs61b/
-    # - 软件工程:
-      # - note/software-engineering/
+        #  -  : "notes/dsa/algo/"
     # [ ] - 操作系统:
       # - note/os/
     - 机器学习:
@@ -345,8 +341,5 @@ nav:
   - Credits: credits.md
 
 not_in_nav: |
-  templates/
-  draft/
   projects/log/
   notes/Job/
-  notes/trash/
