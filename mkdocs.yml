@@ -284,7 +284,7 @@ nav:
         - 入门要点: "notes/language/java/intro.md"
         - 类与对象: "notes/language/java/class-object.md"
       - Rust:
-        - 快速入门: "notes/language/rust/intro.md"
+        - 入门要点: "notes/language/rust/intro.md"
     - 数学:
       - 离散数学:
         - 集合 & 数学符号与命题逻辑: "notes/math/discrete/intro.md"

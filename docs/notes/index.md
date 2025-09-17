@@ -34,7 +34,8 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/rust/intro/">Rust 入门要点</a><span style="font-size:0.8em;">2025-09-17 00:56:19</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/intro/">Java 入门要点</a><span style="font-size:0.8em;">2025-09-17 01:13:41</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/rust/intro/">Rust 入门要点</a><span style="font-size:0.8em;">2025-09-17 01:13:41</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/gradient/">梯度下降</a><span style="font-size:0.8em;">2025-09-16 14:21:18</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/class-object/">类与对象</a><span style="font-size:0.8em;">2025-09-15 22:22:30</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func-visual/">成本函数可视化</a><span style="font-size:0.8em;">2025-09-15 22:12:03</span></div></li>
@@ -43,7 +44,6 @@ comments: true
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/jupyter/">Jupyter Notebook</a><span style="font-size:0.8em;">2025-09-14 20:22:34</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/model-repr/">模型表示法</a><span style="font-size:0.8em;">2025-09-14 20:22:34</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/re/">正则表达式</a><span style="font-size:0.8em;">2025-09-13 21:25:19</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/resources/engineering/">工程/求职/杂项资源</a><span style="font-size:0.8em;">2025-09-13 21:25:19</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
