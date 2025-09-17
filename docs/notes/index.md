@@ -34,8 +34,8 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/rust/intro/">Rust 入门要点</a><span style="font-size:0.8em;">2025-09-17 21:09:20</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/intro/">Java 入门要点</a><span style="font-size:0.8em;">2025-09-17 01:13:41</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/rust/intro/">Rust 入门要点</a><span style="font-size:0.8em;">2025-09-17 01:13:41</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/gradient/">梯度下降</a><span style="font-size:0.8em;">2025-09-16 14:21:18</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/class-object/">类与对象</a><span style="font-size:0.8em;">2025-09-15 22:22:30</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func-visual/">成本函数可视化</a><span style="font-size:0.8em;">2025-09-15 22:12:03</span></div></li>

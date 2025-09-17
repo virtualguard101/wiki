@@ -1,48 +1,57 @@
 import os
 import subprocess
 import logging
-import colorlog
 import json
+import hashlib
 from pathlib import Path
 from datetime import datetime
+from mkdocs.config.defaults import MkDocsConfig
 
 # Configuration
-NOTES_DIR = Path(__file__).parent.parent / 'docs' / 'notes'
-INDEX_FILE = Path(__file__).parent.parent / 'docs' / 'notes' /'index.md'
+NOTES_DIR = Path(__file__).parent.parent.parent / 'docs' / 'notes'
+INDEX_FILE = Path(__file__).parent.parent.parent / 'docs' / 'notes' / 'index.md'
 START_MARKER = '<!-- recent_notes_start -->'
 END_MARKER = '<!-- recent_notes_end -->'
 MAX_NOTES = 11
 # Git日期格式：Sun Sep 14 22:40:00 2025 +0800
 GIT_DATE_FORMAT = '%a %b %d %H:%M:%S %Y %z'
-# 输出日期格式：2025-09-15 08:30:12 +0800
+# 输出日期格式：2025-09-15 08:30:12
 OUTPUT_DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
 
-# Initialize color log
-handler = colorlog.StreamHandler()
-handler.setFormatter(colorlog.ColoredFormatter(
-    '%(log_color)s%(asctime)s - %(levelname)s - %(message)s',
-    log_colors={
-        'DEBUG':    'cyan',
-        'INFO':     'green',
-        'WARNING':  'yellow',
-        'ERROR':    'red',
-        'CRITICAL': 'bold_red',
-    }
-))
+log = logging.getLogger('mkdocs.plugins')
 
-logger = colorlog.getLogger(__name__)
-logger.setLevel(logging.INFO)
-logger.addHandler(handler)
+# 全局缓存变量
+_last_update_hash = None
+_last_notes_hash = None
 
 
-def get_commit_date(file_path: Path) -> datetime:
+def get_notes_hash(notes):
+    """计算笔记列表的哈希值，用于检测变化
+    
+    Args:
+        notes (list): 笔记列表
+
+    Returns:
+        hash (str): 笔记列表的哈希值
+    """
+    notes_info = []
+    for note in notes:
+        try:
+            stat = note.stat()
+            notes_info.append(f"{note.name}:{stat.st_mtime}:{stat.st_size}")
+        except OSError:
+            notes_info.append(f"{note.name}:0:0")
+    return hashlib.md5('|'.join(notes_info).encode()).hexdigest()
+
+
+def get_commit_date(file_path: Path) -> str:
     """获取最新的提交日期
 
     Args:
         file_path (Path): 笔记文件路径
 
     Returns:
-        commit_date (datetime): 提交日期
+        commit_date (str): 提交日期字符串
     """
     try:
         result = subprocess.run(
@@ -56,7 +65,7 @@ def get_commit_date(file_path: Path) -> datetime:
         
         # 检查是否为空字符串
         if not commit_date_str:
-            logger.warning(f"No commit history for {file_path}, use modified date instead")
+            log.warning(f"No commit history for {file_path}, use modified date instead")
             mod_time = file_path.stat().st_mtime
             mod_date = datetime.fromtimestamp(mod_time).strftime(OUTPUT_DATE_FORMAT)
             return mod_date
@@ -65,12 +74,12 @@ def get_commit_date(file_path: Path) -> datetime:
         return commit_date.strftime(OUTPUT_DATE_FORMAT)
 
     except subprocess.CalledProcessError as e:
-        logger.warning(f"Failed to get commit date for {file_path}: {e}, use modified date instead")
+        log.warning(f"Failed to get commit date for {file_path}: {e}, use modified date instead")
         mod_time = file_path.stat().st_mtime
         mod_date = datetime.fromtimestamp(mod_time).strftime(OUTPUT_DATE_FORMAT)
         return mod_date
     except ValueError as e:
-        logger.warning(f"Failed to parse commit date for {file_path}: {e}, use modified date instead")
+        log.warning(f"Failed to parse commit date for {file_path}: {e}, use modified date instead")
         mod_time = file_path.stat().st_mtime
         mod_date = datetime.fromtimestamp(mod_time).strftime(OUTPUT_DATE_FORMAT)
         return mod_date
@@ -118,7 +127,7 @@ def get_title_relurl_date(file: Path) -> tuple[str, str, str]:
                     if title:
                         break
         except Exception as e:
-            logger.warning(f"Failed to extract title from {file}: {e}")
+            log.warning(f"Failed to extract title from {file}: {e}")
             title = None
     else:
         # 从Markdown文件中提取一级标题
@@ -133,15 +142,32 @@ def get_title_relurl_date(file: Path) -> tuple[str, str, str]:
 
     return title, relurl, commit_date
 
-def main():
-    """主调函数
+
+def update_recent_notes():
+    """更新最近笔记列表
     """
-    logger.info("Refreshing recent notes at index page...")
+    global _last_update_hash, _last_notes_hash
+    
+    # 检查目录是否存在
+    if not NOTES_DIR.exists():
+        log.warning(f"Notes directory {NOTES_DIR} does not exist")
+        return
+    
     notes = list(NOTES_DIR.rglob('*.md')) + list(NOTES_DIR.rglob('*.ipynb'))
     if not notes:
-        print(f"未在 {NOTES_DIR} 找到任何 Markdown 或 Jupyter Notebook 文件。")
+        log.warning(f"未在 {NOTES_DIR} 找到任何 Markdown 或 Jupyter Notebook 文件。")
         return
-    # 按提交时间降序
+    
+    # 计算当前笔记列表的哈希值
+    current_notes_hash = get_notes_hash(notes)
+    
+    # 如果笔记没有变化，跳过更新
+    if _last_notes_hash == current_notes_hash:
+        return
+    
+    log.info("Refreshing recent notes at index page...")
+    
+    # 按提交时间降序排序
     notes.sort(key=lambda p: get_commit_date(p), reverse=True)
     recent = notes[:MAX_NOTES]
 
@@ -159,18 +185,38 @@ def main():
         )
     new_section = '<ul>\n' + '\n'.join(items) + '\n</ul>'
 
+    # 读取并更新索引文件
+    if not INDEX_FILE.exists():
+        log.warning(f"Index file {INDEX_FILE} does not exist")
+        return
+        
     content = INDEX_FILE.read_text(encoding='utf-8')
     before, sep, rest = content.partition(START_MARKER)
     mid, sep2, after = rest.partition(END_MARKER)
     if not sep or not sep2:
-        print(f"请在 {INDEX_FILE} 中添加标记 {START_MARKER} 和 {END_MARKER}。")
+        log.warning(f"Please add markers {START_MARKER} and {END_MARKER} in {INDEX_FILE}.")
         return
+    
     updated = before + START_MARKER + '\n' + new_section + '\n' + END_MARKER + after
+    
+    # 计算更新内容的哈希值
+    update_hash = hashlib.md5(updated.encode()).hexdigest()
+    
+    # 如果内容没有变化，跳过写入
+    if _last_update_hash == update_hash:
+        _last_notes_hash = current_notes_hash
+        return
+    
     INDEX_FILE.write_text(updated, encoding='utf-8')
-    print(f"已更新 {INDEX_FILE}，插入了 {len(recent) - 1} 条笔记链接。")
-    logger.info("Refresh completed successfully!")
+    log.info(f"Updated {INDEX_FILE}, inserted {len(recent) - 1} note links.")
+    
+    # 更新缓存
+    _last_update_hash = update_hash
+    _last_notes_hash = current_notes_hash
 
 
-
-if __name__ == '__main__':
-    main()
+def on_pre_build(config):
+    """MkDocs 构建前钩子 - 在构建前更新最近笔记
+    """
+    update_recent_notes()
+    return config

@@ -26,7 +26,7 @@ logger.setLevel(logging.DEBUG)
 logger.addHandler(handler)
 
 # Configuration file path
-CONFIG_PATH = Path(__file__).parent / 'build_config.yaml'
+CONFIG_PATH = Path(__file__).parent / 'deploy_config.yml'
 
 def load_config():
     """Load configuration file"""
@@ -40,21 +40,21 @@ def load_config():
         logger.error(f"Invalid config format: {e}")
         return None
 
-def run_hooks(hooks, hook_type):
-    """Execute hooks of specified type"""
-    for hook in hooks.get(hook_type, []):
-        hook_path = Path(hook)
-        if not hook_path.exists():
-            logger.warning(f"Hook not found: {hook_path}")
-            continue
+# def run_hooks(hooks, hook_type):
+#     """Execute hooks of specified type"""
+#     for hook in hooks.get(hook_type, []):
+#         hook_path = Path(hook)
+#         if not hook_path.exists():
+#             logger.warning(f"Hook not found: {hook_path}")
+#             continue
         
-        try:
-            logger.info(f"Running hook: {hook_path}")
-            result = subprocess.run([sys.executable, str(hook_path)], check=True)
-            if result.returncode != 0:
-                logger.error(f"Hook failed with code {result.returncode}: {hook_path}")
-        except Exception as e:
-            logger.error(f"Error running hook {hook_path}: {e}")
+#         try:
+#             logger.info(f"Running hook: {hook_path}")
+#             result = subprocess.run([sys.executable, str(hook_path)], check=True)
+#             if result.returncode != 0:
+#                 logger.error(f"Hook failed with code {result.returncode}: {hook_path}")
+#         except Exception as e:
+#             logger.error(f"Error running hook {hook_path}: {e}")
 
 def main():
     try:
@@ -62,8 +62,8 @@ def main():
         if not config:
             return 1
         
-        # Execute pre-commit hooks with user's input
-        run_hooks(config['hooks'], 'pre_commit')
+        ## Execute pre-commit hooks with user's input
+        # run_hooks(config['hooks'], 'pre_commit')
 
 
         while True:
