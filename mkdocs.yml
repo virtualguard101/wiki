@@ -304,8 +304,8 @@ nav:
           - 栈: "notes/dsa/ds/linear/stack.md"
           - 队列: "notes/dsa/ds/linear/queue.md"
           - 双端队列: "notes/dsa/ds/linear/deque.md"
-        # - 树:
-        #   - 二叉树: "notes/dsa/ds/tree/"
+        - 树:
+          - 二叉树: "notes/dsa/ds/tree/binary.md"
         # - 图:
         #   - : "notes/dsa/ds/graph"
       # - 算法:
