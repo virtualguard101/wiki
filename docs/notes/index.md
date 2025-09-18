@@ -22,18 +22,18 @@ comments: true
 === "English"
     **The only things researchers should abied by are debates and dialectics. Only by questioning everything at all times can one avoid falling into prejudice.**  
 
-=== "中文"
+=== "简体中文"
     **学者应当遵循之物， 唯有知论与证辩。只有时刻保持对一切的质疑，才能避免陷入偏见。**
 
 
 ## Recent Notes 
 
-=== "English"
-
-=== "中文"
+=== "简体中文"
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/linear/det/">行列式</a><span style="font-size:0.8em;">2025-09-18 17:53:47</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-09-18 17:53:47</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/tree/binary/">二叉树</a><span style="font-size:0.8em;">2025-09-18 12:47:03</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/rust/intro/">Rust 入门要点</a><span style="font-size:0.8em;">2025-09-17 21:09:20</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/intro/">Java 入门要点</a><span style="font-size:0.8em;">2025-09-17 01:13:41</span></div></li>
@@ -42,8 +42,6 @@ comments: true
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func-visual/">成本函数可视化</a><span style="font-size:0.8em;">2025-09-15 22:12:03</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func/">成本函数概述</a><span style="font-size:0.8em;">2025-09-15 18:43:35</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/regression/">回归模型概述</a><span style="font-size:0.8em;">2025-09-14 20:22:34</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/jupyter/">Jupyter Notebook</a><span style="font-size:0.8em;">2025-09-14 20:22:34</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/model-repr/">模型表示法</a><span style="font-size:0.8em;">2025-09-14 20:22:34</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
@@ -60,7 +58,7 @@ comments: true
 
     - 📫 Contact information and other sites are available on my [Homepage](https://virtualguard101.com/).
 
-=== "中文"
+=== "简体中文"
 
     - 🔭 福建理工大学本科生，大一智慧交通专业，2025年9月起转入网络空间安全专业，预计 2028 年毕业。
 
@@ -84,7 +82,7 @@ comments: true
 
     Feel free to share your thoughts in the comments, I'd greatly appreciate any valuable insights.
 
-=== "中文"
+=== "简体中文"
 
     众所周知，在学习的过程中理论实践相结合才能高效地吸收所学的知识；计算机领域的知识体系极其庞大，且高度注重实际运用能力，在这样的背景下，合理且契合个人实际情况的学习方式就是高效学习CS的基本条件。这个个人 WIKI 正是在这样的背景下诞生的，它作为一个记录计算机科学学习历程更新、分享见解及展示学习成果的平台，在我的CS自学历程中作为一个举足轻重的角色助力我的学习、思考以及实践。
 

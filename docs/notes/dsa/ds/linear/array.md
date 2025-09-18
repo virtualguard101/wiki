@@ -84,7 +84,7 @@
         nums[index] = num
     ```
 === "C++"
-    ```
+    ```cpp
     /**
     * @brief 将 num 插入 nums 的 index 处
     * @param nums 静态数组
@@ -117,7 +117,7 @@
         nums[index] = num
     ```
 === "C++"
-    ```
+    ```cpp
     /**
     * @brief 将 num 插入 nums 的 index 处
     * @param nums 动态数组

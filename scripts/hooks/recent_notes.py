@@ -155,7 +155,7 @@ def update_recent_notes():
     
     notes = list(NOTES_DIR.rglob('*.md')) + list(NOTES_DIR.rglob('*.ipynb'))
     if not notes:
-        log.warning(f"未在 {NOTES_DIR} 找到任何 Markdown 或 Jupyter Notebook 文件。")
+        log.warning(f"Not found any Markdown or Jupyter Notebook files in {NOTES_DIR}.")
         return
     
     # 计算当前笔记列表的哈希值
