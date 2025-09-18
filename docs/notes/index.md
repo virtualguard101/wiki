@@ -32,8 +32,8 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/linear/det/">行列式</a><span style="font-size:0.8em;">2025-09-18 17:53:47</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-09-18 17:53:47</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/linear/det/">行列式</a><span style="font-size:0.8em;">2025-09-18 23:41:05</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-09-18 23:41:05</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/tree/binary/">二叉树</a><span style="font-size:0.8em;">2025-09-18 12:47:03</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/rust/intro/">Rust 入门要点</a><span style="font-size:0.8em;">2025-09-17 21:09:20</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/intro/">Java 入门要点</a><span style="font-size:0.8em;">2025-09-17 01:13:41</span></div></li>
