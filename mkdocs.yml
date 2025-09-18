@@ -290,6 +290,8 @@ nav:
       - 离散数学:
         - 集合 & 数学符号与命题逻辑: "notes/math/discrete/intro.md"
         - 证明: "notes/math/discrete/proof.md"
+      - 线性代数:
+        - 行列式: "notes/math/linear/det.md"
     - 数据结构与算法:
       - 复杂度分析:
         - 迭代与递归: "notes/dsa/anal/iter_and_recu.md"
