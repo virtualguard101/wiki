@@ -25,7 +25,7 @@ $$
 
 ![三阶行列式展开-对角线法则](../../assets/math.assets/linear/det/3-oroder-det.jpg)
 
-或逐层展开:
+或逐层展开【按行（列）展开的列】:
 
 $$
 \begin{vmatrix}
@@ -67,7 +67,7 @@ a_2x + b_2y = c_2
 \end{cases}
 $$
 
-使用**克拉默法则**，当系数行列式 $D \neq 0$ 时，方程组的解为：
+使用[**克拉默法则**](#克拉默法则)，当系数行列式 $D \neq 0$ 时，方程组的解为：
 
 $$x = \frac{D_x}{D}, \quad y = \frac{D_y}{D}$$
 
@@ -101,17 +101,17 @@ $$x = \frac{D_x}{D}, \quad y = \frac{D_y}{D}$$
 
     $$x = \frac{D_x}{D} = \frac{-10}{-14} = \frac{5}{7}, \quad y = \frac{D_y}{D} = \frac{-26}{-14} = \frac{13}{7}$$
 
-!!! tip "推广"
+<!-- !!! tip "推广"
     当线性方程组为 $n$ 元时，各个元素的解只需将分子的 $n$ 阶行列式的对应列替换为对应行等号右侧的常数即可。
 
     例如，有 $n$ 元线性方程组:
 
     $$
     \begin{cases}
-    a_{11}x_1 + a_{12}x_2 + ... + a_{1n}x_n = b_1 \\
-    a_{21}x_1 + a_{22}x_2 + ... + a_{2n}x_n = b_2 \\
-    \cdots \\
-    a_{n1}x_1 + a_{n2}x_2 + ... + a_{nn}x_n = b_n \\
+    a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\
+    a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\
+    \quad \quad \quad \quad \quad \quad \quad \vdots \\
+    a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \\
     \end{cases}
     $$
 
@@ -127,6 +127,7 @@ $$x = \frac{D_x}{D}, \quad y = \frac{D_y}{D}$$
      - $D_i$ 是将 $D$ 中第 $i$ 列替换为常数项 $\begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{pmatrix}$ 后得到的行列式
 
         即 $D_i = \begin{vmatrix} a_{11} & \cdots & a_{1,i-1} & b_1 & a_{1,i+1} & \cdots & a_{1n} \\ a_{21} & \cdots & a_{2,i-1} & b_2 & a_{2,i+1} & \cdots & a_{2n} \\ \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\ a_{n1} & \cdots & a_{n,i-1} & b_n & a_{n,i+1} & \cdots & a_{nn} \end{vmatrix}$
+-->
 
 ## 排列与逆序数
 
@@ -183,7 +184,7 @@ $$
 从全排列的定义中我们不难得出，$n$ 阶行列式的展开式有 $n!$ 项，其展开如下:
 
 $$
-\sum_{p_1 p_2 \cdots p_n \in S_{n}} (-1)^{t(p_1 p_2 \cdots p_n)}a_{1p1}a_{2p2} \cdots a_{np_{n}}
+\sum_{p_1 p_2 \cdots p_n \in S_{n}} (-1)^{t(p_1 p_2 \cdots p_n)}a_{1p_1}a_{2p_2} \cdots a_{np_{n}}
 $$
 
 ==各项的符号取决于对应行（列）展开的列（行）号排列的**奇偶性**==。
@@ -242,3 +243,162 @@ $$
     - ==**推论**：行列式中如果有两行（列）成比例，则行列式的值为 $0$==
 
         把比例系数提出去，再利用性质2的推论即可证明
+
+- **性质4**：若行列式的某一行（列）的元素都是两数之和，则该行列式等于下列两个行列式之和:
+
+    $$
+    \begin{vmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\ 
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{i1} + a_{i1}^{'} & a_{i2} + a_{i2}^{'} & \cdots & a_{in} + a_{in}^{'} \\ 
+        \vdots & \vdots & \ddots & \vdots \\ 
+        a_{n1} & a_{n2} & \cdots & a_{nn} 
+    \end{vmatrix} =
+    \begin{vmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\ 
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{i1} & a_{i2} & \cdots & a_{in} \\ 
+        \vdots & \vdots & \ddots & \vdots \\ 
+        a_{n1} & a_{n2} & \cdots & a_{nn} 
+    \end{vmatrix} +
+    \begin{vmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\ 
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{i1}^{'} & a_{i2}^{'} & \cdots & a_{in}^{'} \\ 
+        \vdots & \vdots & \ddots & \vdots \\ 
+        a_{n1} & a_{n2} & \cdots & a_{nn} 
+    \end{vmatrix}
+    $$
+
+    !!! tip "推论"
+        ==若 $n$ 阶行列式的每个元素都表示成两数之和，则它可被分解为 $2^n$ 个行列式==。如二阶行列式:
+
+        $$
+        \begin{vmatrix}
+        a + x & b + y \\
+        c + z & d + w
+        \end{vmatrix} =
+        \begin{vmatrix}
+        a & b + y \\
+        c & d + w
+        \end{vmatrix} + 
+        \begin{vmatrix}
+        x & b + y \\
+        z & d + w
+        \end{vmatrix} =
+        \begin{vmatrix}
+        a & b \\
+        c & d
+        \end{vmatrix} +
+        \begin{vmatrix}
+        a & y \\
+        c & w
+        \end{vmatrix} +
+        \begin{vmatrix}
+        x & b \\
+        z & d
+        \end{vmatrix} +
+        \begin{vmatrix}
+        x & b \\
+        z & d
+        \end{vmatrix}
+        $$
+
+- ==**性质5**：把行列式的某一行（列）的各元素乘同一数然后加到另一行（列）对应的元素上去==
+
+    例如将第 $i$ 行乘上 $k$ 加到第 $j$ 行上，记作 $r_i + kr_i$:
+    
+    $$
+    \begin{vmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\ 
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{i1} & a_{i2} & \cdots & a_{in} \\ 
+        \vdots & \vdots & \ddots & \vdots \\ 
+        a_{j1} & a_{j2} & \cdots & a_{jn} \\
+        \vdots & \vdots & \ddots & \vdots \\ 
+        a_{n1} & a_{n2} & \cdots & a_{nn} 
+    \end{vmatrix} \overset{r_i + kr_i}{=}
+    \begin{vmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\ 
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{i1} & a_{i2} & \cdots & a_{in} \\ 
+        \vdots & \vdots & \ddots & \vdots \\ 
+        a_{j1} + ka_{i1} & a_{j2} + ka_{i2} & \cdots & a_{jn} + ka_{in} \\
+        \vdots & \vdots & \ddots & \vdots \\ 
+        a_{n1} & a_{n2} & \cdots & a_{nn} 
+    \end{vmatrix} (i \not ={j})
+    $$
+
+剩下的就是计算了（做题）。性质在计算上的应用还是蛮广泛的（~~考试爱考~~）。
+ 
+<!-- ### 计算 -->
+
+## 克拉默法则
+
+### 使用前提
+
+- 方程个数 = 未知量个数
+
+- 系数行列式 $D \not ={0}$
+
+### 定义
+
+对于 n 元线性方程组：
+
+$$
+\begin{cases}
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\
+\quad \quad \quad \quad \quad \quad \quad \vdots \\
+a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n
+\end{cases}
+$$
+
+设系数行列式为：
+
+$$D = \begin{vmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{vmatrix}$$
+
+将 $D$ 中第 $j$ 列用常数项 $b_1, b_2, \ldots, b_n$ 替换，得到行列式 $D_j$：
+
+$$D_j = \begin{vmatrix}
+a_{11} & \cdots & a_{1,j-1} & b_1 & a_{1,j+1} & \cdots & a_{1n} \\
+a_{21} & \cdots & a_{2,j-1} & b_2 & a_{2,j+1} & \cdots & a_{2n} \\
+\vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & \cdots & a_{n,j-1} & b_n & a_{n,j+1} & \cdots & a_{nn}
+\end{vmatrix}$$
+
+==在满足前提的条件下，则方程组有唯一解==：
+
+$$x_j = \frac{D_j}{D}, \quad j = 1, 2, \ldots, n$$
+
+### 推论
+
+对于齐次线性方程组（未知量个数等于方程个数且方程无常数项）:
+
+$$
+\begin{cases}
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = 0 \\
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = 0 \\
+\quad \quad \quad \quad \quad \quad \quad \vdots \\
+a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = 0 
+\end{cases}
+$$
+
+- ==若其系数行列式 $D \neq 0$，则该方程组**只有零解**（唯一解）==
+
+这是一个充要条件，即：
+
+$$
+\text{若此齐次线性方程组只有零解} \Longleftrightarrow D \neq 0
+$$
+
+- ==若其系数行列式 $D = 0$，则该方程组有**非零解**（无穷多解）==
+
+$$
+\text{若此齐次线性方程组有非零解} \Longleftrightarrow D = 0
+$$
