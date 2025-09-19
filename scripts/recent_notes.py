@@ -1,6 +1,7 @@
 import os
 import subprocess
 import logging
+import colorlog
 import json
 import hashlib
 from pathlib import Path
@@ -8,8 +9,8 @@ from datetime import datetime
 from mkdocs.config.defaults import MkDocsConfig
 
 # Configuration
-NOTES_DIR = Path(__file__).parent.parent.parent / 'docs' / 'notes'
-INDEX_FILE = Path(__file__).parent.parent.parent / 'docs' / 'notes' / 'index.md'
+NOTES_DIR = Path(__file__).parent.parent / 'docs' / 'notes'
+INDEX_FILE = Path(__file__).parent.parent / 'docs' / 'notes' / 'index.md'
 START_MARKER = '<!-- recent_notes_start -->'
 END_MARKER = '<!-- recent_notes_end -->'
 MAX_NOTES = 11
@@ -18,7 +19,22 @@ GIT_DATE_FORMAT = '%a %b %d %H:%M:%S %Y %z'
 # 输出日期格式：2025-09-15 08:30:12
 OUTPUT_DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
 
-log = logging.getLogger('mkdocs.plugins')
+# Initialize color log
+handler = colorlog.StreamHandler()
+handler.setFormatter(colorlog.ColoredFormatter(
+    '%(log_color)s%(asctime)s - %(levelname)s - %(message)s',
+    log_colors={
+        'DEBUG':    'cyan',
+        'INFO':     'green',
+        'WARNING':  'yellow',
+        'ERROR':    'red',
+        'CRITICAL': 'bold_red',
+    }
+))
+
+log = colorlog.getLogger(__name__)
+log.setLevel(logging.DEBUG)
+log.addHandler(handler)
 
 # 全局缓存变量
 _last_update_hash = None
@@ -215,8 +231,5 @@ def update_recent_notes():
     _last_notes_hash = current_notes_hash
 
 
-def on_pre_build(config):
-    """MkDocs 构建前钩子 - 在构建前更新最近笔记
-    """
+if __name__ == "__main__":
     update_recent_notes()
-    return config

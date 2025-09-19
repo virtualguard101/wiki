@@ -5,6 +5,6 @@ git:
   default_branch: "main"
 logging:
   format: "%(log_color)s[%(levelname)s]%(reset)s %(message)s"
-# hooks:
-#   pre_commit: 
-  
+hooks:
+  pre_commit: 
+    - scripts/recent_notes.py

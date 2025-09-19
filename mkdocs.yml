@@ -152,7 +152,7 @@ hooks:
   - scripts/hooks/rss.py
   - scripts/hooks/fancybox.py
   - scripts/hooks/links.py
-  - scripts/hooks/recent_notes.py
+  # - scripts/hooks/recent_notes.py
   # - scripts/hooks/
 
 ## Extensions
