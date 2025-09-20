@@ -155,9 +155,10 @@ $$x = \frac{D_x}{D}, \quad y = \frac{D_y}{D}$$
     另外不止这一种数法，“倒着数”也是可以的——可参考[同济版线性代数课本](https://zh.z-library.sk/book/26867606/56cbdc/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-%E7%AC%AC%E4%B8%83%E7%89%88.html)上的数法，本质上都是一样的。
 
 - 设有排序 $p_1 p_2 \cdots p_n$，则其逆序数记作
-$$
-t(p_1 p_2 \cdots p_n)
-$$
+
+    $$
+    t(p_1 p_2 \cdots p_n)
+    $$
 
     - 逆序数为奇数的排列称为**奇排列**
 
