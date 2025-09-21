@@ -32,16 +32,17 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/os-model/">简易操作系统模型</a><span style="font-size:0.8em;">2025-09-20 19:21:50</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/linear/det/">行列式</a><span style="font-size:0.8em;">2025-09-20 13:04:36</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/tree/binary/">二叉树</a><span style="font-size:0.8em;">2025-09-19 21:35:48</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-09-18 23:41:05</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/rust/intro/">Rust 入门要点</a><span style="font-size:0.8em;">2025-09-17 21:09:20</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/intro/">Java 入门要点</a><span style="font-size:0.8em;">2025-09-17 01:13:41</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/gradient/">梯度下降</a><span style="font-size:0.8em;">2025-09-16 14:21:18</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/class-object/">类与对象</a><span style="font-size:0.8em;">2025-09-15 22:22:30</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func-visual/">成本函数可视化</a><span style="font-size:0.8em;">2025-09-15 22:12:03</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func/">成本函数概述</a><span style="font-size:0.8em;">2025-09-15 18:43:35</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/gradient/">梯度下降</a><span style="font-size:0.8em;">2025-09-21 14:37:46</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/os-model/">简易操作系统模型</a><span style="font-size:0.8em;">2025-09-21 13:41:41</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/linear/det/">行列式</a><span style="font-size:0.8em;">2025-09-20 13:22:28</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/tree/binary/">二叉树</a><span style="font-size:0.8em;">2025-09-19 21:33:01</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-09-18 18:02:31</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/rust/intro/">Rust 入门要点</a><span style="font-size:0.8em;">2025-09-17 22:01:05</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/class-object/">类与对象</a><span style="font-size:0.8em;">2025-09-15 22:20:21</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func-visual/">成本函数可视化</a><span style="font-size:0.8em;">2025-09-15 20:27:47</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func/">成本函数概述</a><span style="font-size:0.8em;">2025-09-14 22:43:15</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/model-repr/">模型表示法</a><span style="font-size:0.8em;">2025-09-14 20:20:50</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/regression/">回归模型概述</a><span style="font-size:0.8em;">2025-09-14 19:24:15</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
