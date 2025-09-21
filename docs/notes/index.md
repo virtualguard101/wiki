@@ -32,7 +32,7 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/gradient/">梯度下降</a><span style="font-size:0.8em;">2025-09-21 14:37:46</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/gradient/">梯度下降</a><span style="font-size:0.8em;">2025-09-21 16:58:31</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/os-model/">简易操作系统模型</a><span style="font-size:0.8em;">2025-09-21 13:41:41</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/linear/det/">行列式</a><span style="font-size:0.8em;">2025-09-20 13:22:28</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/tree/binary/">二叉树</a><span style="font-size:0.8em;">2025-09-19 21:33:01</span></div></li>
