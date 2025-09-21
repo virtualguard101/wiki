@@ -251,6 +251,7 @@ nav:
         - 定时任务: "notes/tools/linux/crontab.md"
         - Shell: "notes/tools/shell.md"
         - 终端复用器: "notes/tools/linux/tmux.md"
+        - Timeshift: "notes/tools/linux/timeshift.md"
       - SSH: "notes/tools/ssh.md"
       - Git: "notes/tools/git.md"
       - Jupyter Notebook: "notes/tools/jupyter.ipynb"
@@ -322,7 +323,7 @@ nav:
         - 成本函数概述: "notes/ml/cost-func.md"
         - 成本函数可视化: "notes/ml/cost-func-visual.ipynb"
         - 梯度下降: "notes/ml/gradient.md"
-      # - notes/ml/
+        - 一元线性回归模型的梯度下降实现: "notes/ml/linear-grad-desent.ipynb"
     - Web开发:
       - 入门基础:
         - HTML要点: "notes/web-dev/base/html.md"
