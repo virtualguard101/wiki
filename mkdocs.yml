@@ -313,7 +313,7 @@ nav:
       # - 算法:
         #  -  : "notes/dsa/algo/"
     - 操作系统:
-      - 操作系统模型: "notes/os/os-model.md"
+      - 简易操作系统模型: "notes/os/os-model.md"
     - 机器学习:
       - "入门（Coursera: Machine Learning）":
         - 监督学习与非监督学习: "notes/ml/super-unsuper-learning.md"

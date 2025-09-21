@@ -7,6 +7,10 @@
 ## 应用视角下的操作系统
 
 <div class="text-center-container" style="text-align: center;">
+    <strong>操作系统 = 对象 + API</strong>
+</div>
+
+<div class="text-center-container" style="text-align: center;">
     <strong>程序 = 状态机</strong>
 </div>
 
@@ -16,7 +20,7 @@
 
 - **初始状态**：`main(argc, argv)`
 
-    即 `main` 函数被调用时的状态，==此时栈帧包含命令行参数(`argc`、`argv`)，PC指向`main`函数的入口
+    即 `main` 函数被调用时的状态，==此时栈帧包含命令行参数(`argc`、`argv`)，PC指向`main`函数的入口==
 
 - **状态迁移**
 
