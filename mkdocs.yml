@@ -324,6 +324,7 @@ nav:
         - 成本函数可视化: "notes/ml/cost-func-visual.ipynb"
         - 梯度下降: "notes/ml/gradient.md"
         - 一元线性回归模型的梯度下降实现: "notes/ml/linear-grad-desent.ipynb"
+        - 多元线性回归模型: "notes/ml/multi-feat.md"
     - Web开发:
       - 入门基础:
         - HTML要点: "notes/web-dev/base/html.md"

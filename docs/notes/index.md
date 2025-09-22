@@ -32,6 +32,7 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/multi-feat/">多元线性回归模型</a><span style="font-size:0.8em;">2025-09-22 15:32:48</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/tree/binary/">二叉树</a><span style="font-size:0.8em;">2025-09-22 10:52:13</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/linear-grad-desent/">一元线性回归模型的梯度下降实现</a><span style="font-size:0.8em;">2025-09-22 00:05:56</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/linux/timeshift/">Timeshift</a><span style="font-size:0.8em;">2025-09-21 22:05:31</span></div></li>
@@ -42,7 +43,6 @@ comments: true
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/rust/intro/">Rust 入门要点</a><span style="font-size:0.8em;">2025-09-17 22:01:05</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/class-object/">类与对象</a><span style="font-size:0.8em;">2025-09-15 22:20:21</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func-visual/">成本函数可视化</a><span style="font-size:0.8em;">2025-09-15 20:27:47</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/cost-func/">成本函数概述</a><span style="font-size:0.8em;">2025-09-14 22:43:15</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
