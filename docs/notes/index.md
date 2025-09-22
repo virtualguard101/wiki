@@ -32,12 +32,12 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/linear-grad-desent/">一元线性回归模型的梯度下降实现</a><span style="font-size:0.8em;">2025-09-21 23:38:10</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/tree/binary/">二叉树</a><span style="font-size:0.8em;">2025-09-22 10:52:13</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/linear-grad-desent/">一元线性回归模型的梯度下降实现</a><span style="font-size:0.8em;">2025-09-22 00:05:56</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/linux/timeshift/">Timeshift</a><span style="font-size:0.8em;">2025-09-21 22:05:31</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/gradient/">梯度下降</a><span style="font-size:0.8em;">2025-09-21 16:58:31</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/os-model/">简易操作系统模型</a><span style="font-size:0.8em;">2025-09-21 13:41:41</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/linear/det/">行列式</a><span style="font-size:0.8em;">2025-09-20 13:22:28</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/tree/binary/">二叉树</a><span style="font-size:0.8em;">2025-09-19 21:33:01</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/linear/array/">顺序表</a><span style="font-size:0.8em;">2025-09-18 18:02:31</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/rust/intro/">Rust 入门要点</a><span style="font-size:0.8em;">2025-09-17 22:01:05</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="language/java/class-object/">类与对象</a><span style="font-size:0.8em;">2025-09-15 22:20:21</span></div></li>
