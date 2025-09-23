@@ -318,6 +318,8 @@ nav:
         - 简易操作系统模型: "notes/os/os-model.md"
       - 虚拟化:
         - 程序与进程: "notes/os/process.md"
+      # - 并发:
+      # - 持久化:
     - 机器学习:
       - "入门（Coursera: Machine Learning）":
         - 监督学习与非监督学习: "notes/ml/super-unsuper-learning.md"

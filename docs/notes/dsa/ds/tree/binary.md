@@ -1,6 +1,8 @@
 # 二叉树
 
 > [二叉树 | Hello算法](https://www.hello-algo.com/chapter_tree/binary_tree/)
+>
+> [Binary Tree Data Structure | GeeksForGeeks](https://www.geeksforgeeks.org/dsa/binary-tree-data-structure/)
 
 ## 定义
 
@@ -32,6 +34,7 @@
         std::vector<int> val;  // 节点值
         BinaryTreeNode *left;  // 左子节点
         BinaryTreeNode *right;  // 右子节点
+
         // 初始化方法
         BinaryTreeNode() : val({}), left(nullptr), right(nullptr) {}
         BinaryTreeNode(std::vector<int> val) : val(val), left(nullptr), right(nullptr) {}
