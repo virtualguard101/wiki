@@ -320,16 +320,18 @@ nav:
         - 程序与进程: "notes/os/process.md"
       # - 并发:
       # - 持久化:
-    - 机器学习:
-      - "入门（Coursera: Machine Learning）":
-        - 监督学习与非监督学习: "notes/ml/super-unsuper-learning.md"
-        - 回归模型概述: "notes/ml/regression.md"
-        - 模型表示法: "notes/ml/model-repr.ipynb"
-        - 成本函数概述: "notes/ml/cost-func.md"
-        - 成本函数可视化: "notes/ml/cost-func-visual.ipynb"
-        - 梯度下降: "notes/ml/gradient.md"
-        - 一元线性回归模型的梯度下降实现: "notes/ml/linear-grad-desent.ipynb"
-        - 多元线性回归模型: "notes/ml/multi-feat.md"
+    - 人工智能:
+      - 机器学习:
+        - "入门 (Coursera: Machine Learning)":
+          - 监督学习与非监督学习: "notes/ml/super-unsuper-learning.md"
+          - 回归模型概述: "notes/ml/regression.md"
+          - 模型表示法: "notes/ml/model-repr.ipynb"
+          - 成本函数概述: "notes/ml/cost-func.md"
+          - 成本函数可视化: "notes/ml/cost-func-visual.ipynb"
+          - 梯度下降: "notes/ml/gradient.md"
+          - 一元线性回归模型的梯度下降实现: "notes/ml/linear-grad-desent.ipynb"
+          - 多元线性回归模型: "notes/ml/multi-feat.md"
+      # - 深度学习:
     - Web开发:
       - 入门基础:
         - HTML要点: "notes/web-dev/base/html.md"

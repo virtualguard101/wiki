@@ -1,11 +1,11 @@
 #include <vector>
 
 struct BinaryTreeNode {
-  std::vector<int> val;  // 节点值
+  std::vector<int> data;  // 节点值
   BinaryTreeNode *left;  // 左子节点
   BinaryTreeNode *right;  // 右子节点
   // 初始化方法
-  BinaryTreeNode() : val({}), left(nullptr), right(nullptr) {}
-  BinaryTreeNode(std::vector<int> val) : val(val), left(nullptr), right(nullptr) {}
-  BinaryTreeNode(std::vector<int> val, BinaryTreeNode *left, BinaryTreeNode *right) : val(val), left(left), right(right) {}
+  BinaryTreeNode() : data({}), left(nullptr), right(nullptr) {}
+  BinaryTreeNode(std::vector<int> data) : data(data), left(nullptr), right(nullptr) {}
+  BinaryTreeNode(std::vector<int> data, BinaryTreeNode *left, BinaryTreeNode *right) : data(data), left(left), right(right) {}
 };

@@ -31,15 +31,74 @@
 === "C++"
     ```cpp
     struct BinaryTreeNode {
-        std::vector<int> val;  // 节点值
+        std::vector<int> data;  // 节点值
         BinaryTreeNode *left;  // 左子节点
         BinaryTreeNode *right;  // 右子节点
-
         // 初始化方法
-        BinaryTreeNode() : val({}), left(nullptr), right(nullptr) {}
-        BinaryTreeNode(std::vector<int> val) : val(val), left(nullptr), right(nullptr) {}
-        BinaryTreeNode(std::vector<int> val, BinaryTreeNode *left, BinaryTreeNode *right) : val(val), left(left), right(right) {}
+        BinaryTreeNode() : data({}), left(nullptr), right(nullptr) {}
+        BinaryTreeNode(std::vector<int> data) : data(data), left(nullptr), right(nullptr) {}
+        BinaryTreeNode(std::vector<int> data, BinaryTreeNode *left, BinaryTreeNode *right) : data(data), left(left), right(right) {}
     };
     ```
 
 ## 常用操作
+
+### 初始化
+
+```mermaid
+graph TB;
+    A((Root)) --> B((Left1))
+    A((Root)) --> C((Right1))
+    B((Left1)) --> D((Left2))
+    B((Left1)) --> E((Right2))
+    C((Right1)) --> F((Right2))
+```
+
+以上面的树为例分为两步，首先初始化各个节点，然后再构建各个节点之间的引用关系:
+
+=== "Python"
+    ```py
+    # 初始化空根节点
+    root = None
+    root = BinaryTreeNode(None)
+
+    # 初始化节点
+    root = BinaryTreeNode(data)
+    level_1_left = BinaryTreeNode(data)
+    level_1_right = BinaryTreeNode(data)
+    left_left = BinaryTreeNode(data)
+    left_right = BinaryTreeNode(data)
+    right_right = BinaryTreeNode(data)
+
+    # 构建节点引用关系
+    root.left = level_1_left
+    root.right = level_1_right
+    level_1_left.left = left_left
+    level_1_left.right = left_right
+    level_1_right.right = right_right
+    ```
+=== "C++"
+    ```cpp
+    int main() {
+        // 初始化空根节点
+        root = nullptr
+        root = new BinaryTreeNode(nullptr)
+
+        // 初始化节点
+        BinaryTreeNode* root = new BinaryTreeNode(data)
+        BinaryTreeNode* level_1_left = new BinaryTreeNode(data)
+        BinaryTreeNode* level_1_right = new BinaryTreeNode(data)
+        BinaryTreeNode* left_left = new BinaryTreeNode(data)
+        BinaryTreeNode* left_right = new BinaryTreeNode(data)
+        BinaryTreeNode* right_right = new BinaryTreeNode(data)
+
+        // 构建节点引用关系
+        root->left = level_1_left
+        root->right = level_1_right
+        level_1_left->left = left_left
+        level_1_left->right = left_right
+        level_1_right->right = right_right
+
+        return 0;
+    }
+    ```

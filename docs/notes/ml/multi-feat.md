@@ -64,3 +64,36 @@ $$
 其中 $\overrightarrow{w}$ 与 $\overrightarrow{x}^{(i)}$ **均为** $n$ 维向量。
 
 ## 矢量化
+
+不使用矢量化需要将参数乘上特征变量逐个相加:
+
+$$
+\begin{align}
+    f_{\overrightarrow{w}, b}(\overrightarrow{x}) & = w_{1}x_{1} + w_{2}x_{2} + \cdots + w_{n}x_{n} + b \\
+    & = \sum_{j=1}^{n} w_{j}x_{j} + b
+\end{align}
+$$
+
+```py
+f = w[0] * x[0] +
+    w[1] * x[1] +
+    ...         + b
+```
+
+或使用 `for` 循环:
+
+```py
+for j in range(n):
+    f = w[j] + x[j]
+f = f + b
+```
+
+使用矢量化则可以直接调用 `NumPy`中 `array` 的 `dot()` 方法，即向量点积:
+
+$$
+f_{\overrightarrow{w}, b}(\overrightarrow{x}) = \overrightarrow{w} \cdot \overrightarrow{x} + b
+$$
+
+```py
+f = np.dot(w, x) + b
+```
