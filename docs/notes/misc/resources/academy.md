@@ -8,6 +8,8 @@ icon: material/pencil-ruler
 
 - [DeepLearning.AI: AI courses](https://learn.deeplearning.ai/)
 
+- [scikit-learn: Machine Learning in Python](https://scikit-learn.org/stable/index.html)
+
 ## 工具
 
 - [Python Tutorial: Python 代码可视化](https://pythontutor.com/visualize.html#mode=edit)
