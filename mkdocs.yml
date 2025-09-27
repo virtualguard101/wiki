@@ -27,6 +27,7 @@ theme:
     - content.tabs.link
     - content.tooltips
     # - header.autohide
+    - navigation.path
     # - navigation.expand
     - navigation.footer
     - navigation.indexes
@@ -34,7 +35,7 @@ theme:
     # - navigation.instant.prefetch
     # - navigation.instant.progress
     # - navigation.prune
-    - navigation.sections
+    # - navigation.sections
     - navigation.tabs
     # - navigation.tabs.sticky
     - navigation.top
@@ -264,7 +265,7 @@ nav:
     - 编程语言:
       # - Python:
       - C++:
-        - "Stanford CS106L: Standard C++ Programming":
+        - "Standard C++ Programming":
           - 类型 & 结构体: "notes/language/c++/C++ Fundamental/00-type-structure.md"
           - 初始化 & 引用: "notes/language/c++/C++ Fundamental/01-init-reference.md"
           - 流: "notes/language/c++/C++ Fundamental/02-stream.md"
@@ -321,16 +322,19 @@ nav:
       # - 持久化:
     - 人工智能:
       - 机器学习:
-        - "入门 (Coursera: Machine Learning)":
+        - "入门":
           - 监督学习与非监督学习: "notes/ml/super-unsuper-learning.md"
-          - 回归模型概述: "notes/ml/regression.md"
-          - 模型表示法: "notes/ml/model-repr.ipynb"
-          - 成本函数概述: "notes/ml/cost-func.md"
-          - 成本函数可视化: "notes/ml/cost-func-visual.ipynb"
-          - 梯度下降: "notes/ml/gradient.md"
-          - 一元线性回归模型的梯度下降实现: "notes/ml/linear-grad-desent.ipynb"
-          - 多元线性回归模型: "notes/ml/multi-feat.md"
-          - 特征缩放与特征工程: "notes/ml/feat-engineering.ipynb"
+          - 回归: 
+            - 回归模型概述: "notes/ml/regression.md"
+            - 模型表示法: "notes/ml/model-repr.ipynb"
+            - 成本函数概述: "notes/ml/cost-func.md"
+            - 成本函数可视化: "notes/ml/cost-func-visual.ipynb"
+            - 梯度下降: "notes/ml/gradient.md"
+            - 一元线性回归模型的梯度下降实现: "notes/ml/linear-grad-desent.ipynb"
+            - 多元线性回归模型: "notes/ml/multi-feat.md"
+            - 特征缩放与特征工程: "notes/ml/feat-engineering.ipynb"
+          - 分类:
+            - 逻辑回归: "notes/ml/logistic-regression.md"
       # - 深度学习:
     - Web开发:
       - 入门基础:
