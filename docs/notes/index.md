@@ -32,7 +32,7 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/logistic-regression/">逻辑回归</a><span style="font-size:0.8em;">2025-09-27 14:37:07</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/logistic-regression/">逻辑回归</a><span style="font-size:0.8em;">2025-09-27 18:45:49</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/feat-engineering/">特征缩放与特征工程</a><span style="font-size:0.8em;">2025-09-26 22:43:38</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/resources/academy/">学术资源</a><span style="font-size:0.8em;">2025-09-25 20:18:21</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/linear/matrix/">矩阵</a><span style="font-size:0.8em;">2025-09-25 17:25:37</span></div></li>
