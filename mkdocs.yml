@@ -335,6 +335,7 @@ nav:
             - 特征缩放与特征工程: "notes/ml/feat-engineering.ipynb"
           - 分类:
             - 逻辑回归: "notes/ml/logistic-regression.ipynb"
+            - 决策边界: "notes/ml/decision-boundary.md"
       # - 深度学习:
     - Web开发:
       - 入门基础:
