@@ -293,6 +293,7 @@ nav:
       - 线性代数:
         - 行列式: "notes/math/linear/det.md"
         - 矩阵: "notes/math/linear/matrix.md"
+        - 逆矩阵: "notes/math/linear/inverse.md"
     - 数据结构与算法:
       - 复杂度分析:
         - 迭代与递归: "notes/dsa/anal/iter_and_recu.md"
