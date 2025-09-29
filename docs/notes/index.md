@@ -32,11 +32,11 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/linear/matrix/">矩阵</a><span style="font-size:0.8em;">2025-09-29 09:43:53</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/decision-boundary/">决策边界</a><span style="font-size:0.8em;">2025-09-28 19:12:53</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/logistic-regression/">逻辑回归</a><span style="font-size:0.8em;">2025-09-27 19:07:53</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/feat-engineering/">特征缩放与特征工程</a><span style="font-size:0.8em;">2025-09-26 22:43:38</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/resources/academy/">学术资源</a><span style="font-size:0.8em;">2025-09-25 20:18:21</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="math/linear/matrix/">矩阵</a><span style="font-size:0.8em;">2025-09-25 17:25:37</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/multi-feat/">多元线性回归模型</a><span style="font-size:0.8em;">2025-09-24 10:41:15</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/process/">程序与进程</a><span style="font-size:0.8em;">2025-09-23 17:30:48</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="dsa/ds/tree/binary/">二叉树</a><span style="font-size:0.8em;">2025-09-23 16:37:03</span></div></li>

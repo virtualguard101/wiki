@@ -279,3 +279,138 @@ $$
             a_{21} & a_{22} & a_{23}
         \end{pmatrix} = A
         $$
+
+### 矩阵的幂
+
+设 $A$ 为 $n$ 阶**方阵**, 则有:
+
+$$
+A^{0} = E
+$$
+
+$$
+A^{n} = \underbrace{A \cdot A \cdot \cdots A}_{\text{n 个}}
+$$
+
+
+矩阵的幂运算满足以下运算率 $(k \in \mathbb{Z}, n \in \mathbb{N^{+}})$:
+
+- $A^{n_1 + n_2} = A^{n_1} A^{n_2}$
+
+- $(A^{n_1})^{n_2} = A^{n_1 n_2}$
+
+- $(kA)^{n} = k^{n} A^{n}$
+
+!!! warning
+    由于矩阵乘法不满足交换律, 故有以下结论:
+
+    $$
+    (AB)^{2} \not ={A^{2} B^{2}}
+    $$
+
+    将左右两边分别展开对比一下就知道了:
+
+    $$
+    \begin{align}
+        (AB)^{2} & = AB \cdot AB \\
+        A^{2} B^{2} & = AA \cdot BB \\
+    \end{align}
+    $$
+
+    不难发现中间两项 $A$ $B$ 相乘的顺序不同. ==但且仅当矩阵 $A$ $B$ 可交换时, 方可像实数一样进行幂运算==.
+
+!!! exmaple
+    1. 设 $A = \begin{pmatrix}
+        1 \\
+        -1 \\
+        2
+    \end{pmatrix}$, $B = \begin{pmatrix}
+        3 & 1 & -2
+    \end{pmatrix}$, 求 $(AB)^{n}$.
+
+        - 解:
+
+            $$
+            AB = \begin{pmatrix}
+                1 \\
+                -1 \\
+                2
+            \end{pmatrix} \begin{pmatrix}
+                3 & 1 & -2
+            \end{pmatrix} = \begin{pmatrix}
+                3 & 1 & -2 \\
+                -3 & -1 & 2 \\
+                6 & 2 & -4
+            \end{pmatrix}
+            $$
+
+            $$
+            BA = \begin{pmatrix}
+                3 & 1 & -2
+            \end{pmatrix} \begin{pmatrix}
+                1 \\
+                -1 \\
+                2
+            \end{pmatrix} = 3 - 1 - 4 = -2
+            $$
+
+            故有
+
+            $$
+            \begin{align}
+                \text{原式} & = A \cdot \underbrace{BABABA}_{\text{n-1组}} \cdots B \\
+                & = (-2)^{n - 1} AB \\
+                & = (-2)^{n - 1} \begin{pmatrix}
+                    3 & 1 & -2 \\
+                    -3 & -1 & 2 \\
+                    6 & 2 & -4
+                \end{pmatrix}
+            \end{align}
+            $$
+        
+    2. 设 $A = \begin{pmatrix}
+        2 & 4 & -6 \\
+        1 & 2 & -3 \\
+        4 & 8 & -12
+    \end{pmatrix}$, 求 $A^{100}$.
+
+        - 解:
+
+            观察易发现, $A$ 的行(列)成比例, $R(n) = 1$[^1]
+
+            令 $A = \begin{pmatrix}
+                2 \\
+                1 \\
+                4
+            \end{pmatrix} \begin{pmatrix}
+                1 & 2 & -3
+            \end{pmatrix} = \alpha \beta^{T}$
+
+            则有
+
+            $$
+            \beta^{T} \alpha = \begin{pmatrix}
+                1 & 2 & -3
+            \end{pmatrix} \begin{pmatrix}
+                2 \\
+                1 \\
+                4
+            \end{pmatrix} = 2 + 2 - 12 = -8
+            $$
+
+            故
+
+            $$
+            \begin{align}
+                \text{原式} & = \alpha \cdot \underbrace{\beta^{T}\alpha\beta^{T}\alpha\beta^{T}\alpha}_{\text{99 组}} \cdots \beta^{T} \\
+                & = (-8)^{99} \alpha\beta^{T} \\
+                & = - 8^{99} \begin{pmatrix}
+                    2 & 4 & -6 \\
+                    1 & 2 & -3 \\
+                    4 & 8 & -12
+                \end{pmatrix}
+            \end{align}
+            $$
+
+
+[^1]: 这里指[矩阵的秩](), 会在初等变换中学到
