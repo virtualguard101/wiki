@@ -463,75 +463,75 @@ $$
 
     1. 设 $A$ 为 $n$ 阶方阵, 且 $|A| = 3$, 求 $||A|A^{T}|$, $||A|A^{2}|$
 
-    - 解:
+        - 解:
 
-        $$
-        ||A|A^{T}| = |3A^{T}| = 3^{n}|A^{T}| = 3^{n}|A| = 3^{n} \cdot 3 = 3^{n + 1}
-        $$
+            $$
+            ||A|A^{T}| = |3A^{T}| = 3^{n}|A^{T}| = 3^{n}|A| = 3^{n} \cdot 3 = 3^{n + 1}
+            $$
 
-        $$
-        ||A|A^{2}| = |3A^{2}| = 3^{n}|A^{2}| = 3^{n}|A|^{2} = 3^{n}3^{2} = 3^{n + 2}
-        $$
+            $$
+            ||A|A^{2}| = |3A^{2}| = 3^{n}|A^{2}| = 3^{n}|A|^{2} = 3^{n}3^{2} = 3^{n + 2}
+            $$
 
     2. 已知 $A = \begin{pmatrix}
         2 & 1 \\
         -1 & 2
     \end{pmatrix}$, $E$ 为 $2$ 阶单位矩阵, 矩阵 $B$ 满足 $BA = B + 2E$, 求 $|B|$
 
-    - 解:
+        - 解:
 
-        依题可得 $BA - BE = 2E$, 即 $B(A -E) = 2E$, 两边同时取行列式, 得:
+            依题可得 $BA - BE = 2E$, 即 $B(A -E) = 2E$, 两边同时取行列式, 得:
 
-        $$
-        |B(A - E)| = |2E|
-        $$
+            $$
+            |B(A - E)| = |2E|
+            $$
 
-        即
+            即
 
-        $$
-        |B| \cdot |A - E| = 2^{2}|E| = 4
-        $$
+            $$
+            |B| \cdot |A - E| = 2^{2}|E| = 4
+            $$
 
-        又 $A -E = \begin{pmatrix}
-            2 & 1 \\
-            -1 & 2
-        \end{pmatrix} - \begin{pmatrix}
-            1 & 0 \\
-            0 & 1
-        \end{pmatrix} = \begin{pmatrix}
-            1 & 1 \\
-            -1 & 1
-        \end{pmatrix}$
+            又 $A -E = \begin{pmatrix}
+                2 & 1 \\
+                -1 & 2
+            \end{pmatrix} - \begin{pmatrix}
+                1 & 0 \\
+                0 & 1
+            \end{pmatrix} = \begin{pmatrix}
+                1 & 1 \\
+                -1 & 1
+            \end{pmatrix}$
 
-        故 $|A - E| = 2$, 代入得 $|B| \cdot 2 = 4$, 故 $|B| = 2$.
+            故 $|A - E| = 2$, 代入得 $|B| \cdot 2 = 4$, 故 $|B| = 2$.
 
     3. 设 $n$ 阶矩阵 $A$ 满足 $A^{T}A = E$, 其中 $E$ 为 $n$ 阶单位矩阵, 若 $|A| < 0$, 求 $|A + E|$
 
-    - 解:
+        - 解:
 
-        $$
-        \begin{align}
-        |A + E| & = |A + A^{T}A| \\
-        & = |EA + A^{T}A| \\
-        & = |(E + A^{T})A|
-        & = |E + A^{T}| \cdot |A|
-        & = - |E^{T} + A^{T}|
-        & = - |(E + A)^{T}|
-        & = - |E + A|
-        \end{align}
-        $$
+            $$
+            \begin{align}
+            |A + E| & = |A + A^{T}A| \\
+            & = |EA + A^{T}A| \\
+            & = |(E + A^{T})A|
+            & = |E + A^{T}| \cdot |A|
+            & = - |E^{T} + A^{T}|
+            & = - |(E + A)^{T}|
+            & = - |E + A|
+            \end{align}
+            $$
 
-        即 $2|A + E| = 0$, 故 $|A + E| = 0$
+            即 $2|A + E| = 0$, 故 $|A + E| = 0$
 
-        !!! failure "错误解法"
+            !!! failure "错误解法"
 
-            $|A^{T}A| = |E| \Rightarrow |A^{T}| \cdot |A| = 1 \Rightarrow |A|^{2} = 1 \Rightarrow |A| = \pm 1$
+                $|A^{T}A| = |E| \Rightarrow |A^{T}| \cdot |A| = 1 \Rightarrow |A|^{2} = 1 \Rightarrow |A| = \pm 1$
 
-            又因为 $|A| < 0$, 故 $|A| = -1$
+                又因为 $|A| < 0$, 故 $|A| = -1$
 
-            所以 $|A + E| = |A| + |E| = -1 + 1 = 0$
+                所以 $|A + E| = |A| + |E| = -1 + 1 = 0$
 
-            ⚠️ ==️️$|A + B| \not ={|A| + |B|}$==
+                ⚠️ ==️️$|A + B| \not ={|A| + |B|}$==
 
 
 [^1]: 这里指**矩阵的秩**, 会在[矩阵的初等变换]()中学到
