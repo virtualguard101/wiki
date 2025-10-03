@@ -14,6 +14,10 @@ projects:
   - name: SpaceCaculator
     description: A calculator for solid geometry implement by python.
     image: SpaceCaculator.gif
+
+  - name: MkDocs-Note
+    description: A MkDocs plugin to add note boxes to your documentation.
+    image: mkdocs-note.gif
 ---
 
 <!-- # Projects & Assignments Notes
