@@ -122,11 +122,8 @@ plugins:
       allow_errors: false
       include_requirejs: true
       custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
-  # - mkdocs-note:
-  #   - notes_root_path: "docs/notes"
-  #   - notes_template: "docs/templates/note.md"
-  #   - attechment_path: "docs/notes/attachments"
-  #   - path_blacklist: "docs/draft"
+  - mkdocs-note:
+      notes_dir: docs/notes
 
   # - redirects:
   #     redirect_maps:
