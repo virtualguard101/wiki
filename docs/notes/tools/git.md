@@ -767,6 +767,43 @@ git merge --abort
     </iframe>
 </div>
 
+### Git tag
+
+> [Git tag | Atlassian](https://www.atlassian.com/zh/git/tutorials/inspecting-a-repository/git-tag)
+
+标记是指向 Git 历史记录中特定点的引用。标记通常用于捕获用于标记版本发布的历史点（如`v1.0.1`）。
+
+- 通过以下命令快速创建`tag`:
+
+    ```bash
+    git tag [tag-name]
+    ```
+
+    - 或者创建**带注释/信息**的`tag`:
+
+        ```bash
+        # 类似 git commit
+        git tag -a [tag-name]
+        ```
+
+        ```bash
+        # 类似 git commit -m
+        git tag -a [tag-name] -m "[detail info]"
+        ```
+
+- 删除`tag`:
+
+    ```bash
+    git tag -d [tag-name]
+    ```
+
+- 推送`tag`:
+
+    ```bash
+    git push --tags
+    ```
+
+
 ## 杂项/Git扩展
 
 ### LFS

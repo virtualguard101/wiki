@@ -7,6 +7,10 @@ hide:
   - toc
 template: projects.html
 projects:
+  - name: MkDocs-Note
+    description: A MkDocs plugin to add note boxes to your documentation.
+    image: mkdocs-note.gif
+
   - name: 3BodySimulator
     description: The visualization simulation of three-body motion implemented using C++ & Python.
     image: 3BodySimulator.gif
@@ -14,10 +18,6 @@ projects:
   - name: SpaceCaculator
     description: A calculator for solid geometry implement by python.
     image: SpaceCaculator.gif
-
-  - name: MkDocs-Note
-    description: A MkDocs plugin to add note boxes to your documentation.
-    image: mkdocs-note.gif
 ---
 
 <!-- # Projects & Assignments Notes

@@ -7,3 +7,4 @@ logging:
   format: "%(log_color)s[%(levelname)s]%(reset)s %(message)s"
 hooks:
   pre_commit: 
+    - "scripts/snyc_py_env.py"

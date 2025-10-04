@@ -63,8 +63,8 @@ def main():
         if not config:
             return 1
         
-    #     # Execute pre-commit hooks with user's input
-    #     run_hooks(config['hooks'], 'pre_commit')
+        # Execute pre-commit hooks with user's input
+        run_hooks(config['hooks'], 'pre_commit')
 
         while True:
             sync_choice = input("Would you want to sync posts to hexo blog? (y/N): ").strip().lower()
