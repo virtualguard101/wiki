@@ -260,7 +260,8 @@ nav:
         - scons: "notes/tools/build-tools/scons.md"
         - xmake: "notes/tools/build-tools/xmake.md"
     - 编程语言:
-      # - Python:
+      - Python:
+        - 包管理: "notes/language/python/package.md"
       - C++:
         - "Standard C++ Programming":
           - 类型 & 结构体: "notes/language/c++/C++ Fundamental/00-type-structure.md"
