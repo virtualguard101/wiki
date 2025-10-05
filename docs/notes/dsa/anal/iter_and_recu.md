@@ -47,7 +47,7 @@ def sum(n: int) -> int:
 
 对于该程序而言，迭代的应用在于不断**更新**`res`的过程，以下是描述该过程的算法流程图：
 
-![](../../assets/dsa.assets/anal/iter_and_recu/sum.drawio.png)
+![](sum.drawio.png)
 
 ### `while`循环
 
@@ -100,7 +100,7 @@ def multiplication_table() -> None:
 
 算法流程图：
 
-![乘法口诀表输出程序](../../assets/dsa.assets/anal/iter_and_recu/multiplication_table.drawio.png)
+![乘法口诀表输出程序](multiplication_table.drawio.png)
 
 !!! warning
     在使用循环嵌套时，每增加一层嵌套就会使得迭代操作的数量“提升一个维度”，同时减低代码的可读性，因此应尽量避免使用过深的嵌套。
@@ -132,7 +132,7 @@ def sum_with_recur(n: int) -> int:
 
 可参考下图理解线性递归求和的过程：
 
-![线性递归](../../assets/dsa.assets/anal/iter_and_recu/recursion_sum_depth.png)
+![线性递归](recursion_sum_depth.png)
 *图片来源：[调用栈 | Hello 算法](https://www.hello-algo.com/chapter_computational_complexity/iteration_and_recursion/#1)*
 
 除了线性递归，还有如下常见的递归形式：
@@ -164,7 +164,7 @@ def tail_recur(n: int, res: int) -> int:
 
 可参考下图理解尾递归求和的过程：
 
-![尾递归](../../assets/dsa.assets/anal/iter_and_recu/tail_recursion_sum.png)
+![尾递归](tail_recursion_sum.png)
 *图片来源：[尾递归 | Hello 算法](https://www.hello-algo.com/chapter_computational_complexity/iteration_and_recursion/#2)*
 
 ### 互递归
@@ -239,7 +239,7 @@ def fibonaci(n: int) -> int:
 
 可结合下图理解调用过程：
 
-![树递归](../../assets/dsa.assets/anal/iter_and_recu/recursion_tree.png)
+![树递归](recursion_tree.png)
 *图片来源：[递归树 | Hello 算法](https://www.hello-algo.com/chapter_computational_complexity/iteration_and_recursion/#3_1)*
 
 由于树递归的调用栈呈现出一种形似树枝的分叉结构，故其天然地适合用于解决**分治问题**，例如在数据结构中，树递归在构建[递归对象](https://composingprograms.netlify.app/2/9)时就十分常见。

@@ -6,7 +6,7 @@
 >
 >[tmux | Arch Linux 中文维基](https://wiki.archlinuxcn.org/wiki/Tmux){target="_blank"}
 
-![](../../assets/tools.assets/linux/tmux/tmux_example.png)
+![](tmux_example.png)
 
 [tmux](https://github.com/tmux/tmux/wiki){target="_blank"} 是终端多路复用器(*terminal multiplexer*)，可在一个屏幕中创建、访问并控制多个终端（或窗口），每个终端或窗口内都可以运行独立的程序。将 tmux 从当前窗口分离（tmux detach）后，tmux 依然可以在后台运行，直到恢复会话（tmux attach）[^1]。
 
@@ -23,9 +23,9 @@ tmux 采用 client/server 模型，按照自上而下的层级排列分别是：
 
 初次理解上述概念可能会混淆，可参考下面的图示理解：
 
-![红色选区表示一个名为 `main` 的会话](../../assets/tools.assets/linux/tmux/tmux_example_1.png)
-![红色选区表示一个仅包含一个面板的窗口](../../assets/tools.assets/linux/tmux/tmux_example_2.png)
-![红色选区表示一个包含三个面板的窗口](../../assets/tools.assets/linux/tmux/tmux_example_3.png)
+![红色选区表示一个名为 `main` 的会话](tmux_example_1.png)
+![红色选区表示一个仅包含一个面板的窗口](tmux_example_2.png)
+![红色选区表示一个包含三个面板的窗口](tmux_example_3.png)
 
 每个图示中下侧所展示的就是不同窗口中含有的**面板**。
 
@@ -84,7 +84,7 @@ tmux 支持高度自定义，可通过在用户主目录创建名为 `.tmux.conf
 
     不过有一点需要注意，参考配置经实测在配置完成后执行 `tmux kill-server` 关闭现有 `tmux` 服务（若有）并重新启动它后，会在上面配置的目标效果的基础上在新建一个会话（服务布局形如下图所示），并在用户手动切换窗口前保持 `attach` 于当前会话。
 
-    ![图中红色选区为目标效果会话的窗口，其下方为系统默认新建的，名为 `1` 的会话布局](../../assets/tools.assets/linux/tmux/tmux_example_4.png)
+    ![图中红色选区为目标效果会话的窗口，其下方为系统默认新建的，名为 `1` 的会话布局](tmux_example_4.png)
 
     !!! question
         在写这篇笔记时，我对 tmux 的接口还并不熟悉，个人猜测我在配置中写的严格意义上不是所谓的“默认布局”，或许仅仅只是在系统默认布局的基础上**新增**了一个用户自定义会话。
@@ -124,7 +124,7 @@ tmux 支持高度自定义，可通过在用户主目录创建名为 `.tmux.conf
         tmux attach-session -t main
         ```
         这样的脚本在某些场景下会**嵌套**地调用 `tmux` 命令，运行时有概率会出现如下情景：
-        ![](../../assets/tools.assets/linux/tmux/tmux_example_5.png)
+        ![](tmux_example_5.png)
 
 除了上面两种配置方式，还可以通过 tmux 插件来实现自定义默认布局，个人没有尝试，这里就不再展开。
 

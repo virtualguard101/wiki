@@ -44,8 +44,7 @@ Java 的大体形式与 C++ 等主流静态类型语言类似，部分地方甚�
 
 ## 如何编写并运行一个 Java 程序
 
-<!-- ![Java编译过程](../../assets/dsa.assets/cs61b/compilation_figure.svg)
-*图片来源: [Essentials | Hug61B](https://joshhug.gitbooks.io/hug61b/content/chap1/chap11.html)* -->
+<!-- *图片来源: [Essentials | Hug61B](https://joshhug.gitbooks.io/hug61b/content/chap1/chap11.html)* -->
 
 根据前面学习的特性，我们便可以开始着手编写一个简单的 Java 程序。
 

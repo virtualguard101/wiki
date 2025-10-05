@@ -22,7 +22,7 @@ $$
 一般情况下，一个程序在机器上执行时，除了需要存储程序本身的指令、参数、变量和输入数据外，还需要存储对数据操作的存储单元。
 
 一个算法在运行过程中通常需要使用以下内存空间：
-![算法相关空间](../../assets/dsa.assets/anal/space/space_types.png)
+![算法相关空间](space_types.png)
 *图片来源：[算法相关空间 | Hello 算法](https://www.hello-algo.com/chapter_computational_complexity/space_complexity/#241)*
 
 其中，暂存空间中还可划分的三个部分的定义如下[^1]：

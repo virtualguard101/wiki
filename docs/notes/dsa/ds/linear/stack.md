@@ -7,7 +7,7 @@
 
 允许插入和删除的一端称为**栈顶（*top*）**，另一端则称为**栈底（*bottom*）**:
 
-![栈](../../../assets/dsa.assets/ds/linear/stack/stack_operations.png)
+![栈](stack_operations.png)
 *图片来源：[栈 | Hello算法](https://www.hello-algo.com/chapter_stack_and_queue/stack/)*
 
 栈的特殊之处在于其限制了元素插入与删除操作的可执行位置。栈的插入操作称为入栈（push），也可称为压栈、进栈等；删除操作称为出栈（pop），也可称为弹栈。将栈比作一个弹夹，同时将栈内元素比作子弹来理解栈的概念会形象得多。

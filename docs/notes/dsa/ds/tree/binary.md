@@ -10,7 +10,7 @@
 
 二叉树以根节点为起点**一分为二**向下延伸。由于每个节点要么没有（只有数据域），要么有且只有两个子节点，可以用**左、右节点**分别表示这个两个子节点:
 
-![二叉树](../../../assets/dsa.assets/ds/tree/binary/binary_tree_terminology.png)
+![二叉树](binary_tree_terminology.png)
 *图片来源: [二叉树 | Hello算法](https://www.hello-algo.com/chapter_tree/binary_tree/)*
 
 === "Python"

@@ -4,7 +4,7 @@
 
 顺序表（*Sequence List*），即**线性表的顺序存储结构**，用一组地址**连续的存储单元**依次存储线性表中的数据元素，从而使得逻辑上相邻的两个元素在物理位置上也相邻，==通常基于**数组**实现==。
 
-![数组](../../../assets/dsa.assets/ds/linear/array/array_definition.png)
+![数组](array_definition.png)
 *图片来源：[数组 | Hello 算法](https://www.hello-algo.com/chapter_array_and_linkedlist/array/)*
 
 !!! important "数组 vs 顺序表"
@@ -25,7 +25,7 @@
 !!! tip
     - 数据结构首先是[**抽象数据类型（*ADT, Abstract Data Type*）**](https://www.geeksforgeeks.org/dsa/abstract-data-types/){target="_blank"}：定义元素组织、操作集合与复杂度；其实现依语言选取（数组/链表/哈希/树等），同一 ADT 可有多种实现与权衡。
 
-    ![](../../../assets/dsa.assets/ds/linear/array/ADT.jpg)
+    ![](ADT.jpg)
 
     - 编程语言与数据结构中的某些概念之间具有一些微妙的关系。无论是上面提到的顺序表还是后面的各种线性表（如栈、队列等），其在数据结构中的概念都是**抽象的逻辑结构**，在实际应用中都需要基于不同编程语言中对应的封装来实现，理解二者之间的区别与联系对于进一步理解数据结构的抽象概念是学习过程中可能会遭遇到的重难点。
 
@@ -70,7 +70,7 @@
 
 由于数组元素储存的连续性，元素与元素之间没有可以用于存放数据的余地，因此，==想要在数组中插入一个元素，就需要将该元素后的所有元素都**向后移动一位**，然后再重新分配元素索引==：
 
-![数组-插入元素](../../../assets/dsa.assets/ds/linear/array/array_insert_element.png)
+![数组-插入元素](array_insert_element.png)
 *图片来源：[数组-插入元素 | Hello 算法](https://www.hello-algo.com/chapter_array_and_linkedlist/array/#3)*
 
 === "Python"
@@ -144,7 +144,7 @@
 ### 删除元素
 
 与插入同理，删除元素就需要将待删除元素后的所有元素都**向前移动一位**：
-![数组-删除元素](../../../assets/dsa.assets/ds/linear/array/array_remove_element.png)
+![数组-删除元素](array_remove_element.png)
 *图片来源：[数组-删除元素 | Hello 算法](https://www.hello-algo.com/chapter_array_and_linkedlist/array/#4)*
 
 === "Python"
