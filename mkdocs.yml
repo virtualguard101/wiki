@@ -252,6 +252,7 @@ nav:
         - Timeshift: "notes/tools/linux/timeshift.md"
       - SSH: "notes/tools/ssh.md"
       - Git: "notes/tools/git.md"
+      - uv: "notes/tools/uv.md"
       - Jupyter Notebook: "notes/tools/jupyter.ipynb"
       - 构建工具:
         - GNU Make: "notes/tools/build-tools/gnu-make.md"

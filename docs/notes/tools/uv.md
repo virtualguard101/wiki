@@ -1,6 +1,6 @@
 # uv
 
-> [uv](https://docs.astral.sh/uv/)
+> [uv | Astral](https://docs.astral.sh/uv/)
 
 
 ## 安装
