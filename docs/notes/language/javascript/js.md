@@ -148,7 +148,7 @@ const id = person.id;
 
 ### 对象解构
 
-对象解构是一种简化操作，形式上有些类似于C++中的[结构化绑定](../c++/C++%20Fundamental/01-init-reference.md#结构化绑定)，相比较上面的访问方式，可一次性获取对象的多个属性：
+对象解构是一种简化操作，形式上有些类似于C++中的[结构化绑定](../cpp/cs106l/01-init-reference.md#结构化绑定)，相比较上面的访问方式，可一次性获取对象的多个属性：
 ```js
 const person = {
     name: "virtualguard",
