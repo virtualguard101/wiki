@@ -50,10 +50,20 @@
     bottom: 1.5rem;
     z-index: 5;
   }
+
+  /* 默认隐藏移动端提示 (仅在移动端竖屏显示) */
+  .hero__image.mobile-notice {
+    display: none;
+  }
 </style>
 <div class="hero">
   <div class="hero__image scroll-fade" data-src="assets/images/beihai.jpg">
     <img class="scroll-fade__img" data-src="assets/images/beihai.jpg" alt="" width="1659" height="1200" loading="lazy" draggable="false">
+  </div>
+  <div class="hero__image scroll-fade mobile-notice">
+    <p class="scroll-fade">
+      This site is not optimized for mobile devices. Visit on a desktop browser to get the best experience.
+    </p>
   </div>
   <div class="hero__content scroll-fade" loading="lazy" draggable="false">
     <h1 class="scroll-fade">Welcome to virtualguard101's Wiki</h1>

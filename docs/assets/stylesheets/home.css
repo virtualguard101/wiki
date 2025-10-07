@@ -39,6 +39,11 @@
     padding: 0.6em 1.2em;
     font-size: 0.65rem;
   }
+
+  /* 5. 移动端提示 - 默认隐藏 */
+  .hero__image.mobile-notice {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 767px) and (orientation: portrait) {
@@ -66,6 +71,29 @@
   .hero__image,
   .hero__image img {
     display: none !important;
+  }
+
+  /* 2. 移动端提示 - 仅在竖屏显示 */
+  .hero__image.mobile-notice {
+    display: flex !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 10;
+  }
+
+  .hero__image.mobile-notice p {
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 90%;
   }
 
   /* 3. 覆盖内容层，垂直水平居中 */
