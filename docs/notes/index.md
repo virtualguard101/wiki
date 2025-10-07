@@ -26,7 +26,7 @@ comments: true
     **学者应当遵循之物， 唯有知论与证辩。只有时刻保持对一切的质疑，才能避免陷入偏见。**
 
 
-## Recent Notes 
+## Recent New or Modified Notes
 
 === "简体中文"
 
