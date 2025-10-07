@@ -124,6 +124,9 @@ plugins:
       custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
   - mkdocs-note:
       notes_dir: docs/notes
+  - graph:
+      name: "title"        # Use page titles for node names
+      debug: false         # Disable debug logging
 
   # - redirects:
   #     redirect_maps:
