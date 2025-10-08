@@ -124,6 +124,7 @@ plugins:
       custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
   - mkdocs-note:
       notes_dir: docs/notes
+      timestamp_zone: "UTC+8"
   - graph:
       name: "title"        # Use page titles for node names
       debug: false         # Disable debug logging
@@ -340,6 +341,7 @@ nav:
             - 逻辑回归: "notes/ml/logistic-regression.ipynb"
             - 决策边界: "notes/ml/decision-boundary.md"
             - 逻辑损失与成本函数: "notes/ml/logistic-loss-cost.ipynb"
+            - 逻辑回归的梯度下降: "notes/ml/logistic-grad-desent.ipynb"
       # - 深度学习:
     - Web开发:
       - 入门基础:
