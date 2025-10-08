@@ -3,7 +3,7 @@
 """
 
 from matplotlib import cm
-from lab_utils_common import sigmoid, dlblue, dlorange, np, plt, compute_cost_matrix
+from src.lab_utils_common import sigmoid, dlblue, dlorange, np, plt, compute_cost_matrix
 
 def compute_cost_logistic_sq_err(X, y, w, b):
     """

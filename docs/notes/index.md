@@ -22,8 +22,22 @@ comments: true
 === "English"
     **The only things researchers should abied by are debates and dialectics. Only by questioning everything at all times can one avoid falling into prejudice.**  
 
+    !!! info "Notice"
+        - This is my personal notebook, the main text is written in **Simplified Chinese**, content is for reference only. If there are any errors, please feel free to correct them.
+
+        - For the parts using **Jupyter Notebook**（`.ipynb`）, due to the compatibility issues with the [plugin](https://github.com/danielfrg/mkdocs-jupyter), the directory part is written in English to facilitate automatic location and jump.
+
+        - Due to many compatibility issues, please read on PC browser to get the best experience.
+
 === "简体中文"
     **学者应当遵循之物， 唯有知论与证辩。只有时刻保持对一切的质疑，才能避免陷入偏见。**
+
+    !!! info "Notice"
+        - 这是我的个人笔记本，正文部分使用简体中文，内容仅供参考，如有错误，欢迎指正。
+
+        - 对于使用**Jupyter Notebook**（`.ipynb`）的部分，由于[插件](https://github.com/danielfrg/mkdocs-jupyter)的兼容性问题，目录部分使用英文以方便自动定位与跳转。
+
+        - 由于存在诸多兼容性问题，请在PC浏览器上阅读以获得最佳体验。
 
 
 ## Recent New or Modified Notes

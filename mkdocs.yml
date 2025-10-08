@@ -114,10 +114,10 @@ plugins:
         - assets/stylesheets/temp-patch.css
   - git-revision-date-localized:
       enable_creation_date: true
-  - mkdocstrings
-  - drawio
   - mkdocs-jupyter:
       theme: dark
+      ignore_h1_titles: false
+      include: ["*.ipynb"]
       execute: false
       allow_errors: false
       include_requirejs: true
@@ -339,6 +339,7 @@ nav:
           - 分类:
             - 逻辑回归: "notes/ml/logistic-regression.ipynb"
             - 决策边界: "notes/ml/decision-boundary.md"
+            - 逻辑损失与成本函数: "notes/ml/logistic-loss-cost.ipynb"
       # - 深度学习:
     - Web开发:
       - 入门基础:
