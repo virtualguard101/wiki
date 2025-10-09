@@ -327,21 +327,21 @@ nav:
     - 人工智能:
       - 机器学习:
         - "入门":
-          - 监督学习与非监督学习: "notes/ml/super-unsuper-learning.md"
+          - 监督学习与非监督学习: "notes/ml/coursera/super-unsuper-learning.md"
           - 回归: 
-            - 回归模型概述: "notes/ml/regression.md"
-            - 模型表示法: "notes/ml/model-repr.ipynb"
-            - 成本函数概述: "notes/ml/cost-func.md"
-            - 成本函数可视化: "notes/ml/cost-func-visual.ipynb"
-            - 梯度下降: "notes/ml/gradient.md"
-            - 一元线性回归模型的梯度下降实现: "notes/ml/linear-grad-desent.ipynb"
-            - 多元线性回归模型: "notes/ml/multi-feat.md"
-            - 特征缩放与特征工程: "notes/ml/feat-engineering.ipynb"
+            - 回归模型概述: "notes/ml/coursera/regression.md"
+            - 模型表示法: "notes/ml/coursera/model-repr.ipynb"
+            - 成本函数概述: "notes/ml/coursera/cost-func.md"
+            - 成本函数可视化: "notes/ml/coursera/cost-func-visual.ipynb"
+            - 梯度下降: "notes/ml/coursera/gradient.md"
+            - 一元线性回归模型的梯度下降实现: "notes/ml/coursera/linear-grad-desent.ipynb"
+            - 多元线性回归模型: "notes/ml/coursera/multi-feat.md"
+            - 特征缩放与特征工程: "notes/ml/coursera/feat-engineering.ipynb"
           - 分类:
-            - 逻辑回归: "notes/ml/logistic-regression.ipynb"
-            - 决策边界: "notes/ml/decision-boundary.md"
-            - 逻辑损失与成本函数: "notes/ml/logistic-loss-cost.ipynb"
-            - 逻辑回归的梯度下降: "notes/ml/logistic-grad-desent.ipynb"
+            - 逻辑回归: "notes/ml/coursera/logistic-regression.ipynb"
+            - 决策边界: "notes/ml/coursera/decision-boundary.md"
+            - 逻辑损失与成本函数: "notes/ml/coursera/logistic-loss-cost.ipynb"
+            - 逻辑回归的梯度下降: "notes/ml/coursera/logistic-grad-desent.ipynb"
       # - 深度学习:
     - Web开发:
       - 入门基础:
