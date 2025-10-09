@@ -1261,15 +1261,15 @@ wheels = [
 
 [[package]]
 name = "mkdocs-note"
-version = "1.1.3"
+version = "1.1.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "colorlog" },
     { name = "mkdocs" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a3/2a/d6e56c51d67afeaae389fd75b66e32a0cd60c6fed69c76127ceb417af67b/mkdocs_note-1.1.3.tar.gz", hash = "sha256:c48a959ca7d5ab64c5b24ff5b7132314fde16abc0f60872140bea1470e23284d", size = 43247, upload-time = "2025-10-08T16:57:45.763Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/37/e4/36911326e6b5d91eade80cb0129c2ffe6cfdc062aba86ce019914b0dbb0b/mkdocs_note-1.1.4.tar.gz", hash = "sha256:637c36e16f51d153c115ae1910934c6ffdf1d65e84cb608fdce068ac7b1d6109", size = 43169, upload-time = "2025-10-09T03:35:15.265Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7f/4b/e3c9cb06e886f872a7ada2279244296fb79079049b5720749a67548c424a/mkdocs_note-1.1.3-py3-none-any.whl", hash = "sha256:fe69d49e924258768090aee4cdca395d51aac757f941882ac253c7e0da382601", size = 39934, upload-time = "2025-10-08T16:57:44.838Z" },
+    { url = "https://files.pythonhosted.org/packages/8a/dc/9e9450ed8f071ca1aeac14c11090941baa3a9efbe6a0e4d72ab5705ae4aa/mkdocs_note-1.1.4-py3-none-any.whl", hash = "sha256:0e548fa358e025d84f54fc912a7f457995d7111c5d973d13ed85c5372f8dafdf", size = 39906, upload-time = "2025-10-09T03:35:14.042Z" },
 ]
 
 [[package]]
@@ -1857,7 +1857,7 @@ requires-dist = [
     { name = "mkdocs-material-extensions", specifier = "==1.3.1" },
     { name = "mkdocs-minify-plugin", specifier = "==0.7.1" },
     { name = "mkdocs-network-graph-plugin", specifier = ">=1.0.3" },
-    { name = "mkdocs-note", specifier = "==1.1.3" },
+    { name = "mkdocs-note", specifier = "==1.1.4" },
     { name = "mkdocs-obsidian-interactive-graph-plugin", specifier = "==0.3.0" },
     { name = "mkdocs-redirects", specifier = "==1.2.1" },
     { name = "mkdocs-rss-plugin", specifier = "==1.17.3" },

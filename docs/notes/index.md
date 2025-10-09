@@ -25,7 +25,7 @@ comments: true
     !!! info "Notice"
         - This is my personal notebook, the main text is written in **Simplified Chinese**, content is for reference only. If there are any errors, please feel free to correct them.
 
-        - For the parts using **Jupyter Notebook**（`.ipynb`）, due to the compatibility issues with the [plugin](https://github.com/danielfrg/mkdocs-jupyter), the directory part is written in English to facilitate automatic location and jump.
+        - For the parts using **Jupyter Notebook**（`.ipynb`）, due to the compatibility issues with the [plugin](https://github.com/danielfrg/mkdocs-jupyter), the catalog part is written in English to facilitate automatic location and jump.
 
         - Due to many compatibility issues, please read on PC browser to get the best experience.
 
