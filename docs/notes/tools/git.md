@@ -803,6 +803,27 @@ git merge --abort
     git push --tags
     ```
 
+### 修改提交信息
+
+> [重写历史记录 | Altassian](https://www.atlassian.com/zh/git/tutorials/rewriting-history)
+
+有时候在初次编写提交信息时可能会出现一些遗漏或错误，可以通过 `--amend` 参数进行修改：
+```bash
+git commit --amend
+```
+
+```bash
+git commit --amend -m "[new commit message]"
+```
+
+如果修改前就已经推送，需要强制推送以更新远程仓库的提交信息。
+
+!!! info
+    `--amend` 只适用于修改最近一次的提交信息，如果有更复杂的修改需求，建议使用 `git rebase` 进行交互式变基。详情参考[交互式变基](#交互式rebaserebase--i)。
+
+!!! warning
+    修改对与其他团队成员共享的提交使用 `--amend` 时要小心。修改与其他用户共享的提交可能需要花很多时间去解决由此产生的混乱的合并冲突。
+
 
 ## 杂项/Git扩展
 
