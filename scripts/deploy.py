@@ -26,7 +26,7 @@ logger.setLevel(logging.DEBUG)
 logger.addHandler(handler)
 
 # Configuration file path
-CONFIG_PATH = Path(__file__).parent / 'deploy_config.yml'
+CONFIG_PATH = Path(__file__).parent.parent / 'deploy_config.yml'
 
 def load_config():
     """Load configuration file"""
