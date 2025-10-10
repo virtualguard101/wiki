@@ -126,8 +126,8 @@ plugins:
       notes_dir: docs/notes
       timestamp_zone: "UTC+8"
   - graph:
-      name: "title"        # Use page titles for node names
-      debug: false         # Disable debug logging
+      name: "title"
+      debug: false
 
   # - redirects:
   #     redirect_maps:
@@ -256,6 +256,7 @@ nav:
         - Timeshift: "notes/tools/linux/timeshift.md"
       - SSH: "notes/tools/ssh.md"
       - Git: "notes/tools/git.md"
+      - Just: "notes/tools/just.md"
       - uv: "notes/tools/uv.md"
       - Jupyter Notebook: "notes/tools/jupyter.ipynb"
       - 构建工具:
