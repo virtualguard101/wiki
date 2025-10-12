@@ -59,6 +59,7 @@
     $$
 
 !!! example
+
     1. 解矩阵方程 $AX = 2X + B$, 其中 $A = \begin{pmatrix}
         4 & 0 & 0 \\
         0 & 1 & -1 \\
@@ -69,37 +70,37 @@
         2 & -3
     \end{pmatrix}$.
 
-       - 解:
+        - 解:
     
-        将方程变形为 $AX - 2X = B$, 即 $(A - 2E)X = B$
+            将方程变形为 $AX - 2X = B$, 即 $(A - 2E)X = B$
 
-        又 $A - 2E = \begin{pmatrix}
-            2 & 0 & 0 \\
-            0 & -1 & -1 \\
-            0 & 1 & 2
-        \end{pmatrix}$, $|A- 2E| = -2 \not = 0$, 故 $A - 2E$ 可逆
+            又 $A - 2E = \begin{pmatrix}
+                2 & 0 & 0 \\
+                0 & -1 & -1 \\
+                0 & 1 & 2
+            \end{pmatrix}$, $|A- 2E| = -2 \not = 0$, 故 $A - 2E$ 可逆
 
-        等式两侧同时乘以 $(A - 2E)^{-1}$, 化简得 $X = (A - 2E)^{-1}B$.
+            等式两侧同时乘以 $(A - 2E)^{-1}$, 化简得 $X = (A - 2E)^{-1}B$.
 
-        又有 $(A - 2E)^{-1} = \begin{pmatrix}
-            \frac{1}{2} & 0 & 0 \\
-            0 & -2 & -1 \\
-            0 & 1 & 1 
-        \end{pmatrix}$
+            又有 $(A - 2E)^{-1} = \begin{pmatrix}
+                \frac{1}{2} & 0 & 0 \\
+                0 & -2 & -1 \\
+                0 & 1 & 1 
+            \end{pmatrix}$
 
-        故 $X = (A - 2E)^{-1}B = \begin{pmatrix}
-            \frac{1}{2} & 0 & 0 \\
-            0 & -2 & -1 \\
-            0 & 1 & 1 
-        \end{pmatrix} \begin{pmatrix}
-            3 & 6 \\
-            1 & 1 \\
-            2 & -3
-        \end{pmatrix} = \begin{pmatrix}
-            \frac{3}{2} & 3 \\
-            -4 & 1 \\
-            3 & -2
-        \end{pmatrix}$
+            故 $X = (A - 2E)^{-1}B = \begin{pmatrix}
+                \frac{1}{2} & 0 & 0 \\
+                0 & -2 & -1 \\
+                0 & 1 & 1 
+            \end{pmatrix} \begin{pmatrix}
+                3 & 6 \\
+                1 & 1 \\
+                2 & -3
+            \end{pmatrix} = \begin{pmatrix}
+                \frac{3}{2} & 3 \\
+                -4 & 1 \\
+                3 & -2
+            \end{pmatrix}$
 
 ## 初等变换
 
