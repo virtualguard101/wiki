@@ -180,8 +180,7 @@ $$
         1 & 0 & 0 \\
         0 & 1 & 0 \\
         0 & 0 & 0
-    \end{pmatrix}
-    $, $\begin{pmatrix}
+    \end{pmatrix}$, $\begin{pmatrix}
         1 & 0 & 0 & 0 \\
         0 & 1 & 0 & 0 \\
         0 & 0 & 1 & 0
