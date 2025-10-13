@@ -1,6 +1,6 @@
 # CMake
 
-**CMake**本质上可简单理解为一个`Makefile`生成器，有自己的构建语法。
+**CMake**本质上可简单理解为一个[`Makefile`](gnu-make.md)生成器，有自己的构建语法。
 
 - 官方教程(`v3.22`)：[CMake Tutorial](https://cmake.org/cmake/help/v3.22/guide/tutorial/index.html)
 
@@ -107,7 +107,7 @@ rm -rf *
 
 ### 配合`vcpkg`进行构建
 
-基础配置参考[vcpkg | virtualguard's note](https://note.virtualguard101.com/notes/tools/vcpkg/)
+基础配置参考[vcpkg | virtualguard's note](vcpkg.md)
 
 假设需要依赖`glfw3`，`CMakeLists.txt`如下
 

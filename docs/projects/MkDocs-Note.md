@@ -1,12 +1,16 @@
 # MkDocs-Note
 
-> [uv](../notes/tools/uv.md)
->
-> [Git](../notes/tools/git.md)
-
 ![](assets/mkdocs-note.gif)
 
 - Repository: [mkdocs-note | GitHub](https://github.com/virtualguard101/mkdocs-note)
+
+- 相关笔记:
+
+    - [Astral uv](../notes/tools/uv.md)
+
+    - [Git](../notes/tools/git.md)
+
+    - [Python 包](../notes/language/python/package.md)
 
 这是我正式决定长期维护的首个**实用型**开源项目, 同时也是为这个[Wiki的Notebook模块](../notes/index.md)量身定制的一个[MkDocs插件](https://www.mkdocs.org/dev-guide/plugins/#developing-plugins), 专门用于统一管理利用 MkDocs 构建与部署的笔记文档.
 

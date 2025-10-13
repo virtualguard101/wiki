@@ -22,13 +22,19 @@ tags:
 
 通过该项目你会了解到以下内容：
 
-- **1. 远程服务器的基础使用**  
-- **2. docker、docker-compose部署服务的基础操作**  
-- **3. web开发实现原理基础——静态资源部署**  
-- **4. hexo静态网页生成工具的使用**  
-- **5. Github Action配置自动化部署**  
-- **6. nginx基础配置（反向代理、二级域名）**  
-- **7. 在容器内使用certbot申请ssl证书，并通过定时任务自动化续签**
+1. [远程服务器的基础使用](../../notes/tools/ssh.md)
+
+2. docker、docker-compose部署服务的基础操作
+
+3. web开发实现原理基础——静态资源部署
+
+4. hexo静态网页生成工具的使用
+
+5. Github Action配置自动化部署
+
+6. nginx基础配置（反向代理、二级域名）
+
+7. 在容器内使用certbot申请ssl证书，并通过定时任务自动化续签
 
 下面是完成该项目所需的基础条件：
 
@@ -42,7 +48,7 @@ tags:
 ## 准备工作
 
 ### 部署环境
-服务器的初始配置可参考这篇文章[远程服务器的基础使用](https://note.virtualguard101.xyz/notes/%E5%B7%A5%E5%85%B7/ssh/)，这里不再赘述。由于需要使用`docker`进行部署，我们需要先在服务器上安装一下docker。通过以下命令安装：
+服务器的初始配置可参考这篇文章[远程服务器的基础使用](../../notes/tools/ssh.md)，这里不再赘述。由于需要使用`docker`进行部署，我们需要先在服务器上安装一下docker。通过以下命令安装：
 
 ```bash
 curl -fsSL https://get.docker.com | bash -s docker
