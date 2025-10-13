@@ -10,7 +10,7 @@ from matplotlib.gridspec import GridSpec
 from matplotlib.widgets import Button
 from matplotlib.patches import FancyArrowPatch
 from ipywidgets import Output
-from lab_utils_common import np, plt, dlc, dlcolors, sigmoid, compute_cost_matrix, gradient_descent
+from src.lab_utils_common import np, plt, dlc, dlcolors, sigmoid, compute_cost_matrix, gradient_descent
 
 # for debug
 #output = Output() # sends hidden error messages to display when using widgets

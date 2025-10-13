@@ -331,3 +331,12 @@ $$
 
 #### 初等变换法
 
+$$
+\begin{pmatrix}
+    A & E
+\end{pmatrix} \rightarrow \begin{pmatrix}
+    E & A^{-1}
+\end{pmatrix}
+$$
+
+只通过初等行变换**逐行**依次进行变换即可求出 $A^{-1}$。
