@@ -26,7 +26,7 @@
 
 在数学与计算机科学中，常使用形似 $O(f(n))$ 的形式来表示一个算法的时间复杂度，称为 ==大 $O$ 记法==，是一个**渐进上界**；其中 $f(n)$ 是关于问题规模 $n$ 的某个函数，==通常是一个系数为 $1$ 的**单项式**==。
 
-### 推算 $O(f(n))$
+### 推算
 
 一般分两步可推算出一个算法的时间复杂度：
 
@@ -98,7 +98,7 @@ $$
 \end{aligned}
 $$
 
-### 常数阶 $O(1)$
+### 常数阶
 
 常数阶的操作数与输入数据量无关，即不随输入数据大小的变化而增大，始终为一个常数。
 
@@ -124,7 +124,7 @@ def assign(n: int) -> int:
     
     虽然我们在编写程序时可以将`size`设置得很大，但在程序运行时，无论输入数据的大小如何，求和的操作次数永远只执行`size`次，即**不随输入数据大小的变化而增大**，因此上面示例的时间复杂度只是一个**常数阶**。
 
-### 线性阶 $O(n)$
+### 线性阶
 
 线性阶的操作数与输入数据大小 $n$ 呈**线性相关**，常以单层循环的形式出现：
 
@@ -136,7 +136,7 @@ def for_linear(n: int) -> int:
     return sum
 ```
 
-线性阶算法常出现在[**线性表**](https://www.geeksforgeeks.org/dsa/introduction-to-linear-data-structures/)的遍历中；在这中情景下，输入数据一般为待遍历线性表的长度（或大小）:
+线性阶算法常出现在**线性表**的遍历中；在这中情景下，输入数据一般为待遍历线性表的长度（或大小）:
 ```py
 def throughout_arr(nums: list[int]) -> int:
     count = 0
@@ -145,7 +145,7 @@ def throughout_arr(nums: list[int]) -> int:
     return count
 ```
 
-### 平方阶 $O(n^2)$
+### 平方阶
 
 平方阶的操作数可以看作是输入数据大小 $n$ 的一个二次函数，通常出现在**嵌套循环**中：
 ```py
@@ -175,7 +175,7 @@ def bubble_sort(nums: list[int]) -> list[int]:
 
     [全屏查看>>>](https://pythontutor.com/render.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20ops_count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%3A%20int%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ops_count%20%2B%3D%203%0A%20%20%20%20return%20%5Bnums,%20ops_count%5D%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%205,%209,%204,%201%5D%0A%20%20%20%20res%20%3D%20bubble_sort%28nums%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
 
-### 指数阶 $O(2^n)$
+### 指数阶
 
 指数阶的增长速度极快。一个典型的案例是**细胞的分裂**：
 ```py
@@ -193,7 +193,7 @@ def exp_cell(n: int) -> int:
 
     [全屏查看>>>](https://pythontutor.com/render.html#code=def%20exp_cell%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20*%3D%202%0A%20%20%20%20return%20count%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20ops_count%20%3D%20exp_cell%28n%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
 
-在实际应用中，指数阶常见于 ==递归函数== 中，下面是上方例子的递归改版：
+在实际应用中，指数阶常见于[递归函数](iter_and_recu.md#递归)中，下面是上方例子的递归改版：
 ```py
 def exp_cell_recur(n: int) -> int:
     if n == 1:
@@ -207,7 +207,7 @@ def exp_cell_recur(n: int) -> int:
 
 指数阶常见于穷举算法（暴力搜索、回溯等）。对于数据规模较大的问题，指数阶通常是不可介绍的。
 
-### 对数阶 $O(\log n)$
+### 对数阶
 
 作为指数运算的逆运算，对数运算的原理不难理解；算法中的对数阶也是如此——上面介绍的指数阶可简单理解为“每轮递增为两倍（$O(2^n)$）”，同理，对数阶就可以理解为“每轮缩减到一半（$O(\log_2 n)$）”。
 
@@ -233,7 +233,7 @@ def logarithmic(n: int) -> int:
 
     [全屏查看>>>](https://pythontutor.com/render.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2032%0A%20%20%20%20ops_count%20%3D%20logarithmic%28n%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
 
-与指数阶类似，对数阶也常出现于 ==递归函数== 中：
+与指数阶类似，对数阶也常出现于[递归函数](iter_and_recu.md#递归)中：
 ```py
 def log_recur(n: int) -> int:
     if n <= 1:

@@ -50,7 +50,7 @@ name = null;
 
 ## 基本语法 & 数据结构
 
-JavaScript 代码基本与其他主流编程语言相通，代码块以大括号`{}`进行分隔
+JavaScript 代码基本与其他主流编程语言（如 [C++](../cpp/cs106l/00-type-structure.md)、[Java](../java/intro.md)等）相通，代码块以大括号`{}`进行分隔
 
 ### 变量声明
 

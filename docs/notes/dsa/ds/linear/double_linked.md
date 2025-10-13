@@ -6,7 +6,7 @@
 
 ## 定义
 
-**双向链表（*double linked list*）**的本质是在单链表的每个节点中再设置一个指向其**前驱节点**的指针域。
+**双向链表（*double linked list*）**的本质是在[单链表](linked-list.md)的每个节点中再设置一个指向其**前驱节点**的指针域。
 
 ![双向链表](double_linked_list_definition.png)
 

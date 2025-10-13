@@ -1,7 +1,5 @@
 # 类与模板
 
-*该笔记基于课程CS106L的学习，用于记录一些cpp的重要特性以及先前不曾了解的cpp特性。*
-
 ## 成员访问
 
 在C++中，使用类时需要为其成员配置访问等级权限。访问等级分为三级：`public`、`protected`、`private`。
@@ -351,7 +349,9 @@ private:
 #include "Container.cpp"
 ```
 
-### 模板元编程(TMP, Template Metaprogramming)
+### 模板元编程
+
+**模板元编程(TMP, *Template Metaprogramming*)**是C++中的一种编程范式，它允许在编译时进行计算和决策，从而提高程序的效率和可维护性。
 
 合理使用模板可以提高效率。
 

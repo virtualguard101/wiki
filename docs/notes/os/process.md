@@ -1,6 +1,8 @@
 # 程序与进程
 
 > [程序和进程-操作系统原理 (2025 春季学期) | Yanyan's wiki](https://jyywiki.cn/OS/2025/lect5.md)
+>
+> [操作系统简易模型](os-model.md)
 
 
 ## 程序与进程的关系

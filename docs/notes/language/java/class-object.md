@@ -1,4 +1,4 @@
-# 类与对象
+# Java类与对象
 
 > [cs61b lec2 2021 intro2(slide) | cs61b-sp21](https://docs.google.com/presentation/d/1gEHCa3PLFE3FikAwwO1WhZAXKjWEQ9F1HM9qECoZCUo/edit?slide=id.g5849d008c_081#slide=id.g5849d008c_081)
 >
@@ -6,7 +6,7 @@
 >
 > [Defining and Using Classes | Hug61B](https://joshhug.gitbooks.io/hug61b/content/chap1/chap12.html)
 
-如前文所学，在 Java 中，我们需要将所有的代码实现放在一个个不同的类中。这一节，我们将学习**如何在 Java 中定义并实例化类**。
+如[前文](intro.md)所学，在 Java 中，我们需要将所有的代码实现放在一个个不同的类中。这一节，我们将学习**如何在 Java 中定义并实例化类**。
 
 ## `Dog`(一个类的实例)
 

@@ -1,16 +1,16 @@
 # tmux
 
->[命令行环境 | MIT missing semester](https://missing-semester-cn.github.io/2020/command-line/){target="_blank"}
+>[命令行环境 | MIT missing semester](misc.md#部分教程)
+> 
+>[Make tmux Pretty and Usable | Ham Vocke](https://hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/)
 >
->[Make tmux Pretty and Usable | Ham Vocke](https://hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/){target="_blank"}
->
->[tmux | Arch Linux 中文维基](https://wiki.archlinuxcn.org/wiki/Tmux){target="_blank"}
+>[tmux | Arch Linux 中文维基](https://wiki.archlinuxcn.org/wiki/Tmux)
 
 ![](tmux_example.png)
 
-[tmux](https://github.com/tmux/tmux/wiki){target="_blank"} 是终端多路复用器(*terminal multiplexer*)，可在一个屏幕中创建、访问并控制多个终端（或窗口），每个终端或窗口内都可以运行独立的程序。将 tmux 从当前窗口分离（tmux detach）后，tmux 依然可以在后台运行，直到恢复会话（tmux attach）[^1]。
+[tmux](https://github.com/tmux/tmux/wiki) 是终端多路复用器(*terminal multiplexer*)，可在一个屏幕中创建、访问并控制多个终端（或窗口），每个终端或窗口内都可以运行独立的程序。将 tmux 从当前窗口分离（tmux detach）后，tmux 依然可以在后台运行，直到恢复会话（tmux attach）[^1]。
 
-关于 tmux 的详细介绍可参考[维基百科](https://zh.wikipedia.org/wiki/Tmux){target="_blank"}，这里不再赘述。
+关于 tmux 的详细介绍可参考[维基百科](https://zh.wikipedia.org/wiki/Tmux)，这里不再赘述。
 
 ## 基础概念与使用
 
@@ -91,7 +91,7 @@ tmux 支持高度自定义，可通过在用户主目录创建名为 `.tmux.conf
 
         换而言之，前面提到的目标效果才是一个“在系统默认布局基础上新建的会话”。
 
-- 单命令带参启动/shell脚本启动
+- 单命令带参启动/[shell脚本](../shell.md)启动
 
     这个方式就比较好理解，就是把配置文件中的用户自定义参数以命令参数的形式传入 `tmux` 程序：
     ```bash

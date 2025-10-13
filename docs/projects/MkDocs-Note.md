@@ -1,5 +1,9 @@
 # MkDocs-Note
 
+> [uv](../notes/tools/uv.md)
+>
+> [Git](../notes/tools/git.md)
+
 ![](assets/mkdocs-note.gif)
 
 - Repository: [mkdocs-note | GitHub](https://github.com/virtualguard101/mkdocs-note)

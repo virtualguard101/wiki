@@ -249,8 +249,8 @@ nav:
     - notes/index.md
     - 工具: 
       - Linux:
-        - 杂项/基础: "notes/tools/linux/misc.md"
-        - 定时任务: "notes/tools/linux/crontab.md"
+        - Linux杂项/基础: "notes/tools/linux/misc.md"
+        - Linux定时任务: "notes/tools/linux/crontab.md"
         - Shell: "notes/tools/shell.md"
         - 终端复用器: "notes/tools/linux/tmux.md"
         - Timeshift: "notes/tools/linux/timeshift.md"
@@ -267,29 +267,29 @@ nav:
         - xmake: "notes/tools/build-tools/xmake.md"
     - 编程语言:
       - Python:
-        - 包管理: "notes/language/python/package.md"
+        - Python包管理: "notes/language/python/package.md"
       - C++:
         - "Standard C++ Programming":
           - 类型 & 结构体: "notes/language/cpp/cs106l/00-type-structure.md"
           - 初始化 & 引用: "notes/language/cpp/cs106l/01-init-reference.md"
-          - 流: "notes/language/cpp/cs106l/02-stream.md"
-          - 容器: "notes/language/cpp/cs106l/03-container.md"
+          - C++流: "notes/language/cpp/cs106l/02-stream.md"
+          - STL容器: "notes/language/cpp/cs106l/03-container.md"
           - 迭代器 & 指针: "notes/language/cpp/cs106l/04-iterators-pointers.md"
-          - 类 & 模板: "notes/language/cpp/cs106l/05-classes-template.md"
+          - C++类 & 模板: "notes/language/cpp/cs106l/05-classes-template.md"
           - Lambda表达式: "notes/language/cpp/cs106l/06-lambda_function.md"
           - 运算符重载: "notes/language/cpp/cs106l/07-operator_overload.md"
           - 特殊成员函数: "notes/language/cpp/cs106l/08-special_member_functions.md"
-          - 移动语义: "notes/language/cpp/cs106l/09-moves-semantics.md"
+          - C++移动语义: "notes/language/cpp/cs106l/09-moves-semantics.md"
           - std::optional & 类型安全: "notes/language/cpp/cs106l/10-type_safety.md"
-          - 智能指针 & RAII: "notes/language/cpp/cs106l/11-smart_pointer-RAII.md"
+          - C++智能指针 & RAII: "notes/language/cpp/cs106l/11-smart_pointer-RAII.md"
       - JavaScript:
-        - 快速入门: "notes/language/javascript/js.md"
-        - 回调函数简单应用: "notes/language/javascript/callback.md"
+        - JavaScript入门要点: "notes/language/javascript/js.md"
+        - JS回调函数简单应用: "notes/language/javascript/callback.md"
       - Java:
-        - 入门要点: "notes/language/java/intro.md"
-        - 类与对象: "notes/language/java/class-object.md"
+        - Java入门要点: "notes/language/java/intro.md"
+        - Java类与对象: "notes/language/java/class-object.md"
       - Rust:
-        - 入门要点: "notes/language/rust/intro.md"
+        - Rust入门要点: "notes/language/rust/intro.md"
     - 数学:
       - 离散数学:
         - 集合 & 数学符号与命题逻辑: "notes/math/discrete/intro.md"
@@ -321,7 +321,7 @@ nav:
         #  -  : "notes/dsa/algo/"
     - 操作系统:
       - 绪论:
-        - 简易操作系统模型: "notes/os/os-model.md"
+        - 操作系统简易模型: "notes/os/os-model.md"
       - 虚拟化:
         - 程序与进程: "notes/os/process.md"
       # - 并发:

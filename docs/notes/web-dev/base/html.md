@@ -161,7 +161,7 @@ HTML 实体引用通常有两种表示方法：
 
 >[在 HTML 中应用 CSS 和 JavaScript | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#%E5%9C%A8_html_%E4%B8%AD%E5%BA%94%E7%94%A8_css_%E5%92%8C_javascript)
 
-1. CSS
+1. [CSS](css.md)
 
     在 HTML 中应用 CSS 一般有两种方式：
 
@@ -194,7 +194,7 @@ HTML 实体引用通常有两种表示方法：
         ```
         在这个方式中，`<link>`元素的`rel`属性表明这是样式表；`href`则表明了样式表文件的路径
 
-2. JavaScript
+2. [JavaScript](../../language/javascript/js.md)
 
     有多种方法可以在 HTML 上加载 JS，但对于现代浏览器而言，最可靠的方法还是在 HTML 中使用`<script>`元素：
     ```html

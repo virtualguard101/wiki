@@ -1,8 +1,6 @@
 # 移动语义
 
-*该笔记基于课程CS106L的学习，用于记录一些cpp的重要特性以及先前不曾了解的cpp特性。*
-
-- [std::move in Utility in C++ | Move Semantics, Move Constructors and Move Assignment Operators | GeeksForGeeks](https://www.geeksforgeeks.org/stdmove-in-utility-in-c-move-semantics-move-constructors-and-move-assignment-operators/)
+> [std::move in Utility in C++ | Move Semantics, Move Constructors and Move Assignment Operators | GeeksForGeeks](https://www.geeksforgeeks.org/stdmove-in-utility-in-c-move-semantics-move-constructors-and-move-assignment-operators/)
 
 ## 左值与右值
 
@@ -77,7 +75,7 @@ class HumanGenome {
 
 ### 规则零(*Rule of Zero*)
 
-如果你的类能够依赖编译器生成的默认特殊成员函数（包括默认构造函数、析构函数、拷贝构造函数、拷贝赋值运算符、移动构造函数和移动赋值运算符）来正确管理资源，那么你应该让编译器生成这些函数，而不是手动定义它们。这**通常适用于不管理任何动态分配资源的类**。规则零是规则三和规则五的扩展，它建议**尽可能避免手动定义特殊成员函数**。
+如果你的类能够依赖编译器生成的[默认特殊成员函数](08-special_member_functions.md)（包括默认构造函数、析构函数、拷贝构造函数、拷贝赋值运算符、移动构造函数和移动赋值运算符）来正确管理资源，那么你应该让编译器生成这些函数，而不是手动定义它们。这**通常适用于不管理任何动态分配资源的类**。规则零是规则三和规则五的扩展，它建议**尽可能避免手动定义特殊成员函数**。
 
 ### 规则三(*Rule of Three*)
 
