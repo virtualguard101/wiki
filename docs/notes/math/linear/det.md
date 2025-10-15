@@ -54,7 +54,26 @@ $$
     </iframe>
 </div>
 
-==逐层展开的方式适用于任意 $n$ 阶行列式==。
+==逐层展开的方式适用于任意 $n$ 阶行列式==:
+
+$$
+D = a_{i1}A_{i1} + a_{i2}A_{i2} + \cdots + a_{in}A_{in}
+$$
+
+其中 $A_{ij}$ 为元素 $a_{ij}$ 的**代数余子式**, 即 
+
+$$
+A_{ij} = (-1)^{i + j} \begin{vmatrix}
+    a_{11} & \cdots & a_{1,j-1} & a_{1,j+1} & \cdots & a_{1n} \\
+    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+    a_{i-1,1} & \cdots & a_{i-1,j-1} & a_{i-1,j+1} & \cdots & a_{i-1,n} \\
+    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+    a_{i+1,1} & \cdots & a_{i+1,j-1} & a_{i+1,j+1} & \cdots & a_{i+1,n} \\
+    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & \cdots & a_{n,j-1} & a_{n,j+1} & \cdots & a_{nn}
+\end{vmatrix}
+$$
+
 
 ### 利用行列式解线性方程组
 
