@@ -125,6 +125,7 @@ plugins:
   - awesome-nav
   - mkdocs-note:
       notes_dir: docs/notes
+      index_file: docs/notes/index.md
       timestamp_zone: "UTC+8"
   - graph:
       name: "title"
