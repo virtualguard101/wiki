@@ -755,6 +755,10 @@ git merge --continue
 git merge --abort
 ```
 
+### 合并 Pull Request
+
+> [Merging pull requests together | Stack Overflow](https://stackoverflow.com/questions/14391421/merging-pull-requests-together)
+
 ### 常用工作流
 
 <div class="responsive-video-container">
