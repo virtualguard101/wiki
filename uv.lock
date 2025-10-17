@@ -1442,11 +1442,12 @@ wheels = [
 
 [[package]]
 name = "mkdocs-note"
-version = "1.2.5"
+version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "colorlog" },
     { name = "mkdocs" },
+    { name = "mkdocs-awesome-nav" },
     { name = "mkdocs-git-revision-date-localized-plugin" },
     { name = "mkdocs-jupyter" },
     { name = "mkdocs-material" },
@@ -1455,9 +1456,9 @@ dependencies = [
     { name = "pymdown-extensions" },
     { name = "pyyaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c6/87/f9d07a25239ede34d4520c99f0649422fada4675917dcb99c9496e14caa9/mkdocs_note-1.2.5.tar.gz", hash = "sha256:3ccd906b3a8017ff9b317df49449921c829c9bae67fbfdc9c80e56ddf74848cb", size = 57748, upload-time = "2025-10-13T04:19:31.495Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/5b/94/27f5eb3e07e7064e7707b68489b017e8c852453ecdd8ef54db4f9d9675f6/mkdocs_note-2.0.0.tar.gz", hash = "sha256:fdcc2fa15702e0e90834f5b6595ce37fd97e9c0b44ca58bd064f3215f217d48f", size = 54771, upload-time = "2025-10-17T10:20:01.564Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8e/6d/4f5593e7d106a439b213eb9155684fa0f550360d8b06a533ed0feffb2f33/mkdocs_note-1.2.5-py3-none-any.whl", hash = "sha256:7c7b58d3a2dc7f7a08291a37e41e0ba0037e30cf265574946369961f4ed8fd0f", size = 55179, upload-time = "2025-10-13T04:19:30.532Z" },
+    { url = "https://files.pythonhosted.org/packages/bc/cd/f0665626a565478eef9969603a4a0e1192e4b443c035638cfd889df229ba/mkdocs_note-2.0.0-py3-none-any.whl", hash = "sha256:8963fa863b6939375167aa4e306de4318fd0534ed41e373821bb000d4be20d90", size = 56111, upload-time = "2025-10-17T10:20:00.468Z" },
 ]
 
 [[package]]
@@ -1903,7 +1904,7 @@ requires-dist = [
     { name = "mkdocs-material-extensions", specifier = ">=1.3.1" },
     { name = "mkdocs-minify-plugin", specifier = ">=0.8.0" },
     { name = "mkdocs-network-graph-plugin", specifier = ">=1.0.3" },
-    { name = "mkdocs-note", specifier = ">=1.2.5" },
+    { name = "mkdocs-note", specifier = ">=2.0.0" },
     { name = "mkdocs-rss-plugin", specifier = ">=1.17.4" },
     { name = "numpy", specifier = ">=2.3.4" },
     { name = "pandas", specifier = ">=2.3.3" },
