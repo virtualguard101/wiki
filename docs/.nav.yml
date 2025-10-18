@@ -103,6 +103,7 @@ nav:
             - 决策边界: "notes/ml/coursera/decision-boundary.md"
             - 逻辑损失与成本函数: "notes/ml/coursera/logistic-loss-cost.ipynb"
             - 逻辑回归的梯度下降: "notes/ml/coursera/logistic-grad-desent.ipynb"
+          - 过拟合与正则化: "notes/ml/coursera/overfitting-regularization.md"
       # - 深度学习:
     - Web开发:
       - 入门基础:
