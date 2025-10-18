@@ -1,8 +1,10 @@
-# MkDocs-Note
+# MkDocs Note
 
 ![](assets/mkdocs-note.gif)
 
 - Repository: [mkdocs-note | GitHub](https://github.com/virtualguard101/mkdocs-note)
+
+- Homepage: [Mkdocs Note](https://blog.virtualguard101.com/mkdocs-note/)
 
 - 相关笔记:
 
