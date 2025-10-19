@@ -207,6 +207,82 @@ $$
 
 ## 初等矩阵
 
+### 定义
+
+单位矩阵经过一次初等变换后得到的新矩阵称为初等矩阵。所以三种初等变换就对应着三种初等矩阵:
+
+- 交换第 $i$ 行和第 $j$ 行(列)，记作 $E(i, j)$
+
+    $$
+    E(1, 2) = \begin{pmatrix}
+        0 & 1 & 0 \\
+        1 & 0 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    $$
+
+- 第 $i$ 行(列)乘以非零常数 $k$，记作 $E(i(k))$
+
+    $$
+    E(2(k)) = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & k & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    $$
+
+- 第 $j$ 行(第 $i$ 列)乘以非零常数 $k$ 加到第 $i$ 行(第 $j$ 列)，记作 $E(ij(k))$
+
+    $$
+    E(23(k)) = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & k \\
+        0 & 0 & 1
+    \end{pmatrix}
+    $$
+
+### 性质
+
+- 初等矩阵的行列式均不为 $0$
+
+    - $|E(i, j)| = -1$, $|E(i(k))| = k$, $|E(ij(k))| = 1$
+
+    - ==故初等矩阵**均可逆**, 且有其逆矩阵为同类型的初等矩阵==:
+
+        - $E(i, j)^{-1} = E(i, j)$
+
+        - $E(i(k))^{-1} = E(i(\frac{1}{k}))$
+
+        - $E(ij(k))^{-1} = E(ij(-k))$
+
+- 初等矩阵的转置矩阵仍为同类型的初等矩阵
+
+    - $E(i, j)^T = E(i, j)$
+
+    - $E(i(k))^T = E(i(k))$
+
+    - $E(ij(k))^T = E(ji(k))$
+
+### 初等矩阵与初等变换的关系
+
+设 $A$ 为 $m \times n$ 矩阵, 则有:
+
+- 对 $A$ 进行一次初等行变换, 相当于用同类型的 $m$ 阶初等矩阵左乘 $A$
+
+    - $A \xrightarrow{r_i \leftrightarrow r_j} E(i, j)A$
+
+    - $A \xrightarrow{kr_i} E(i(k))A$
+
+    - $A \xrightarrow{r_i + kr_j} E(ij(k))A$
+
+- 同理，对 $A$ 进行一次初等列变换, 相当于用同类型的 $n$ 阶初等矩阵右乘 $A$
+
+    - $A \xrightarrow{c_j \leftrightarrow c_k} AE(j, k)$
+
+    - $A \xrightarrow{kc_j} AE(j(k))$
+
+    - $A \xrightarrow{c_j + kc_k} AE(jk(k))$
+
 
 ## 矩阵的秩
 
