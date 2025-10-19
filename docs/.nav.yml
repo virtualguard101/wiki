@@ -14,6 +14,7 @@ nav:
       - Git: "notes/tools/git.md"
       - Just: "notes/tools/just.md"
       - Astral uv: "notes/tools/uv.md"
+      - Conda: "notes/tools/conda.md"
       - Jupyter Notebook: "notes/tools/jupyter.ipynb"
       - 构建工具:
         - GNU Make: "notes/tools/build-tools/gnu-make.md"
@@ -24,6 +25,7 @@ nav:
     - 编程语言:
       - Python:
         - Python包管理: "notes/language/python/package.md"
+        - Python虚拟环境: "notes/language/python/virtual-env.md"
       - C++:
         - "Standard C++ Programming":
           - 类型 & 结构体: "notes/language/cpp/cs106l/00-type-structure.md"
