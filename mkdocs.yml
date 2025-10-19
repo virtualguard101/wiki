@@ -127,9 +127,7 @@ plugins:
       notes_dir: docs/notes
       index_file: docs/notes/index.md
       timestamp_zone: "UTC+8"
-  - graph:
-      name: "title"
-      debug: false
+      enable_network_graph: true
 
   # - redirects:
   #     redirect_maps:
