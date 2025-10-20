@@ -48,6 +48,91 @@ publish: true
 
     - ==共享资源的使用对象是**计算机程序（进程）**，不是人==，得详细规定它们对资源的访问权限与使用方式。
 
+### 实现共享的方式
+
+#### 互斥共享
+
+同一时间间隔内**只允许一个进程访问**该资源，这种方式称为**互斥共享**。
+
+只有资源空闲，或是原先占有该资源的进程释放资源后，其他进程才能对该资源进行访问，否则必须等待，访问形式类似“进程的串行执行”。这种资源被称为**临界资源**。
+
+系统中大多数**物理设备**、以及**栈**、**变量**、**表格**等都属于临界资源。
+
+#### 同时共享
+
+同一时间间隔内允许**多个进程“同时”访问**该资源，这种方式称为**同时共享**。
+
+宏观上，多个进程“同时”访问临界资源，但**微观上**，这些进程是交替执行的。
+
+典型的同时共享资源有**磁盘**、**文件**等，拿后者举例，一些可重用的代码（如库函数）就是同时共享资源，可被多个进程“同时”访问。
+
 ## 虚拟
 
+在操作系统中，==使用某种技术将一个物理实体映射为若干个逻辑实体==，从而实现对物理实体的复用，这种方式称为**虚拟**。
+
+早期的虚拟化技术起源于通信领域，如电话系统中的信道复用技术，即将一条物理信道划分为多个逻辑信道，每个逻辑信道可以被多个用户“同时”使用。
+
+虚拟化通常通过**时分复用**和**空分复用**两种方式实现。
+
+### 时分复用
+
+简单来说，**时分复用（*Time Division Multiplexing, TDM*）**就是将时间分割成小段，多个进程轮流使用CPU时间片，实现资源的时间共享。
+
+可以结合一段简化的 Python 代码理解:
+```py
+# 简化的时间片轮转示例
+def round_robin_scheduler(processes, time_slice=5):
+    while processes:
+        current_process = processes.pop(0)
+        print(f"执行进程 {current_process}，时间片：{time_slice}ms")
+        
+        if not current_process.is_completed():
+            processes.append(current_process)  # 未完成则重新排队
+```
+
+### 空分复用
+
+与时分复用类似，**空分复用（*Space Division Multiplexing, SDM*）**就是将物理存储空间分割成多个逻辑空间，让多个进程可以"同时"使用不同的内存区域。
+
+```py
+# 虚拟内存管理示例
+class VirtualMemory:
+    def __init__(self, total_memory):
+        self.total_memory = total_memory
+        self.allocated_memory = {}
+    
+    def allocate_process_memory(self, process_id, size):
+        # 为进程分配虚拟内存空间
+        self.allocated_memory[process_id] = size
+        print(f"进程 {process_id} 分配了 {size}MB 虚拟内存")
+```
+
 ## 异步
+
+**异步（*Asynchronous*）**是指进程的执行不需要等待前一个操作完全完成，即可启动新操作并继续执行其他任务，从而达到可以同时进行多个操作的效果，提高系统效率。
+
+异步有三个重要原则:
+
+- **非阻塞执行**：不等待操作完成就继续执行其他操作；
+
+- **事件驱动**：通过事件通知机制处理完成的操作；
+
+- **并发处理**：多个操作可以同时进行；
+
+
+```py
+# 异步操作示例
+import asyncio
+
+async def async_io_operation():
+    print("开始I/O操作...")
+    await asyncio.sleep(2)  # 模拟I/O等待
+    print("I/O操作完成")
+    return "结果"
+
+async def main():
+    # 同时启动多个异步操作
+    tasks = [async_io_operation() for _ in range(3)]
+    results = await asyncio.gather(*tasks)
+    print(f"所有操作完成: {results}")
+```
