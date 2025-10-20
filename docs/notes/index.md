@@ -29,7 +29,6 @@ comments: true
 
         - Due to many compatibility issues, please read on PC browser to get the best experience.
 
-        - The link graph of each notes in Jupyter Notebook documentations cannot be displayed normally, the link graph plugin: [MkDocs Network Graph Plugin](https://github.com/develmusa/mkdocs-network-graph-plugin).
 
 === "简体中文"
     **学者应当遵循之物， 唯有知论与证辩。只有时刻保持对一切的质疑，才能避免陷入偏见。**
@@ -40,8 +39,6 @@ comments: true
         - 对于使用**Jupyter Notebook**（`.ipynb`）的部分，由于[插件](https://github.com/danielfrg/mkdocs-jupyter)的兼容性问题，目录部分使用英文以方便自动定位与跳转。
 
         - 由于存在诸多兼容性问题，请在PC浏览器上阅读以获得最佳体验。
-
-        - 笔记链接图在 Jupyter Notebook 文档中无法正常显示，链接图插件: [MkDocs Network Graph Plugin](https://github.com/develmusa/mkdocs-network-graph-plugin)。
 
 
 ## Recent New or Modified Notes
