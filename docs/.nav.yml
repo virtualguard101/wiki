@@ -10,6 +10,7 @@ nav:
         - Shell: "notes/tools/shell.md"
         - 终端复用器: "notes/tools/linux/tmux.md"
         - Timeshift: "notes/tools/linux/timeshift.md"
+        - htop: "notes/tools/linux/htop.md"
       - SSH: "notes/tools/ssh.md"
       - Git: "notes/tools/git.md"
       - Just: "notes/tools/just.md"
@@ -79,6 +80,7 @@ nav:
         #  -  : "notes/dsa/algo/"
     - 操作系统:
       - 绪论:
+        - 操作系统的基本特性: "notes/os/os-basic-feat.md"
         - 操作系统简易模型: "notes/os/os-model.md"
       - 虚拟化:
         - 程序与进程: "notes/os/process.md"
