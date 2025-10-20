@@ -118,6 +118,7 @@ nav:
         - 透明代理: "notes/misc/scientific-internet-access/proxy.md"
       - 正则表达式: "notes/misc/re.md"
       - 开源协议: "notes/misc/open-source-license.md"
+      - 在GitHub上使用SSH密钥: "notes/misc/github-ssh.md"
       - 部分资源收藏:
         - Academy: "notes/misc/resources/academy.md"
         - Engineering/Misc/Job: "notes/misc/resources/engineering.md"
