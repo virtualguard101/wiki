@@ -81,10 +81,10 @@ nav:
     - 操作系统:
       - 绪论:
         - 操作系统的基本特性: "notes/os/os-basic-feat.md"
-        - 操作系统简易模型: "notes/os/os-model.md"
-      - 虚拟化:
+        - 操作系统简易模型: "notes/os/intro/os-model.md"
+      - 并发:
         - 程序与进程: "notes/os/process.md"
-      # - 并发:
+      # - 虚拟化:
       # - 持久化:
     - 软件工程:
       - UML图: "notes/se/uml.md"
