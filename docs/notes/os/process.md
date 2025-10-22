@@ -291,11 +291,11 @@ void context_switch(PCB *old_pcb, PCB *new_pcb) {
 ```
 
 
-### 原语 (Primitive)
+### 原语
 
 #### 什么是原语
 
-**原语（*Primitive*）**是操作系统中最基本、不可分割的操作单元，是构建更复杂系统功能的基础。
+<strong>原语（*Primitive*）</strong>是操作系统中最基本、不可分割的操作单元，是构建更复杂系统功能的基础。
 
 原语的特性:
 
@@ -326,5 +326,247 @@ void context_switch(PCB *old_pcb, PCB *new_pcb) {
 
 ## 进程通信
 
+为了实现并发，进程间需要进行通信，以实现据交换和同步。
+
+进程通信通常有高低级之分，高级通信方式通常提供更高级的抽象，如消息传递、共享内存等，而低级通信方式则提供更底层的抽象，如信号量、管道等。前者使用方便，可以高效地传递大量数据；而后者则需要程序员手动管理同步与互斥，且通信对用户不透明，但可以更精确地控制通信的细节。
+
+### 进程通信的方式
+
+*进程间通信*（*Inter-Process Communication*, IPC）有以下四种常见机制:
+
+| 机制 | 应用场景 | 特点 | 优势 | 劣势 | 典型应用 |
+| --- | --- | --- | --- | --- | --- |
+| **共享内存** | 大数据量、高性能计算 | 最快、需要与同步机制配合使用 | 速度最快、适合大数据传输 | 需要同步机制、编程复杂 | 数据库、科学计算 |
+| **管道通信** | 简单数据流、命令行工具 | 单向、高效、简单 | 简单易用、系统开销小 | 单向通信、有亲缘关系限制 | Shell命令链、进程间数据流 |
+| **消息队列** | 结构化消息传递 | 双向、类型化、异步 | 可靠性高、支持优先级 | 系统资源消耗、消息大小限制 | 任务队列、日志系统 |
+| **信号量** | 进程同步、资源控制 | 主要用于同步控制 | 简单、高效 | 功能单一、容易死锁 | 临界区保护、资源计数 |
+| **客户端-服务器** | 分布式服务、资源共享 | 集中管理、可扩展 | 资源共享、易于管理 | 单点故障、性能瓶颈 | Web应用、数据库服务 | 
+
+#### 共享内存
+
+- 基于共享数据结构的通信方式（低级）
+
+- 基于共享存储区的通信方式（高级）
+
+#### 管道通信
+
+管道通信是进程通信的一种低级的通信方式，通过**内核缓冲区**实现进程间的通信，它允许一个进程的输出直接作为另一个进程的输入，实现数据在进程间的**单向流动**。
+
+##### 什么是管道
+
+<strong>管道（*pipe*）</strong>是用于连接一个读进程与写进程以实现它们之间互相通信的机制。根据实现方式，管道分为两种类型：
+
+- **匿名管道**：内核维护的**缓冲区**，通过文件描述符访问，不创建文件系统中的实体
+
+- **命名管道（FIFO）**：在文件系统中创建的**特殊文件**，可以像普通文件一样访问
+
+管道是一种**半双工**的通信方式，即数据只能在一个方向上流动。
+
+!!! tip "全双工与半双工"
+
+    - **全双工（*Full Duplex*）**：通信双方可以**同时进行双向数据传输**，就像两个人可以同时说话和听对方说话
+
+    - **半双工（*Half Duplex*）**：通信双方不能同时发送和接收数据，必须**轮流进行**，就像对讲机一样
+
+##### 匿名管道与命名管道
+
+| 特性 | 匿名管道 | 命名管道（FIFO） |
+|------|----------|----------------|
+| 创建方式 | `pipe()` 系统调用 | `mkfifo()` 系统调用 |
+| 文件系统实体 | 无 | 有（特殊文件） |
+| 进程关系 | 必须有亲缘关系 | 任意进程 |
+| 访问方式 | 文件描述符 | 文件名或文件描述符 |
+| 生命周期 | 随进程结束 | 手动删除 |
+
+##### 管道的实现原理
+
+管道在内核中维护一个**环形缓冲区**，具有以下特点：
+
+- **单向性**：数据只能向一个方向流动
+
+- **阻塞性**：当缓冲区满时写操作阻塞，空时读操作阻塞
+
+- **原子性**：小于 `PIPE_BUF` 的写操作是原子的
+
+- **缓冲区大小**：通常为 64KB（可配置）
+
+##### 实际应用示例
+
+- 命令行中的管道使用
+
+    ```bash
+    # 经典的管道链式操作
+    ls -l | grep ".txt" | wc -l
+    ```
+
+- 编程中的匿名管道
+
+    ```c
+    #include <unistd.h>
+    #include <stdio.h>
+
+    int main() {
+        int pipefd[2];
+        pid_t pid;
+        
+        // 创建匿名管道
+        if (pipe(pipefd) == -1) {
+            perror("pipe");
+            return 1;
+        }
+        
+        pid = fork();
+        if (pid == 0) {
+            // 子进程：关闭读端，向写端写入数据
+            close(pipefd[0]);
+            write(pipefd[1], "Hello from child!", 18);
+            close(pipefd[1]);
+        } else {
+            // 父进程：关闭写端，从读端读取数据
+            close(pipefd[1]);
+            char buffer[100];
+            read(pipefd[0], buffer, sizeof(buffer));
+            printf("Parent received: %s\n", buffer);
+            close(pipefd[0]);
+        }
+        
+        return 0;
+    }
+    ```
+
+- 命名管道的使用
+
+    ```bash
+    # 创建命名管道
+    mkfifo mypipe
+
+    # 进程A写入数据
+    echo "Hello from process A" > mypipe &
+
+    # 进程B读取数据
+    cat mypipe
+    ```
+
+#### 消息队列
+
+消息传递系统，或称为<strong>消息队列（*Message Queue*）</strong>，其最大的特点就是通信消息是**结构化的**，每个消息通常包含:
+
+- 消息头：包含目标进程ID、消息类型、优先级等信息
+
+- 消息体：包含实际的数据内容
+
+```c
+#include <sys/msg.h>
+#include <stdio.h>
+#include <string.h>
+
+struct msgbuf {
+    long mtype;       // 消息类型
+    char mtext[100];  // 消息内容
+};
+
+int main() {
+    int msgid;
+    struct msgbuf msg;
+    
+    // 创建消息队列
+    msgid = msgget(IPC_PRIVATE, 0666 | IPC_CREAT);
+    
+    // 发送消息
+    msg.mtype = 1;
+    strcpy(msg.mtext, "Hello from sender!");
+    msgsnd(msgid, &msg, sizeof(msg.mtext), 0);
+    
+    // 接收消息
+    msgrcv(msgid, &msg, sizeof(msg.mtext), 1, 0);
+    printf("Received: %s\n", msg.mtext);
+    
+    // 删除消息队列
+    msgctl(msgid, IPC_RMID, NULL);
+    
+    return 0;
+}
+```
+
+#### 客户端-服务器系统
+
+<strong>客户端-服务器系统（*Client-Server System*）</strong>在网络系统与分布式系统的应用中十分常见。
+
+简单来说，其将整个系统划分为客户端与服务器两个角色，客户端负责请求服务，服务器负责响应请求:
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    Client->>Server: Request
+    Server->>Client: Response
+```
+
+##### 套接字
+
+一个典型的客户端-服务器系统模型就是<strong>套接字（*socket*）</strong>:
+
+![套接字](socket.webp)
+
+```c
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <stdio.h>
+
+// 服务器端
+int server_socket = socket(AF_INET, SOCK_STREAM, 0);
+struct sockaddr_in server_addr;
+server_addr.sin_family = AF_INET;
+server_addr.sin_port = htons(8080);
+server_addr.sin_addr.s_addr = INADDR_ANY;
+
+bind(server_socket, (struct sockaddr*)&server_addr, sizeof(server_addr));
+listen(server_socket, 5);
+
+// 客户端
+int client_socket = socket(AF_INET, SOCK_STREAM, 0);
+struct sockaddr_in client_addr;
+client_addr.sin_family = AF_INET;
+client_addr.sin_port = htons(8080);
+client_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+
+connect(client_socket, (struct sockaddr*)&client_addr, sizeof(client_addr));
+
+// 发送消息
+send(client_socket, "Hello from client!", 18);
+
+// 接收消息
+recv(client_socket, buffer, sizeof(buffer), 0);
+printf("Received: %s\n", buffer);
+
+// 关闭套接字
+close(client_socket);
+close(server_socket);
+```
+
+#### 应用场景选择与性能对比
+
+- 常见应用场景
+
+    | 需求场景 | 推荐机制 | 理由 |
+    |---------|---------|------|
+    | **高性能数据传输** | 共享内存 | 速度最快，适合大数据量 |
+    | **简单进程间通信** | 管道 | 实现简单，系统开销小 |
+    | **可靠的消息传递** | 消息队列 | 支持确认机制，适合关键业务 |
+    | **进程同步控制** | 信号量 | 专门用于同步，简单高效 |
+    | **分布式服务** | 客户端-服务器 | 架构清晰，易于扩展 |
+
+- 性能对比
+
+    | 机制 | 延迟 | 吞吐量 | 内存使用 | 编程复杂度 |
+    |------|------|--------|----------|------------|
+    | 共享内存 | 极低 | 极高 | 中等 | 高 |
+    | 管道 | 低 | 高 | 低 | 低 |
+    | 消息队列 | 中等 | 中等 | 中等 | 中等 |
+    | 客户端-服务器 | 高 | 中等 | 低 | 中等 |
+    | 信号量 | 极低 | N/A | 极低 | 低 |
+
+
+## 线程
 
 [^1]: [程序和进程-操作系统原理 (2025 春季学期) | Yanyan's wiki](https://jyywiki.cn/OS/2025/lect5.md)
