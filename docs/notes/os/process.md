@@ -112,7 +112,7 @@ graph LR
     classDef blockedState fill:#f57c00,stroke:#e65100,stroke-width:2px,color:#ffffff
     classDef terminateState fill:#d32f2f,stroke:#b71c1c,stroke-width:2px,color:#ffffff
 
-    A[("🏗️ 创建<br/>Create")] -->|"✅ 许可"| B[("📋 就绪<br/>Ready")]
+    A[("🏗️ 创建<br/>Create")] -.->|"✅ 许可"| B[("📋 就绪<br/>Ready")]
     B -->|"🎯 线程调度"| C[("⚡ 执行<br/>Running")]
     C -->|"⏰ 时间片完"| B
     C -->|"🔌 I/O请求"| D[("⏳ 阻塞<br/>Blocked")]
@@ -205,8 +205,8 @@ graph TD
     classDef terminateState fill:#b71c1c,stroke:#8b0000,stroke-width:2px,color:#ffffff
 
     %% 创建状态
-    A[("🏗️ 创建<br/>Create")] --> |"✅ 许可"| B[("📋 活动就绪<br/>Active Ready")]
-    A --> |"✅ 许可"| C[("💤 静止就绪<br/>Suspended Ready")]
+    A[("🏗️ 创建<br/>Create")] -.-> |"✅ 许可"| B[("📋 活动就绪<br/>Active Ready")]
+    A -.-> |"✅ 许可"| C[("💤 静止就绪<br/>Suspended Ready")]
     
     %% 活动就绪相关转换
     B -->|"⏸️ 挂起"| C
@@ -568,6 +568,280 @@ close(server_socket);
 
 
 ## 线程
+
+### 什么是线程
+
+<strong>线程（*thread*）</strong>是CPU调度的基本单位，每个线程拥有独立的执行上下文（程序计数器、寄存器、栈），但共享进程的代码段、数据段、文件描述符等资源。
+
+==可将线程视为为一个**轻量级的进程**==，其目的是为了提高程序的并发性，减少上下文切换的开销，包含两个基本属性:
+
+- 可拥有资源的独立单位
+
+- 可**独立**调度和分派的**基本单位**
+
+三条重要原则:
+
+- 资源共享：同一进程内的线程共享内存空间和系统资源
+
+- 独立执行：每个线程有独立的执行栈和寄存器状态
+
+- 并发调度：操作系统可以独立调度每个线程
+
+以一个需要同时处理多用户请求的Web服务器为例，可为每个请求创建一个线程，所有线程**共享**服务器的代码和数据库连接池:
+
+```py
+import threading
+import time
+
+def handle_request(request_id):
+    print(f"Process {request_id} is handling request")
+    time.sleep(1)  # 模拟处理时间
+    print(f"Process {request_id} has handled request")
+
+# 创建多个线程处理并发请求
+threads = []
+for i in range(5):
+    thread = threading.Thread(target=handle_request, args=(i,))
+    threads.append(thread)
+    thread.start()
+
+for thread in threads:
+    thread.join()
+```
+
+### 为什么需要线程
+
+在出现线程前，操作系统中只有进程概念，每个进程独立运行，资源消耗大，进程间切换开销高，无法实现真正的并发。
+
+出现线程的概念后，一个进程可以包含多个线程，线程间共享资源，切换开销小，实现了真正的并发执行。
+
+### 线程与进程的比较
+
+|   | **进程** (*Process*) | **线程** (*Thread*) |
+|---|---|---|
+| 定义 | 资源分配的基本单位 | CPU调度的基本单位 |
+| 内存空间 | 独立的虚拟地址空间 | 共享进程的内存空间 |
+| 创建开销 | 大（需要分配内存、文件描述符等）| 小（只需分配栈空间）|
+| 切换开销 | 大（需要切换页表、TLB等）| 小（只需切换寄存器）|
+| 通信方式 | IPC（管道、消息队列、共享内存等） | 直接访问共享变量 |
+| 资源管理 | 独立管理资源 | 共享进程资源 |
+| 故障影响 | 进程崩溃不影响其他进程 | 线程崩溃可能导致整个进程崩溃 |
+
+!!! abstract
+    - ==进程是拥有资源的基本单位==，传统进程称为**重型进程 (Heavy-weight Process, HWP)**
+
+    - ==线程是调度和分派的基本单位==，同时又具有传统进程所具有的许多特征，故也称为**轻量级进程 (Light-weight Process, LWP)**
+
+### 线程的描述与控制概述
+
+#### 状态
+
+- 执行态
+
+- 就绪态
+
+- 阻塞态
+
+状态间的转换与进程一样。
+
+#### 内存模型
+
+- 所有线程共享进程的地址空间
+
+- 线程间可以直接访问共享数据
+
+- 需要同步机制防止数据竞争
+
+```mermaid
+graph TB
+    subgraph "进程A"
+        A1[代码段]
+        A2[数据段]
+        A3[堆]
+        A4[栈1 - 线程1]
+        A5[栈2 - 线程2]
+        A6[栈3 - 线程3]
+    end
+   
+    A1 -.-> A4
+    A1 -.-> A5
+    A1 -.-> A6
+    A2 -.-> A4
+    A2 -.-> A5
+    A2 -.-> A6
+    A3 -.-> A4
+    A3 -.-> A5
+    A3 -.-> A6
+```
+
+#### 创建
+
+1. 分配新的TCB（Thread Control Block）
+
+2. 分配栈空间
+
+3. 设置寄存器初始值
+
+4. 加入线程调度队列
+
+#### 通信机制
+
+- 直接访问共享变量
+
+- 互斥锁（Mutex）
+
+- 条件变量（Condition）
+
+- 信号量（Semaphore）
+
+```py
+import time
+import threading
+import multiprocessing
+
+def cpu_intensive_task():
+    """CPU密集型任务"""
+    result = 0
+    for i in range(1000000):
+        result += i * i
+    return result
+
+# 测试进程创建开销
+def test_process_creation():
+    start_time = time.time()
+    processes = []
+    
+    for i in range(10):
+        p = multiprocessing.Process(target=cpu_intensive_task)
+        processes.append(p)
+        p.start()
+    
+    for p in processes:
+        p.join()
+    
+    process_time = time.time() - start_time
+    print(f"Process creation and switching time: {process_time:.4f} seconds")
+
+# 测试线程创建开销
+def test_thread_creation():
+    start_time = time.time()
+    threads = []
+    
+    for i in range(10):
+        t = threading.Thread(target=cpu_intensive_task)
+        threads.append(t)
+        t.start()
+    
+    for t in threads:
+        t.join()
+    
+    thread_time = time.time() - start_time
+    print(f"Thread creation and switching time: {thread_time:.4f} seconds")
+
+# 运行测试
+test_process_creation()
+test_thread_creation()
+```
+
+### 进程的实现
+
+> [Difference between User Level thread and Kernel Level thread | GeeksforGeeks](https://www.geeksforgeeks.org/operating-systems/difference-between-user-level-thread-and-kernel-level-thread/)
+>
+> [Relationship between User level thread and Kernel level thread | GeeksforGeeks](https://www.geeksforgeeks.org/operating-systems/relationship-between-user-level-thread-and-kernel-level-thread/)
+>
+> [Kernel Threads and User Threads | IBM Documentation](https://www.ibm.com/docs/kk/aix/7.3.0?topic=processes-kernel-threads-user-threads)
+
+线程的实现有主要有三种方式:
+
+- 内核支持线程（*Kernel Supported Threads, KST*），在实现上**利用系统调用**
+
+- 用户支持线程（*User Level Threads, ULT*），在实现上**借助中间系统**
+
+- 混合线程
+
+#### 内核支持线程
+
+- 优点
+
+    - 在多处理机系统中，内核可同时调度同一进程的多个线程
+
+    - 如一个线程阻塞了，内核可调度其他线程(同一或其他进程)
+
+    - 线程的切换比较快，开销小
+
+    - 内核本身可采用多线程技术，提高执行速度和效率
+
+- 缺点
+
+    - 针对用户线程开销较大
+
+#### 用户级线程
+
+- 优点
+
+    - 线程切换不需要转换到内核空间
+
+    - 调度算法可以是进程专用的
+
+    - 线程的实现与OS平台无关
+
+- 缺点
+
+    - 系统调用的阻塞问题
+
+    - 多线程应用不能利用多处理机进行多重处理的优点
+
+#### 混合线程
+
+由于KST与ULT的连接方式有所差异，从而形成了三种不同的多线程模型：
+
+- 多对一模型
+
+    - 多个用户级线程映射到一个内核线程
+
+    - 多个线程不能并行运行在多个处理器上
+
+    - 线程管理在用户态执行，因此是高效的，但一个线程的阻塞系统调用会导致整个进程的阻塞
+
+    - 用于不支持内核线程的系统中
+
+    - 使用多对一模型的操作系统
+
+        - Solaris Green Threads
+
+        - GNU Portable Threads
+
+- 一对一模型
+
+    - 每个用户级线程映射到一个内核线程
+
+    - 比多对一模型有更好的并发性
+
+    - 允许多个线程并行运行在多个处理器上
+
+    - 创建一个ULT需要创建一个KLT，效率较差
+
+    - 使用一对一模型的操作系统
+
+        - Windows 95/98/NT/XP/2000
+
+        - Linux
+
+        - Solaris 9 and later
+
+        - OS/2
+
+- 多对多模型
+
+    - 多个用户级线程映射为相等或小于数目的内核线程
+
+    - 允许操作系统创建足够多的KLT
+
+    - 使用多对多模型的操作系统
+
+        - Solaris 9 以前的版本
+
+        - 带有ThreadFiber开发包的Windows NT/2000
 
 
 [^1]: [程序和进程-操作系统原理 (2025 春季学期) | Yanyan's wiki](https://jyywiki.cn/OS/2025/lect5.md)
