@@ -205,8 +205,8 @@ graph TD
     classDef terminateState fill:#b71c1c,stroke:#8b0000,stroke-width:2px,color:#ffffff
 
     %% 创建状态
-    A[("🏗️ 创建<br/>Create")] --> B[("📋 活动就绪<br/>Active Ready")]
-    A --> C[("💤 静止就绪<br/>Suspended Ready")]
+    A[("🏗️ 创建<br/>Create")] --> |"✅ 许可"| B[("📋 活动就绪<br/>Active Ready")]
+    A --> |"✅ 许可"| C[("💤 静止就绪<br/>Suspended Ready")]
     
     %% 活动就绪相关转换
     B -->|"⏸️ 挂起"| C
@@ -254,7 +254,7 @@ graph TD
 一个 PCB 的典型实现如下:
 
 ```cpp
- typedef struct {
+typedef struct {
     int pid;                    // 进程ID
     int ppid;                   // 父进程ID
     int state;                  // 进程状态
