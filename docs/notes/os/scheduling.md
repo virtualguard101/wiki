@@ -442,3 +442,7 @@ void preemptiveSJF(vector<Process>& processes) {
         **平均等待时间**: $\frac{2+9+0+4}{4} = 3.75$
 
         **平均周转时间**: $\frac{7+13+2+7}{4} = 7.25$
+
+#### 优先级调度
+
+##### 定义
