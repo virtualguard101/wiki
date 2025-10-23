@@ -194,8 +194,11 @@ void FCFS_Scheduler() {
 
 !!! example
     假设有三个进程：
+
     - 进程A：到达时间0，执行时间3
+
     - 进程B：到达时间1，执行时间1
+
     - 进程C：到达时间2，执行时间2
 
     使用先来先服务调度算法，甘特图（Gantt Chart）如下：
@@ -203,20 +206,239 @@ void FCFS_Scheduler() {
     ```
     时间轴: 0----1----2----3----4----5----6
     进程A:  [==============]
-    进程B:       [==============]
-    进程C:            [===================]
+    进程B:       [----------====]
+    进程C:            [----------=========]
     ```
     
     性能指标：
 
-    - 进程A：等待时间0，周转时间3
+    - 进程A：等待时间 $0$，周转时间 $3$
 
-    - 进程B：等待时间2，周转时间4
+    - 进程B：等待时间 $2$，周转时间 $3$
 
-    - 进程C：等待时间2，周转时间6
+    - 进程C：等待时间 $2$，周转时间 $4$
 
-    - 平均等待时间：(0+2+2)/3 = 1.33
+    **平均等待时间**: $\frac{0+2+2}{3} = 1.33$
 
-    - 平均周转时间：(3+4+6)/3 = 4.33
+    **平均周转时间**: $\frac{3+3+4}{3} = 3.33$
 
 #### 短作业优先
+
+##### 定义
+
+顾名思义，<strong>短作业优先（*Short Job First, SJF*）</strong>以作业（或进程）执行时间的长短来决定调度的优先级，时间越短，优先级越高。
+
+SJF 既可以用于作业调度，也可以用于进程调度
+
+- 针对作业调度，SJF 从后备队列中选择若干估计运行时间最短的作业，将它们调入内存运行
+
+- 针对进程调度，SJF 关联到每个进程下次运行的CPU区间长度，调度最短的进程执行
+
+    - 另外，针对进程调度，SJF 有两种模式:
+
+        - **非抢占式SJF**: 一旦进程开始执行，就会一直运行到完成
+
+        - **抢占式SJF（Shortest Remaining Time First, SRTF）**: 进程执行一段时间后，如果新的进程进入就绪队列，且新进程的执行时间比当前进程的剩余执行时间短，则新进程会抢占当前进程，当前进程会重新进入就绪队列
+
+```cpp
+// 非抢占式SJF调度算法
+void nonPreemptiveSJF(vector<Process>& processes) {
+    int n = processes.size();
+    int currentTime = 0;
+    vector<bool> completed(n, false);
+    
+    cout << "Non-preemptive SJF scheduling order:\n";
+    
+    for (int i = 0; i < n; i++) {
+        // 找到当前时间已到达且未完成的最短作业
+        int shortestIndex = -1;
+        int shortestTime = INT_MAX;
+        
+        for (int j = 0; j < n; j++) {
+            if (!completed[j] && 
+                processes[j].arrivalTime <= currentTime && 
+                processes[j].burstTime < shortestTime) {
+                shortestTime = processes[j].burstTime;
+                shortestIndex = j;
+            }
+        }
+        
+        if (shortestIndex == -1) {
+            // 没有进程到达，等待下一个进程到达
+            int nextArrival = INT_MAX;
+            for (int j = 0; j < n; j++) {
+                if (!completed[j]) {
+                    nextArrival = min(nextArrival, processes[j].arrivalTime);
+                }
+            }
+            currentTime = nextArrival;
+            i--; // 重新尝试
+            continue;
+        }
+        
+        // 执行选中的进程
+        Process& p = processes[shortestIndex];
+        p.completionTime = currentTime + p.burstTime;
+        p.turnaroundTime = p.completionTime - p.arrivalTime;
+        p.waitingTime = p.turnaroundTime - p.burstTime;
+        
+        cout << "Process P" << p.id << " execution time: " << currentTime 
+             << " - " << p.completionTime << endl;
+        
+        currentTime = p.completionTime;
+        completed[shortestIndex] = true;
+    }
+}
+```
+
+```cpp
+
+// 抢占式SJF调度算法
+void preemptiveSJF(vector<Process>& processes) {
+    int n = processes.size();
+    int currentTime = 0;
+    int completed = 0;
+    
+    // 初始化剩余时间
+    for (auto& p : processes) {
+        p.remainingTime = p.burstTime;
+    }
+    
+    cout << "Preemptive SJF scheduling order:\n";
+    
+    while (completed < n) {
+        // 找到当前时间已到达且剩余时间最短的进程
+        int shortestIndex = -1;
+        int shortestTime = INT_MAX;
+        
+        for (int i = 0; i < n; i++) {
+            if (processes[i].remainingTime > 0 && 
+                processes[i].arrivalTime <= currentTime && 
+                processes[i].remainingTime < shortestTime) {
+                shortestTime = processes[i].remainingTime;
+                shortestIndex = i;
+            }
+        }
+        
+        if (shortestIndex == -1) {
+            // 没有进程可执行，跳到下一个到达时间
+            int nextArrival = INT_MAX;
+            for (int i = 0; i < n; i++) {
+                if (processes[i].remainingTime > 0) {
+                    nextArrival = min(nextArrival, processes[i].arrivalTime);
+                }
+            }
+            currentTime = nextArrival;
+            continue;
+        }
+        
+        Process& p = processes[shortestIndex];
+        
+        // 检查是否有新进程到达并可能抢占
+        bool preempted = false;
+        for (int i = 0; i < n; i++) {
+            if (processes[i].arrivalTime == currentTime + 1 && 
+                processes[i].remainingTime < p.remainingTime) {
+                // 新进程到达且更短，当前进程被抢占
+                cout << "Process P" << p.id << " preempted, execution time: " 
+                     << currentTime << " - " << currentTime + 1 << endl;
+                p.remainingTime -= 1;
+                currentTime++;
+                preempted = true;
+                break;
+            }
+        }
+        
+        if (!preempted) {
+            // 执行到完成
+            cout << "Process P" << p.id << " execution time: " << currentTime 
+                 << " - " << currentTime + p.remainingTime << endl;
+            
+            currentTime += p.remainingTime;
+            p.remainingTime = 0;
+            p.completionTime = currentTime;
+            p.turnaroundTime = p.completionTime - p.arrivalTime;
+            p.waitingTime = p.turnaroundTime - p.burstTime;
+            completed++;
+        }
+    }
+}
+```
+
+##### 特点与优缺点
+
+对于平均等待时间而言，SJF是最优的（对一组指定的进程而言），它给出了最短的平均等待时间。
+
+- 优点
+
+    - 平均等待时间最短：数学上可证明SJF能给出最优解
+
+    - 系统吞吐量高：短作业快速完成，释放资源
+
+    - 简单直观：逻辑清晰，易于理解
+
+- 缺点
+
+    - 长作业饥饿：长作业可能永远得不到执行
+
+    - 需要预知时间：实际中很难准确预测执行时间
+
+    - 不公平：对长作业用户不友好
+
+!!! example
+    假设有四个进程:
+
+    | 进程 | 到达时间 | 执行时间 |
+    |:----:|:--------:|:--------:|
+    | A    | 0        | 5        |
+    | B    | 1        | 4        |
+    | C    | 2        | 2        |
+    | D    | 3        | 3        |
+
+    - 使用非抢占式SJF调度算法，甘特图如下：
+
+        ```
+        时间轴: 0----1----2----3----4----5----6----7----8----9----10----11----12----13----14
+        进程A:  [========================]
+        进程B:       [------------------------------====================]
+        进程C:            [---------------=========]
+        进程D:                 [-----------------------------------------==================]
+        ```
+
+        性能指标:
+
+        - 进程A: 等待时间 $0$，周转时间 $7$
+
+        - 进程B: 等待时间 $6$，周转时间 $10$
+
+        - 进程C: 等待时间 $3$，周转时间 $5$
+
+        - 进程D: 等待时间 $8$，周转时间 $11$
+
+        **平均等待时间**: $\frac{0+6+3+8}{4} = 4.25$
+
+        **平均周转时间**: $\frac{7+10+5+11}{4} = 8.25$
+
+    - 若使用抢占式SJF调度算法，则甘特图如下：
+
+        ```
+        时间轴: 0----1----2----3----4----5----6----7----8----9----10----11----12----13----14
+        进程A:  [=========----------===============]
+        进程B:       [--------------------------------------------=========================]
+        进程C:            [=========]
+        进程D:                 [-------------------===============]
+        ```
+
+        性能指标:
+
+        - 进程A: 等待时间 $2$，周转时间 $7$
+
+        - 进程B: 等待时间 $9$，周转时间 $13$
+
+        - 进程C: 等待时间 $0$，周转时间 $2$
+
+        - 进程D: 等待时间 $4$，周转时间 $7$
+
+        **平均等待时间**: $\frac{2+9+0+4}{4} = 3.75$
+
+        **平均周转时间**: $\frac{7+13+2+7}{4} = 7.25$
