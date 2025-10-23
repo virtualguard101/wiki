@@ -84,6 +84,7 @@ nav:
         - 操作系统简易模型: "notes/os/intro/os-model.md"
       - 并发:
         - 程序与进程: "notes/os/process.md"
+        - 处理机调度: "notes/os/scheduling.md"
       # - 虚拟化:
       # - 持久化:
     - 软件工程:
