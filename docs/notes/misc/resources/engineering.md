@@ -19,25 +19,19 @@ icon: material/tools
 
 - [MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content)
 
-<!-- ### [ ] 云原生 && DevOps -->
-
-<!-- - [深入高可用系统原理与设计](https://www.thebyte.com.cn/) -->
+- [深入高可用系统原理与设计](https://www.thebyte.com.cn/)
 
 ### 杂项
 
 - [计算机教育中缺失的一课](https://missing-semester-cn.github.io/)
 
-<!-- [ ] 正则表达式 -->
-<!-- - [RegexOne: Learn Regular Expressions with simple, interactive exercises | 正则表达式](https://regexone.com/) -->
+- [RegexOne: Learn Regular Expressions with simple, interactive exercises | 正则表达式](https://regexone.com/)
 
 ## 社区收藏
 
-!!! tip inline end
-    根据领域进行分类
-
-### DevOps
-
 - [DevopsCube: Become a Better DevOps Engineer](https://devopscube.com/)
+
+- [LWN.net: Linux Weekly News](https://lwn.net/)
 
 ## 项目案例
 

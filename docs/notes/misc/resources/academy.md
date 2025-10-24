@@ -4,6 +4,10 @@ icon: material/pencil-ruler
 
 # 学术资源
 
+## 文章/博客
+
+- [Yanyan's Wiki](https://jyywiki.cn/)
+
 ## 社区
 
 - [DeepLearning.AI: AI courses](https://learn.deeplearning.ai/)
