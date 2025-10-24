@@ -3,7 +3,7 @@
 > [操作系统简易模型](intro/os-model.md)
 
 
-## 程序与进程的关系[^2]
+## 程序与进程的关系[^1]
 
 <div class="text-center-container" style="text-align: center;">
     <p>程序是状态机的<strong>静态描述</strong></p>

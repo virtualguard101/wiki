@@ -37,7 +37,43 @@ publish: true
 
 多道批处理系统、分时系统、实时系统均有应用低级调度。
 
+## 进程调度
+
+### 任务
+
+进程调度的主要任务有三:
+
+- 保存CPU现场信息
+
+- 按某种算法选取进程
+
+- 把处理器分配给进程
+
+### 调度机制
+
+实现进程调度，应具有三个基本部分:
+
+- 排队器: 用于将就绪进程插入相应的就绪队列
+
+- 分派器: 用于将选定的进程移出就绪队列，并将其分配给CPU执行
+
+- 上下文切换器: 进行新旧进程之间的上下文切换
+
+![进程调度机制](scheduling_mechanism.jpg)
+
+### 调度模式
+
+- 非抢占式调度（Non-preemptive Scheduling）
+
+    一旦进程开始执行，就会一直运行到完成，不会被其他进程抢占。
+
+- 抢占式调度（Preemptive Scheduling）
+
+    进程在执行过程中有可能基于某种原因被其他进程抢占，从而导致进程的执行被打断。
+
 ## 处理机调度算法
+
+> [CPU Scheduling in Operating Systems | GeeksforGeeks](https://www.geeksforgeeks.org/operating-systems/cpu-scheduling-in-operating-systems/)
 
 ### 调度算法的目标
 
@@ -553,3 +589,172 @@ void priorityScheduling(vector<Process>& processes) {
     - 动态优先级：在进程运行期间根据某种规则进行动态调整
 
 #### 最高响应比优先
+
+##### 定义
+
+<strong>最高响应比优先调度算法（*Highest Response Ratio Next, HRRN*）</strong>是一种**非抢占式**调度算法，是优先级调度算法的一个特例，通过计算每个进程的响应比来决定调度顺序，通常用于**作业调度**。
+
+其中，这里的响应比与优先级分别通过如下公式计算:
+
+$$
+响应比R_{p} = \frac{等待时间 + 要求服务时间}{要求服务时间} = \frac{响应时间}{要求服务时间}
+$$
+
+$$
+优先级P_{p} = \frac{等待时间 + 要求服务时间}{要求服务时间}
+$$
+
+```cpp
+// HRRN调度算法实现
+struct Process {
+    int id;
+    int arrivalTime;
+    int burstTime;
+    int waitingTime;
+    int completionTime;
+    int turnaroundTime;
+    double responseRatio;
+};
+
+void HRRN_Scheduling(vector<Process>& processes) {
+    int n = processes.size();
+    int currentTime = 0;
+    vector<bool> completed(n, false);
+    
+    cout << "HRRN scheduling order:\n";
+    
+    for (int i = 0; i < n; i++) {
+        // 计算所有已到达且未完成进程的响应比
+        int bestIndex = -1;
+        double highestRatio = -1;
+        
+        for (int j = 0; j < n; j++) {
+            if (!completed[j] && processes[j].arrivalTime <= currentTime) {
+                // 计算响应比
+                int waitingTime = currentTime - processes[j].arrivalTime;
+                processes[j].responseRatio = (double)(waitingTime + processes[j].burstTime) / processes[j].burstTime;
+                
+                if (processes[j].responseRatio > highestRatio) {
+                    highestRatio = processes[j].responseRatio;
+                    bestIndex = j;
+                }
+            }
+        }
+        
+        if (bestIndex == -1) {
+            // 没有进程到达，等待下一个进程到达
+            int nextArrival = INT_MAX;
+            for (int j = 0; j < n; j++) {
+                if (!completed[j]) {
+                    nextArrival = min(nextArrival, processes[j].arrivalTime);
+                }
+            }
+            currentTime = nextArrival;
+            i--; // 重新尝试
+            continue;
+        }
+        
+        // 执行选中的进程
+        Process& p = processes[bestIndex];
+        p.waitingTime = currentTime - p.arrivalTime;
+        p.completionTime = currentTime + p.burstTime;
+        p.turnaroundTime = p.completionTime - p.arrivalTime;
+        
+        cout << "Process P" << p.id << " (Response Ratio: " << p.responseRatio 
+             << ") execution time: " << currentTime << " - " << p.completionTime << endl;
+        
+        currentTime = p.completionTime;
+        completed[bestIndex] = true;
+    }
+}
+```
+
+##### 特点与优缺点
+
+HRRN 即考虑了作业的等待时间，有考虑了作业的运行时间:
+
+- 如等待时间相同，运行时间越短的响应比越高，==类似SJF==
+
+- 如运行时间相同，则取决于等待时间，==类似FCFS==
+
+- 长作业可随其等待时间的增加而提高响应比，从而获得调度机会，**克服饥饿问题**
+
+- 缺点：每次调度前都需要计算响应比，增加了计算开销
+
+!!! example
+    假设有五个作业:
+
+    | 作业 | 到达时间 | 执行时间 |
+    |:----:|:--------:|:--------:|
+    | A    | 0        | 5        |
+    | B    | 1        | 4        |
+    | C    | 2        | 2        |
+    | D    | 3        | 3        |
+    | E    | 4        | 1        |
+    
+    使用HRRN调度算法：
+
+    - 第一次调度:
+
+        A 作业结束，其他作业的响应比 $R_p$ 分别为:
+
+        - $R_{p_{B}} = \frac{5-1 + 4}{4} = 2$
+
+        - $R_{p_{C}} = \frac{5-2 + 2}{2} = 2.5$
+
+        - $R_{p_{D}} = \frac{5-3 + 3}{3} = 1.67$
+
+        - $R_{p_{E}} = \frac{5-4 + 1}{1} = 2$
+
+        作业C响应比最高，调度
+
+    - 第二次调度:
+
+        C 作业结束，其他作业的响应比 $R_p$ 分别为:
+
+        - $R_{p_{B}} = \frac{5+2-1 + 4}{4} = 1.5$
+
+        - $R_{p_{D}} = \frac{5+2-3 + 3}{3} = 2.33$
+
+        - $R_{p_{E}} = \frac{5+2-4 + 1}{1} = 4$
+
+        作业D响应比最高，调度
+
+    - 第三次调度:
+
+        D 作业结束，其他作业的响应比 $R_p$ 分别为:
+
+        - $R_{p_{B}} = \frac{5+2+3-1 + 4}{4} = 3.25$
+
+        - $R_{p_{E}} = \frac{5+2+3-4 + 1}{1} = 7$
+
+        作业E响应比最高，调度
+
+    最终的调度顺序为: A -> C -> D -> E -> B，甘特图如下：
+
+    ```
+    时间轴: 0----1----2----3----4----5----6----7----8----9----10----11----12----13----14----15
+    作业A:  [========================]
+    作业B:       [----------------------------------------------------=======================]
+    作业C:            [---------------=========]
+    作业D:                 [--------------------===============]
+    作业E:                      [-------------------------------====]
+    ```
+
+    性能指标:
+
+    - 作业A: 等待时间 $0$，周转时间 $5$
+
+    - 作业B: 等待时间 $10$，周转时间 $4$
+
+    - 作业C: 等待时间 $3$，周转时间 $5$
+
+    - 作业D: 等待时间 $4$，周转时间 $7$
+
+    - 作业E: 等待时间 $6$，周转时间 $7$
+
+    **平均等待时间**: $\frac{0+10+3+4+6}{5} = 4.6$
+
+    **平均周转时间**: $\frac{5+4+5+7+7}{5} = 5.6$
+
+#### 时间片轮转调度
