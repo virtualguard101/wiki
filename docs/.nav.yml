@@ -80,11 +80,11 @@ nav:
         #  -  : "notes/dsa/algo/"
     - 操作系统:
       - 绪论:
-        - 操作系统的基本特性: "notes/os/os-basic-feat.md"
+        - 操作系统的基本特性: "notes/os/1-os-basic-feat.md"
         - 操作系统简易模型: "notes/os/intro/os-model.md"
       - 并发:
-        - 程序与进程: "notes/os/process.md"
-        - 处理机调度: "notes/os/scheduling.md"
+        - 程序与进程: "notes/os/2-process.md"
+        - 处理机调度: "notes/os/3-scheduling.md"
       # - 虚拟化:
       # - 持久化:
     - 软件工程:
