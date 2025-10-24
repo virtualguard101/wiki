@@ -3,7 +3,7 @@
 > [操作系统简易模型](intro/os-model.md)
 
 
-## 程序与进程的关系[^1]
+## 程序与进程的关系[^2]
 
 <div class="text-center-container" style="text-align: center;">
     <p>程序是状态机的<strong>静态描述</strong></p>
@@ -14,6 +14,8 @@
 - 程序 (动态) 运行起来，就成了进程 (进行中的程序)
 
 ## 进程的描述
+
+> 以下为校内课程笔记
 
 ### 操作系统视角下的进程
 

@@ -7,6 +7,8 @@ publish: true
 
 # 处理机调度
 
+> 此为校内课程笔记
+
 ## 处理机调度层次
 
 ### 高级调度
@@ -123,7 +125,7 @@ publish: true
 
 - 短作业优先（SJF）
 
-- 优先级调度（PR）
+- 优先级调度（PS）
 
 - 最高响应比优先（HRRN）
 
@@ -133,7 +135,7 @@ publish: true
 
 - 短作业优先（SJF）
 
-- 优先级调度（PR）
+- 优先级调度（PS）
 
 - 时间片轮转（RR）
 
@@ -149,7 +151,7 @@ publish: true
 
 ##### 定义
 
-<strong>先来先服务（*First Come First Served, FCFS*）</strong>调度算法是最简单的调度算法，既可以用于作业调度，也可以用于进程调度。顾名思义，其基本思想是按照作业到达的先后顺序进行调度。
+<strong>先来先服务调度算法（*First Come First Served, FCFS*）</strong>是最简单的调度算法，既可以用于作业调度，也可以用于进程调度。顾名思义，其基本思想是按照作业到达的先后顺序进行调度。
 
 ```cpp
 // 伪代码示例
@@ -226,7 +228,7 @@ void FCFS_Scheduler() {
 
 ##### 定义
 
-顾名思义，<strong>短作业优先（*Short Job First, SJF*）</strong>以作业（或进程）执行时间的长短来决定调度的优先级，时间越短，优先级越高。
+顾名思义，<strong>短作业优先调度算法（*Short Job First, SJF*）</strong>以作业（或进程）执行时间的长短来决定调度的优先级，时间越短，优先级越高。
 
 SJF 既可以用于作业调度，也可以用于进程调度
 
@@ -446,3 +448,108 @@ void preemptiveSJF(vector<Process>& processes) {
 #### 优先级调度
 
 ##### 定义
+
+<strong>优先级调度算法（*Priority Scheduling, PS*）</strong>是一种基于进程优先级进行调度的算法，系统为每个进程分配一个优先级值，调度器总是选择优先级最高的进程执行，既可用于作业调度，也可用于进程调度。
+
+PS 是当前主流的OS调度算法，==基于作业/进程的紧迫程度，由外部赋予作业相应的优先级，调度算法根据优先级进行调度==。
+
+```cpp
+struct Process {
+    int id;
+    int priority;        // 优先级（数值越小优先级越高）
+    int arrivalTime;
+    int burstTime;
+    int remainingTime;
+    int completionTime;
+    int turnaroundTime;
+    int waitingTime;
+};
+
+// 优先级调度算法实现
+void priorityScheduling(vector<Process>& processes) {
+    int n = processes.size();
+    int currentTime = 0;
+    int completed = 0;
+    
+    // 初始化剩余时间
+    for (auto& p : processes) {
+        p.remainingTime = p.burstTime;
+    }
+    
+    cout << "Priority scheduling order:\n";
+    
+    while (completed < n) {
+        // 找到当前时间已到达且优先级最高的进程
+        int highestPriorityIndex = -1;
+        int highestPriority = INT_MAX;
+        
+        for (int i = 0; i < n; i++) {
+            if (processes[i].remainingTime > 0 && 
+                processes[i].arrivalTime <= currentTime && 
+                processes[i].priority < highestPriority) {
+                highestPriority = processes[i].priority;
+                highestPriorityIndex = i;
+            }
+        }
+        
+        if (highestPriorityIndex == -1) {
+            // 没有进程可执行，跳到下一个到达时间
+            int nextArrival = INT_MAX;
+            for (int i = 0; i < n; i++) {
+                if (processes[i].remainingTime > 0) {
+                    nextArrival = min(nextArrival, processes[i].arrivalTime);
+                }
+            }
+            currentTime = nextArrival;
+            continue;
+        }
+        
+        // 执行选中的进程
+        Process& p = processes[highestPriorityIndex];
+        cout << "Process P" << p.id << " (Priority: " << p.priority 
+             << ") execution time: " << currentTime 
+             << " - " << currentTime + p.remainingTime << endl;
+        
+        currentTime += p.remainingTime;
+        p.remainingTime = 0;
+        p.completionTime = currentTime;
+        p.turnaroundTime = p.completionTime - p.arrivalTime;
+        p.waitingTime = p.turnaroundTime - p.burstTime;
+        completed++;
+    }
+}
+```
+
+##### 特点与优缺点
+
+- 优点
+
+    - 灵活性高：可根据业务需求调整优先级
+
+    - 实时性好：高优先级进程能快速响应
+
+    - 资源优化：重要任务优先获得资源
+
+- 缺点
+
+    - 饥饿问题：低优先级进程可能永远得不到执行
+
+        !!! note "老化"
+            为了避免饥饿问题，可以采用**老化技术（*Aging*）**，即随着进程的等待时间增加，其优先级逐渐提高。
+
+    - 优先级倒置：可能出现高优先级进程等待低优先级进程的情况
+
+    - 复杂度高：需要合理设计优先级分配策略
+
+
+##### 应用方式
+
+- 按调度模式可分为**抢占式**和**非抢占式**
+
+- 按调度优先级类型可分为**静态优先级**和**动态优先级**
+
+    - 静态优先级：在进程创建时分配，进程运行期间不变
+
+    - 动态优先级：在进程运行期间根据某种规则进行动态调整
+
+#### 最高响应比优先
