@@ -81,11 +81,14 @@ nav:
     # - 计算机系统基础:
     #   - CSAPP:
     - 操作系统:
-      - 操作系统基本特性: "notes/os/1-os-basic-feat.md"
-      - 操作系统发展历程: "notes/os/1-os-history.md"
-      - 程序与进程: "notes/os/2-process.md"
-      - 处理机调度: "notes/os/2-scheduling.md"
-      - 死锁: "notes/os/2-deadlock.md"
+      - 考研大纲:
+        - 操作系统概述:
+          - 操作系统基本特性: "notes/os/1-os-basic-feat.md"
+          - 操作系统发展历程: "notes/os/1-os-history.md"
+        - 进程管理:
+          - 程序与进程: "notes/os/2-process.md"
+          - 处理机调度: "notes/os/2-scheduling.md"
+          - 死锁: "notes/os/2-deadlock.md"
       - 绪论:
         - 操作系统简易模型: "notes/os/intro/os-model.md"
       # - 虚拟化:
