@@ -20,7 +20,13 @@
   function initSakanaWidget() {
     var container = document.getElementById('sakana-widget-container');
     if (!container) {
-      console.error('SakanaWidget container not found.');
+      console.log('SakanaWidget container not found - this is normal on non-home pages.');
+      return;
+    }
+    
+    // Check if SakanaWidget is available
+    if (typeof SakanaWidget === 'undefined') {
+      console.error('SakanaWidget is not loaded yet.');
       return;
     }
     
@@ -31,6 +37,7 @@
 
     try {
       new SakanaWidget().mount('#sakana-widget');
+      console.log('SakanaWidget initialized successfully');
     } catch (e) {
       console.error('Failed to initialize SakanaWidget:', e);
     }
@@ -41,6 +48,9 @@
     var jsUrl = 'https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.7.1/sakana.min.js';
     
     loadCSS(cssUrl);
-    loadScript(jsUrl, initSakanaWidget);
+    loadScript(jsUrl, function() {
+      // Wait a bit for the script to be fully parsed
+      setTimeout(initSakanaWidget, 100);
+    });
   }
 })();
