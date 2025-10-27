@@ -19,7 +19,7 @@ icon: material/tools
 
 #### 内核解读
 
-- [Kernel Hacking | 内核解读](https://kernelnewbies.org/KernelHacking)
+- [Kernel Hacking](https://kernelnewbies.org/KernelHacking)
 
 - [Linux Kernel Teaching](https://linux-kernel-labs.github.io/refs/heads/master/)
 
