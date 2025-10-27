@@ -11,9 +11,17 @@ icon: material/tools
 
 ### Linux
 
+#### 使用教程
+
 - [命令行的艺术](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
 
 - [The Shell Scripting Tutorial](https://www.shellscript.sh/hints.html)
+
+#### 内核解读
+
+- [Kernel Hacking | 内核解读](https://kernelnewbies.org/KernelHacking)
+
+- [Linux Kernel Teaching](https://linux-kernel-labs.github.io/refs/heads/master/)
 
 ### Web开发
 

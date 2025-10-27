@@ -85,7 +85,7 @@ nav:
         - 操作系统概述:
           - 操作系统基本特性: "notes/os/exam/1-os-basic-feat.md"
           - 操作系统发展历程: "notes/os/exam/1-os-history.md"
-          # - 操作系统运行环境: "notes/os/exam/1-os-run-env.md"
+          - 操作系统运行环境: "notes/os/exam/1-os-run-env.md"
         - 进程管理:
           - 程序与进程: "notes/os/exam/2-process.md"
           - 处理机调度: "notes/os/exam/2-scheduling.md"
