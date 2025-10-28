@@ -41,7 +41,7 @@ comments: true
         - 由于存在诸多兼容性问题，请在PC浏览器上阅读以获得最佳体验。
 
 
-## Recent New or Modified Notes
+## Recent Updates
 
 === "简体中文"
 

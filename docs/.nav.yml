@@ -87,7 +87,7 @@ nav:
           - 操作系统发展历程: "notes/os/exam/1-os-history.md"
           - 操作系统运行环境: "notes/os/exam/1-os-run-env.md"
         - 进程管理:
-          - 程序与进程: "notes/os/exam/2-process.md"
+          - 进程与线程: "notes/os/exam/2-process.md"
           - 处理机调度: "notes/os/exam/2-scheduling.md"
           - 死锁: "notes/os/exam/2-deadlock.md"
       - 绪论:
