@@ -13,6 +13,8 @@ publish: true
 
 ## 基本使用
 
+![](usage.png)
+
 - 默认模式（进程列表模式）
 
     ```bash
