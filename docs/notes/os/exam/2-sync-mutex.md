@@ -53,18 +53,9 @@ publish: true
 
 ```cpp
 while (true) {
-  // 进入区
-  while (flag[i] != 0) {
-    // 等待
-  }
-  flag[i] = 1;
-
+  entry section;     // 进入区
   critical section;  // 临界区
-
-  flag[i] = 0;
-
   exit section;      // 退出区
-
   remainder section; // 剩余区
 }
 ```
