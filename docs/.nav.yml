@@ -89,6 +89,7 @@ nav:
         - 进程管理:
           - 进程与线程: "notes/os/exam/2-process.md"
           - 处理机调度: "notes/os/exam/2-scheduling.md"
+          - 同步与互斥: "notes/os/exam/2-sync-mutex.md"
           - 死锁: "notes/os/exam/2-deadlock.md"
       - 绪论:
         - 操作系统简易模型: "notes/os/intro/os-model.md"
