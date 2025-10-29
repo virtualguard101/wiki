@@ -74,6 +74,9 @@ while (true) {
 
     - 互斥访问：同一时刻只有一个人能用收银机
 
+        !!! tip
+            同步需要基于[互斥](#互斥)实现。
+
     - 顺序保证：先到先得（happens-before）
 
 !!! example
@@ -112,3 +115,95 @@ while (true) {
     }
     ```
 
+### 互斥
+
+**互斥（Mutex）**是另外一个同步机制，也称为**间接约束关系**，用于确保同一时间只有一个线程能够访问共享资源。
+
+互斥用于多线程环境下的竞态条件问题，通过"锁定-访问-解锁"的模式保证临界区代码的原子性执行。
+
+!!! info "竞态条件问题"
+    **竞态条件（*Race Condition*）**问题是指在多线程环境下，由于多个线程同时访问共享资源，导致程序运行结果不确定的问题。
+
+    ```py
+    # 危险的代码示例
+    counter = 0
+
+    def increment():
+        global counter
+        temp = counter    # 读取当前值
+        temp += 1         # 计算新值
+        counter = temp    # 写入新值
+
+    # 如果两个线程同时执行，可能出现：
+    # 线程A: 读取counter=0，计算temp=1
+    # 线程B: 读取counter=0，计算temp=1  
+    # 线程A: 写入counter=1
+    # 线程B: 写入counter=1
+    # 结果：期望counter=2，实际counter=1 ❌
+    ```
+
+### 同步与互斥的区别
+
+!!! abstract
+
+    |  | 同步 (**Synchronization**) | 互斥 (**Mutex**) |
+    | :-: | :-: | :-: |
+    | 主要目的 | 协调顺序执行 | 防止竞态条件 |
+    | 排队性质 | 主动协调 | 被动响应 |
+    | 等待条件 | 特定条件满足 | 资源（锁）释放 |
+    | 通知机制 | 手动（信号量等） | 自动（锁释放） |
+    | 复杂度 | 相对复杂 | 相对简单 |
+
+二者的本质都可以抽象成一个**资源访问的排队机制**。但在解决的核心问题与解决方式上有所不同：
+
+- 同步
+
+    - 核心问题: ==协调多个进程/线程的执行顺序==，保证它们按照一定的规则有序执行
+
+    - 解决方式是通过**同步原语**（如信号量、条件变量等），==让线程按照特定顺序或条件执行==
+
+    ```py
+    # 同步：协调生产者和消费者的执行顺序
+    import threading
+
+    buffer = []
+    mutex = threading.Lock()
+    not_empty = threading.Condition(mutex)
+    not_full = threading.Condition(mutex)
+
+    def producer():
+        with not_full:  # 同步：等待缓冲区有空间
+            while len(buffer) >= 10:
+                not_full.wait()
+            buffer.append("item")
+            not_empty.notify()  # 通知消费者
+
+    def consumer():
+        with not_empty:  # 同步：等待缓冲区有数据
+            while len(buffer) == 0:
+                not_empty.wait()
+            item = buffer.pop()
+        not_full.notify()  # 通知生产者
+    ```
+
+- 互斥
+
+    - 核心问题: ==防止多个线程同时访问共享资源==
+
+    - 解决方式: 通过互斥锁（Mutex），==确保同一时间只有一个线程访问共享资源==
+
+    ```py
+    # 互斥：确保只有一个线程能修改共享变量
+    counter = 0
+    mutex = threading.Lock()
+
+    def increment():
+        with mutex:  # 互斥：一次只能有一个线程
+            global counter
+            counter += 1
+    ```
+
+- 前者的目的是**协调执行顺序，实现逻辑**，后者则是**避免冲突，确保安全**
+
+
+## 临界区互斥访问的实现方法
