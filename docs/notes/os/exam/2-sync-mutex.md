@@ -747,17 +747,19 @@ typedef struct {
 
 // 获取锁
 void acquire(spinlock_t *lock) {
-    // 尝试原子地将 available 从 true 交换为 false
+    // 检查锁是否可用，如果不可用则忙等待
     while (!lock->available) {
         // 忙等待
     }
-    // 退出循环 = 成功获得锁，进入临界区
+    // 退出循环 = 成功获得锁，原子地设置为不可用
+    // 在实际硬件实现中，从检查到设置必须是原子操作（如 TS 指令）
     lock->available = false;
 }
 
 // 释放锁
 void release(spinlock_t *lock) {
-    // 原子地将 available 从 false 交换为 true（释放锁）
+    // 原子地将 available 设置为 true（释放锁）
+    // 实际实现中需要使用硬件原子指令（如 __sync_lock_release）
     lock->available = true;
 }
 
@@ -774,7 +776,8 @@ void thread_function() {
 }
 ```
 
-注意这里的 `acquire()` 和 `release()` 函数是原子操作，因此互斥锁通常通过硬件机制实现。
+!!! warning
+    在实际实现中，`acquire()` 和 `release()` 函数必须是**原子操作**（通过硬件指令如 TS 指令、`__sync_lock_test_and_set` 等实现），否则无法保证互斥性。互斥锁通常通过硬件机制实现。
 
 这种实现方式实现的锁也叫**自旋锁（*Spin Lock*）**，当有一个进程在临界区内时，其他进程在进入临界区前必须连续循环调用 `acquire()` 函数，直到获得锁。类似的还有前面提到[单标志法](#单标志法)、[TS指令](#TS-指令)和[Swap指令](#Swap-指令)实现的锁。
 
