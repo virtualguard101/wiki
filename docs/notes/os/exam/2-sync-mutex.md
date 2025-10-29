@@ -579,6 +579,104 @@ void process1() {
 
 #### 中断屏蔽
 
+**中断屏蔽（*Interrupt Disabling*）**是指进入临界区前关闭中断，退出后恢复，保证临界区代码不被中断打断，从而实现临界区代码原子执行的互斥方法。
+
+由于CPU只在发生中断时引起进程切换，因此当一个进程正在执行临界区代码时屏蔽中断是保证互斥最简单的方法。
+
+```cpp
+// 伪代码示例，实际由硬件逻辑实现，这里仅作描述性展示
+void process_critical_section() {
+    disable_interrupts();  // 进入区：关闭中断
+    
+    // 临界区：这段代码不会被其他进程打断
+    shared_resource++;
+    critical_operation();
+    
+    enable_interrupts();  // 退出区：恢复中断
+}
+```
+
+但这个方法也存在一些问题:
+
+- 限制了CPU交替执行程序的能力，系统效率会明显降低
+
+- 将关中断权限交给用户是个很不明智的做法，若一个进程在关中断后不再开中断，系统很有可能因此终止
+
+- 在多核处理器系统中，在一个CPU上屏蔽中断，无法保证其他CPU不会执行相同的临界区代码
+
+因此这个方法的适用场景比较有限:
+
+- 单处理器系统上的短临界区
+
+- 内核代码中的关键操作
+
+- 必须保证原子性的硬件访问
+
 #### TS 指令
+
+TS 指令全称**Test-and-Set**指令，是一种**原子操作**，用于读取内存地址的值并将其设置为新值。
+
+```cpp
+// 伪代码示例，实际由硬件逻辑实现，这里仅作描述性展示
+bool test_and_set(bool *lock) {
+    bool old = *lock;   // old 用于存放锁的旧值
+    *lock = !old;       // 无论之前是否已加锁，都将锁设置为新值
+    return old;         // 返回锁的旧值
+}
+```
+
+进程在进入临界区前循环调用 TS，直到返回旧值为 false（成功获得锁）；退出临界区时释放锁（将锁变量设为 false）。
+
+在前面的[软件实现](#双标志先检查法)中，“检查”和“设置”分为两步，中间可能发生进程切换，导致多进程同时通过检查而违反互斥。TS 指令则**用硬件原子性将检查与设置合并为一条指令**，消除竞态窗口，保证互斥。
+
+??? example "Linux 内核自旋锁"
+    典型的自旋锁实现:
+
+    ```cpp
+    bool lock = false;  // 共享锁变量
+
+    void process() {
+        // 进入区：自旋等待，直到获得锁
+        while (test_and_set(&lock)) {
+            // 忙等待：lock 为 true 时，其他进程持有锁
+            // CPU 空转，但检查操作很快
+        }
+        
+        // 临界区：只有获得锁的进程能进入
+        critical_section();
+        
+        // 退出区：释放锁
+        lock = false;
+        
+        // 剩余区
+        remainder_section();
+    }
+    ```
+
+    Linux 内核中的自旋锁（spinlock）在多核环境下保护关键数据结构，使用类似 TS 的原子指令实现自旋锁。短临界区中，自旋等待优于睡眠（避免唤醒开销）
+
+    ```cpp
+    // Linux 内核风格的简化版本
+    typedef struct {
+        volatile int locked;  // 锁状态
+    } spinlock_t;
+
+    void spin_lock(spinlock_t *lock) {
+        while (__sync_lock_test_and_set(&lock->locked, 1)) {
+            // 自旋等待
+            while (lock->locked) {
+                cpu_relax();  // 让 CPU 稍作休息，减少功耗
+            }
+        }
+    }
+
+    void spin_unlock(spinlock_t *lock) {
+        __sync_lock_release(&lock->locked);  // 释放锁
+    }
+    ```
+
+相比较中断屏蔽，由于“锁”是共享的，这种方法适用于多核处理器系统。
+
+但这个方法也有一个缺点: 暂时无法进入临界区的进程会占用CPU循环执行TS指令，因此不能满足"让权等待"原则。
 
 #### Swap 指令
