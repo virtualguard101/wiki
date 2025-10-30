@@ -787,3 +787,65 @@ void thread_function() {
 
 
 ## 信号量
+
+**信号量（*Semaphore*）**是操作系统中一种用于进程同步与互斥的**特殊变量**，只能通过P（等待`wait()`）与V（释放`signal()`）操作访问。
+
+信号量分为整型与记录型。
+
+### 整型信号量
+
+整型信号量用于表示一个共享资源的可用数量，通常用字母 S 表示。
+
+针对整型信号量的操作只有三种: 初始化、P操作、V操作。
+
+```cpp
+void wait(S) {   // 相当于进入区
+    while (S <= 0) {
+            // 若资源不足等待
+    }
+    S--;    // 若资源充足，则占用一个资源
+}
+
+void signal(S) {   // 相当于退出区
+    S++;      // 使用完毕，释放一个资源
+}
+```
+
+### 记录型信号量
+
+从上面的伪代码不难看出，整型信号量的`wait()`操作使用的是忙等待，而记录型信号量机制则是一种不存在忙等待现象的进程同步机制。
+
+除了需要需要一个用于表示资源数量的整型变量外，记录型信号量还包含一个进程链表，用于记录因资源不足而阻塞的进程:
+
+```cpp
+typedef struct {
+    int value;
+    struct process *list;
+} semaphore_t;
+```
+
+相应的 P 与 V 操作如下:
+
+```cpp
+void wait(semaphore_t *sem) {   // 相当于申请资源
+    sem->value--;
+    if (sem->value < 0) {
+        add_to_queue(sem->list, current_process);   // 将当前进程加入该资源的等待队列
+        block(sem->list);   // 调用 block 原语进行自我阻塞
+    }
+}
+
+void signal(semaphore_t *sem) {   // 相当于释放资源
+    sem->value++;
+    if (sem->value <= 0) {
+        remove_from_queue(pop(sem->list));   // 从等待队列中移除第一个进程
+        wakeup(pop(sem->list));   // 调用 wakeup 原语唤醒等待队列中的第一个进程
+    }
+}
+```
+
+### 利用信号量实现进程互斥
+
+### 利用信号量实现进程同步
+
+### 利用信号量实现前驱关系
