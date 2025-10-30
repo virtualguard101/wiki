@@ -846,6 +846,101 @@ void signal(semaphore_t *sem) {   // 相当于释放资源
 
 ### 利用信号量实现进程互斥
 
+```cpp
+semaphore_t mutex = {1}; // 初始化为 1，表示资源可用
+
+void process0() {
+    wait(&mutex);       // 准备访问临界资源，加锁
+    critical_section();
+    signal(&mutex);     // 访问完毕，释放锁
+}
+
+void process1() {
+    wait(&mutex);       // 准备访问临界资源，加锁
+    critical_section(); // 临界区
+    signal(&mutex);     // 访问完毕，释放锁
+}
+```
+
+- 针对不同的临界资源，需要创建不同的信号量
+
+- P操作与V操作需要成对出现
+
 ### 利用信号量实现进程同步
 
+```cpp
+semaphore_t S = {0}; // 初始化为 0
+
+void process0() {
+    critical_section0();
+    signal(&S);
+}
+
+void process1() {
+    wait(&S);
+    critical_section1();
+}
+```
+
 ### 利用信号量实现前驱关系
+
+```mermaid
+stateDiagram-v2
+    s1 --> s2
+    s1 --> s3
+    s2 --> s4
+    s2 --> s5
+    s3 --> s6
+    s5 --> s6
+    s4 --> s6
+```
+
+==每对前驱关系本质上都是一个[同步问题](#利用信号量实现进程同步)==，因此需要为每对前驱关系设置一个信号量，初值为0。
+
+```cpp
+semaphore_t S12 = 0;
+semaphore_t S13 = 0;
+semaphore_t S24 = 0;
+semaphore_t S25 = 0;
+semaphore_t S36 = 0;
+semaphore_t S56 = 0;
+semaphore_t S46 = 0;
+
+void process1() {
+    critical_section1();
+    signal(&S12);
+    signal(&S13);
+}
+
+void process2() {
+    wait(&S12);
+    critical_section2();
+    signal(&S24);
+    signal(&S25);
+}
+
+void process3() {
+    wait(&S13);
+    critical_section3();
+    signal(&S36);
+}
+
+void process4() {
+    wait(&S24);
+    critical_section4();
+    signal(&S46);
+}
+
+void process5() {
+    wait(&S25);
+    critical_section5();
+    signal(&S56);
+}
+
+void process6() {
+    wait(&S36);
+    wait(&S46);
+    wait(&S56);
+    critical_section6();
+}
+```
