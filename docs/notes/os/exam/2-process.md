@@ -2,7 +2,6 @@
 
 > [操作系统简易模型](../intro/os-model.md)
 
-
 ## 程序与进程的关系[^1]
 
 <div class="text-center-container" style="text-align: center;">
