@@ -23,7 +23,7 @@ publish: true
 
 死锁的发生需要同时满足以下四个条件：
 
-- **互斥（*Mutual Exclusion*）**：
+- 互斥
 
 - 请求与保持
 
