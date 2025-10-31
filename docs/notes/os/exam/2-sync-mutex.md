@@ -957,7 +957,7 @@ void process6() {
 
 - 针对生产者与消费者，只有在生产者生产后消费者才可以消费，因此这二者的关系是同步关系，需要使用信号量实现进程同步。
 
-- 针对缓冲区，生产者与消费者对其的访问需要互斥地进行，因此需要使用信号量实现进程互斥。
+- 针对缓冲区，生产者与消费者对其的访问需要互斥地进行，因此需要使用信号量实现互斥访问。
 
 ```cpp
 semaphore_t empty = n;  // 空闲缓冲区数量
@@ -986,10 +986,119 @@ void consumer() {
 }
 ```
 
-??? exmaple "多生产者-消费者问题"
+??? example "多生产者-消费者问题"
 
 ### 读者-写者问题
 
+- 写者相对简单，其与任何进程互斥，使用单个信号量即可控制。
+
+- 读者相对复杂，其必须在实现与写者互斥的同时，实现读者之间的同步，因此需要在写者解决方法基础上增加一个计数器用于记录当前有多少个读者在访问共享资源。
+
+```cpp
+semaphore_t mutex = 1;  // 计数器互斥信号量
+semaphore_t rw_mutex = 1;  // 读者-写者互斥信号量
+int reader_count = 0;  // 读者计数器
+
+void writer() {
+    wait(&rw_mutex);
+    write_shared_resource();
+    signal(&rw_mutex);
+}
+
+void reader() {
+    wait(&mutex);               // 访问计数器，加锁
+    reader_count++;
+    if (&reader_count == 0) {   // 当第一个读者读取共享资源时
+        wait(&rw_mutex);        // 阻止写者访问
+    }
+    reader_count++;             // 读者计数器加一
+    signal(&mutex);             // 释放计数器，解锁
+
+    read_shared_resource();
+
+    wait(&mutex);
+    reader_count--;
+    if (&reader_count == 0) {   // 当最后一个读者读取共享资源时
+        signal(&rw_mutex);      // 允许写者访问
+    }
+    signal(&mutex);
+}
+```
+
+这个算法被称为**读者优先算法**，其优点是读者可以并发访问共享资源，缺点是当读者访问共享资源时，写者必须等待，这会导致写者饥饿。
+
+如果希望提升写者的优先级，即若有写者请求访问，则禁止后续读者的请求。为此可以增加一个信号量来实现这一点:
+
+```cpp
+int reader_count = 0;           // 读者计数器
+semaphore_t writer_mutex = 1;   // 写者优先互斥信号量
+semaphore_t rw_mutex = 1;       // 读者-写者互斥信号量
+semaphore_t mutex = 1;          // 计数器互斥信号量
+
+void writer() {
+    while (true) {
+        wait(&writer_mutex);    // 无写者时请求进入
+        wait(&rw_mutex);        // 阻止读者访问
+        write_shared_resource();
+        signal(&rw_mutex);
+        signal(&writer_mutex);
+    }
+}
+
+void reader() {
+    while (true) {
+        wait(&writer_mutex);    // 无写者时请求进入
+        wait(&mutex);           // 访问计数器，加锁
+        if (&reader_count == 0) {   // 当第一个读者读取共享资源时
+            wait(&rw_mutex);        // 阻止写者访问
+        }
+        reader_count++;             // 读者计数器加一
+        signal(&mutex);             // 释放计数器，解锁
+        signal(&writer_mutex);      // 允许写者访问
+
+        read_shared_resource();
+
+        wait(&mutex);               // 访问计数器，加锁
+        reader_count--;             // 读者计数器减一
+        if (&reader_count == 0) {   // 当最后一个读者读取共享资源时
+            signal(&rw_mutex);      // 允许写者访问
+        }
+        signal(&mutex);             // 释放计数器，解锁
+    }
+}
+```
+
+这个算法称为**读/写公平法**，即二者具有相同的优先级。
+
+解决读者-写者问题的关键在于有一个需要互斥访问的计数器`count`。
+
 ### 哲学家进餐问题
+
+解决哲学家进餐问题，一般有两种方式：一是限制哲学家的行为；二是令哲学家同时拿两根筷子。
+
+一般采用第二种方式:
+
+```cpp
+semaphore_t chopstick[5] = {1, 1, 1, 1, 1}; // 筷子互斥访问信号量
+semaphore_t mutex = 1;      // 哲学家取筷子互斥信号量
+
+void philosopher(int i) {   // i 号哲学家
+    do {
+        wait(&mutex);       // 请求取筷子
+        wait(&chopstick[i]); // 请求取左边筷子
+        wait(&chopstick[(i + 1) % 5]); // 请求取右边筷子
+        signal(&mutex);       // 释放取筷子互斥信号量
+
+        eat();
+
+        signal(&chopstick[i]); // 释放左边筷子
+        signal(&chopstick[(i + 1) % 5]); // 释放右边筷子
+
+        think();
+    } while (true);
+}
+```
+
+哲学家进餐问题的解决算法思想与[贪心算法]()的思想恰好相反。贪心算法强调争取眼下的最佳方案而不考虑后果，若在该问题上采用贪心，即只要眼前有筷子就拿起，有很大的概率会出现死锁。
 
 ## 管程
