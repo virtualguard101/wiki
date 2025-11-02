@@ -34,7 +34,7 @@ git config --global -e
 >除了介绍基础使用与一些有用的配置方案，这个教程还提及了Git的一些底层设计与思想以及一些拓展阅读资源。
 
 基础使用的部分也可简单参考下图：
-![](git-base.jpg)
+![](assets/git/git-base.jpg)
 
 *图片来源于网络，仅作学习参考*
 
@@ -292,7 +292,7 @@ HEAD^3~3 = HEAD^3^^^
 
 撤销操作有两种方式：`git reset`与`git revert`
 
-![](git_2.jpg)
+![](assets/git/git_2.jpg)
 
 *图片来源于网络，仅作学习参考*
 
@@ -353,7 +353,7 @@ git reset HEAD
     ├── index        # 暂存区索引文件
     └── refs/        # 分支引用
     ```
-    ![](git_4.jpg)
+    ![](assets/git/git_4.jpg)
 
     *图片来源于网络，仅作学习参考*
     
@@ -380,7 +380,7 @@ git reset HEAD
 
 包含`checkout`的操作可视化，也可参考下图：
 
-![](git_3.jpg)
+![](assets/git/git_3.jpg)
 
 *图片来源于网络，仅作学习参考*
 
@@ -472,7 +472,7 @@ Git 支持将未提交的更改暂存到一个独立于主版本库的节点上�
 
 在浏览Git的远程仓库时，我们或许会看到类似下面的信息：
 
-![git submodules example](git_submodules.png)
+![git submodules example](assets/git/git_submodules.png)
 
 图中[^1]带有哈希值标识的路径就是**Git 子模块**，本质上是一个被当前仓库引用的**子仓库**。
 
@@ -528,7 +528,7 @@ git submodule update --remote --merge   # 后续更新
 
 ## 工程应用
 
-![](git_branch.jpg)
+![](assets/git/git_branch.jpg)
 
 *图片来源于网络，仅作学习参考*
 

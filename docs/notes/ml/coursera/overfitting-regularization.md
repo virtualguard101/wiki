@@ -47,21 +47,21 @@ publish: true
     - 回归
 
         下图对某个数据集使用一个一元线性回归模型进行拟合，可以看到模型并没有很好地拟合数据，这就是欠拟合:
-        ![欠拟合-回归](underfitting_demo1.jpg)
+        ![欠拟合-回归](assets/overfitting-regularization/underfitting_demo1.jpg)
 
         而将模型函数的最高阶提高至 $4$ 阶后，可以看出模型很好地拟合了数据（与红色虚线基本吻合），这就是最佳拟合:
-        ![最佳拟合-回归](bestfit_demo1.jpg)
+        ![最佳拟合-回归](assets/overfitting-regularization/bestfit_demo1.jpg)
 
         但随着最高阶数的继续升高，可以看出模型虽然更好地拟合了训练数据，即穿过了更多的数据点，但不难发现在本应该接近 $y=0$ 的区域，模型却出现了剧烈的波动，这就是过拟合的一种表现:
-        ![过拟合-回归](overfit_demo1.jpg)
+        ![过拟合-回归](assets/overfitting-regularization/overfit_demo1.jpg)
     
     - 分类同理
 
-        ![欠拟合-分类](underfit_demo2.jpg)
+        ![欠拟合-分类](assets/overfitting-regularization/underfit_demo2.jpg)
 
-        ![最佳拟合-分类](bestfit_demo2.jpg)
+        ![最佳拟合-分类](assets/overfitting-regularization/bestfit_demo2.jpg)
 
-        ![过拟合-分类](overfit_demo2.jpg)
+        ![过拟合-分类](assets/overfitting-regularization/overfit_demo2.jpg)
 
 
 通过以上例子，就不难理解过拟合问题的本质，即会导致模型在训练数据上表现良好，而在测试数据上表现较差，即模型的**泛化能力较差**。

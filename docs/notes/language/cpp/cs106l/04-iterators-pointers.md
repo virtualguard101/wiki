@@ -23,7 +23,7 @@
 
 针对其他操作，不同的容器具有差异，以下是CS106L的课程幻灯片提供的一幅文档截图：
 
-![iterator_type](iterators_type.png)
+![iterator_type](assets/04-iterators-pointers/iterators_type.png)
 
 这几个迭代器的功能包含关系大致可由下图概括：
 

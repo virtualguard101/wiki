@@ -6,7 +6,7 @@
 
 与栈类似，**队列（*queue*）**也是一种限定插入与删除操作的**线性表**，但与栈不同的是，==其插入和删除操作被分别限制在表的两端==。其特点是**先进先出（FIFO）**，==插入操作被限制在队尾，而删除操作被限制在队头==。
 
-![队列](queue.png)
+![队列](assets/queue/queue.png)
 *图片来源: [队列 | Hello算法](https://www.hello-algo.com/chapter_stack_and_queue/queue/)*
 
 ## 队列的实现
@@ -33,14 +33,14 @@
 
     - 出队操作：只需将 `front` 增加 1，`size` 减少 1 。
 
-    ![出队优化](queue_pop_improve.png)
+    ![出队优化](assets/queue/queue_pop_improve.png)
 
 但是仅仅是这样的优化在不断进行入队与出队的过程中可能会遇到所谓的**假溢出**（*false overflow*）问题。
 
 !!! note "假溢出[^2]"
     在顺序存储结构中，假溢出是指队列虽然还有空闲空间，但由于队首元素指针已经出队，导致无法再进行入队操作:
 
-    ![假溢出](false_overflow.png)
+    ![假溢出](assets/queue/false_overflow.png)
 
     将队列比作一辆公交车，假溢出现象就可比作是车的前面有位置，但后排位置却是满的；然而没有人会因为后排没位置了就选择等下班公交。
 
@@ -50,7 +50,7 @@
 
 在循环队列中，我们可以使用取模运算来实现队列的循环。当 `rear` 指针到达数组末尾时，如果还有空闲空间，就将其移动到数组开头:
 
-![循环队列](cir_queue.png)
+![循环队列](assets/queue/cir_queue.png)
 
 结合上面的概念，就可以将 $a_5$ 所在的位置，即数组下标为 $4$ 的位置想象成是接在下标为 $0$ 空位前的一个“连接位”。这样就利用指针将一个“条形”的线性表连接成了一个“环形”的线性表，即循环队列。
 
@@ -62,9 +62,9 @@
 
 - 一是设置一个标志变量来区分空与满两种情况，这种方法相对简单——可以通过判断队列中是否有元素来改变`flag`的值:
   
-    ![队列空](cir_queue_1.png)
+    ![队列空](assets/queue/cir_queue_1.png)
 
-    ![队列满](cir_queue_2.png)
+    ![队列满](assets/queue/cir_queue_2.png)
 
 - 二是为队列满的情况设置一种有别于队列空的形式:
 
@@ -72,7 +72,7 @@
 
     - 当队列满时，`rear`从左侧靠近`front`，但不会等于`front`，==即在`front`左侧保留一个空位==:
 
-        ![队列满-无标识值](cir_queue_3.png)
+        ![队列满-无标识值](assets/queue/cir_queue_3.png)
 
     !!! tip "队列满判断公式"
         在这种方法中，若队列的最大容量为`capacity`，==则队列满的判断条件为`(rear + 1) % capacity == front`==，其中取余是为了整合`rear`与`front`的位置问题。
@@ -153,7 +153,7 @@ class SqQueue:
 
 队列的链式存储结构，==本质上是一个将插入操作与删除操作分别限制早线性表头尾的[**单链表**](linked-list.md)==，称为链队列。
 
-![链队列](linked_queue.png)
+![链队列](assets/queue/linked_queue.png)
 
 ```py
 class LinkedNode:

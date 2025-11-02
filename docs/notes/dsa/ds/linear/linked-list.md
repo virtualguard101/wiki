@@ -14,7 +14,7 @@
 
 ### 逻辑结构
 
-![链表](linkedlist_definition.png)
+![链表](assets/linked-list/linkedlist_definition.png)
 *图片来源：[链表 | Hello算法](https://www.hello-algo.com/chapter_array_and_linkedlist/linked_list/#42){target="_blank"}*
 
 链表中的元素（节点）按照**一对一**的顺序关系排列；第一个节点称为**头节点**，可以不包含数据域（若存在一般也没意义）；最后一个节点称为**尾节点**，其指针通常指向“空”，即 `None`/`null`/`nullptr`。
@@ -119,7 +119,7 @@
 
 在链表中插入节点，==只需改变待插入元素与插入位置前一个元素的**节点引用（指针）**即可==:
 
-![链表-插入节点](linkedlist_insert_node.png)
+![链表-插入节点](assets/linked-list/linkedlist_insert_node.png)
 *图片来源: [链表-插入节点 | Hello算法](https://www.hello-algo.com/chapter_array_and_linkedlist/linked_list/#2)*
 
 === "Python"
@@ -152,7 +152,7 @@
 
 删除节点就更简单了，==只需改变待删除节点前一个节点的节点引用即可==:
 
-![链表-删除节点](linkedlist_remove_node.png)
+![链表-删除节点](assets/linked-list/linkedlist_remove_node.png)
 
 === "Python"
     ```py
@@ -284,7 +284,7 @@
 
     - **双向链表**：与单向链表相比，双向链表记录了两个方向的引用。双向链表的节点定义同时包含指向后继节点（下一个节点）和前驱节点（上一个节点）的引用（指针）。相较于单向链表，双向链表更具灵活性，可以朝两个方向遍历链表，但相应地也需要占用更多的内存空间。
 
-    ![常见链表类型](linkedlist_common_types.png)
+    ![常见链表类型](assets/linked-list/linkedlist_common_types.png)
 
 ### 应用
 

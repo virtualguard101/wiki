@@ -4,7 +4,7 @@
 >
 > [UML Class Diagram Tutorial | Visual Paradigm](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/)
 
-![](banking-uml-class-diagram.jpg)
+![](assets/uml/banking-uml-class-diagram.jpg)
 *Image source: [What is a UML diagram? Types, examples & how to create one | slickplan](https://slickplan.com/blog/how-to-make-a-uml-diagram)*
 
 ## 定义

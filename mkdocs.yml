@@ -123,11 +123,12 @@ plugins:
       include_requirejs: true
       custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
   - awesome-nav
-  - mkdocs-note:
-      notes_dir: docs/notes
-      index_file: docs/notes/index.md
-      timestamp_zone: "UTC+8"
-      enable_network_graph: true
+  - graph
+  # - mkdocs-note:
+  #     notes_dir: docs/notes
+  #     index_file: docs/notes/index.md
+  #     timestamp_zone: "UTC+8"
+  #     enable_network_graph: true
 
   # - redirects:
   #     redirect_maps:
@@ -154,7 +155,7 @@ hooks:
   - scripts/hooks/rss.py
   - scripts/hooks/fancybox.py
   - scripts/hooks/links.py
-  # - scripts/hooks/recent_notes.py
+  - scripts/hooks/recent_notes.py
   # - scripts/hooks/
 
 ## Extensions

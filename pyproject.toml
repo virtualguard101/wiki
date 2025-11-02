@@ -21,5 +21,6 @@ dependencies = [
     "numpy>=2.3.4",
     "matplotlib>=3.10.7",
     "pandas>=2.3.3",
-    "click==8.2.1"
+    "click==8.2.1",
+    "mkdocs-network-graph-plugin>=1.0.3",
 ]

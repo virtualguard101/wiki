@@ -59,7 +59,7 @@ publish: true
 
 - 上下文切换器: 进行新旧进程之间的上下文切换
 
-![进程调度机制](scheduling_mechanism.jpg)
+![进程调度机制](assets/2-scheduling/scheduling_mechanism.jpg)
 
 ### 调度模式
 
@@ -867,4 +867,4 @@ void round_robin_scheduling(std::vector<Process>& processes, int time_quantum) {
 
 <strong>多级反馈队列调度算法（*Multi-Level Feedback Queue, MLFQ*）</strong>便是在 RR 的基础上，根据进程的紧迫性不同，设置多个优先级不同的就绪队列，每个优先级对应一个时间片，同时每个就绪队列都采用FCFS算法，从而实现多级反馈队列调度。
 
-![多级反馈队列调度](mlfq.png)
+![多级反馈队列调度](assets/2-scheduling/mlfq.png)

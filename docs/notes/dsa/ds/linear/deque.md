@@ -7,7 +7,7 @@
 
 相较于普通队列，**双端队列（*Double-ended Queue*）**不再将删除和插入操作**分别**限制在表的头尾，==而是允许表的两端均可执行插入与删除操作==，看起来就像是将两个相反方向上的队列结合成了一个。
 
-![双端队列](deque_operations.png)
+![双端队列](assets/deque/deque_operations.png)
 *图片来源：[双端队列 | Hello算法](https://www.hello-algo.com/chapter_stack_and_queue/deque/)*
 
 ## 实现
@@ -16,7 +16,7 @@
 
 ### 顺序存储结构
 
-![双端队列-顺序结构](array_deque_step1.png)
+![双端队列-顺序结构](assets/deque/array_deque_step1.png)
 
 基于数组的实现，只需在[循环队列](queue.md)的基础上在头尾分别添加插入与删除操作即可：
 
@@ -113,7 +113,7 @@
 
 链式存储结构则需要基于[双向链表](double_linked.md)实现：
 
-![双端队列-链式结构](linkedlist_deque_step1.png)
+![双端队列-链式结构](assets/deque/linkedlist_deque_step1.png)
 
 === "Python"
 

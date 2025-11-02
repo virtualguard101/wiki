@@ -1443,6 +1443,18 @@ wheels = [
 ]
 
 [[package]]
+name = "mkdocs-network-graph-plugin"
+version = "1.0.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mkdocs-material" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5a/1d/e90cd0db91dd85ca9bf407f253752bd04fb57d8351c961b8dd4ca06a43b5/mkdocs_network_graph_plugin-1.0.3.tar.gz", hash = "sha256:04b931f11bd47546c95b50d22e43c2136e2ac9d4a1217da9ea5d3c046b14a665", size = 15230811, upload-time = "2025-09-11T15:04:56.711Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fe/6f/5e0ef4245a0bfff0b89b724b404bf5cea372927c1b679c7cd6ccbacfeaf0/mkdocs_network_graph_plugin-1.0.3-py3-none-any.whl", hash = "sha256:9b3a5be7ee1cb19e37edaa76181ea55dacde58e10c69f445e164af5379452b5c", size = 15956, upload-time = "2025-09-11T15:04:54.486Z" },
+]
+
+[[package]]
 name = "mkdocs-note"
 version = "2.1.4"
 source = { registry = "https://pypi.org/simple" }
@@ -1885,6 +1897,7 @@ dependencies = [
     { name = "mkdocs-material" },
     { name = "mkdocs-material-extensions" },
     { name = "mkdocs-minify-plugin" },
+    { name = "mkdocs-network-graph-plugin" },
     { name = "mkdocs-note" },
     { name = "mkdocs-rss-plugin" },
     { name = "numpy" },
@@ -1906,6 +1919,7 @@ requires-dist = [
     { name = "mkdocs-material", specifier = ">=9.6.4" },
     { name = "mkdocs-material-extensions", specifier = ">=1.3.1" },
     { name = "mkdocs-minify-plugin", specifier = ">=0.8.0" },
+    { name = "mkdocs-network-graph-plugin", specifier = ">=1.0.3" },
     { name = "mkdocs-note", specifier = "==2.1.4" },
     { name = "mkdocs-rss-plugin", specifier = ">=1.17.4" },
     { name = "numpy", specifier = ">=2.3.4" },

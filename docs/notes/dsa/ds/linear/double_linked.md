@@ -8,7 +8,7 @@
 
 **双向链表（*double linked list*）**的本质是在[单链表](linked-list.md)的每个节点中再设置一个指向其**前驱节点**的指针域。
 
-![双向链表](double_linked_list_definition.png)
+![双向链表](assets/double_linked/double_linked_list_definition.png)
 
 ```py
 from typing import Optional, Any
@@ -39,7 +39,7 @@ class DoubleLinkedNode:
 
 需要注意的是处理指针时指针的连接顺序不要弄错了，这种问题在初学过程中比较容易出现。
 
-![双向链表-插入](dllist_insert.png)
+![双向链表-插入](assets/double_linked/dllist_insert.png)
 
 可参考上图标注的顺序逐步实现节点的插入:
 ```py
@@ -62,7 +62,7 @@ def insert(self, node: 'DoubleLinkedNode') -> None:
 
 同理，删除操作也需分别改变待删除节点前后节点的指针:
 
-![双向链表-删除](dllist_remove.png)
+![双向链表-删除](assets/double_linked/dllist_remove.png)
 
 ```py
 def remove(self):

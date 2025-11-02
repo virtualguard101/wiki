@@ -8,4 +8,4 @@
 
 - [RegexOne: Learn Regular Expressions with simple, interactive exercises](https://regexone.com/)
 
-![](regexone_finish.png)
+![](assets/re/regexone_finish.png)

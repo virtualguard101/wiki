@@ -507,7 +507,7 @@ sequenceDiagram
 
 一个典型的客户端-服务器系统模型就是<strong>套接字（*socket*）</strong>:
 
-![套接字](socket.webp)
+![套接字](assets/2-process/socket.webp)
 
 ```c
 #include <sys/socket.h>

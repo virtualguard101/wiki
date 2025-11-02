@@ -9,7 +9,7 @@
 
 以逻辑回归模型为例, 其决策边界的可视化可能是这样的:
 
-![逻辑回归-决策边界可视化案例](newplot.png)
+![逻辑回归-决策边界可视化案例](assets/decision-boundary/newplot.png)
 *图片来源: [Decision Boundary Visualizer](https://ml-visualizer.herokuapp.com/)*
 
 图中的样本分布被**近似**地划分成了两个区域, 从图片底部的注释中可看到模型分类的**准确度 (*Accuracy*)**.

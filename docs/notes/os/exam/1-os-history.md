@@ -21,7 +21,7 @@ publish: true
 
 系统只能将输入的这一批作业按照顺序依次进行处理，==内存中始终只保持一道作业==。
 
-![单道批处理系统](single-channel.png)
+![单道批处理系统](assets/1-os-history/single-channel.png)
 
 - 自动性: 脱机输入后，无需人工干预，系统自动完成作业的处理
 
@@ -35,7 +35,7 @@ publish: true
 
 对比单道批处理系统的一个显著改进就是当某道程序因I/O操作而暂停执行时，CPU可以转而运行内存中其他作业，通过**中断**实现。
 
-![多道批处理系统](mul-channel.png)
+![多道批处理系统](assets/1-os-history/mul-channel.png)
 
 - 多道: 内存中可同时装入多个相互独立的程序
 
