@@ -1,3 +1,10 @@
+---
+date: 2025-09-13 16:42:00
+title: 监督学习与非监督学习
+permalink: 
+publish: true
+---
+
 # 监督学习与非监督学习
 
 > [Machine Learning | Coursera](https://www.coursera.org/specializations/machine-learning-introduction)

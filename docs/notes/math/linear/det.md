@@ -1,3 +1,10 @@
+---
+date: 2025-09-18 17:53:00
+title: 行列式
+permalink: 
+publish: true
+---
+
 # 行列式
 
 ## 二阶三阶行列式

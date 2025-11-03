@@ -1,3 +1,9 @@
+---
+date: 2025-05-01 01:22:00
+title: 基础类型与结构体
+permalink: 
+publish: true
+---
 
 # 基础类型与结构体
 

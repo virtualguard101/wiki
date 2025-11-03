@@ -1,3 +1,10 @@
+---
+date: 2025-10-13 23:03:00
+title: Java类与对象
+permalink: 
+publish: true
+---
+
 # Java类与对象
 
 > [cs61b lec2 2021 intro2(slide) | cs61b-sp21](https://docs.google.com/presentation/d/1gEHCa3PLFE3FikAwwO1WhZAXKjWEQ9F1HM9qECoZCUo/edit?slide=id.g5849d008c_081#slide=id.g5849d008c_081)

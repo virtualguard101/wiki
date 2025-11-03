@@ -1,3 +1,10 @@
+---
+date: 2025-09-28 19:21:00
+title: 决策边界
+permalink: 
+publish: true
+---
+
 # 决策边界
 
 ## 定义

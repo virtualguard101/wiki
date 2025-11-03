@@ -1,3 +1,10 @@
+---
+date: 2025-09-11 20:50:00
+title: Java入门要点
+permalink: 
+publish: true
+---
+
 # Java 入门要点
 
 > - [1. Intro, Hello World Java | UCB CS 61B Data Structures, Spring 2021](https://sp21.datastructur.es/index.html)

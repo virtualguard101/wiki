@@ -1,3 +1,10 @@
+---
+date: 2025-07-20 09:52:00
+title: JavaScript入门要点
+permalink: 
+publish: true
+---
+
 # JavaScript 入门要点
 
 >[什么是JavaScript? | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/What_is_JavaScript)

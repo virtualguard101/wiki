@@ -1,3 +1,10 @@
+---
+date: 2025-08-30 22:04:00
+title: 单链表
+permalink: 
+publish: true
+---
+
 # 单链表
 
 ## 定义

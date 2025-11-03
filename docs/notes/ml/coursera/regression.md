@@ -1,3 +1,10 @@
+---
+date: 2025-09-14 14:34:00
+title: 回归模型概述
+permalink: 
+publish: true
+---
+
 # 回归模型概述
 
 > [Machine Learning | Coursera](https://www.coursera.org/specializations/machine-learning-introduction)

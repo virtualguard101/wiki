@@ -1,3 +1,10 @@
+---
+date: 2025-08-31 14:47:00
+title: 双端队列
+permalink: 
+publish: true
+---
+
 # 双端队列
 
 > [双向队列 | Hello算法](https://www.hello-algo.com/chapter_stack_and_queue/deque/)

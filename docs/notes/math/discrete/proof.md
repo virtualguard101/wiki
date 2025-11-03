@@ -1,3 +1,10 @@
+---
+date: 2025-07-31 23:43:00
+title: 证明
+permalink: 
+publish: true
+---
+
 # 证明
 
 >[CS70 Note 2 | UC Berkeley](https://www.eecs70.org/assets/pdf/notes/n2.pdf)

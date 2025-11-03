@@ -1,3 +1,10 @@
+---
+date: 2025-10-10 12:03:00
+title: UML图
+permalink: 
+publish: true
+---
+
 # UML图
 
 > [UML 图：定义及制作方法 | Atlassian](https://www.atlassian.com/zh/work-management/project-management/uml-diagram)

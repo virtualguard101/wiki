@@ -1,3 +1,10 @@
+---
+date: 2025-09-15 22:12:00
+title: 梯度下降
+permalink: 
+publish: true
+---
+
 # 梯度下降
 
 ## 定义概述

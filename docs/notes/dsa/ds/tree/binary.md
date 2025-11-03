@@ -1,3 +1,10 @@
+---
+date: 2025-09-18 12:47:04
+title: 二叉树
+permalink: 
+publish: true
+---
+
 # 二叉树
 
 > [二叉树 | Hello算法](https://www.hello-algo.com/chapter_tree/binary_tree/)

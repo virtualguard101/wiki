@@ -1,3 +1,10 @@
+---
+date: 2025-07-10 02:26:00
+title: HTML 要点
+permalink: 
+publish: true
+---
+
 # HTML 要点
 
 >- [使用HTML构建Web | MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Structuring_content)

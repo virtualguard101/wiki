@@ -1,3 +1,10 @@
+---
+date: 2025-06-05 14:00:00
+title: Git
+permalink: 
+publish: true
+---
+
 # Git
 
 >如果是深入学习，没有什么是比[官方文档](https://git-scm.com/docs)与[官方教程(Pro Git)](https://git-scm.com/book/zh/v2)更好的参考资料了

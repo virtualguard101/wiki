@@ -1,3 +1,10 @@
+---
+date: 2025-09-29 20:42:00
+title: 逆矩阵
+permalink: 
+publish: true
+---
+
 # 逆矩阵
 
 > [矩阵](matrix.md)

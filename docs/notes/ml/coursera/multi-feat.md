@@ -1,3 +1,10 @@
+---
+date: 2025-09-16 22:12:00
+title: 多元线性回归模型
+permalink: 
+publish: true
+---
+
 # 多元线性回归模型
 
 > [有监督的机器学习：回归与分类 | coursera](https://www.coursera.org/learn/machine-learning)

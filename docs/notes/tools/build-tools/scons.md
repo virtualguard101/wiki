@@ -1,3 +1,10 @@
+---
+date: 2025-05-30 21:26:00
+title: SCons
+permalink: 
+publish: true
+---
+
 # SCons
 
 一个开源的软件构建工具，类似于 [Make](gnu-make.md)，但使用 Python 脚本作为配置文件。它提供了一种更现代、更灵活的方式来管理软件构建过程。

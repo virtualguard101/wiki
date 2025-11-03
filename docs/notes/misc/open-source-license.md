@@ -1,3 +1,10 @@
+---
+date: 2025-10-09 15:26:00
+title: 开源协议
+permalink: 
+publish: true
+---
+
 # 开源协议
 
 > [Choose an open source license](https://choosealicense.com/)

@@ -1,3 +1,10 @@
+---
+date: 2025-09-25 17:27:00
+title: 矩阵
+permalink: 
+publish: true
+---
+
 # 矩阵
 
 ## 常用类型

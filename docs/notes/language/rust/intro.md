@@ -1,3 +1,10 @@
+---
+date: 2025-09-17 01:13:00
+title: Rust入门要点
+permalink: 
+publish: true
+---
+
 # Rust 入门要点
 
 ## 安装编译环境

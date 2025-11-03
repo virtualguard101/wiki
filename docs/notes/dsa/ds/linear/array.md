@@ -1,3 +1,10 @@
+---
+date: 2025-08-21 23:45:00
+title: 顺序表
+permalink: 
+publish: true
+---
+
 # 顺序表
 
 ## 定义

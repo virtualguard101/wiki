@@ -1,5 +1,9 @@
 ---
 icon: material/pencil-ruler
+date: 2025-09-12 23:12:00
+title: 学术资源
+permalink: 
+publish: true
 ---
 
 # 学术资源

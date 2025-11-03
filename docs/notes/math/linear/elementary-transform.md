@@ -1,3 +1,10 @@
+---
+date: 2025-10-09 23:47:00
+title: 矩阵的初等变换
+permalink: 
+publish: true
+---
+
 # 矩阵的初等变换
 
 > [矩阵](matrix.md)

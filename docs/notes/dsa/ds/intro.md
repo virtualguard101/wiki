@@ -1,3 +1,10 @@
+---
+date: 2025-08-08 01:55:00
+title: 结构分类与基本数据类型
+permalink: 
+publish: true
+---
+
 # 结构分类与基本数据类型
 
 >[数据结构 | Hello 算法](https://www.hello-algo.com/chapter_data_structure/){target="_blank"}

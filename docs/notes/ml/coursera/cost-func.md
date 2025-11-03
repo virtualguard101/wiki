@@ -1,3 +1,10 @@
+---
+date: 2025-09-14 22:40:00
+title: 成本函数概述
+permalink: 
+publish: true
+---
+
 # 成本函数概述
 
 > [Machine Learning | Coursera](https://www.coursera.org/specializations/machine-learning-introduction)

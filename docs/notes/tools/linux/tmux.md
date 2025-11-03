@@ -1,3 +1,10 @@
+---
+date: 2025-08-09 11:20:00
+title: tmux
+permalink: 
+publish: true
+---
+
 # tmux
 
 >[命令行环境 | MIT missing semester](misc.md#部分教程)

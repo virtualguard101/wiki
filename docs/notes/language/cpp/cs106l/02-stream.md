@@ -1,4 +1,11 @@
-# 流
+---
+date: 2025-05-08 00:26:00
+title: C++流
+permalink: 
+publish: true
+---
+
+# C++流
 
 在C++中，流(`stream`)是一个十分重要的概念，它是**I/O（Input/Output, 输入输出）的一般抽象**，表示数据的流动方向和方式。
 

@@ -1,3 +1,10 @@
+---
+date: 2025-05-29 22:26:00
+title: vcpkg
+permalink: 
+publish: true
+---
+
 # vcpkg
 
 **vcpkg**是微软提供并维护的一个开源的**C++包管理器**，形式上类似于Python的**pip**/**uv**等工具。

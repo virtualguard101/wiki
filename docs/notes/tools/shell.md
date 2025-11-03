@@ -1,3 +1,10 @@
+---
+date: 2025-06-22 14:00:00
+title: Shell Scripting
+permalink: 
+publish: true
+---
+
 # Shell Scripting
 
 >[The Shell Scripting Tutorial](https://www.shellscript.sh/)

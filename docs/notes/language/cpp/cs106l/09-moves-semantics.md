@@ -1,4 +1,11 @@
-# 移动语义
+---
+date: 2025-05-23 00:33:00
+title: C++移动语义
+permalink: 
+publish: true
+---
+
+# C++移动语义
 
 > [std::move in Utility in C++ | Move Semantics, Move Constructors and Move Assignment Operators | GeeksForGeeks](https://www.geeksforgeeks.org/stdmove-in-utility-in-c-move-semantics-move-constructors-and-move-assignment-operators/)
 

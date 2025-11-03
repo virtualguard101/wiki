@@ -1,4 +1,11 @@
-# RAII 和智能指针
+---
+date: 2025-05-27 00:35:00
+title: RAII & C++智能指针
+permalink: 
+publish: true
+---
+
+# RAII & C++智能指针
 
 ## RAII(Resource Acquisition Is Initialization)
 

@@ -1,3 +1,10 @@
+---
+date: 2025-09-23 23:38:00
+title: Timeshift
+permalink: 
+publish: true
+---
+
 # Timeshift
 
 Timeshift 可帮助定期创建文件系统的增量快照，然后在以后恢复到这些快照，以撤销对系统的所有更改[^1]。

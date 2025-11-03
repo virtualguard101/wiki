@@ -1,3 +1,10 @@
+---
+date: 2025-07-22 14:01:00
+title: JS回调函数简单应用
+permalink: 
+publish: true
+---
+
 # JS回调函数简单应用
 
 合理地使用[回调函数](js.md#回调函数)能够提高**代码的复用性**以及使得代码的**抽象接口**更加优雅，**抽象**的概念可以简单概括成"When `something` happens, do `something`"[^1]

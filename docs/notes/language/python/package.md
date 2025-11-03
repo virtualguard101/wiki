@@ -1,3 +1,10 @@
+---
+date: 2025-10-07 01:08:00
+title: Python包管理
+permalink: 
+publish: true
+---
+
 # Python 包
 
 > [Python Packages | GeeksforGeeks](https://www.geeksforgeeks.org/python/python-packages/)

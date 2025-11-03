@@ -1,3 +1,10 @@
+---
+date: 2025-05-29 21:26:00
+title: CMake
+permalink: 
+publish: true
+---
+
 # CMake
 
 **CMake**本质上可简单理解为一个[`Makefile`](gnu-make.md)生成器，有自己的构建语法。

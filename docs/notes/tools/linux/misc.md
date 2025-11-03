@@ -1,3 +1,10 @@
+---
+date: 2024-06-05 14:00:00
+title: Linux基础/杂项
+permalink: 
+publish: true
+---
+
 # Linux基础/杂项
 
 ## 参考手册
