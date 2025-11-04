@@ -47,7 +47,7 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/3-memory-management/">内存管理概述</a><span style="font-size:0.8em;">2025-11-04 09:39:12</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/3-memory-management/">内存管理概述</a><span style="font-size:0.8em;">2025-11-04 10:35:50</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/ssh/">远程服务器使用基础</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/shell/">Shell Scripting</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
 <li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/uv/">Astral uv</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
