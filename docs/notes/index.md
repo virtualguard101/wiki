@@ -1,6 +1,10 @@
 ---
 icon: material/notebook
 comments: true
+date: 2025-07-01 00:00:00
+title: Notebook
+permalink: 
+publish: true
 ---
 
 # Notebook
