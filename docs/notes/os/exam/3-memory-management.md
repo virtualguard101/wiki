@@ -108,4 +108,27 @@ publish: true
 ### 进程的内存映像
 
 
+![](assets/3-memory-management/user_mem.jpg)
+
+上图主要展示的是一个进程内存映像的**用户空间**，一般包括以下要素:
+
+- 代码段 (*text*): 程序的二进制代码。代码段是只读的，可被多个进程共享
+
+- 数据段 (*data*): 程序运行时加工处理的对象，包括全局变量与静态变量
+
+- 堆 (*heap*): 动态分配的内存空间，用于存储程序运行时动态分配的变量
+
+- 栈 (*stack*): 用来实现函数调用与局部变量的存储
+
+完整的进程地址空间与内核地址空间的结构可以参考下图[^2]:
+
+![](assets/3-memory-management/process-address.png)
+
+内核空间通常对用户是不可见的。在学习进程时提到的[进程控制块 (PBC)](2-process.md#进程控制块)就是存储在内核空间中。
+
+### 内存保护
+
+
 [^1]: [【操作系统】内存管理 | KingOfDark](https://2017zhangyuxuan.github.io/2022/06/11/2022-06/2022-06-11%20%E3%80%90%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%91%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/#%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5)
+
+[^2]: [Linux 内存分析——进程和物理结构角度 | Tomoku's blog](https://tomoku-dm.github.io/2019/04/13/1-memory-process-physical/)
