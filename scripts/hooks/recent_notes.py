@@ -1,11 +1,9 @@
-import os
 import subprocess
 import logging
 import json
 import hashlib
 from pathlib import Path
 from datetime import datetime
-from mkdocs.config.defaults import MkDocsConfig
 
 # Configuration
 NOTES_DIR = Path(__file__).parent.parent.parent / 'docs' / 'notes'
@@ -42,6 +40,53 @@ def get_notes_hash(notes):
         except OSError:
             notes_info.append(f"{note.name}:0:0")
     return hashlib.md5('|'.join(notes_info).encode()).hexdigest()
+
+
+def get_file_date(file_path: Path) -> str:
+    """从文件的前置元数据中获取日期
+    
+    优先从 YAML front matter 中读取 date 字段，如果不存在则回退到 git commit 日期
+    对于 Jupyter notebook 文件（.ipynb），直接使用 git commit 日期
+    
+    Args:
+        file_path (Path): 笔记文件路径
+        
+    Returns:
+        file_date (str): 日期字符串
+    """
+    # Jupyter notebook 文件直接使用 git commit 日期
+    if file_path.suffix == '.ipynb':
+        return get_commit_date(file_path)
+    
+    # 尝试从文件的前置元数据中读取日期
+    try:
+        with file_path.open('r', encoding='utf-8') as f:
+            lines = f.readlines()
+            
+        # 检查是否有 YAML front matter (以 --- 开始和结束)
+        if len(lines) > 0 and lines[0].strip() == '---':
+            for line in lines[1:]:
+                line = line.strip()
+                # 遇到结束标记，退出 front matter
+                if line == '---':
+                    break
+                # 查找 date: 字段
+                if line.startswith('date:'):
+                    date_str = line[5:].strip()  # 去掉 'date:' 前缀
+                    # 尝试解析日期
+                    try:
+                        # 支持的日期格式：YYYY-MM-DD HH:MM:SS
+                        date_obj = datetime.strptime(date_str, OUTPUT_DATE_FORMAT)
+                        return date_obj.strftime(OUTPUT_DATE_FORMAT)
+                    except ValueError:
+                        # 如果格式不匹配，尝试其他格式或继续
+                        log.warning(f"Failed to parse date format '{date_str}' in {file_path}")
+                        break
+    except Exception as e:
+        log.warning(f"Failed to read front matter from {file_path}: {e}")
+    
+    # 如果无法从文件元数据获取日期，回退到 git commit 日期
+    return get_commit_date(file_path)
 
 
 def get_commit_date(file_path: Path) -> str:
@@ -138,9 +183,10 @@ def get_title_relurl_date(file: Path) -> tuple[str, str, str]:
                     break
     title = title or file.stem
 
-    commit_date = get_commit_date(file)
+    # 优先使用文件中的日期，如果没有则使用 git commit 日期
+    file_date = get_file_date(file)
 
-    return title, relurl, commit_date
+    return title, relurl, file_date
 
 
 def update_recent_notes():
@@ -167,8 +213,8 @@ def update_recent_notes():
     
     log.info("Refreshing recent notes at index page...")
     
-    # 按提交时间降序排序
-    notes.sort(key=lambda p: get_commit_date(p), reverse=True)
+    # 按文件日期降序排序（优先使用文件中的 date 字段）
+    notes.sort(key=lambda p: get_file_date(p), reverse=True)
     recent = notes[:MAX_NOTES]
 
     # 生成 HTML 列表，标题和日期左右对齐，日期字体缩小

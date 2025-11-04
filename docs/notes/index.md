@@ -51,16 +51,17 @@ publish: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/3-memory-management/">内存管理概述</a><span style="font-size:0.8em;">2025-11-04 10:35:50</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/ssh/">远程服务器使用基础</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/shell/">Shell Scripting</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/uv/">Astral uv</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/just/">Just</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/git/">Git</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/open-source-license/">开源协议</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/re/">正则表达式</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="se/uml/">UML图</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/base/css/">CSS 要点</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/3-memory-management/">内存管理概述</a><span style="font-size:0.8em;">2025-10-31 14:15:36</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/2-sync-mutex/">同步与互斥</a><span style="font-size:0.8em;">2025-10-28 16:42:40</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/1-os-run-env/">操作系统运行环境</a><span style="font-size:0.8em;">2025-10-26 20:44:54</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/1-os-history/">操作系统发展历程</a><span style="font-size:0.8em;">2025-10-26 16:24:34</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/2-deadlock/">死锁</a><span style="font-size:0.8em;">2025-10-24 21:45:33</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="ml/coursera/logistic-regression/">逻辑回归</a><span style="font-size:0.8em;">2025-10-23 22:05:21</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/2-scheduling/">处理机调度</a><span style="font-size:0.8em;">2025-10-23 01:00:51</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/2-process/">进程的描述与控制</a><span style="font-size:0.8em;">2025-10-21 23:51:00</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/github-ssh/">在GitHub上使用SSH密钥</a><span style="font-size:0.8em;">2025-10-20 23:41:43</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/linux/htop/">htop</a><span style="font-size:0.8em;">2025-10-20 09:52:14</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/1-os-basic-feat/">操作系统基本特性</a><span style="font-size:0.8em;">2025-10-20 09:03:45</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 

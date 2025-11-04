@@ -1,3 +1,10 @@
+---
+date: 2025-10-21 23:51:00
+title: 进程的描述与控制
+permalink: 
+publish: true
+---
+
 # 进程的描述与控制
 
 > [操作系统简易模型](../intro/os-model.md)
