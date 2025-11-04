@@ -47,16 +47,17 @@ comments: true
 
 <!-- recent_notes_start -->
 <ul>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/3-memory-management/">内存管理概述</a><span style="font-size:0.8em;">2025-10-31 14:15:50</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/2-deadlock/">死锁</a><span style="font-size:0.8em;">2025-10-31 14:11:23</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/2-sync-mutex/">同步与互斥</a><span style="font-size:0.8em;">2025-10-31 10:42:10</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/2-process/">进程的描述与控制</a><span style="font-size:0.8em;">2025-10-31 09:41:10</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/linux/htop/">htop</a><span style="font-size:0.8em;">2025-10-28 15:00:47</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/1-os-run-env/">操作系统运行环境</a><span style="font-size:0.8em;">2025-10-28 11:24:54</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/resources/engineering/">工程/求职/杂项资源</a><span style="font-size:0.8em;">2025-10-28 11:24:54</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/1-os-history/">操作系统发展历程</a><span style="font-size:0.8em;">2025-10-26 20:44:17</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/intro/os-model/">操作系统简易模型</a><span style="font-size:0.8em;">2025-10-26 17:47:14</span></div></li>
-<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/1-os-basic-feat/">操作系统基本特性</a><span style="font-size:0.8em;">2025-10-26 17:47:14</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="os/exam/3-memory-management/">内存管理概述</a><span style="font-size:0.8em;">2025-11-03 22:10:21</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/ssh/">远程服务器使用基础</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/shell/">Shell Scripting</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/uv/">Astral uv</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/just/">Just</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="tools/git/">Git</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/open-source-license/">开源协议</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="misc/re/">正则表达式</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="se/uml/">UML图</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/base/css/">CSS 要点</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
+<li><div style="display:flex; justify-content:space-between; align-items:center;"><a href="web-dev/base/html/">HTML 要点</a><span style="font-size:0.8em;">2025-11-03 20:10:33</span></div></li>
 </ul>
 <!-- recent_notes_end -->
 
