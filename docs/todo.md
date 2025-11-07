@@ -3,6 +3,8 @@ date: 2025-11-06 19:59:55
 title: Todo
 permalink: 
 publish: false
+hide:
+- navigation
 ---
 
 - [ ] Operating System

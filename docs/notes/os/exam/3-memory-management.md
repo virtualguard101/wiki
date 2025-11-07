@@ -188,8 +188,9 @@ publish: true
 ??? tip "紧凑技术"
     外部碎片可通过**紧凑技术**克服。紧凑技术通过将所有进程移动到内存的低端，从而消除外部碎片。但紧凑操作需要动态重定位寄存器的支持，且相对费时。
 
+## 现代内存管理方式
 
-## 基本分页存储管理
+### 基本分页存储管理
 
 >[3.3操作系统（基本地址变换机构 快表 两级页表 分段 段页式） | 阿里云开发者社区](https://developer.aliyun.com/article/1047094)
 
@@ -197,7 +198,7 @@ publish: true
 
 为此，我们引入**分页思想**: 将物理内存和进程的虚拟地址空间划分为固定大小的页（通常4KB）。每个进程的地址空间被分成多个页，物理内存也被分成相同大小的页框。通过页表建立虚拟页到物理页框的映射，实现地址转换。==操作系统以页框为单位为各个进程分配内存==。
 
-### 分页存储基本概念
+#### 分页存储基本概念
 
 分页存储把内存和地址空间都切成固定大小的“块”:
 
@@ -209,11 +210,11 @@ publish: true
 
     ![页表](assets/3-memory-management/page_table.png)
 
-#### 页面和页面大小
+##### 页面和页面大小
 
 逻辑地址中的每个页面都有一个编号，称为**页号**，从 $0$ 开始，物理内存的每个页框同理。这样在进程申请内存空间后就能形成页号与页框号的映射关系。
 
-#### 地址结构
+##### 地址结构
 
 ![单级页表](assets/3-memory-management/pb.webp)
 
@@ -229,9 +230,9 @@ publish: true
 
 - 后一部分为页内偏移量 $W$，用于索引页面内的数据。共有 $12$位，即每页大小为 $2^{12}B = 4KB$。
 
-### 地址转换
+#### 地址转换
 
-#### 基本地址变换
+##### 基本地址变换
 
 ![分页存储系统中的地址变换机构](assets/3-memory-management/basic_addr_trans.webp)
 
@@ -289,7 +290,7 @@ uint32_t translate_address(uint32_t virtual_addr,
 
     - 每个进程都需要引入一个页表，用于存储映射，因此**页表不能太大**，否则会导致内存利用率会降低
 
-#### 具有快表的地址变换
+##### 具有快表的地址变换
 
 ![具有快表的地址变换](assets/3-memory-management/tlb.webp)
 
@@ -315,7 +316,7 @@ uint32_t translate_address(uint32_t virtual_addr,
 
 一般情况下，快表的命中率可达到 $90\%$ 以上，其有效性基于著名的[局部性原理](3-virtual-mem.md#局部性原理)。
 
-### 两级页表
+#### 两级页表
 
 ![两级页表](assets/3-memory-management/two_level_pb.webp)
 
@@ -365,7 +366,7 @@ uint32_t translate_address(uint32_t virtual_addr,
 
         - 节省：4MB → 8KB，减少 99.8%
 
-#### 两级页表的地址变换
+##### 两级页表的地址变换
 
 - **地址转换流程**：
 
@@ -420,7 +421,7 @@ uint32_t translate_address(uint32_t logical_addr,
 }
 ```
 
-## 基本分段存储管理
+### 基本分段存储管理
 
 >[3.3操作系统（基本地址变换机构 快表 两级页表 分段 段页式） | 阿里云开发者社区](https://developer.aliyun.com/article/1047094)
 
@@ -435,17 +436,17 @@ MOV  ES, segment_selector_shared ; 执行共享库调用
 CALL ES:[offset_in_shared]       ; 段内偏移跳转
 ```
 
-### 段表
+#### 段表
 
 ![段表](assets/3-memory-management/sge_table.webp)
 
-### 地址变换机构
+#### 地址变换机构
 
 ![地址变换逻辑](assets/3-memory-management/seg_addr_trans_1.webp)
 
 ![地址变换机构](assets/3-memory-management/seg_addr_trans_2.webp)
 
-### 与分页存储管理的区别
+#### 与分页存储管理的区别
 
 - 页是信息的**物理单位**，段是信息的**逻辑单位**
 
@@ -453,7 +454,7 @@ CALL ES:[offset_in_shared]       ; 段内偏移跳转
 
 - 在分页管理中，只需给出一个记忆符即可表示一个地址，因此其地址空间是**一维**的；而在分段管理中，一定要显式给出段号与段内偏移才能标识一个地址，故其地址空间是**二维**的
 
-## 段页式管理
+### 段页式管理
 
 >[操作系统——段式存储管理、段页式存储管理 | cnblogs@王陵](https://www.cnblogs.com/wkfvawl/p/11733057.html#%E4%BA%8C%E3%80%81%E6%AE%B5%E9%A1%B5%E5%BC%8F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86)
 
@@ -466,7 +467,7 @@ CALL ES:[offset_in_shared]       ; 段内偏移跳转
 
 ![段页式管理](assets/3-memory-management/seg_page.webp)
 
-### 地址结构
+#### 地址结构
 
 在段页式系统中，进程的逻辑地址由三个部分组成:
 
@@ -475,11 +476,11 @@ CALL ES:[offset_in_shared]       ; 段内偏移跳转
 
 其中，段号 $S$ 用于索引段表，页号 $P$ 用于索引页表，页内偏移量 $W$ 用于索引页面内的数据。
 
-### 地址转换机构
+#### 地址转换机构
 
 ![段页式管理的地址转换机构](assets/3-memory-management/seg_page_addr_trans.png)
 
-## 总结
+### 总结
 
 !!! abstract
     无论是分页式管理、分段式管理还是段页式管理，只需掌握以下三个要点:
