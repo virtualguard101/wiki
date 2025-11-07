@@ -83,7 +83,7 @@ nav:
     # - 计算机系统基础:
     #   - CSAPP:
     - 操作系统:
-      - 考研大纲:
+      - "408":
         - 操作系统概述:
           - 操作系统基本特性: "notes/os/exam/1-os-basic-feat.md"
           - 操作系统发展历程: "notes/os/exam/1-os-history.md"
