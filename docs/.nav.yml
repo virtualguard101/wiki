@@ -95,6 +95,7 @@ nav:
           - 死锁: "notes/os/exam/2-deadlock.md"
         - 内存管理:
           - 内存管理概述: "notes/os/exam/3-memory-management.md"
+          - 虚拟内存管理: "notes/os/exam/3-virtual-mem.md"
       - 绪论:
         - 操作系统简易模型: "notes/os/intro/os-model.md"
       # - 虚拟化:

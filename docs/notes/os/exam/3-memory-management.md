@@ -313,7 +313,7 @@ uint32_t translate_address(uint32_t virtual_addr,
 
 快表满时，会按照一定的算法进行替换。
 
-一般情况下，快表的命中率可达到 $90\%$ 以上，其有效性基于著名的[局部性原理](https://cloud.tencent.com/developer/article/1777697)。
+一般情况下，快表的命中率可达到 $90\%$ 以上，其有效性基于著名的[局部性原理](3-virtual-mem.md#局部性原理)。
 
 ### 两级页表
 
