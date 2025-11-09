@@ -15,12 +15,12 @@ publish: true
 
 上面描述的就是**冯诺依曼**体系结构的基本原理。
 
-## Operating Systems: Three Easy Pieces
+## OSTEP
 
-[《Operating Systems: Three Easy Pieces》（简称 OSTEP）](https://pages.cs.wisc.edu/~remzi/OSTEP/) 聚焦于一个针对操作系统十分值得深思的问题:
+[《Operating Systems: Three Easy Pieces》](https://pages.cs.wisc.edu/~remzi/OSTEP/)（简称 OSTEP）聚焦于一个针对操作系统十分值得深思的问题:
 
 <div class="text-center-container" style="text-align: center;">
-    <strong style="color: blue;">How dose Operating System virtualize resources?</strong>
+    <strong style="color: yellow;">How dose Operating System virtualize resources?</strong>
 </div>
 
 由此引出如下几个问题:
