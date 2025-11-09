@@ -27,6 +27,10 @@ nav:
       - Python:
         - Python包管理: "notes/language/python/package.md"
         - Python虚拟环境: "notes/language/python/virtual-env.md"
+      - Golang:
+        - Go入门要点: "notes/language/golang/intro.md"
+      - Rust:
+        - Rust入门要点: "notes/language/rust/intro.md"
       - C++:
         - "Standard C++ Programming":
           - 类型 & 结构体: "notes/language/cpp/cs106l/00-type-structure.md"
@@ -47,10 +51,6 @@ nav:
       - Java:
         - Java入门要点: "notes/language/java/intro.md"
         - Java类与对象: "notes/language/java/class-object.md"
-      - Rust:
-        - Rust入门要点: "notes/language/rust/intro.md"
-      - Golang:
-        - Go入门要点: "notes/language/golang/intro.md"
     - 数学:
       - 离散数学:
         - 集合 & 数学符号与命题逻辑: "notes/math/discrete/intro.md"

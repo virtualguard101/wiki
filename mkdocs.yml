@@ -14,7 +14,7 @@ theme:
   name: material
   language: zh
   custom_dir: overrides
-  favicon: assets/logo.png
+  favicon: assets/logo.jpg
 
   features:
     - announce.dismiss
