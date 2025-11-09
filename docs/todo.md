@@ -9,7 +9,7 @@ hide:
 
 - [ ] Operating System
 
-    - [ ] Basic concepts learning: 《王道2026操作系统考研复习指导》
+    - [*] Basic concepts learning: 《王道2026操作系统考研复习指导》
 
     - [ ] Advanced Understanding
 
@@ -23,6 +23,12 @@ hide:
 
 
 - [ ] bilibili Related Tech Stack
+
+    - [ ] **Golang**:
+
+        - [Go语言圣经（中文版）](https://golang-china.github.io/gopl-zh/index.html)
+
+        - [Go 语言中文文档](https://www.topgoer.com/)
 
     - [ ] [bilibili Open Source Task Force | Github](https://github.com/bilibili)
 

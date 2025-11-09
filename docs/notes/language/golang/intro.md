@@ -103,7 +103,7 @@ Go 以包为单位进行编译，假设有这样一个目录结构:
 └── main.go
 ```
 
-`echo.go` 用于存放业务逻辑代码，`main.go` 用于存放主调函数。那么在编译是就要将这两个文件一起编译:
+`echo.go` 用于存放业务逻辑代码，`main.go` 用于存放主调函数。那么在编译时就要将这两个文件一起编译:
 
 ```bash
 go build .
@@ -115,7 +115,6 @@ go build echo.go main.go
 
 ```bash
 $ go build ./main.go
-# command-line-arguments
 ./main.go:5:2: undefined: echo1
 ./main.go:6:2: undefined: echo2
 ./main.go:7:2: undefined: echo3
