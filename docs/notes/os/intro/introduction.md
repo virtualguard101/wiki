@@ -17,7 +17,7 @@ publish: true
 
 ## OSTEP
 
-[《Operating Systems: Three Easy Pieces》](https://pages.cs.wisc.edu/~remzi/OSTEP/)（简称 OSTEP）聚焦于一个针对操作系统十分值得深思的问题:
+[《Operating Systems: Three Easy Pieces》](https://pages.cs.wisc.edu/~remzi/OSTEP/)（简称 OSTEP）聚焦于一个在学习操作系统时十分值得深思的问题:
 
 <div class="text-center-container" style="text-align: center;">
     <strong style="color: yellow;">How dose Operating System virtualize resources?</strong>
@@ -31,6 +31,15 @@ publish: true
 
 - *What hardware support is needed?*
 
+除此之外，与国内经典的408大纲不同，ostep将对操作系统的的阐述分为三个核心模块:
+
+- **Virtualization（虚拟化）**
+
+- **Concurrency（并发）**
+
+- **Persistence（持久化）**
+
+我个人认为这是一个十分有趣的分块，相比较408大纲“功能式”的分块（进程管理、内存管理、文件管理、I/O管理），其更能体现出操作系统的本质与理念。前者更适合作为基础的概念学习（~~但分那么细且杂大可不必~~），而后者更适合作为以深入理解操作系统的本质为目的的深入学习。
 
 ## Virtualizing The CPU
 
