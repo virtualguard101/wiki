@@ -14,6 +14,8 @@ publish: true
 
 ## 概述
 
+![](assets/intro/lang_compare.jpg)
+
 Go（Golang） 是由 Google 于 2007 年设计、2009 年开源的一门**静态类型、编译型、并发友好**的编程语言。其核心设计理念是**简单**、**高效**、**可并发**、**可维护**。
 
 Go 常被称为 “现代C语言”，但相较于 C/C++，它更强调：
@@ -29,6 +31,31 @@ Go 常被称为 “现代C语言”，但相较于 C/C++，它更强调：
 - 丰富的标准库
 
 值得注意的是，**Go 是云原生生态的核心语言**，从 Docker 到 Kubernetes 再到 Terraform、Prometheus，几乎所有现代云基础设施项目都使用 Go。
+
+### 语言特性概览
+
+| 特性                | 说明                          |
+| ----------------- | --------------------------- |
+| **静态类型、编译型**      | 编译成单个二进制文件，无需虚拟机。           |
+| **内存安全与GC**       | 自动垃圾回收，无需手动释放内存。            |
+| **协程（Goroutine）** | 轻量线程模型，百万级并发不是问题。           |
+| **通道（Channel）**   | 原生 CSP 并发模型（通信顺序进程）。        |
+| **包（package）机制**  | 模块化结构清晰。                    |
+| **简洁语法**          | 无类、无继承、无泛型（Go 1.18 起引入了泛型）。 |
+| **跨平台**           | 一次编译，支持多系统和多架构交叉编译。         |
+
+
+### Golang 适合做什么
+
+| 领域          | 应用                                       |
+| ----------- | ---------------------------------------- |
+| **后端服务开发**  | 高并发 API 服务、Web 框架                        |
+| **分布式系统**   | etcd、Consul、NATS、CockroachDB             |
+| **云原生基础设施** | Docker、Kubernetes、Prometheus、Istio       |
+| **命令行工具**   | Hugo、Cobra、Helm                          |
+| **区块链**     | Ethereum（go-ethereum）、Hyperledger Fabric |
+| **网络编程**    | 高性能代理、P2P系统（IPFS）                        |
+
 
 ## Hello, World
 
@@ -61,9 +88,9 @@ Hello, World!
 
 >[Go Modules Reference | The Go Programming Language](https://go.dev/ref/mod)
 
-Go 语言的程序通过**包（package）**组织，类似Python中的*模块（module）*与C++中的*库（library）*。
+Go 语言的程序通过**包（package）**组织，类似[Python中的*模块（module）*](../python/package.md#定义)与C++中的*库（library）*。
 
-每个源文件都以一条 `package` 声明语句开始，用于指定源文件所属的包，在上面的例子中就是 `package main`；`package` 语句后紧跟着的就是**导入语句（import）**。
+每个源文件都以一条 `package` 声明语句开始，用于指定源文件所属的包，在上面的例子中就是 `package main`；`package` 语句后紧跟着的就是**导入语句（import）**（⚠️注意这个顺序是必须的）。
 
 ### 依赖管理
 
@@ -78,3 +105,17 @@ Go 语言的程序通过**包（package）**组织，类似Python中的*模块�
     ```
 
     这会在项目的根目录下生成一个名为 `go.mod` 的文件，用于记录项目的依赖信息。
+
+    在编写代码后，可通过 `go mod tidy` 命令自动更新依赖信息:
+
+    ```bash
+    go mod tidy
+    ```
+
+    这会自动删除未使用的依赖，并更新 `go.mod` 文件。
+
+## 代码格式化
+
+Golang 在代码格式化这方面采取了十分强硬的措施，`gofmt` 在格式化时没有任何可选的参数。这样保证了团队成员在代码风格上的一致性，能避免一些不必要的冲突。
+
+安装了Golang的LSP后，很多文本编辑器在保存文件时默认会自动调用 `gofmt` 进行格式化。另外，还有一个导入相关的工具 `goimports`，可根据代码需要自动创建或删除导入语句。
