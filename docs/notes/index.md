@@ -29,9 +29,7 @@ publish: true
     !!! info "Notice"
         - This is my personal notebook, the main text is written in **Simplified Chinese**, content is for reference only. If there are any errors, please feel free to correct them.
 
-        - For the parts using **Jupyter Notebook**（`.ipynb`）, due to the compatibility issues with the [plugin](https://github.com/danielfrg/mkdocs-jupyter), the catalog part is written in English to facilitate automatic location and jump.
-
-        - Due to many compatibility issues, please read on PC browser to get the best experience.
+        - Read this Wiki on PC browser for the best experience.
 
 
 === "简体中文"
@@ -40,9 +38,7 @@ publish: true
     !!! info "Notice"
         - 这是我的个人笔记本，正文部分使用简体中文，内容仅供参考，如有错误，欢迎指正。
 
-        - 对于使用**Jupyter Notebook**（`.ipynb`）的部分，由于[插件](https://github.com/danielfrg/mkdocs-jupyter)的兼容性问题，目录部分使用英文以方便自动定位与跳转。
-
-        - 由于存在诸多兼容性问题，请在PC浏览器上阅读以获得最佳体验。
+        - 请在PC浏览器上阅读此 Wiki 以获得最佳阅读体验。
 
 
 ## Recent Updates
@@ -72,29 +68,21 @@ publish: true
 
     - 🌱 目前正在研究机器学习/深度学习等与 ==**人工智能**== 相关的领域，同时也在探索计算机科学的基础理论，并参与一些研究活动，~~以及整些花活~~。
 
-    - 📫 联系方式及其他站点参见[我的主页](https://virtualguard101.com/)。
+    - 📫 联系方式及其他站点参见[我的主页](https://home.virtualguard101.com/)。
 
-## Why and How do I use the Wiki
+## Why this Wiki
 
 === "English"
 
     It is well known that combining theory with practice is essential for efficiently absorbing knowledge during the learning process. The field of computer science encompasses an extremely vast knowledge system and places great emphasis on practical application skills. 
     
-    In this context, a learning approach that is both rational and tailored to one's personal circumstances serves as the fundamental condition for efficient CS learning. This personal WIKI was born under such circumstances—it serves as a platform for documenting updates in my computer science learning journey, sharing insights, and showcasing learning outcomes. Throughout my self-study journey in CS, it has played a pivotal role in supporting my learning, thinking, and practical application.
-
-    The image below illustrates my general workflow using this WIKI, for reference only. The process may be adjusted according to actual circumstances during application.
-
-    ![](index.en.drawio.png)
+    In this context, a learning approach that is both rational and tailored to one's personal circumstances serves as the fundamental condition for efficient CS learning. This personal Wiki was born under such circumstances—it serves as a platform for documenting updates in my computer science learning journey, sharing insights, and showcasing learning outcomes. Throughout my self-study journey in CS, it has played a pivotal role in supporting my learning, thinking, and practical application.
 
     Feel free to share your thoughts in the comments, I'd greatly appreciate any valuable insights.
 
 === "简体中文"
 
-    众所周知，在学习的过程中理论实践相结合才能高效地吸收所学的知识；计算机领域的知识体系极其庞大，且高度注重实际运用能力，在这样的背景下，合理且契合个人实际情况的学习方式就是高效学习CS的基本条件。这个个人 WIKI 正是在这样的背景下诞生的，它作为一个记录计算机科学学习历程更新、分享见解及展示学习成果的平台，在我的CS自学历程中作为一个举足轻重的角色助力我的学习、思考以及实践。
-
-    下图是我利用这个 WIKI 的通用流程，仅供参考。应用过程中，流程会随实际情况做出调整。
-
-    ![](index.drawio.png)
+    众所周知，在学习的过程中理论实践相结合才能高效地吸收所学的知识；计算机领域的知识体系极其庞大，且高度注重实际运用能力，在这样的背景下，合理且契合个人实际情况的学习方式就是高效学习CS的基本条件。这个个人 Wiki 正是在这样的背景下诞生的，它作为一个记录计算机科学学习历程更新、分享见解及展示学习成果的平台，在我的CS自学历程中作为一个举足轻重的角色助力我的学习、思考以及实践。
 
     欢迎在评论区留下你的见解，如果它有价值，我将感激不尽。
 

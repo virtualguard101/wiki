@@ -4,3 +4,6 @@
 [submodule "code/lang/cpp/cs106l"]
 	path = code/lang/cpp/cs106l
 	url = git@github.com:virtualguard101/cs106l-assignments.git
+[submodule "code/os/ostep-code"]
+	path = code/os/ostep-code
+	url = git@github.com:virtualguard101/ostep-code.git

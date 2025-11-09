@@ -98,6 +98,7 @@ nav:
           - 虚拟内存管理: "notes/os/exam/3-virtual-mem.md"
       - 绪论:
         - 操作系统简易模型: "notes/os/intro/os-model.md"
+        - Introduction to Operating Systems: "notes/os/intro/introduction.md"
       # - 虚拟化:
       # - 持久化:
     - 软件工程:
