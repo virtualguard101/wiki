@@ -4,3 +4,6 @@
 [submodule "code/os/ostep-code"]
 	path = code/os/ostep-code
 	url = git@github.com:virtualguard101/ostep-code.git
+[submodule "code/os/unix"]
+	path = code/os/unix
+	url = git@github.com:virtualguard101/unix.git
