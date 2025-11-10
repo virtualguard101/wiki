@@ -197,6 +197,8 @@ publish: true
 ## 页面置换算法
 
 >[一文看懂页面置换算法 | 知乎@极致Linux内核](https://zhuanlan.zhihu.com/p/553372876)
+>
+>[内存页面置换算法 | 小林coding](https://www.xiaolincoding.com/os/5_schedule/schedule.html#%E5%86%85%E5%AD%98%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95)
 
 在进程运行的过程中，若需要访问的页面不再内存中，则需要从外存调入；若此时内存此时已满，就需要依照某种规则选择一个页面从内存中换出。这个描述如何选择换出页面的规则就是**页面置换算法**。
 
@@ -231,8 +233,6 @@ publish: true
 LRU算法的性能最接近OPT算法，但实现起来开销较大，需要寄存器和栈的硬件支持。
 
 ### 时钟置换算法
-
->[时钟页面置换算法 | 小林coding](https://www.xiaolincoding.com/os/5_schedule/schedule.html#%E6%97%B6%E9%92%9F%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95)
 
 时钟页面置换算法跟 LRU 近似，又是对 FIFO 的一种改进。
 
