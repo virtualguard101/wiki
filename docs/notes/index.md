@@ -43,7 +43,7 @@ publish: true
 
 ## Recent Updates
 
-=== "简体中文"
+=== "简体中文 / English"
 
 <!-- recent_notes -->
 
