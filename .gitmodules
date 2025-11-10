@@ -1,8 +1,5 @@
-[submodule "code/lang/cpp/cs106b"]
-	path = code/lang/cpp/cs106b
-	url = git@github.com:virtualguard101/CS106B.git
-[submodule "code/lang/cpp/cs106l"]
-	path = code/lang/cpp/cs106l
+[submodule "code/lang/cpp/cs106l-assignments"]
+	path = code/lang/cpp/cs106l-assignments
 	url = git@github.com:virtualguard101/cs106l-assignments.git
 [submodule "code/os/ostep-code"]
 	path = code/os/ostep-code
