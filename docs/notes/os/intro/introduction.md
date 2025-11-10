@@ -1,5 +1,5 @@
 ---
-date: 2025-11-09 21:14:52
+date: 2025-11-09 23:23:52
 title: Introduction to Operating Systems
 permalink: 
 publish: true
@@ -52,17 +52,16 @@ publish: true
     #include <stdlib.h>
     #include "common.h"
 
-    int main(int argc, char *argv[])
-    {
+    int main(int argc, char *argv[]) {
         if (argc != 2) {
-        fprintf(stderr, "usage: cpu <string>\n");
-        exit(1);
+            fprintf(stderr, "usage: cpu <string>\n");
+            exit(1);
         }
         char *str = argv[1];
 
         while (1) {
-        printf("%s\n", str);
-        Spin(1);
+            printf("%s\n", str);
+            Spin(1);
         }
         return 0;
     }
@@ -137,5 +136,90 @@ e
 
 ## Virtualizing Memory
 
+现代计算机所呈现的**物理内存**模型非常简单: **Memory is just an array of bytes!**
+
+要访问读取内存中的数据，必须给出一个特定的**地址**，然后才能根据这个地址读取对应的数据；写入同理。
+
+程序将所有的数据结构都存放在内存中；同时，程序本身的[指令](#What-happens-when-a-program-runs)也存储在内存中，每次执行指令时都需要访问内存。因此，**程序运行时，内存会持续被访问**。
+
+一个访问内存的程序[^2]:
+
+=== "`mem.c`"
+
+    ```c
+    #include <unistd.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include "common.h"
+
+    int main(int argc, char *argv[]) {
+        int *p = malloc(sizeof(int));
+        assert(p != NULL);
+        printf("(%d) addr pointed to by p: %p\n", (int) getpid(), p);
+        *p = 4; // assign value to addr stored in p
+        while (1) {
+            Spin(1);
+            *p = *p + 1;
+            printf("(%d) value of p: %d\n", getpid(), *p);
+        }
+        return 0;
+    }
+    ```
+
+上面的程序做了一个很简单的事情: 将一个[右值](../../language/cpp/cs106l/01-init-reference.md#左值与右值)赋值给一个指针变量（由`malloc()`函数分配内存），然后以1秒的间隔，循环地将这个指针指向的值（指针解引用）加1并打印到命令行:
+
+```bash
+$ ./mem
+(25653) addr pointed to by p: 0x556bd9d43310
+(25653) value of p: 5
+(25653) value of p: 6
+(25653) value of p: 7
+(25653) value of p: 8
+(25653) value of p: 9
+...
+```
+
+乍一看上面的这个程序并没有什么新奇的点。现在，我们像[前面](#Virtualizing-The-CPU)那样同时运行多个这样的程序:
+
+```bash
+$ ./mem & ./mem & ./mem &
+[1] 27081
+[2] 27082
+[3] 27083
+(27081) addr pointed to by p: 0x55a99f4e5310
+(27082) addr pointed to by p: 0x55adf4cba310
+(27083) addr pointed to by p: 0x55c5755d1310
+$ (27081) value of p: 5
+(27082) value of p: 5
+(27083) value of p: 5
+(27081) value of p: 6
+(27082) value of p: 6
+(27083) value of p: 6
+...
+
+[1]    27081 terminated  ./mem
+
+$ ...
+
+[2]    27082 terminated  ./mem
+
+$ ...
+
+[3]    27083 terminated  ./mem
+```
+
+仔细观察不难发现，系统为似乎为每个程序（进程）中的变量 `p` 都分配了一个与众不同的地址，并独立更新着这个地址指向的值。这表明每个程序似乎都拥有自己的一块内存空间，这块内存空间是相互独立的，互不干扰的。
+
+!!! warning
+    事实上，上面这段理解并不准确，其中“分配的地址不同”并不是决定性证据（从逻辑来看，地址应该要相同才更有说服力，证明尽管指向一个“相同”的地址，但变量本身却是相互独立的）。
+    
+    至于为什么地址会不同（ostep上的案例是相同的），这是由于现代操作系统引入了地址空间布局随机化（ASLR）等安全机制，它让堆上的虚拟地址随机化，让每次运行显示的数值都不一样。
+
+这就是操作系统虚拟化内存的作用，这样使得每个进程都能独立地访问自己的私有的**虚拟地址空间**，并以某种方式映射到物理内存上，使得各个进程之间互不干扰，同时从进程视角来看似乎自己独占整个物理内存。
+
+## Concurrency
+
 
 [^1]: [`cpu.c`](https://github.com/virtualguard101/ostep-code/blob/master/intro/cpu.c)
+
+[^2]: [`mem.c`](https://github.com/virtualguard101/ostep-code/blob/master/intro/mem.c)
