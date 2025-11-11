@@ -74,7 +74,7 @@ publish: true
 
 === "English"
 
-    It is well known that combining theory with practice is essential for efficiently absorbing knowledge during the learning process. The field of computer science encompasses an extremely vast knowledge system and places great emphasis on practical application skills. 
+    It is well known that combining theory with practice is essential for efficiently absorbing knowledge during the learning process. The field of Computer Science encompasses an extremely vast knowledge system and places great emphasis on practical application skills. 
     
     In this context, a learning approach that is both rational and tailored to one's personal circumstances serves as the fundamental condition for efficient CS learning. This personal Wiki was born under such circumstances—it serves as a platform for documenting updates in my computer science learning journey, sharing insights, and showcasing learning outcomes. Throughout my self-study journey in CS, it has played a pivotal role in supporting my learning, thinking, and practical application.
 
