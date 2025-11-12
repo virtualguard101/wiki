@@ -147,6 +147,7 @@ nav:
     - "MkDocs-Note: 一个用于在MkDocs文档中管理并部署笔记的插件": projects/MkDocs-Note.md
     - "3BodySimulator: Python & C++ 项目标准化构建": projects/3BodySimulator.md
     - "SpaceCaculator: Python3面向对象简单应用": projects/SpaceCaculator.md
+  - Todo List: todo.md
   - Credits: credits.md
 
 not_in_nav: |

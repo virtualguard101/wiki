@@ -57,16 +57,8 @@ publish: true
 
 ## 就业八股
 
-这个其实就是计算机基础，类似408
+这个其实就是计算机基础，类似408，但侧重生产环境中的应用
 
 - [小林 x 图解计算机基础 | 小林coding](https://www.xiaolincoding.com/) - https://www.xiaolincoding.com/
 
-
-<!-- ## 项目案例
-
-### C++项目
-
-- [初学阅读 | 知乎@星辰暗涌: https://www.zhihu.com/question/20138166/answer/49707025957?share_code=ib7hm5OZ97r8&utm_psn=1902778157527990437](https://www.zhihu.com/question/20138166/answer/49707025957?share_code=ib7hm5OZ97r8&utm_psn=1902778157527990437)
-
-- [高质量C++开源项目 | 知乎@星辰暗涌: https://www.zhihu.com/question/26833780/answer/54998764795](https://www.zhihu.com/question/26833780/answer/54998764795)
- -->
+- [Todo List | 求职学习规划](../../../todo.md#Job-Related-Tech-Stack)
