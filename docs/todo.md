@@ -10,6 +10,10 @@ hide:
 
 # Todo List
 
+这图可能有点过时（2019）了，但还有参考价值:
+
+![](assets/images/golang.png)
+
 ## Job Related
 
 - [ ] Computer Science Basics
@@ -30,7 +34,12 @@ hide:
 
     - [Awesome Go | A curated list of awesome Go frameworks, libraries and software](https://awesome-go.com/)
 
-    ![](assets/images/golang.png)
+- [ ] Data Structure and Algorithm
+
+    - [ ] [Hello 算法](https://www.hello-algo.com/) - 结合Golang学习
+
+    - [LeetCode | 力扣](https://leetcode.cn/) - 刷题
+
 
 - [ ] [bilibili Open Source Task Force | Github](https://github.com/bilibili)
 
