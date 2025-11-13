@@ -1,11 +1,13 @@
 ---
-date: 2025-11-11 09:55:39
+date: 2025-11-13 11:30:39
 title: 文件系统概述
 permalink: 
 publish: true
 ---
 
 # 文件系统概述
+
+>[文件系统接口 | rCore-Tutorial-Book-v3 3.6.0-alpha.1 文档](https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter6/1fs-interface.html)
 
 ## 文件的基本概念
 
@@ -208,3 +210,148 @@ MIN在DIN的基础上新增以下信息:
     
 ### 文件的打开与关闭
 
+>[打开和关闭一个文件到底是什么意思？ | Reddit](https://www.reddit.com/r/learnprogramming/comments/xspcqx/what_does_it_really_mean_to_open_and_close_a_file/?tl=zh-hans)
+>
+>[操作系统原理与源码实例讲解：文件的打开与关闭 | 知乎@程序员光剑](https://zhuanlan.zhihu.com/p/671045308)
+
+![](assets/4-file-sys-overview/file-open.png)
+
+#### 打开的过程
+
+#### 关闭的过程
+
+### 文件的逻辑结构
+
+>[文件的逻辑结构 | 从 01 开始](https://www.peterjxl.com/ComputerOS/cskaoyan/file-logical-structure/#%E6%97%A0%E7%BB%93%E6%9E%84%E6%96%87%E4%BB%B6)
+
+#### 无结构文件
+
+由字符流组成的文件，也称为**流式文件**。
+
+#### 有结构文件
+
+有一个以上的[记录](#文件的定义)组成的文件，也称为**记录式文件**。分为定长记录和变长记录两种:
+
+![](assets/4-file-sys-overview/length.png)
+
+- 定长记录: 每个记录的长度相同
+
+- 变长记录: 每个记录的长度不一定相同
+
+按组织形式进行分类，有结构文件可分为:
+
+- 顺序文件
+
+    ![顺序文件](assets/4-file-sys-overview/order_file.png)
+
+    - 串结构
+
+    - 顺序结构
+
+- 索引文件
+
+    ![索引文件](assets/4-file-sys-overview/index_file.png)
+
+- 索引顺序文件
+
+    ![索引顺序文件](assets/4-file-sys-overview/index_order_file.png)
+
+- 直接文件或**散列文件**[^1]
+
+    ![](assets/4-file-sys-overview/hash_file.png)
+
+### 文件的物理结构
+
+>[文件的物理结构（上） | 从 01 开始](https://www.peterjxl.com/ComputerOS/cskaoyan/file-physical-structure-1/#%E6%96%87%E4%BB%B6%E5%9D%97%E3%80%81%E7%A3%81%E7%9B%98%E5%9D%97)
+>
+>[文件的物理结构（下） | 从 01 开始](https://www.peterjxl.com/ComputerOS/cskaoyan/file-physical-structure-2/#%E5%A4%9A%E7%BA%A7%E7%B4%A2%E5%BC%95)
+
+#### 连续分配
+
+![连续分配](assets/4-file-sys-overview/physical_order.png)
+
+#### 链接分配
+
+##### 隐式链接
+
+![隐式链接](assets/4-file-sys-overview/implicit_link.png)
+
+##### 显式链接
+
+![显式链接](assets/4-file-sys-overview/explicit_link.png)
+
+#### 索引分配
+
+##### 单级索引
+
+![单级索引](assets/4-file-sys-overview/index_alloc.png)
+
+##### 多级索引
+
+![多级索引](assets/4-file-sys-overview/multi_index.png)
+
+##### 混合索引
+
+![混合索引](assets/4-file-sys-overview/mixed_index.png)
+
+### 文件保护
+
+#### 访问类型
+
+- 读
+
+- 写
+
+- 执行
+
+- 添加
+
+- 删除
+
+- 列表清单
+
+在Linux系统中，访问类型可以通过列出命令（`ls -l`）查看:
+
+```bash
+$ ls -l
+总计 416
+drwxr-xr-x 1 virtualguard virtualguard     12 11月 9日 17:04 code
+drwxr-xr-x 1 virtualguard virtualguard    112 11月 6日 19:59 docs
+drwxr-xr-x 1 virtualguard virtualguard     86 10月19日 13:47 list
+drwxr-xr-x 1 virtualguard virtualguard     96 10月18日 16:34 overrides
+drwxr-xr-x 1 virtualguard virtualguard    206 11月 3日 00:26 scripts
+drwxr-xr-x 1 virtualguard virtualguard    360 10月30日 21:46 site
+drwxr-xr-x 1 virtualguard virtualguard    172 10月13日 21:03 templates
+drwxr-xr-x 1 virtualguard virtualguard    130 11月 6日 21:11 trash
+-rw-r--r-- 1 virtualguard virtualguard    218 11月 3日 00:28 deploy_config.yml
+-rw-r--r-- 1 virtualguard virtualguard    105 11月 3日 00:27 justfile
+-rw-r--r-- 1 virtualguard virtualguard  19346  6月27日 12:09 LICENSE
+-rw-r--r-- 1 virtualguard virtualguard   6979 11月 9日 14:25 mkdocs.yml
+-rw-r--r-- 1 virtualguard virtualguard    752 11月 5日 19:40 pyproject.toml
+-rw-r--r-- 1 virtualguard virtualguard    901  7月 2日 14:40 README.md
+-rw-r--r-- 1 virtualguard virtualguard   2862 11月12日 20:28 requirements.txt
+-rw-r--r-- 1 virtualguard virtualguard 374349 11月 5日 19:40 uv.lock
+```
+
+前面的`drwxr-xr-x`就是访问类型。其中:
+
+- `d`表示目录
+- `r`表示读
+- `w`表示写
+- `x`表示执行
+- `-`表示没有权限
+
+共有三组`rwx`，分别表示下面提到的三个用户类型。
+
+#### 访问控制
+
+精简的访问控制列表可采用以下三种用户类型:
+
+- **文件所有者**: 创建文件的用户
+
+- **组用户**: 一组需要**共享**文件且具有类似访问权限的用户
+
+- **其他用户**: 系统内的其他用户
+
+
+[^1]: [计算机科学导论：第十三章 文件结构 | 知乎@编程高手进阶之路](https://zhuanlan.zhihu.com/p/390316587)
