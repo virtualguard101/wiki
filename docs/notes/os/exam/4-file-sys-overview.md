@@ -8,6 +8,8 @@ publish: true
 # 文件系统概述
 
 >[文件系统接口 | rCore-Tutorial-Book-v3 3.6.0-alpha.1 文档](https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter6/1fs-interface.html)
+>
+>[文件系统详解: 结构、实现与管理 | C++编程指南](https://chengxumiaodaren.com/docs/operate-system/file-system/)
 
 ## 文件的基本概念
 

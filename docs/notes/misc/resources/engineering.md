@@ -61,4 +61,4 @@ publish: true
 
 - [小林 x 图解计算机基础 | 小林coding](https://www.xiaolincoding.com/) - https://www.xiaolincoding.com/
 
-- [Todo List | 求职学习规划](../../../todo.md#Job-Related-Tech-Stack)
+- [Todo List | 求职学习规划](../../../todo.md#Job-Related)
