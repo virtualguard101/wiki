@@ -335,10 +335,14 @@ drwxr-xr-x 1 virtualguard virtualguard    130 11月 6日 21:11 trash
 
 前面的`drwxr-xr-x`就是访问类型。其中:
 
-- `d`表示目录
+- `d`表示[目录](4-dir.md)
+
 - `r`表示读
+
 - `w`表示写
+
 - `x`表示执行
+
 - `-`表示没有权限
 
 共有三组`rwx`，分别表示下面提到的三个用户类型。

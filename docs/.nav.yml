@@ -98,6 +98,8 @@ nav:
           - 虚拟内存管理: "notes/os/exam/3-virtual-mem.md"
         - 文件管理:
           - 文件系统概述: "notes/os/exam/4-file-sys-overview.md"
+          - 目录: "notes/os/exam/4-dir.md"
+        # - I/O管理:
       - 绪论:
         - 操作系统简易模型: "notes/os/intro/os-model.md"
         - Introduction to Operating Systems: "notes/os/intro/introduction.md"
