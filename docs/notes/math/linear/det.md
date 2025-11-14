@@ -74,7 +74,6 @@ A_{ij} = (-1)^{i + j} \begin{vmatrix}
     a_{11} & \cdots & a_{1,j-1} & a_{1,j+1} & \cdots & a_{1n} \\
     \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
     a_{i-1,1} & \cdots & a_{i-1,j-1} & a_{i-1,j+1} & \cdots & a_{i-1,n} \\
-    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
     a_{i+1,1} & \cdots & a_{i+1,j-1} & a_{i+1,j+1} & \cdots & a_{i+1,n} \\
     \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
     a_{n1} & \cdots & a_{n,j-1} & a_{n,j+1} & \cdots & a_{nn}
