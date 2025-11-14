@@ -100,7 +100,8 @@ nav:
           - 文件系统概述: "notes/os/exam/4-file-sys-overview.md"
           - 目录: "notes/os/exam/4-dir.md"
           - 文件系统: "notes/os/exam/4-file-sys.md"
-        # - I/O管理:
+        - I/O管理:
+          - I/O管理概述: "notes/os/exam/5-io-overview.md"
       - 绪论:
         - 操作系统简易模型: "notes/os/intro/os-model.md"
         - Introduction to Operating Systems: "notes/os/intro/introduction.md"
