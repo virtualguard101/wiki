@@ -102,6 +102,8 @@ nav:
           - 文件系统: "notes/os/exam/4-file-sys.md"
         - I/O管理:
           - I/O管理概述: "notes/os/exam/5-io-overview.md"
+          - 设备独立性软件: "notes/os/exam/5-dev-independent-software.md"
+          - 磁盘和固态硬盘: "notes/os/exam/5-disk-ssd.md"
       - 绪论:
         - 操作系统简易模型: "notes/os/intro/os-model.md"
         - Introduction to Operating Systems: "notes/os/intro/introduction.md"
