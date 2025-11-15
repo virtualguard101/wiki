@@ -41,7 +41,9 @@ publish: true
 
 我个人认为这是一个十分有趣的分块，相比较408大纲“功能式”的分块（进程管理、内存管理、文件管理、I/O管理），其更能体现出操作系统的本质与理念。前者更适合作为基础的概念学习（~~但分那么细且杂大可不必~~），而后者更适合作为以深入理解操作系统的本质为目的的深入学习。
 
-## Virtualizing The CPU
+## Virtualization
+
+### Virtualizing The CPU
 
 循环打印传入的字符串[^1]
 
@@ -134,7 +136,7 @@ e
 
     - 这里也可以看出打印的字母顺序实际并没有按照命令中的传入顺序进行输出
 
-## Virtualizing Memory
+### Virtualizing Memory
 
 现代计算机所呈现的**物理内存**模型非常简单: **Memory is just an array of bytes!**
 
@@ -218,6 +220,97 @@ $ ...
 这就是操作系统虚拟化内存的作用，这样使得每个进程都能独立地访问自己的私有的**虚拟地址空间**，并以某种方式映射到物理内存上，使得各个进程之间互不干扰，同时从进程视角来看似乎自己独占整个物理内存。
 
 ## Concurrency
+
+ostep的另一个主题是**并发**，这一术语用于指代在同一程序中**同时处理多个任务**时出现且必须解决的一系列**问题**。
+
+并发性问题起源于操作系统内部——如前面提到的[虚拟化](#Virtualization)，操作系统需要同时处理多项任务。
+
+但并发问题已经已不再局限于操作系统本身，现代多线程程序同样需要解决这些问题。
+
+下面是一个简单的多线程程序示例:
+
+=== "`threads.c`"
+
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include "common_threads.h"
+
+    volatile int counter = 0;
+    int loops;
+
+    void *worker(void *arg) {
+        int i;
+        for (i = 0; i < loops; i++) {
+            counter++;
+        }
+        return NULL;
+    }
+
+    int main(int argc, char *argv[]) {
+        if (argc != 2) {
+            fprintf(stderr, "usage: threads <loops>\n");
+            exit(1);
+        }
+        loops = atoi(argv[1]);
+        pthread_t p1, p2;
+        printf("Initial value : %d\n", counter);
+        Pthread_create(&p1, NULL, worker, NULL);
+        Pthread_create(&p2, NULL, worker, NULL);
+        Pthread_join(p1, NULL);
+        Pthread_join(p2, NULL);
+        printf("Final value   : %d\n", counter);
+        return 0;
+    }
+    ```
+
+简单来说，上面的程序定义了一个自增函数`worker`，然后创建了两个线程，并发执行这个函数，以“更快速地”完成对计数器`counter`的自增操作。
+
+编译后，首先选择一个较小的数进行测试:
+
+```bash
+$ ./threads 1000
+Initial value : 0
+Final value   : 2000
+```
+
+在代码中，`loops`变量用于控制每个线程执行的次数，因此最终的值应该是`2 * loops`，因此上面的输出是符合预期的。
+
+但当我们使用一个数量级较大的`loops`值进行测试时，情况却变得不一样了:
+
+```bash
+$ ./threads 100000
+Initial value : 0
+Final value   : 127240
+$ ./threads 100000
+Initial value : 0
+Final value   : 113374
+```
+
+输出不仅不符合预期，且每次运行的结果都不尽相同。这是为什么呢？
+
+事实证明，从计算机底层的视角来看，这个“异常”与指令的执行方式有关——指令是逐条执行的。
+
+自增操作并不是原子性的，而是由多个指令组成的: 
+
+```asm
+mov eax, [counter] ; 将计数器的值从内存中加载到寄存器中
+add eax, 1         ; 将寄存器中的值加1
+mov [counter], eax ; 将寄存器中的值写回内存中
+```
+
+因此，当上面的两个线程同时执行自增操作时，可能会出现各种各样的异常情况。
+
+!!! question
+    - When there are many concurrently executing threads within the same memory space, how can we build a correctly working program?
+
+    - What [primitives](../exam/2-process.md#原语) are needed from the OS?
+
+    - What mechanisms should be provided by the hardware?
+
+    - How can we use them to solve the problems of concurrency?
+
+## Persistence
 
 
 [^1]: [`cpu.c`](https://github.com/virtualguard101/ostep-code/blob/master/intro/cpu.c)
