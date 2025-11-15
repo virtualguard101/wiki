@@ -1,5 +1,5 @@
 ---
-date: 2025-11-10 23:23:52
+date: 2025-11-15 19:05:52
 title: Introduction to Operating Systems
 permalink: 
 publish: true
@@ -227,7 +227,7 @@ ostep的另一个主题是**并发**，这一术语用于指代在同一程序�
 
 但并发问题已经已不再局限于操作系统本身，现代多线程程序同样需要解决这些问题。
 
-下面是一个简单的多线程程序示例:
+下面是一个简单的多线程程序示例[^3]:
 
 === "`threads.c`"
 
@@ -312,7 +312,86 @@ mov [counter], eax ; 将寄存器中的值写回内存中
 
 ## Persistence
 
+在系统内存中，由于DRAM的易失性存储方式，当系统崩溃或断电时，内存中的所有数据都会丢失。因此，我们需要硬件和软件能够持久地存储数据。
+
+硬件层面，以**I/O设备**的形式提供为持久化提供辅助。在现代计算机系统中，**磁盘（*Hard Disk Drive*, HDD）**、**固态硬盘（*Solid State Drive*, SSD）**等设备被广泛用于持久化存储。
+
+软件层面，操作系统中提供了**文件系统**作为数据持久化的核心组件。文件系统负责以可靠和高效的方式将用户创建的任何文件存储在磁盘上，并提供对文件的访问和操作。
+
+与系统为CPU和内存提供的抽象机制不同，操作系统并不会为每个应用程序创建私有的虚拟化磁盘，相反，用户在与系统交互时常常需要**共享**文件中的信息，库函数就是一个典型的例子。
+
+下面看一个简单的文件操作示例[^4]:
+
+=== "`io.c`"
+
+    ```c
+    #include <stdio.h>
+    #include <unistd.h>
+    #include <assert.h>
+    #include <fcntl.h>
+    #include <sys/stat.h>
+    #include <sys/types.h>
+    #include <string.h>
+
+    int main(int argc, char *argv[]) {
+        int fd = open("/tmp/file", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+        assert(fd >= 0);
+        char buffer[20];
+        sprintf(buffer, "hello world\n");
+        int rc = write(fd, buffer, strlen(buffer));
+        assert(rc == (strlen(buffer)));
+        fsync(fd);
+        close(fd);
+        return 0;
+    }
+    ```
+
+这个程序的功能比上面的任何程序都要简单，仅仅是将字符串`hello world`写入到文件`/tmp/file`中。
+
+编译并执行这个程序后，可以通过`cat /tmp/file`命令查看文件内容，结果如下:
+
+```bash
+$ ./io
+$ cat /tmp/file
+hello world
+```
+
+但为了完成这个看似简单的操作，程序需要进行三次系统调用:
+
+1. 调用`open()`打开并创建文件
+
+2. 调用`write()`将字符串写入到文件中
+
+3. 调用`close()`关闭文件
+
+!!! tip
+    在ostep中，`io.c`只用到了三个系统调用，即上面提到的`open()`、`write()`和`close()`。但在这里，实际还用到了`fsync()`系统调用，用于将数据同步到磁盘上；同时，这里还使用了一个缓冲数组`buffer`来存储字符串。
+
+    ??? tip "fsync()"
+        `fsync()` 是一个系统调用，强制将文件描述符对应文件的修改从内核缓冲区同步到物理磁盘。
+
+        写操作（如 `write()`）可能只写入内核缓冲区，数据仍在内存中；若系统崩溃，数据可能丢失。`fsync()` 确保数据落盘，保证持久性，这对数据库、日志等关键数据很重要。
+
+        使用 `fsync()` 时，传入文件描述符 `fd`，函数会阻塞直到数据写入磁盘。成功返回 0，失败返回 -1 并设置 errno。
+
+另外，关于系统最终如何将数据写入磁盘，文件系统还需要完成相当的操作。写过设备驱动的同志应该知道这一过程是一个极为精细复杂的过程，这也是为什么I/O设备被认为是操作系统中最为“凌乱”且最具挑战性的部分。
+
+操作系统通过**系统调用**提供了访问设备的标准简易方式，正因如此，操作系统有时也视为**标准库**。
+
+!!! question
+    - What techniques are needed to manage persistent data correctly?
+
+    - What mechanisms and policies are required to do so with high performance?
+
+    - How is reliability achieved, in the face of failures in hardware and software?
+
+## Design Goals
+
 
 [^1]: [`cpu.c`](https://github.com/virtualguard101/ostep-code/blob/master/intro/cpu.c)
 
 [^2]: [`mem.c`](https://github.com/virtualguard101/ostep-code/blob/master/intro/mem.c)
+
+[^3]: [`threads.c`](https://github.com/virtualguard101/ostep-code/blob/master/intro/threads.c)
+
+[^4]: [`io.c`](https://github.com/virtualguard101/ostep-code/blob/master/intro/io.c)
