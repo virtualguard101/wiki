@@ -28,7 +28,9 @@ nav:
         - Python包管理: "notes/language/python/package.md"
         - Python虚拟环境: "notes/language/python/virtual-env.md"
       - Golang:
-        - Go入门要点: "notes/language/golang/intro.md"
+        - 基础:
+          - Go入门要点: "notes/language/golang/intro.md"
+          - 命名规范: "notes/language/golang/naming-convention.md"
       - Rust:
         - Rust入门要点: "notes/language/rust/intro.md"
       - C++:
