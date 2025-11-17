@@ -24,11 +24,11 @@ hide:
 
     - 入门资料
 
-        - [Go语言圣经（中文版）](https://golang-china.github.io/gopl-zh/index.html) - 入门参考
-
         - [Go 语言进阶之路](https://golangstar.cn/go_series/introduction.html)
 
         - [Go 语言中文文档](https://www.topgoer.com/) - 有[面试资料](http://mian.topgoer.com/)，但有点老了
+
+        - [Go语言圣经（中文版）](https://golang-china.github.io/gopl-zh/index.html)
 
     - [Golang 主流框架](https://www.topgoer.com/%E5%BC%80%E6%BA%90/go%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF%E5%9B%BE.html)
 
