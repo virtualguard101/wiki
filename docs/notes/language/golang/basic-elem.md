@@ -1,6 +1,6 @@
 ---
 date: 2025-11-17 09:41:14
-title: Golang基本元素
+title: Golang程序结构
 permalink: 
 publish: true
 ---
