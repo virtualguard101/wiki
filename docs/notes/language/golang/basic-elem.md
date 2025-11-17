@@ -91,3 +91,86 @@ func main() {
 ```
 
 ## 常量
+
+与其他主流语言类似，Golang也使用 `const` 关键字声明常量:
+
+```go
+const identifier1, identifier2 [type] = value1, value2
+```
+
+常量不可以在运行时被修改。
+
+常量声明可以以**编译期**中可以确定结果的表达式作为[右值](../cpp/cs106l/01-init-reference.md#左值与右值):
+
+```go
+const (
+    str = "hello world"
+    strLength = len(str)
+    strUpper = strings.ToUpper(str)
+)
+```
+
+### 常量用作枚举
+
+Golang与C++不同，没有枚举类型，但可以使用常量来实现枚举:
+
+```go
+const (
+    Unknown = 0
+    Success = 1
+    Failure = -1 
+)
+```
+
+### iota
+
+`iota`是Golang中的一个常量计数器，用于生成递增的常量值，通常用于枚举类型的定义。`iota`可简单理解为可以被编译器修改的常量。
+
+`iota`在`const`块中被重置为0，每次遇到新的`const`块时，`iota`都会被重置为0。
+
+```go
+const (
+    Unknown = iota // 0
+    Success = iota // 1
+    Failure = iota // 2
+)
+```
+
+在新的一行中，`iota`会继续递增，因此下面的代码与上面等效:
+
+```go
+const (
+    Unknown = iota // 0
+    Success        // 1
+    Failure        // 2
+)
+```
+
+注意变量本身的值与`iota`是相互独立的，可通过以下示例验证:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    const (
+        a = iota      // 0
+        b             // 1
+        c             // 2
+        d = "ha"      // 独立值，iota = 3
+        e             // "ha"，iota = 4
+        f = 100       // iota = 5
+        g             // 100，iota = 6
+        h = iota      // 7，恢复计数
+        i             // 8
+    )
+    fmt.Println(a, b, c, d, e, f, g, h, i) // 0 1 2 ha ha 100 100 7 8
+}
+```
+
+## 运算符
+
+与其他主流静态类型语言没什么不同。可参考[Go运算符 | Go语言进阶之路](https://golangstar.cn/go_series/go_base/go_operators.html)
+
+## 结构体
