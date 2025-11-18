@@ -480,6 +480,8 @@ switch statement {
 
 ## 循环语句
 
+### for 循环
+
 Golang中只有`for`循环，但是有三种形式:
 
 ```go
@@ -497,3 +499,25 @@ for {
 ```
 
 ### for range
+
+range 的对象可以是切片、映射、数组、字符串。
+
+```go
+for key, value := range oldMap {
+    newMap[key] = value
+}
+
+// 只获取 key
+for key := range oldMap {
+    newMap[key] = value
+}
+
+// 只获取 value
+for _, value := range oldMap {
+    newMap[key] = value
+}
+```
+
+#### 一些坑
+
+>[for range的坑 | Go语言进阶之路](https://golangstar.cn/go_series/go_base/go_loop.html#for-range%E7%9A%84%E5%9D%91)
