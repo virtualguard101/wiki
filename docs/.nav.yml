@@ -32,6 +32,7 @@ nav:
           - Golang入门要点: "notes/language/golang/intro.md"
           - 命名规范: "notes/language/golang/naming-convention.md"
           - Golang程序结构: "notes/language/golang/basic-elem.md"
+          - Golang函数: "notes/language/golang/func.md"
       - Rust:
         - Rust入门要点: "notes/language/rust/intro.md"
       - C++:
