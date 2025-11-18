@@ -271,7 +271,8 @@ fmt.Println(cap(s))   // 容量: 可能大于长度
 
 ```go
 // 1. 使用make函数创建
-scoreMap := make(map[string]int)
+scoreMap := make(map[string]int, 100) // 预分配100个键值对空间
+scoreMap := make(map[string]int) // 不预分配空间
 
 // 2. 创建时直接初始化
 studentScores := map[string]int{
@@ -306,3 +307,193 @@ for key, value := range scoreMap {
 ```
 
 #### 嵌套映射
+
+映射可以嵌套，例如:
+
+```go
+score := map[string]map[string]int{
+    "张三": {
+        "语文": 95,
+        "数学": 88,
+        "英语": 92,
+    },
+    "李四": {
+        "语文": 88,
+        "数学": 95,
+        "英语": 92,
+    },
+}
+
+fmt.Println(score["张三"]["语文"])    // output: 95
+```
+
+#### 作为函数参数
+
+映射是引用类型，在作为函数参数传递时传递的是底层指针的拷贝
+
+```go
+func updatePrice(prices map[string]float64, fruit string, price float64) {
+    prices[fruit] = price
+}
+```
+
+#### 一些注意事项
+
+- `map`的零值是`nil`，未初始化的`map`不能直接使用，需要先初始化
+
+- 不能对`map`元素进行取址操作
+
+- `map`的遍历顺序是随机的，即键值对的顺序不固定
+
+#### 并发安全
+
+```go
+package main
+
+import (
+    "fmt"
+    "sync"
+    "time"
+)
+
+func main() {
+    // 不安全的map操作
+    unsafeMap := make(map[int]int)
+    
+    // 使用WaitGroup等待所有goroutine完成
+    var wg sync.WaitGroup
+    
+    // 启动10个goroutine同时写map
+    for i := 0; i < 10; i++ {
+        wg.Add(1)
+        go func(n int) {
+            defer wg.Done()
+            unsafeMap[n] = n // 可能导致panic
+            time.Sleep(time.Millisecond)
+        }(i)
+    }
+    
+    // 安全的map操作
+    var mutex sync.Mutex
+    safeMap := make(map[int]int)
+    
+    // 再次启动10个goroutine，这次使用互斥锁保护
+    for i := 0; i < 10; i++ {
+        wg.Add(1)
+        go func(n int) {
+            defer wg.Done()
+            mutex.Lock()
+            safeMap[n] = n // 安全的写入
+            mutex.Unlock()
+            time.Sleep(time.Millisecond)
+        }(i)
+    }
+    
+    wg.Wait()
+    fmt.Printf("安全的map最终内容: %v\n", safeMap)
+}
+```
+
+使用`sync.Map`:
+
+```go
+package main
+
+import (
+    "fmt"
+    "sync"
+)
+
+func main() {
+    var sm sync.Map
+    var wg sync.WaitGroup
+    
+    // 启动10个goroutine同时操作sync.Map
+    for i := 0; i < 10; i++ {
+        wg.Add(1)
+        go func(n int) {
+            defer wg.Done()
+            sm.Store(n, n)  // 存储键值对
+        }(i)
+    }
+    
+    wg.Wait()
+    
+    // 遍历sync.Map
+    sm.Range(func(key, value interface{}) bool {
+        fmt.Printf("key: %v, value: %v\n", key, value)
+        return true
+    })
+}
+```
+
+## 条件语句
+
+### `if`语句
+
+```go
+if condition {
+    // code
+} else if condition {
+    // code
+} else {
+    // code
+}
+```
+
+Golang中的`if`语句支持**初始化语句**:
+
+```go
+if statement; condition {
+    // code
+}
+```
+
+### `switch`语句
+
+```go
+switch expression {
+    case value1, value2, ...:
+        // code
+    case value3, value4, ...:
+        // code
+    ...
+    default:
+        // code
+}
+```
+
+Golang中，通过关键字`fallthrough`可以实现**穿透**效果，即执行完当前`case`后继续执行下一个`case`，不管下一个`case`的条件是否满足:
+
+```go
+switch statement {
+    case value1, value2, ...:
+        // code
+        fallthrough
+    case value3, value4, ...:
+        // code
+    ...
+    default:
+        // code
+}
+```
+
+## 循环语句
+
+Golang中只有`for`循环，但是有三种形式:
+
+```go
+for init; condition; post {
+    // code
+}
+
+for condition {
+    // code
+}
+
+for {
+    // code
+}
+```
+
+### for range
