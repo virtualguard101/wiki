@@ -68,6 +68,7 @@ nav:
         - 矩阵的行列式计算: "notes/math/linear/matrix-compute.md"
         - 矩阵的初等变换: "notes/math/linear/elementary-transform.md"
         - 向量: "notes/math/linear/vector.md"
+        - 线性方程组: "notes/math/linear/equa-group.md"
     - 数据结构与算法:
       - 复杂度分析:
         - 迭代与递归: "notes/dsa/anal/iter_and_recu.md"
