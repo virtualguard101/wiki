@@ -65,6 +65,7 @@ nav:
         - 行列式展开: "notes/math/linear/det-unfold.md"
         - 矩阵: "notes/math/linear/matrix.md"
         - 逆矩阵: "notes/math/linear/inverse.md"
+        - 矩阵的行列式计算: "notes/math/linear/matrix-compute.md"
         - 矩阵的初等变换: "notes/math/linear/elementary-transform.md"
     - 数据结构与算法:
       - 复杂度分析:
