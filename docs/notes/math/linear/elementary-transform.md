@@ -1,5 +1,5 @@
 ---
-date: 2025-10-09 23:47:00
+date: 2025-11-20 17:47:00
 title: 矩阵的初等变换
 permalink: 
 publish: true
@@ -309,6 +309,10 @@ $$
 
 ## 矩阵的秩
 
+### 定义
+
+矩阵的[阶梯形](#行阶梯形矩阵)中首非零元的个数称为**矩阵的秩**。
+
 ### 最高阶非零子式
 
 在 $m \times n$ 矩阵 $A$ 中, 任取 $k$ 行 $k$ 列, 位于这些行列交叉处的 $k^2$ 个元素, 不改变其位置次序所构成的 $k$ 阶**行列式**, 称为矩阵 $A$ 的 $k$ 阶子式.
@@ -319,14 +323,67 @@ $$
     ==$r(A) = n$ $\Longleftrightarrow$ $A$ 至少有一个 $n$ 阶子式不等于 $0$ 且所有 $n + 1$ 阶子式全为零 $0$==
 
     !!! tip
-        不存在 $r + 1$ 阶子式不等于 $0$ 且所有 $r + 2$ 阶子式（若有）全为零的情况, 从[行列式按行(列)展开的内容](det.md#三阶行列式)中不难看出, 若 $r + 1$ 的阶子算式全为零, 即为 $r + 2$ 的代数余子式全为零, 而行列式按行(列)展开后, 每一项都包含一个代数余子式, 它们全为零, 故 $r + 2$ 阶子式必全为零.
+        不存在 $r + 1$ 阶子式不等于 $0$ 且所有 $r + 2$ 阶子式（若有）全为零的情况, 从[行列式按行(列)展开的内容](det-unfold.md)中不难看出, 若 $r + 1$ 的阶子算式全为零, 即为 $r + 2$ 的代数余子式全为零, 而行列式按行(列)展开后, 每一项都包含一个代数余子式, 它们全为零, 故 $r + 2$ 阶子式必全为零.
 
 ### 性质
 
 - $0 \leq r(A) \leq \min\{m, n\}$
 
-- $r(A) = r(A^T)$
+- $r(A) = r(A^T) = r(kA)$, $(k \not = 0)$
 
 - 若 $A$ 为 $n$ 阶方阵:
 
     - ==$A$ 满秩 $\Longleftrightarrow$ $r(A) = n$ $\Longleftrightarrow$ $|A| \not ={0}$ $\Longleftrightarrow$ $A$ 可逆 $\Longleftrightarrow$ $A$ 的行最简形矩阵为单位矩阵==
+
+- $r(AB) \leq r(A)$, $r(AB) \leq r(B)$
+
+### 例题
+
+1. 设 $A = \begin{pmatrix}
+    x & 1 & 1 \\
+    1 & x & 1 \\
+    1 & 1 & x
+\end{pmatrix}$, 求 $r(A)$.
+
+- 解:
+
+    $$
+    \begin{align}
+        A &= \begin{pmatrix}
+            x & 1 & 1 \\
+            1 & x & 1 \\
+            1 & 1 & x
+        \end{pmatrix} \xrightarrow{r_1 \leftrightarrow r_3} \begin{pmatrix}
+            1 & 1 & x \\
+            1 & x & 1 \\
+            x & 1 & 1
+        \end{pmatrix} \\
+        &\longrightarrow \begin{pmatrix}
+            1 & 1 & x \\
+            0 & x - 1 & 1 - x \\
+            0 & 1 - x & 1 - x^2
+        \end{pmatrix} \\
+        &\longrightarrow \begin{pmatrix}
+            1 & 1 & x \\
+            0 & x - 1 & 1 - x \\
+            0 & 0 & (1 - x)(x + 2)
+        \end{pmatrix}
+    \end{align}
+    $$
+
+    分类讨论:
+
+    1. 当 $\begin{cases}
+        x - 1 \not = 0 \\
+        (1 - x)(x + 2) \not = 0
+    \end{cases}$ 时，即 $x \not = 1$ 且 $x \not = -2$，此时 $r(A) = 3$
+
+    2. 当 $\begin{cases}
+        x + 2 = 0 \\
+        (1 - x)(x + 2) \not = 0
+    \end{cases}$ 时，即 $x = -2$，此时 $r(A) = 2$
+
+    3. 当 $\begin{cases}
+        x - 1 = 0 \\
+        (1 - x)(x + 2) = 0
+    \end{cases}$ 时，即 $x = 1$，此时 $r(A) = 1$
