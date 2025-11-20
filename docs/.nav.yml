@@ -62,6 +62,7 @@ nav:
         - 证明: "notes/math/discrete/proof.md"
       - 线性代数:
         - 行列式: "notes/math/linear/det.md"
+        - 行列式展开: "notes/math/linear/det-unfold.md"
         - 矩阵: "notes/math/linear/matrix.md"
         - 逆矩阵: "notes/math/linear/inverse.md"
         - 矩阵的初等变换: "notes/math/linear/elementary-transform.md"
