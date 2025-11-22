@@ -339,6 +339,7 @@ $$
                 0 & 1 & 1 \\
                 0 & 0 & 0
             \end{pmatrix}
+            $$
 
             得 $\begin{cases}
                 x_1 = -x_3 \\
@@ -399,6 +400,7 @@ $$
             这里 $\lambda_3 \neq \lambda_1, \lambda_2$，因此 $\alpha_3$ 与 $\alpha_1, \alpha_2$ 正交，只需考虑后面二者的正交性
 
         - 施密特正交化公式:
+
             $$
             \beta_i = \alpha_i - \sum_{j = 1}^{i - 1} \frac{\alpha_i \cdot \beta_j}{\beta_j \cdot \beta_j} \beta_j
             $$
