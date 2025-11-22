@@ -274,6 +274,8 @@ $$
 
 4. 单位化
 
+5. 构造正交矩阵 $P = (\beta_1, \beta_2, \cdots, \beta_n)$
+
 !!! example
     设 $A = \begin{pmatrix}
         0 & -1 & 1 \\

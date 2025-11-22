@@ -1,5 +1,5 @@
 ---
-date: 2025-11-22 22:31:10
+date: 2025-11-22 23:41:10
 title: 二次型
 permalink: 
 publish: true
@@ -9,4 +9,277 @@ publish: true
 
 ## 定义
 
-二次型是二次齐次多项式，即形如 $f(x_1, x_2, \cdots, x_n) = a_{11}x_1^2 + a_{22}x_2^2 + \cdots + a_{nn}x_n^2 + 2a_{12}x_1x_2 + 2a_{13}x_1x_3 + \cdots + 2a_{n-1,n}x_{n-1}x_n$ 的多项式。
+二次型是二次齐次多项式，即形如下式的多项式。
+
+$$f(x_1, x_2, \cdots, x_n) = a_{11}x_1^2 + a_{22}x_2^2 + \cdots + a_{nn}x_n^2 + 2a_{12}x_1x_2 + 2a_{13}x_1x_3 + \cdots + 2a_{n-1,n}x_{n-1}x_n$$ 
+
+利用矩阵，二次型可表示为如下形式:
+
+$$
+\begin{align}
+f &= x_1(a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n) + x_2(a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n) + \cdots + x_n(a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n) \\
+&= (x_1, x_2, \cdots, x_n) \begin{pmatrix}
+    a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n \\
+    a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n \\
+    \vdots \\
+    a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n
+\end{pmatrix} \\
+&= (x_1, x_2, \cdots, x_n) \begin{pmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{pmatrix} \begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+\end{pmatrix}
+\end{align}
+$$
+
+记 
+
+$$
+A = \begin{pmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{pmatrix}, \quad x = \begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+\end{pmatrix}
+$$
+
+则二次型可简记作 $f = x^TAx$
+
+其中系数矩阵 $A$ 为**对称矩阵**。
+
+!!! example
+    1. 写出二次型 $f(x_1, x_2, x_3) = x_1^2 + x_2^2 + x_3^2 + 4x_1x_2 + 6x_1x_3 + 4x_2x_3$ 的二次型矩阵 $A$
+
+        $$
+        A = \begin{pmatrix}
+            1 & 2 & 3 \\
+            2 & 1 & 2 \\
+            3 & 2 & 1
+        \end{pmatrix}
+        $$
+
+    2. 写出二次型 $f(x_1, x_2, x_3) = x_1^2 + 2x_2^2 - 4x_1x_2 + 6x_2x_3$ 的二次型矩阵 $A$
+
+        $$
+        A = \begin{pmatrix}
+            1 & -2 & 0 \\
+            -2 & 2 & 3 \\
+            0 & 3 & 0 
+        \end{pmatrix}
+        $$
+
+## 求正交变换与化标准型
+
+与在[正交相似对角化](feature.md#正交相似对角化)中求正交相似变换矩阵类似，**本质是要求一个正交矩阵 $P$**，使得有一个正交变换 $x = Py$，能将 $f$ 化为标准形 $f = \lambda_1y_1^2 + \lambda_2y_2^2 + \cdots + \lambda_n y_n^2$。
+
+大致可根据以下步骤进行求解:
+
+1. 写出二次型 $f$ 的矩阵 $A$
+
+2. 求出 $A$ 的特征值 $\lambda_1, \lambda_2, \cdots, \lambda_n$
+
+3. 求出 $A$ 的特征向量（基础解系） $p_1, p_2, \cdots, p_n$
+
+4. 将 $p_1, p_2, \cdots, p_n$ 正交化
+
+5. 单位化
+
+6. 构造正交矩阵 $P = (\beta_1, \beta_2, \cdots, \beta_n)$
+
+7. 将特征值 $\lambda_i$ 分别代入作为标准型中 $y_i^2$ 的系数
+
+!!! example
+    求一个正交变换 $x = Py$，将二次型 $f(x_1, x_2, x_3) = -2x_1x_2 + 2x_1x_3 + 2x_2x_3$ 化为标准型，并判断其正定性
+
+    - 解:
+
+        依题可得二次型矩阵 $A$ 为:
+
+        $$
+        A = \begin{pmatrix}
+            0 & -1 & 1 \\
+            -1 & 0 & 1 \\
+            1 & 1 & 0
+        \end{pmatrix}
+        $$
+
+        !!! review
+            这里可以看出其实接下来的步骤其实和[正交相似对角化](feature.md#正交相似对角化)中example的解题步骤基本一致
+
+        $$
+        |A - \lambda E| = \begin{vmatrix}
+            -\lambda & -1 & 1 \\
+            -1 & -\lambda & 1 \\
+            1 & 1 & -\lambda
+        \end{vmatrix} = -(\lambda - 1)^2(\lambda + 2) = 0
+        $$
+
+        解得特征值 $\lambda_1 = \lambda_2 = 1$, $\lambda_3 = -2$
+
+        - $\lambda_1 = \lambda_2 = 1$ 时，解 $(A - E)x = 0$
+
+            $$
+            A - E = \begin{pmatrix}
+                -1 & -1 & 1 \\
+                -1 & -1 & 1 \\
+                1 & 1 & -1
+            \end{pmatrix} \rightarrow \begin{pmatrix}
+                1 & 1 & -1 \\
+                0 & 0 & 0 \\
+                0 & 0 & 0
+            \end{pmatrix}
+            $$
+
+            得 $x_1 + x_2 - x_3 = 0$
+
+            令 $x_2 = 1, x_3 = 0 \Rightarrow x_1 = -1$，得解向量 $\alpha_1 = (-1, 1, 0)^T$
+
+            令 $x_2 = 0, x_3 = 1 \Rightarrow x_1 = 1$，得解向量 $\alpha_2 = (1, 0, 1)^T$
+
+        - $\lambda_3 = -2$ 时，解 $(A + 2E)x = 0$
+
+            $$
+            A + 2E = \begin{pmatrix}
+                2 & -1 & 1 \\
+                -1 & 2 & 1 \\
+                1 & 1 & 2
+            \end{pmatrix} \rightarrow \begin{pmatrix}
+                1 & 0 & 1 \\
+                0 & 1 & 1 \\
+                0 & 0 & 0
+            \end{pmatrix}
+            $$
+
+            得 $\begin{cases}
+                x_1 = -x_3 \\
+                x_2 = -x_3 \\
+            \end{cases}$
+
+            令 $x_3 = 1 \Rightarrow x_1 = -1, x_2 = -1$，得解向量 $\alpha_3 = (-1, -1, 1)^T$
+
+        将 $\alpha_1, \alpha_2$ **正交化**:
+
+        取 $\beta_1 = \alpha_1 = (-1, 1, 0)^T$
+        
+        则有 $\beta_2 = \alpha_2 - \frac{\alpha_2 \cdot \beta_1}{\beta_1 \cdot \beta_1} \beta_1 = \begin{pmatrix}
+            1 \\
+            0 \\
+            1
+        \end{pmatrix} + \frac{1}{2} \begin{pmatrix}
+            -1 \\
+            1 \\
+            0
+        \end{pmatrix} = (\frac{1}{2}, \frac{1}{2}, 1)^T$
+
+        $\beta_3 = (-1, -1, 1)^T$
+
+        再将 $\beta_1, \beta_2, \beta_3$ 单位化:
+
+        $$
+        e_1 = \frac{\beta_1}{\|\beta_1\|} = (-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0)^T
+        $$
+
+        $$
+        e_2 = \frac{\beta_2}{\|\beta_2\|} = (\frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}}, \frac{2}{\sqrt{6}})^T
+        $$
+
+        $$
+        e_3 = \frac{\beta_3}{\|\beta_3\|} = (-\frac{1}{\sqrt{3}}, -\frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}})^T
+        $$
+
+        故标准型为 $f = y_1^2 + y_2^2 - 2y_3^2$，不是正定二次型
+
+        规范型为 $f = y_1^2 + y_2^2 - y_3^2$
+
+        !!! tip
+            - 判断二次型是否正定的方法: 二次型的标准型中所有系数（特征值）都为正数，则二次型为正定二次型，否则为非正定二次型。
+
+            - 规范型: 将所有系数（特征值）化为 $1, -1, 0$ 的形式
+
+## 顺序主子式判别法
+
+对于二次型 $f = x^TAx$，其顺序主子式为:
+
+$$
+D_1 = a_{11}, \quad D_2 = \begin{vmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22}
+\end{vmatrix}, D_3 = \begin{vmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33}
+\end{vmatrix} , \quad \cdots, \quad D_n = |A|
+$$
+
+如果所有顺序主子式都大于零，则二次型为正定二次型，否则为非正定二次型。
+
+### 例题
+
+1. 判断二次型 $f(x_1, x_2, x_3) = 2x_1^2 + 2x_2^2 + 2x_3^2 + 2x_1x_2 + 2x_1x_3 + 2x_2x_3$ 的正定性
+
+    解:
+
+    依题可得二次型矩阵 $A$ 为:
+
+    $$
+    A = \begin{pmatrix}
+        2 & 1 & 1 \\
+        1 & 2 & 1 \\
+        1 & 1 & 2
+    \end{pmatrix}
+    $$
+
+    $$
+    |2| = 2 > 0, \quad \begin{vmatrix}
+        2 & 1 \\
+        1 & 2
+    \end{vmatrix} = 3 > 0, \quad \begin{vmatrix}
+        2 & 1 & 1 \\
+        1 & 2 & 1 \\
+        1 & 1 & 2
+    \end{vmatrix} = 4 > 0
+    $$
+
+    故二次型 $f$ 正定
+
+2. 设 $f(x_1, x_2, x_3) = x_1^2 + 4x_2^2 + 2x_3^2 + 2tx_1x_2 + 2x_1x_3$ 为正定二次型，求 $t$ 的取值范围
+
+    解:
+
+    依题可得二次型矩阵 $A$ 为:
+
+    $$
+    A = \begin{pmatrix}
+        1 & t & 1 \\
+        t & 4 & 0 \\
+        1 & 0 & 2
+    \end{pmatrix}
+    $$
+
+    由 $\begin{vmatrix}
+            1 & t \\
+            t & 4
+        \end{vmatrix} > 0, \begin{vmatrix}
+            1 & t & 1 \\
+            t & 4 & 0 \\
+            1 & 0 & 2
+        \end{vmatrix} > 0$ 得 $\begin{cases}
+            4 - t^2 > 0 \\
+            -2t^2 + 4 > 0
+    \end{cases} \Rightarrow \begin{cases}
+        -2 < t < 2 \\
+        -\sqrt{2} < t < \sqrt{2}
+    \end{cases}$
+
+    故 $t \in (-\sqrt{2}, \sqrt{2})$
