@@ -1,5 +1,5 @@
 ---
-date: 2025-11-24 00:02:41
+date: 2025-11-25 00:02:41
 title: 线性表的链式表示
 permalink: 
 publish: true
