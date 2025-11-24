@@ -36,6 +36,7 @@ publish: true
     } SqList; // 顺序表的类型定义
 
     int main() {
+        SqList L;
         // 初始动态分配语句
         L.data = (ElemType *)malloc(INIT_SIZE * sizeof(ElemType));
     }
