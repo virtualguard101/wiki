@@ -78,6 +78,7 @@ nav:
           - 线性表的链式表示: "notes/dsa/408/linked.md"
         - 栈、队列与数组:
           - 栈: "notes/dsa/408/stack.md"
+          - 队列: "notes/dsa/408/queue.md"
       - 复杂度分析:
         - 迭代与递归: "notes/dsa/anal/iter_and_recu.md"
         - 时间复杂度: "notes/dsa/anal/time.md"

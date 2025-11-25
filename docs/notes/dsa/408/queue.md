@@ -1,0 +1,150 @@
+---
+date: 2025-11-25 15:25:00
+title: 408-队列
+permalink: 
+publish: true
+---
+
+# 队列
+
+>[队列与队列的应用 | 知乎@柠檬沙棘1996](https://zhuanlan.zhihu.com/p/571945285)
+
+## 定义
+
+>[队列](../ds/linear/queue.md)
+
+## 队列的顺序存储结构
+
+### 顺序队列的实现
+
+```c
+#define MaxSize 100
+typedef struct {
+    ElemType data[MaxSize];
+    int front, rear;
+} SqQueue;
+```
+
+### 循环队列
+
+>[循环队列-队列](../ds/linear/queue.md#循环队列)
+
+利用取模运算，可以在逻辑上将顺序队列视为一个环，从而解决假溢出的问题。
+
+![](assets/queue/circular_queue.jpg)
+
+#### 循环队列的操作
+
+##### 初始化
+
+```c
+void InitQueue(SqQueue *Q) {
+    Q->front = Q->rear = 0;
+}
+```
+
+##### 判空
+
+```c
+bool IsEmpty(SqQueue Q) {
+    return Q.front == Q.rear;
+}
+```
+
+##### 入队
+
+```c
+bool EnQueue(SqQueue *Q, ElemType x) {
+    if ((Q->rear + 1) % MaxSize == Q->front) {
+        return false; // 队满
+    }
+    Q->data[Q->rear] = x;
+    Q->rear = (Q->rear + 1) % MaxSize; // 队尾指针加1，取模运算保证循环
+    return true;
+}
+```
+
+##### 出队
+
+```c
+bool DeQueue(SqQueue *Q, ElemType *x) {
+    if (Q->front == Q->rear) {
+        return false; // 队空
+    }
+    *x = Q->data[Q->front];
+    Q->front = (Q->front + 1) % MaxSize; // 队头指针加1，取模运算保证循环
+    return true;
+}
+```
+
+## 队列的链式存储结构
+
+![](assets/queue/linked_queue.jpg)
+
+### 链式队列的实现
+
+```c
+typedef struct QNode {
+    ElemType data;
+    struct QNode *next;
+} QNode, *QueuePtr;
+```
+
+### 链式队列的操作
+
+##### 初始化
+
+```c
+void InitQueue(LinkQueue *Q) {
+    Q->front = Q->rear = (QueuePtr)malloc(sizeof(QNode)); // 分配头节点空间
+    if (!Q->front) {
+        exit(OVERFLOW); // 分配失败
+    }
+    Q->front->next = NULL; // 初始头节点指针域为空
+}
+```
+
+##### 判空
+
+```c
+bool IsEmpty(LinkQueue Q) {
+    return Q.front == Q.rear;
+}
+```
+
+##### 入队
+
+```c
+bool EnQueue(LinkQueue *Q, ElemType x) {
+    QueuePtr s = (QueuePtr)malloc(sizeof(QNode));
+    if (!s) {
+        exit(OVERFLOW);
+    }
+    s->data = x;
+    s->next = NULL;
+    Q->rear->next = s; // 将新节点插入到队尾
+    Q->rear = s; // 队尾指针指向新节点
+    return true;
+```
+
+##### 出队
+
+```c
+bool DeQueue(LinkQueue *Q, ElemType *x) {
+    if (Q->front == Q->rear) {
+        return false; // 队空
+    }
+    QueuePtr p = Q->front->next;
+    *x = p->data;
+    Q->front->next = p->next;
+    if (Q->rear == p) {
+        Q->rear = Q->front; // 如果队列中只有一个元素，则将队尾指针指向头节点
+    }
+    free(p);
+    return true;
+}
+```
+
+## 双端队列
+
+>[双向队列](../ds/linear/deque.md)
