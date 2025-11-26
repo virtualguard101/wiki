@@ -84,7 +84,8 @@ nav:
         - 串:
           - 串的定义和实现: "notes/dsa/408/string.md"
           - 串的模式匹配: "notes/dsa/408/strmatch.md"
-        # - 树与二叉树:
+        - 树与二叉树:
+          - 树与二叉树的基本概念: "notes/dsa/408/tree-intro.md"
       - 复杂度分析:
         - 迭代与递归: "notes/dsa/anal/iter_and_recu.md"
         - 时间复杂度: "notes/dsa/anal/time.md"
