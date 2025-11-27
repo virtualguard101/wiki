@@ -10,3 +10,6 @@
 [submodule "code/artificial-intelligent/coursera-ml"]
 	path = code/artificial-intelligent/coursera-ml
 	url = git@github.com:virtualguard101/coursera-ml.git
+[submodule "code/artificial-intelligent/coursera-dl"]
+	path = code/artificial-intelligent/coursera-dl
+	url = git@github.com:virtualguard101/coursera-dl.git
