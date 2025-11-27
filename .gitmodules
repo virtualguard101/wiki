@@ -7,3 +7,6 @@
 [submodule "code/os/unix"]
 	path = code/os/unix
 	url = git@github.com:virtualguard101/unix.git
+[submodule "code/artificial-intelligent/coursera-ml"]
+	path = code/artificial-intelligent/coursera-ml
+	url = git@github.com:virtualguard101/coursera-ml.git
