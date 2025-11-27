@@ -37,6 +37,10 @@ publish: true
 
 - [秀才的进阶之路](https://golangstar.cn/) - https://golangstar.cn/
 
+- [Go语言圣经（中文版）](https://golang-china.github.io/gopl-zh/index.html)
+
+- [Hello 算法](https://www.hello-algo.com/)
+
 - [深入高可用系统原理与设计](https://www.thebyte.com.cn/) - https://www.thebyte.com.cn/
 
 - [Linux Kernel Teaching](https://linux-kernel-labs.github.io/refs/heads/master/) - https://linux-kernel-labs.github.io/refs/heads/master/
@@ -50,7 +54,10 @@ publish: true
 
 - [Kernel Hacking](https://kernelnewbies.org/KernelHacking) - https://kernelnewbies.org/KernelHacking
 
+- [Awesome Go | A curated list of awesome Go frameworks, libraries and software](https://awesome-go.com/)
 
 ## 求职相关
 
-- [Todo List | 求职学习规划](../../../todo.md#Job-Related)
+- [Go 语言中文文档](https://www.topgoer.com/) - 有[面试资料](http://mian.topgoer.com/)，但有点老了
+
+- [LeetCode | 力扣](https://leetcode.cn/) - 刷题

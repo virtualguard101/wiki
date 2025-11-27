@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define MAX_PAGES 10
+#define MAX_PAGES 25
 #define PHYSICAL_BLOCKS 3
 
 // 查找页面在内存中的位置，返回-1表示不在内存中
@@ -41,7 +41,8 @@ int selectVictim(int memory[], int sequence[], int currentIndex, int seqLength, 
 
 int main() {
     // 页面访问序列
-    int sequence[] = {1, 2, 4, 2, 6, 2, 1, 5, 6, 1};
+    // int sequence[] = {1, 2, 4, 2, 6, 2, 1, 5, 6, 1};
+    int sequence[] = {6, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 6, 1, 0};
     int seqLength = sizeof(sequence) / sizeof(sequence[0]);
     
     // 初始化物理块，初始状态：1, 2, 3

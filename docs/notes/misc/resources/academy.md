@@ -36,6 +36,10 @@ publish: true
 
 - [BioCYC: 生物信息学数据库](https://biocyc.org/) - https://biocyc.org/
 
-## 书籍
+## 书籍/笔记
 
 - [《动手学深度学习》](https://zh.d2l.ai/) - https://zh.d2l.ai/
+
+- [《Operating Systems: Three Easy Pieces》](https://pages.cs.wisc.edu/~remzi/OSTEP/)
+
+- [Textbook | CS 168](https://textbook.cs168.io)
