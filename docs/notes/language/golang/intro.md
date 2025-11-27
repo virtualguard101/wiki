@@ -32,7 +32,7 @@ Go 常被称为 “现代C语言”，但相较于 C/C++，它更强调：
 
 值得注意的是，**Go 是云原生生态的核心语言**，从 Docker 到 Kubernetes 再到 Terraform、Prometheus，几乎所有现代云基础设施项目都使用 Go。
 
-![](assets/images/golang.png)
+![](assets/intro/golang.png)
 
 ### 语言特性概览
 
