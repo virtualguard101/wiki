@@ -11,7 +11,9 @@ publish: true
 
 <!-- ![](../assets/images/index-power.jpg) -->
 
-![EECS Learning Path](../assets/images/berkeley-eecs.png)
+<!-- ![](../assets/images/berkeley-eecs.png) -->
+
+![](../assets/images/iwalkslowly.webp)
 
 *Image source: [Course Guides | UC berkeley EECS](https://hkn.eecs.berkeley.edu/courseguides){target="_blank"}*
 
