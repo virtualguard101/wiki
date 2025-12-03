@@ -79,13 +79,19 @@ nav:
         - 栈、队列与数组:
           - 栈: "notes/dsa/408/stack.md"
           - 队列: "notes/dsa/408/queue.md"
-          - 栈和队列的应用: "notes/dsa/408/application.md"
+          - 栈和队列的应用: "notes/dsa/408/stack-queue-app.md"
           - 数组和特殊矩阵: "notes/dsa/408/array.md"
         - 串:
           - 串的定义和实现: "notes/dsa/408/string.md"
           - 串的模式匹配: "notes/dsa/408/strmatch.md"
         - 树与二叉树:
           - 树与二叉树的基本概念: "notes/dsa/408/tree-intro.md"
+          - 二叉树的遍历: "notes/dsa/408/binary-traversal.md"
+          - 线索二叉树: "notes/dsa/408/threaded-binary.md"
+          - 树与森林: "notes/dsa/408/tree-forest.md"
+          - 树与二叉树的应用: "notes/dsa/408/tree-app.md"
+        # - 图:
+
       - 复杂度分析:
         - 迭代与递归: "notes/dsa/anal/iter_and_recu.md"
         - 时间复杂度: "notes/dsa/anal/time.md"
