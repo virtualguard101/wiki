@@ -32,7 +32,7 @@ nav:
           - Golang入门要点: "obsidian/ProgrammingLanguage/golang/Golang入门要点.md"
           - 命名规范: "obsidian/ProgrammingLanguage/golang/Go命名规范.md"
           - Golang程序结构: "obsidian/ProgrammingLanguage/golang/Golang程序结构.md"
-          - Golang函数: "obsidian/ProgrammingLanguage/golang/func.md"
+          - Golang函数: "obsidian/ProgrammingLanguage/golang/Golang函数.md"
           - Golang接口: "obsidian/ProgrammingLanguage/golang/Golang接口.md"
       - Rust:
         - Rust入门要点: "obsidian/ProgrammingLanguage/rust/Rust入门要点.md"
@@ -157,7 +157,7 @@ nav:
         - CSS要点: "obsidian/Misc/CSS要点.md"
     - Misc:
       - 科学上网:
-        - 透明代理: "obsidian/Misc/ScientificInternetAccess/proxy.md"
+        - 透明代理: "obsidian/Misc/ScientificInternetAccess/透明代理.md"
       - 正则表达式: "obsidian/Misc/正则表达式.md"
       - 开源协议: "obsidian/Misc/开源协议.md"
       - 使用SSH访问GitHub远程仓库: "obsidian/Misc/使用SSH访问GitHub远程仓库.md"

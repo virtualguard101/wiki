@@ -201,7 +201,7 @@ HTML 实体引用通常有两种表示方法：
         ```
         在这个方式中，`<link>`元素的`rel`属性表明这是样式表；`href`则表明了样式表文件的路径
 
-2. [JavaScript入门要点](JavaScript入门要点.md)
+2. [JavaScript入门要点](../ProgrammingLanguage/javascript/JavaScript入门要点.md)
 
     有多种方法可以在 HTML 上加载 JS，但对于现代浏览器而言，最可靠的方法还是在 HTML 中使用`<script>`元素：
     ```html

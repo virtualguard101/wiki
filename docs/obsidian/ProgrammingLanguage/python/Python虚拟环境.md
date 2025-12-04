@@ -21,7 +21,7 @@ publish: true
     uv venv [ENV_NAME] --python=[PYTHON_VERSION]
     ```
 
-- 使用 [Conda](../Tools/Conda.md)
+- 使用 [Conda](../../Tools/Conda.md)
 
     ```bash
     conda create -n [ENV_NAME] python=[PYTHON_VERSION]

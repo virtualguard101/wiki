@@ -306,7 +306,7 @@ mov [counter], eax ; 将寄存器中的值写回内存中
 !!! question
     - When there are many concurrently executing threads within the same memory space, how can we build a correctly working program?
 
-    - What [primitives](../exam/2-process.md#原语) are needed from the OS?
+    - What [primitives](../408/进程的描述与控制.md#原语) are needed from the OS?
 
     - What mechanisms should be provided by the hardware?
 

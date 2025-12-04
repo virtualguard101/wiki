@@ -22,7 +22,7 @@ tags:
 
 通过该项目你会了解到以下内容：
 
-1. [远程服务器的基础使用](../../notes/tools/ssh.md)
+1. [远程服务器的基础使用](../../obsidian/Tools/远程服务器使用基础.md)
 
 2. docker、docker-compose部署服务的基础操作
 
@@ -48,7 +48,7 @@ tags:
 ## 准备工作
 
 ### 部署环境
-服务器的初始配置可参考这篇文章[远程服务器的基础使用](../../notes/tools/ssh.md)，这里不再赘述。由于需要使用`docker`进行部署，我们需要先在服务器上安装一下docker。通过以下命令安装：
+服务器的初始配置可参考这篇文章[远程服务器的基础使用](../../obsidian/Tools/远程服务器使用基础.md)，这里不再赘述。由于需要使用`docker`进行部署，我们需要先在服务器上安装一下docker。通过以下命令安装：
 
 ```bash
 curl -fsSL https://get.docker.com | bash -s docker

@@ -11,10 +11,14 @@
             "id": "79d6a3fe708126b9",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "DataStructureAndAlgorithm/408/线性表的顺序表示.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "线性表的顺序表示"
             }
           }
         ]
@@ -180,7 +184,7 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "79d6a3fe708126b9",
+  "active": "1e9d0c6c6769f93a",
   "lastOpenFiles": [
     "index.md",
     "未命名.md",

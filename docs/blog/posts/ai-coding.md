@@ -66,7 +66,7 @@ Cursor的强大毋庸置疑，网上的解读也很多，这里就不再赘述�
 
 说到开发，相比较前面的辅助学习第一反应或许会觉得Cursor就“专业对口”了，事实也确实如此。。。吗？
 
-从8月下旬开始，我决定开发一个MkDocs插件方便我的笔记管理，同时学习一些[Python包管理](../../notes/language/python/package.md)的相关知识与[开源项目](../../notes/misc/open-source-license.md)的运作。
+从8月下旬开始，我决定开发一个MkDocs插件方便我的笔记管理，同时学习一些[Python包管理](../../obsidian/ProgrammingLanguage/python/Python包管理.md)的相关知识与[开源项目](../../obsidian/Misc/开源协议.md)的运作。
 
 近四个月的mkdocs使用经历以及一些可参考的项目让我对这个插件的架构设计有了一些眉目，加上有Cursor这个“神器”加持，我便“稀里糊涂”地开始了这个插件的开发。
 
