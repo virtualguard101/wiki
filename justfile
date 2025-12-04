@@ -15,3 +15,4 @@ jupyter:
 sync:
     git checkout main
     git merge obsidian
+    just d
