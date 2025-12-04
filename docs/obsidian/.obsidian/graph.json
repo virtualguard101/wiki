@@ -8,14 +8,14 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:notes/DataStructureAndAlgorithm/408  ",
+      "query": "path:OperatingSystem/408  ",
       "color": {
         "a": 1,
         "rgb": 14701138
       }
     },
     {
-      "query": "path:notes/OperatingSystem/408  ",
+      "query": "path:DataStructureAndAlgorithm/408  ",
       "color": {
         "a": 1,
         "rgb": 14701138
@@ -32,6 +32,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.5463160695327774,
+  "scale": 1.2292111564487493,
   "close": false
 }

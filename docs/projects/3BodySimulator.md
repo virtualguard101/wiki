@@ -18,9 +18,9 @@ tags:
 
 通过本次项目你会了解到：
 
-- 1. [C++](../notes/language/cpp/cs106l/00-type-structure.md)项目标准化基础
+- 1. [C++](../obsidian/ProgrammingLanguage/cpp/cs106l/初始化与引用操作.md)项目标准化基础
 
-- 2. [CMake](../notes/tools/build-tools/cmake.md)、[vcpkg](../notes/tools/build-tools/vcpkg.md)等C++构建工具的基本使用
+- 2. [CMake](../obsidian/Tools/BuildTools/CMake.md)、[vcpkg](../obsidian/Tools/BuildTools/vcpkg.md)等C++构建工具的基本使用
 
 - 3. 多语言配合构建（C++ & Python）
 
@@ -28,7 +28,7 @@ tags:
 
 - C++ 编译器
 
-- [Git](../notes/tools/git.md)：版本控制
+- [Git](../obsidian/Tools/Git.md)：版本控制
 
 - [CMake(*>= v3.22*)](https://cmake.org/documentation/)：C++构建工具
 
@@ -36,7 +36,7 @@ tags:
 
 - [Python(*>= v3.12*)](https://www.python.org/)：可视化模块
 
-- [uv](../notes/tools/uv.md)：Python包管理工具
+- [uv](../obsidian/Tools/Astral%20uv.md)：Python包管理工具
 
 文中的构建平台为**Ubuntu22.04**
 

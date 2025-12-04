@@ -19,7 +19,7 @@ func functionName([parameter list] paraType) returnType {
 
 ## 参数传递
 
-在Golang中，参数传递都是**值传递**，不存在[引用传递](初始化与引用操作.md#通过引用传递变量)，即函数中对形参的操作不会改变函数作用域外实参的值。
+在Golang中，参数传递都是**值传递**，不存在[引用传递](../cpp/cs106l/初始化与引用操作.md#通过引用传递变量)，即函数中对形参的操作不会改变函数作用域外实参的值。
 
 ## 函数变量
 
@@ -46,7 +46,7 @@ func main(){
 }
 ```
 
-熟悉JS的话应该能发现这类似JavaScript中[回调函数](JavaScript入门要点.md#回调函数)的使用:
+熟悉JS的话应该能发现这类似JavaScript中[回调函数](../javascript/JavaScript入门要点.md#回调函数)的使用:
 
 ```go
 package main 
@@ -72,7 +72,7 @@ func callBack(x int) int {
 
 ## 函数闭包
 
-所谓**闭包**，其实就是**匿名函数**+**捕获的变量**，类似C++中的[lambda表达式](Lambda表达式.md)与JavaScript中的[箭头函数](JavaScript入门要点.md#箭头函数)。
+所谓**闭包**，其实就是**匿名函数**+**捕获的变量**，类似C++中的[lambda表达式](../cpp/cs106l/Lambda表达式.md)与JavaScript中的[箭头函数](../javascript/JavaScript入门要点.md#箭头函数)。
 
 ```go
 func counter() func() int {

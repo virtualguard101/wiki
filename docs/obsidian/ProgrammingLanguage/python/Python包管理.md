@@ -100,14 +100,14 @@ Python 的包索引仓库是一个中心化的存储库，用于存储和分发 
 
 ### 包管理工具
 
-包管理工具用于管理项目的依赖项，包括安装、升级、卸载等操作。我目前主要使用的是[Astral uv](Astral%20uv.md)。
+包管理工具用于管理项目的依赖项，包括安装、升级、卸载等操作。我目前主要使用的是[Astral uv](../../Tools/Astral%20uv.md)。
 
 !!! info "uv"
     [uv](https://docs.astral.sh/uv/) 是[astral-sh](https://astral.sh/)开发的一个高性能的 Python 包管理工具，其设计理念与[cargo](https://doc.rust-lang.org/cargo/)十分相似。有意思的是， uv 本身也是用 Rust 写的。同时，uv 的目标是成为"Python 的 Cargo"，其提供了十分强大的**项目依赖管理**与**虚拟环境管理**功能，并且其性能也得到了广泛的认可。
 
 ### 虚拟环境管理
 
-虚拟环境是包管理的核心机制之一，能解决依赖冲突问题。这里我同样主要使用 [Astral uv](Astral%20uv.md) 进行虚拟环境管理。
+虚拟环境是包管理的核心机制之一，能解决依赖冲突问题。这里我同样主要使用 [Astral uv](../../Tools/Astral%20uv.md) 进行虚拟环境管理。
 
 ### 发布包
 

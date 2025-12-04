@@ -11,7 +11,7 @@ publish: true
 >
 > - [Introduction to Java-Essentials | Hug61B](https://joshhug.gitbooks.io/hug61b/content/chap1/chap11.html)
 
-Java 的大体形式与 [C++](基础类型与结构体.md) 等主流静态类型语言类似，部分地方甚至与 [Python](Python包管理.md) 等动态类型语言相通。
+Java 的大体形式与 [C++](../cpp/cs106l/基础类型与结构体.md) 等主流静态类型语言类似，部分地方甚至与 [Python](../python/Python包管理.md) 等动态类型语言相通。
 
 ## 重要特性
 
@@ -25,7 +25,7 @@ Java 的大体形式与 [C++](基础类型与结构体.md) 等主流静态类型
 
     - Java 程序的主调逻辑通常需要在`public static void main(String[] args)`**方法**中定义
 
-2. Java 是一个[**静态类型**](基础类型与结构体.md#基础数据类型)语言
+2. Java 是一个[**静态类型**](../cpp/cs106l/基础类型与结构体.md#基础数据类型)语言
 
     - 源码中的所有变量、方法（函数）、参数等都需要**显式声明**类型
 

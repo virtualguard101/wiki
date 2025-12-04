@@ -90,7 +90,7 @@ Hello, World!
 
 >[Go Modules Reference | The Go Programming Language](https://go.dev/ref/mod)
 
-Go 语言的程序通过**包（package）**组织，类似[Python中的*模块（module）*](Python包管理.md#定义)与C++中的*库（library）*。
+Go 语言的程序通过**包（package）**组织，类似[Python中的*模块（module）*](../python/Python包管理.md#定义)与C++中的*库（library）*。
 
 每个源文件都以一条 `package` 声明语句开始，用于指定源文件所属的包，在上面的例子中就是 `package main`；`package` 语句后紧跟着的就是**导入语句（import）**（⚠️注意这个顺序是必须的）。
 

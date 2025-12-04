@@ -157,7 +157,7 @@ func main() {
 
 ### 类比虚函数
 
-Go 接口类似C++中的[虚函数](Lambda表达式.md#虚拟函数virtual):
+Go 接口类似C++中的[虚函数](../cpp/cs106l/Lambda表达式.md#虚拟函数virtual):
 
 ```cpp
 // C++ 抽象基类（纯虚函数）
