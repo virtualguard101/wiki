@@ -1,8 +1,10 @@
 ---
 date: 2025-11-16 00:35:52
 title: Introduction to Operating Systems
-permalink: 
+permalink:
 publish: true
+tags:
+  - 操作系统
 ---
 
 # Introduction to Operating Systems
