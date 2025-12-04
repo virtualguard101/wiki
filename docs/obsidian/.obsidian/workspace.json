@@ -1,0 +1,236 @@
+{
+  "main": {
+    "id": "e37a5294c84bab22",
+    "type": "split",
+    "children": [
+      {
+        "id": "8f1b122347b36340",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "79d6a3fe708126b9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "blog/posts/web-build.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "web-build"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2a81265d413d38aa",
+    "type": "split",
+    "children": [
+      {
+        "id": "18d2781e7123b33b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1e9d0c6c6769f93a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "dbf5ce17704d30f8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "ada382eec4ac4e87",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "aa6467e6e42f7ba5",
+    "type": "split",
+    "children": [
+      {
+        "id": "e08bbc6d9d1fb8a1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dd47b4f157d7f8b9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "blog/posts/web-build.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "web-build 的反向链接列表"
+            }
+          },
+          {
+            "id": "c991f0b83e2655aa",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "blog/posts/web-build.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "web-build 的出链列表"
+            }
+          },
+          {
+            "id": "6b953556f2e5017b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "6f12d8c4abfe31a5",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "15658d2e850dbeea",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "blog/posts/web-build.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "web-build 的大纲"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:创建新数据库": false
+    }
+  },
+  "active": "79d6a3fe708126b9",
+  "lastOpenFiles": [
+    "blog/posts/web.md",
+    "blog/posts/trae.md",
+    "blog/posts/cursor-meetup-shanghai.md",
+    "blog/posts/arch-linux.md",
+    "blog/posts/ai-coding.md",
+    "blog/posts/2024-2025summary.md",
+    "notes/OperatingSystem/408/操作系统发展历程.md",
+    "notes/Tools/Astral uv.md",
+    "notes/Tools/远程服务器使用基础.md",
+    "notes/Tools/Shell Scripting.md",
+    "notes/Tools/Just.md",
+    "notes/Tools/Git.md",
+    "notes/Tools/Conda.md",
+    "notes/Tools/linux/tmux.md",
+    "notes/Tools/linux/Timeshift.md",
+    "notes/Tools/linux/Linux基础、杂项.md",
+    "notes/Tools/linux/Linux定时任务.md",
+    "notes/Tools/BuildTools/xmake.md",
+    "notes/Tools/BuildTools/vcpkg.md",
+    "notes/Tools/BuildTools/SCons.md",
+    "notes/Tools/BuildTools/GNU Make.md",
+    "notes/Tools/BuildTools/CMake.md",
+    "notes/SoftwareEngineering/UML图.md",
+    "notes/Tools/BuildTools/assets/vcpkg",
+    "notes/Tools/BuildTools/assets/xmake",
+    "notes/Tools/BuildTools/assets/scons",
+    "notes/Tools/BuildTools/assets/gnu-make",
+    "notes/Tools/BuildTools/assets/cmake",
+    "notes/Tools/BuildTools/assets",
+    "notes/Tools/BuildTools",
+    "notes/ProgrammingLanguage/rust/Rust入门要点.md",
+    "notes/ProgrammingLanguage/python/Python虚拟环境.md",
+    "notes/ProgrammingLanguage/python/Python包管理.md",
+    "notes/Misc/ScientificInternetAccess/assets/proxy",
+    "notes/Misc/ScientificInternetAccess/assets",
+    "notes/Misc/ScientificInternetAccess",
+    "notes/DataStructureAndAlgorithm/DataStructure/Tree/assets/binary/binary_tree_terminology.png",
+    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/stack/stack_operations.png",
+    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/queue_pop_improve.png",
+    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/queue.png",
+    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/linked_queue.png",
+    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/false_overflow.png",
+    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/cir_queue_3.png",
+    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/cir_queue_2.png",
+    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/cir_queue_1.png",
+    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/cir_queue.png"
+  ]
+}

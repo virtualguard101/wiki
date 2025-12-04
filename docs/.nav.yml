@@ -2,180 +2,181 @@
 nav:
   - index.md
   - Notebook: 
-    - notes/index.md
-    - 工具: 
-      - Linux:
-        - Linux杂项/基础: "notes/tools/linux/misc.md"
-        - Linux定时任务: "notes/tools/linux/crontab.md"
-        - Shell: "notes/tools/shell.md"
-        - 终端复用器: "notes/tools/linux/tmux.md"
-        - Timeshift: "notes/tools/linux/timeshift.md"
-        - htop: "notes/tools/linux/htop.md"
-      - SSH: "notes/tools/ssh.md"
-      - Git: "notes/tools/git.md"
-      - Just: "notes/tools/just.md"
-      - Astral uv: "notes/tools/uv.md"
-      - Conda: "notes/tools/conda.md"
-      - Jupyter Notebook: "notes/tools/jupyter.ipynb"
-      - 构建工具:
-        - GNU Make: "notes/tools/build-tools/gnu-make.md"
-        - CMake: "notes/tools/build-tools/cmake.md"
-        - vcpkg: "notes/tools/build-tools/vcpkg.md"
-        - scons: "notes/tools/build-tools/scons.md"
-        - xmake: "notes/tools/build-tools/xmake.md"
-    - 编程语言:
-      - Python:
-        - Python包管理: "notes/language/python/package.md"
-        - Python虚拟环境: "notes/language/python/virtual-env.md"
-      - Golang:
-        - 基础:
-          - Golang入门要点: "notes/language/golang/intro.md"
-          - 命名规范: "notes/language/golang/naming-convention.md"
-          - Golang程序结构: "notes/language/golang/basic-elem.md"
-          - Golang函数: "notes/language/golang/func.md"
-          - Golang接口: "notes/language/golang/interface.md"
-      - Rust:
-        - Rust入门要点: "notes/language/rust/intro.md"
-      - C++:
-        - "Standard C++ Programming":
-          - 类型 & 结构体: "notes/language/cpp/cs106l/00-type-structure.md"
-          - 初始化 & 引用: "notes/language/cpp/cs106l/01-init-reference.md"
-          - C++流: "notes/language/cpp/cs106l/02-stream.md"
-          - STL容器: "notes/language/cpp/cs106l/03-container.md"
-          - 迭代器 & 指针: "notes/language/cpp/cs106l/04-iterators-pointers.md"
-          - C++类 & 模板: "notes/language/cpp/cs106l/05-classes-template.md"
-          - Lambda表达式: "notes/language/cpp/cs106l/06-lambda_function.md"
-          - 运算符重载: "notes/language/cpp/cs106l/07-operator_overload.md"
-          - 特殊成员函数: "notes/language/cpp/cs106l/08-special_member_functions.md"
-          - C++移动语义: "notes/language/cpp/cs106l/09-moves-semantics.md"
-          - std::optional & 类型安全: "notes/language/cpp/cs106l/10-type_safety.md"
-          - C++智能指针 & RAII: "notes/language/cpp/cs106l/11-smart_pointer-RAII.md"
-      - JavaScript:
-        - JavaScript入门要点: "notes/language/javascript/js.md"
-        - JS回调函数简单应用: "notes/language/javascript/callback.md"
-      - Java:
-        - Java入门要点: "notes/language/java/intro.md"
-        - Java类与对象: "notes/language/java/class-object.md"
-    - 数学:
-      - 离散数学:
-        - 集合 & 数学符号与命题逻辑: "notes/math/discrete/intro.md"
-        - 证明: "notes/math/discrete/proof.md"
-      - 线性代数:
-        - 行列式: "notes/math/linear/det.md"
-        - 行列式展开: "notes/math/linear/det-unfold.md"
-        - 矩阵: "notes/math/linear/matrix.md"
-        - 逆矩阵: "notes/math/linear/inverse.md"
-        - 矩阵的行列式计算: "notes/math/linear/matrix-compute.md"
-        - 矩阵的初等变换: "notes/math/linear/elementary-transform.md"
-        - 向量: "notes/math/linear/vector.md"
-        - 线性方程组: "notes/math/linear/equa-group.md"
-        - 相似矩阵: "notes/math/linear/feature.md"
-        - 二次型: "notes/math/linear/quadratic.md"
-    - 数据结构与算法:
-      - "408":
-        - 线性表:
-          - 线性表的顺序表示: "notes/dsa/408/sequence.md"
-          - 线性表的链式表示: "notes/dsa/408/linked.md"
-        - 栈、队列与数组:
-          - 栈: "notes/dsa/408/stack.md"
-          - 队列: "notes/dsa/408/queue.md"
-          - 栈和队列的应用: "notes/dsa/408/stack-queue-app.md"
-          - 数组和特殊矩阵: "notes/dsa/408/array.md"
-        - 串:
-          - 串的定义和实现: "notes/dsa/408/string.md"
-          - 串的模式匹配: "notes/dsa/408/strmatch.md"
-        - 树与二叉树:
-          - 树与二叉树的基本概念: "notes/dsa/408/tree-intro.md"
-          - 二叉树的遍历: "notes/dsa/408/binary-traversal.md"
-          - 线索二叉树: "notes/dsa/408/threaded-binary.md"
-          - 树与森林: "notes/dsa/408/tree-forest.md"
-          - 树与二叉树的应用: "notes/dsa/408/tree-app.md"
-        # - 图:
+    - obsidian/index.md
+    # - notes/index.md
+    # - 工具: 
+    #   - Linux:
+    #     - Linux杂项/基础: "notes/tools/linux/misc.md"
+    #     - Linux定时任务: "notes/tools/linux/crontab.md"
+    #     - Shell: "notes/tools/shell.md"
+    #     - 终端复用器: "notes/tools/linux/tmux.md"
+    #     - Timeshift: "notes/tools/linux/timeshift.md"
+    #     - htop: "notes/tools/linux/htop.md"
+    #   - SSH: "notes/tools/ssh.md"
+    #   - Git: "notes/tools/git.md"
+    #   - Just: "notes/tools/just.md"
+    #   - Astral uv: "notes/tools/uv.md"
+    #   - Conda: "notes/tools/conda.md"
+    #   - Jupyter Notebook: "notes/tools/jupyter.ipynb"
+    #   - 构建工具:
+    #     - GNU Make: "notes/tools/build-tools/gnu-make.md"
+    #     - CMake: "notes/tools/build-tools/cmake.md"
+    #     - vcpkg: "notes/tools/build-tools/vcpkg.md"
+    #     - scons: "notes/tools/build-tools/scons.md"
+    #     - xmake: "notes/tools/build-tools/xmake.md"
+    # - 编程语言:
+    #   - Python:
+    #     - Python包管理: "notes/language/python/package.md"
+    #     - Python虚拟环境: "notes/language/python/virtual-env.md"
+    #   - Golang:
+    #     - 基础:
+    #       - Golang入门要点: "notes/language/golang/intro.md"
+    #       - 命名规范: "notes/language/golang/naming-convention.md"
+    #       - Golang程序结构: "notes/language/golang/basic-elem.md"
+    #       - Golang函数: "notes/language/golang/func.md"
+    #       - Golang接口: "notes/language/golang/interface.md"
+    #   - Rust:
+    #     - Rust入门要点: "notes/language/rust/intro.md"
+    #   - C++:
+    #     - "Standard C++ Programming":
+    #       - 类型 & 结构体: "notes/language/cpp/cs106l/00-type-structure.md"
+    #       - 初始化 & 引用: "notes/language/cpp/cs106l/01-init-reference.md"
+    #       - C++流: "notes/language/cpp/cs106l/02-stream.md"
+    #       - STL容器: "notes/language/cpp/cs106l/03-container.md"
+    #       - 迭代器 & 指针: "notes/language/cpp/cs106l/04-iterators-pointers.md"
+    #       - C++类 & 模板: "notes/language/cpp/cs106l/05-classes-template.md"
+    #       - Lambda表达式: "notes/language/cpp/cs106l/06-lambda_function.md"
+    #       - 运算符重载: "notes/language/cpp/cs106l/07-operator_overload.md"
+    #       - 特殊成员函数: "notes/language/cpp/cs106l/08-special_member_functions.md"
+    #       - C++移动语义: "notes/language/cpp/cs106l/09-moves-semantics.md"
+    #       - std::optional & 类型安全: "notes/language/cpp/cs106l/10-type_safety.md"
+    #       - C++智能指针 & RAII: "notes/language/cpp/cs106l/11-smart_pointer-RAII.md"
+    #   - JavaScript:
+    #     - JavaScript入门要点: "notes/language/javascript/js.md"
+    #     - JS回调函数简单应用: "notes/language/javascript/callback.md"
+    #   - Java:
+    #     - Java入门要点: "notes/language/java/intro.md"
+    #     - Java类与对象: "notes/language/java/class-object.md"
+    # - 数学:
+    #   - 离散数学:
+    #     - 集合 & 数学符号与命题逻辑: "notes/math/discrete/intro.md"
+    #     - 证明: "notes/math/discrete/proof.md"
+    #   - 线性代数:
+    #     - 行列式: "notes/math/linear/det.md"
+    #     - 行列式展开: "notes/math/linear/det-unfold.md"
+    #     - 矩阵: "notes/math/linear/matrix.md"
+    #     - 逆矩阵: "notes/math/linear/inverse.md"
+    #     - 矩阵的行列式计算: "notes/math/linear/matrix-compute.md"
+    #     - 矩阵的初等变换: "notes/math/linear/elementary-transform.md"
+    #     - 向量: "notes/math/linear/vector.md"
+    #     - 线性方程组: "notes/math/linear/equa-group.md"
+    #     - 相似矩阵: "notes/math/linear/feature.md"
+    #     - 二次型: "notes/math/linear/quadratic.md"
+    # - 数据结构与算法:
+    #   - "408":
+    #     - 线性表:
+    #       - 线性表的顺序表示: "notes/dsa/408/sequence.md"
+    #       - 线性表的链式表示: "notes/dsa/408/linked.md"
+    #     - 栈、队列与数组:
+    #       - 栈: "notes/dsa/408/stack.md"
+    #       - 队列: "notes/dsa/408/queue.md"
+    #       - 栈和队列的应用: "notes/dsa/408/stack-queue-app.md"
+    #       - 数组和特殊矩阵: "notes/dsa/408/array.md"
+    #     - 串:
+    #       - 串的定义和实现: "notes/dsa/408/string.md"
+    #       - 串的模式匹配: "notes/dsa/408/strmatch.md"
+    #     - 树与二叉树:
+    #       - 树与二叉树的基本概念: "notes/dsa/408/tree-intro.md"
+    #       - 二叉树的遍历: "notes/dsa/408/binary-traversal.md"
+    #       - 线索二叉树: "notes/dsa/408/threaded-binary.md"
+    #       - 树与森林: "notes/dsa/408/tree-forest.md"
+    #       - 树与二叉树的应用: "notes/dsa/408/tree-app.md"
+    #     # - 图:
 
-      - 复杂度分析:
-        - 迭代与递归: "notes/dsa/anal/iter_and_recu.md"
-        - 时间复杂度: "notes/dsa/anal/time.md"
-        - 空间复杂度: "notes/dsa/anal/space.md"
-      - 数据结构:
-        - 结构分类与基本数据类型: "notes/dsa/ds/intro.md"
-        - 线性表:
-          - 顺序表: "notes/dsa/ds/linear/array.md"
-          - 单链表: "notes/dsa/ds/linear/linked-list.md"
-          - 双向链表: "notes/dsa/ds/linear/double_linked.md"
-          - 栈: "notes/dsa/ds/linear/stack.md"
-          - 队列: "notes/dsa/ds/linear/queue.md"
-          - 双端队列: "notes/dsa/ds/linear/deque.md"
-        - 树:
-          - 二叉树: "notes/dsa/ds/tree/binary.md"
-        # - 图:
-        #   - : "notes/dsa/ds/graph"
-      # - 算法:
-        #  -  : "notes/dsa/algo/"
-    # - 计算机系统基础:
-    #   - CSAPP:
-    - 操作系统:
-      - "408":
-        - 操作系统概述:
-          - 操作系统基本特性: "notes/os/exam/1-os-basic-feat.md"
-          - 操作系统发展历程: "notes/os/exam/1-os-history.md"
-          - 操作系统运行环境: "notes/os/exam/1-os-run-env.md"
-        - 进程管理:
-          - 进程与线程: "notes/os/exam/2-process.md"
-          - 处理机调度: "notes/os/exam/2-scheduling.md"
-          - 同步与互斥: "notes/os/exam/2-sync-mutex.md"
-          - 死锁: "notes/os/exam/2-deadlock.md"
-        - 内存管理:
-          - 内存管理概述: "notes/os/exam/3-memory-management.md"
-          - 虚拟内存管理: "notes/os/exam/3-virtual-mem.md"
-        - 文件管理:
-          - 文件系统概述: "notes/os/exam/4-file-sys-overview.md"
-          - 目录: "notes/os/exam/4-dir.md"
-          - 文件系统: "notes/os/exam/4-file-sys.md"
-        - I/O管理:
-          - I/O管理概述: "notes/os/exam/5-io-overview.md"
-          - 设备独立性软件: "notes/os/exam/5-dev-independent-software.md"
-          - 磁盘和固态硬盘: "notes/os/exam/5-disk-ssd.md"
-      - 绪论:
-        - 操作系统简易模型: "notes/os/intro/os-model.md"
-        - Introduction to Operating Systems: "notes/os/intro/introduction.md"
-      # - 虚拟化:
-      # - 持久化:
-    - 软件工程:
-      - UML图: "notes/se/uml.md"
-      # - 设计模式:
-    - 人工智能:
-      - 机器学习:
-        - "入门":
-          - 监督学习与非监督学习: "notes/ml/coursera/super-unsuper-learning.md"
-          - 回归: 
-            - 回归模型概述: "notes/ml/coursera/regression.md"
-            - 模型表示法: "notes/ml/coursera/model-repr.ipynb"
-            - 成本函数概述: "notes/ml/coursera/cost-func.md"
-            - 成本函数可视化: "notes/ml/coursera/cost-func-visual.ipynb"
-            - 梯度下降: "notes/ml/coursera/gradient.md"
-            - 一元线性回归模型的梯度下降实现: "notes/ml/coursera/linear-grad-desent.ipynb"
-            - 多元线性回归模型: "notes/ml/coursera/multi-feat.md"
-            - 特征缩放与特征工程: "notes/ml/coursera/feat-engineering.ipynb"
-          - 分类:
-            - 逻辑回归: "notes/ml/coursera/logistic-regression.ipynb"
-            - 决策边界: "notes/ml/coursera/decision-boundary.md"
-            - 逻辑损失与成本函数: "notes/ml/coursera/logistic-loss-cost.ipynb"
-            - 逻辑回归的梯度下降: "notes/ml/coursera/logistic-grad-desent.ipynb"
-          - 过拟合与正则化: "notes/ml/coursera/overfitting-regularization.md"
-      # - 深度学习:
-    - Web开发:
-      - 入门基础:
-        - HTML要点: "notes/web-dev/base/html.md"
-        - CSS要点: "notes/web-dev/base/css.md"
-    - Misc:
-      - 科学上网:
-        - 透明代理: "notes/misc/scientific-internet-access/proxy.md"
-      - 正则表达式: "notes/misc/re.md"
-      - 开源协议: "notes/misc/open-source-license.md"
-      - 在GitHub上使用SSH密钥: "notes/misc/github-ssh.md"
-      - 部分资源收藏:
-        - Academy: "notes/misc/resources/academy.md"
-        - Engineering/Misc/Job: "notes/misc/resources/engineering.md"
+    #   - 复杂度分析:
+    #     - 迭代与递归: "notes/dsa/anal/iter_and_recu.md"
+    #     - 时间复杂度: "notes/dsa/anal/time.md"
+    #     - 空间复杂度: "notes/dsa/anal/space.md"
+    #   - 数据结构:
+    #     - 结构分类与基本数据类型: "notes/dsa/ds/intro.md"
+    #     - 线性表:
+    #       - 顺序表: "notes/dsa/ds/linear/array.md"
+    #       - 单链表: "notes/dsa/ds/linear/linked-list.md"
+    #       - 双向链表: "notes/dsa/ds/linear/double_linked.md"
+    #       - 栈: "notes/dsa/ds/linear/stack.md"
+    #       - 队列: "notes/dsa/ds/linear/queue.md"
+    #       - 双端队列: "notes/dsa/ds/linear/deque.md"
+    #     - 树:
+    #       - 二叉树: "notes/dsa/ds/tree/binary.md"
+    #     # - 图:
+    #     #   - : "notes/dsa/ds/graph"
+    #   # - 算法:
+    #     #  -  : "notes/dsa/algo/"
+    # # - 计算机系统基础:
+    # #   - CSAPP:
+    # - 操作系统:
+    #   - "408":
+    #     - 操作系统概述:
+    #       - 操作系统基本特性: "notes/os/exam/1-os-basic-feat.md"
+    #       - 操作系统发展历程: "notes/os/exam/1-os-history.md"
+    #       - 操作系统运行环境: "notes/os/exam/1-os-run-env.md"
+    #     - 进程管理:
+    #       - 进程与线程: "notes/os/exam/2-process.md"
+    #       - 处理机调度: "notes/os/exam/2-scheduling.md"
+    #       - 同步与互斥: "notes/os/exam/2-sync-mutex.md"
+    #       - 死锁: "notes/os/exam/2-deadlock.md"
+    #     - 内存管理:
+    #       - 内存管理概述: "notes/os/exam/3-memory-management.md"
+    #       - 虚拟内存管理: "notes/os/exam/3-virtual-mem.md"
+    #     - 文件管理:
+    #       - 文件系统概述: "notes/os/exam/4-file-sys-overview.md"
+    #       - 目录: "notes/os/exam/4-dir.md"
+    #       - 文件系统: "notes/os/exam/4-file-sys.md"
+    #     - I/O管理:
+    #       - I/O管理概述: "notes/os/exam/5-io-overview.md"
+    #       - 设备独立性软件: "notes/os/exam/5-dev-independent-software.md"
+    #       - 磁盘和固态硬盘: "notes/os/exam/5-disk-ssd.md"
+    #   - 绪论:
+    #     - 操作系统简易模型: "notes/os/intro/os-model.md"
+    #     - Introduction to Operating Systems: "notes/os/intro/introduction.md"
+    #   # - 虚拟化:
+    #   # - 持久化:
+    # - 软件工程:
+    #   - UML图: "notes/se/uml.md"
+    #   # - 设计模式:
+    # - 人工智能:
+    #   - 机器学习:
+    #     - "入门":
+    #       - 监督学习与非监督学习: "notes/ml/coursera/super-unsuper-learning.md"
+    #       - 回归: 
+    #         - 回归模型概述: "notes/ml/coursera/regression.md"
+    #         - 模型表示法: "notes/ml/coursera/model-repr.ipynb"
+    #         - 成本函数概述: "notes/ml/coursera/cost-func.md"
+    #         - 成本函数可视化: "notes/ml/coursera/cost-func-visual.ipynb"
+    #         - 梯度下降: "notes/ml/coursera/gradient.md"
+    #         - 一元线性回归模型的梯度下降实现: "notes/ml/coursera/linear-grad-desent.ipynb"
+    #         - 多元线性回归模型: "notes/ml/coursera/multi-feat.md"
+    #         - 特征缩放与特征工程: "notes/ml/coursera/feat-engineering.ipynb"
+    #       - 分类:
+    #         - 逻辑回归: "notes/ml/coursera/logistic-regression.ipynb"
+    #         - 决策边界: "notes/ml/coursera/decision-boundary.md"
+    #         - 逻辑损失与成本函数: "notes/ml/coursera/logistic-loss-cost.ipynb"
+    #         - 逻辑回归的梯度下降: "notes/ml/coursera/logistic-grad-desent.ipynb"
+    #       - 过拟合与正则化: "notes/ml/coursera/overfitting-regularization.md"
+    #   # - 深度学习:
+    # - Web开发:
+    #   - 入门基础:
+    #     - HTML要点: "notes/web-dev/base/html.md"
+    #     - CSS要点: "notes/web-dev/base/css.md"
+    # - Misc:
+    #   - 科学上网:
+    #     - 透明代理: "notes/misc/scientific-internet-access/proxy.md"
+    #   - 正则表达式: "notes/misc/re.md"
+    #   - 开源协议: "notes/misc/open-source-license.md"
+    #   - 在GitHub上使用SSH密钥: "notes/misc/github-ssh.md"
+    #   - 部分资源收藏:
+    #     - Academy: "notes/misc/resources/academy.md"
+    #     - Engineering/Misc/Job: "notes/misc/resources/engineering.md"
          
   - Blog:
     - blog/index.md
