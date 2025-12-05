@@ -11,14 +11,10 @@
             "id": "79d6a3fe708126b9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DataStructureAndAlgorithm/408/线性表的顺序表示.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "线性表的顺序表示"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           }
         ]
@@ -40,7 +36,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
+                "sortOrder": "byCreatedTimeReverse",
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
@@ -184,8 +180,23 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "1e9d0c6c6769f93a",
+  "active": "79d6a3fe708126b9",
   "lastOpenFiles": [
+    "OperatingSystem/virtualization/The Abstraction - The Process.md",
+    "OperatingSystem/virtualization/assets/process",
+    "OperatingSystem/virtualization/assets",
+    "OperatingSystem/virtualization",
+    "OperatingSystem/intro/操作系统简易模型.md",
+    "OperatingSystem/408/目录.md",
+    "OperatingSystem/408/进程的描述与控制.md",
+    "OperatingSystem/408/磁盘和固态硬盘.md",
+    "OperatingSystem/408/处理机调度.md",
+    "OperatingSystem/408/操作系统运行环境.md",
+    "OperatingSystem/408/操作系统基本特性.md",
+    "OperatingSystem/408/操作系统发展历程.md",
+    "DataStructureAndAlgorithm/408/队列.md",
+    "DataStructureAndAlgorithm/408/串的定义和实现.md",
+    "DataStructureAndAlgorithm/408/线性表的顺序表示.md",
     "index.md",
     "未命名.md",
     "Misc/ScientificInternetAccess/透明代理.md",
@@ -200,19 +211,6 @@
     "DataStructureAndAlgorithm/DataStructure/LinearList/单链表.md",
     "DataStructureAndAlgorithm/DataStructure/assets/intro/classification_logic_structure.png",
     "DataStructureAndAlgorithm/ComplexityAnalysis/算法时间复杂度.md",
-    "DataStructureAndAlgorithm/ComplexityAnalysis/算法空间复杂度.md",
-    "DataStructureAndAlgorithm/ComplexityAnalysis/迭代与递归.md",
-    "DataStructureAndAlgorithm/408/栈与队列的应用.md",
-    "DataStructureAndAlgorithm/408/栈.md",
-    "DataStructureAndAlgorithm/408/线性表的顺序表示.md",
-    "DataStructureAndAlgorithm/408/线性表的链式表示.md",
-    "DataStructureAndAlgorithm/408/线索二叉树.md",
-    "DataStructureAndAlgorithm/408/数组和特殊矩阵.md",
-    "DataStructureAndAlgorithm/408/树与森林.md",
-    "DataStructureAndAlgorithm/408/树与二叉树的应用.md",
-    "DataStructureAndAlgorithm/408/树与二叉树的基本概念.md",
-    "DataStructureAndAlgorithm/408/二叉树的遍历.md",
-    "DataStructureAndAlgorithm/408/队列.md",
     "notes/Tools/BuildTools/assets/vcpkg",
     "notes/Tools/BuildTools/assets/xmake",
     "notes/Tools/BuildTools/assets/scons",
@@ -220,9 +218,6 @@
     "notes/Tools/BuildTools/assets/cmake",
     "notes/Tools/BuildTools/assets",
     "notes/Tools/BuildTools",
-    "notes/Misc/ScientificInternetAccess/assets/proxy",
-    "notes/Misc/ScientificInternetAccess/assets",
-    "notes/Misc/ScientificInternetAccess",
     "notes/DataStructureAndAlgorithm/DataStructure/Tree/assets/binary/binary_tree_terminology.png",
     "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/stack/stack_operations.png",
     "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/queue_pop_improve.png",
