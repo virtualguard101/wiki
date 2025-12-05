@@ -2,6 +2,8 @@ alias s := serve
 alias d := deploy
 alias jp := jupyter
 alias sc := sync
+alias ob := obsidian
+alias u := update
 
 serve:
     uv run mkdocs serve
@@ -16,3 +18,10 @@ sync:
     git checkout main
     git merge obsidian
     just d
+
+obsidian:
+    git checkout obsidian
+
+update:
+    just ob
+    uv run scripts/update.py
