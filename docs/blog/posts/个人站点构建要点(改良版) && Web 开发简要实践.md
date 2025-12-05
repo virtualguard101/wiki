@@ -268,7 +268,7 @@ sudo apt install python3
 sudo apt install pip
 ```
 
-Ubuntu默认安装python3.10，如果对版本有特殊要求，可以安装一个虚拟环境管理器。这里以[[Astral uv | Astral uv]]为例：
+Ubuntu默认安装python3.10，如果对版本有特殊要求，可以安装一个虚拟环境管理器。这里以[Astral uv](../../obsidian/Tools/Astral%20uv.md)为例：
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```

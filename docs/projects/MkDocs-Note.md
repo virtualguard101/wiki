@@ -1,3 +1,17 @@
+---
+title: MkDocs Note
+categories:
+  - Projects
+date: 2025-11-05 14:18:21
+excerpt: 一个用于在MkDocs文档中管理并部署笔记的插件
+authors:
+  - virtualguard101
+tags:
+  - Python
+  - Documentation
+  - Projects
+---
+
 # MkDocs Note
 
 ![](assets/mkdocs-note.gif)
