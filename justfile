@@ -4,6 +4,7 @@ alias jp := jupyter
 alias sc := sync
 alias ob := obsidian
 alias u := update
+alias us := usync
 
 serve:
     uv run mkdocs serve
@@ -25,3 +26,7 @@ obsidian:
 update:
     just ob
     uv run scripts/update.py
+
+usync:
+    just u
+    just sc

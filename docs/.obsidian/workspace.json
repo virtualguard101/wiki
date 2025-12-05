@@ -1,28 +1,28 @@
 {
   "main": {
-    "id": "e37a5294c84bab22",
+    "id": "bca9991f400a8550",
     "type": "split",
     "children": [
       {
-        "id": "8f1b122347b36340",
+        "id": "b301b0d7d93660fc",
         "type": "tabs",
         "children": [
           {
-            "id": "79d6a3fe708126b9",
+            "id": "ba9f7411704d96dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OperatingSystem/进程创建与进程通信.md",
+                "file": "obsidian/OperatingSystem/408/虚拟内存管理.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "进程创建与进程通信"
+              "title": "虚拟内存管理"
             }
           },
           {
-            "id": "fdcbcb5b23c37ec3",
+            "id": "4c6c87506cf2ec0e",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -38,20 +38,20 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "2a81265d413d38aa",
+    "id": "135954f81c76b1ae",
     "type": "split",
     "children": [
       {
-        "id": "18d2781e7123b33b",
+        "id": "f0037b91cd9e3ea0",
         "type": "tabs",
         "children": [
           {
-            "id": "1e9d0c6c6769f93a",
+            "id": "20f467b276bea52a",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "byCreatedTimeReverse",
+                "sortOrder": "alphabetical",
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
@@ -59,24 +59,24 @@
             }
           },
           {
-            "id": "dbf5ce17704d30f8",
+            "id": "5052bb06b7173248",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#考研408  ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
-                "sortOrder": "alphabetical"
+                "sortOrder": "byModifiedTime"
               },
               "icon": "lucide-search",
               "title": "搜索"
             }
           },
           {
-            "id": "ada382eec4ac4e87",
+            "id": "5f98e2b739d1ad0a",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -85,27 +85,27 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
     "width": 300
   },
   "right": {
-    "id": "aa6467e6e42f7ba5",
+    "id": "5cfafb0c4db1b1bb",
     "type": "split",
     "children": [
       {
-        "id": "e08bbc6d9d1fb8a1",
+        "id": "48cfca95b66d6598",
         "type": "tabs",
         "children": [
           {
-            "id": "dd47b4f157d7f8b9",
+            "id": "2412921450c9184d",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "blog/posts/web-build.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,25 +115,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "web-build 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
-            "id": "c991f0b83e2655aa",
+            "id": "3a9e6ae353038f40",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "blog/posts/web-build.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "web-build 的出链列表"
+              "title": "出链"
             }
           },
           {
-            "id": "6b953556f2e5017b",
+            "id": "2116d2aee66585e5",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -148,7 +147,7 @@
             }
           },
           {
-            "id": "6f12d8c4abfe31a5",
+            "id": "1b6b1d8e0a07e5eb",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -162,22 +161,20 @@
             }
           },
           {
-            "id": "15658d2e850dbeea",
+            "id": "539eb2f466cf4a20",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "blog/posts/web-build.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "web-build 的大纲"
+              "title": "大纲"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -186,61 +183,38 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "graph:查看关系图谱": false,
       "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:创建新数据库": false
+      "bases:创建新数据库": false,
+      "workspaces:管理工作区布局": false,
+      "random-note:开始漫游笔记": false,
+      "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "fdcbcb5b23c37ec3",
+  "active": "4c6c87506cf2ec0e",
   "lastOpenFiles": [
-    "OperatingSystem/进程创建与进程通信.md",
-    "OperatingSystem/virtualization/The Abstraction - The Process.md",
-    "OperatingSystem/assets/process-create-and-communication",
-    "OperatingSystem/assets",
-    "OperatingSystem/virtualization/assets/process",
-    "OperatingSystem/virtualization/assets",
-    "OperatingSystem/virtualization",
-    "OperatingSystem/intro/操作系统简易模型.md",
-    "OperatingSystem/408/目录.md",
-    "OperatingSystem/408/进程的描述与控制.md",
-    "OperatingSystem/408/磁盘和固态硬盘.md",
-    "OperatingSystem/408/处理机调度.md",
-    "OperatingSystem/408/操作系统运行环境.md",
-    "OperatingSystem/408/操作系统基本特性.md",
-    "OperatingSystem/408/操作系统发展历程.md",
-    "DataStructureAndAlgorithm/408/队列.md",
-    "DataStructureAndAlgorithm/408/串的定义和实现.md",
-    "DataStructureAndAlgorithm/408/线性表的顺序表示.md",
-    "index.md",
-    "未命名.md",
-    "Misc/ScientificInternetAccess/透明代理.md",
-    "SoftwareEngineering/UML图.md",
-    "DataStructureAndAlgorithm/DataStructure/结构分类与基本数据类型.md",
-    "DataStructureAndAlgorithm/DataStructure/Tree/二叉树.md",
-    "DataStructureAndAlgorithm/DataStructure/LinearList/栈.md",
-    "DataStructureAndAlgorithm/DataStructure/LinearList/顺序表.md",
-    "DataStructureAndAlgorithm/DataStructure/LinearList/双向链表.md",
-    "DataStructureAndAlgorithm/DataStructure/LinearList/双端队列.md",
-    "DataStructureAndAlgorithm/DataStructure/LinearList/队列.md",
-    "DataStructureAndAlgorithm/DataStructure/LinearList/单链表.md",
-    "DataStructureAndAlgorithm/DataStructure/assets/intro/classification_logic_structure.png",
-    "notes/Tools/BuildTools/assets/vcpkg",
-    "notes/Tools/BuildTools/assets/xmake",
-    "notes/Tools/BuildTools/assets/scons",
-    "notes/Tools/BuildTools/assets/gnu-make",
-    "notes/Tools/BuildTools/assets/cmake",
-    "notes/DataStructureAndAlgorithm/DataStructure/Tree/assets/binary/binary_tree_terminology.png",
-    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/stack/stack_operations.png",
-    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/queue_pop_improve.png",
-    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/queue.png",
-    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/linked_queue.png",
-    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/false_overflow.png",
-    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/cir_queue_3.png",
-    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/cir_queue_2.png",
-    "notes/DataStructureAndAlgorithm/DataStructure/LinearList/assets/queue/cir_queue_1.png"
+    "obsidian/OperatingSystem/408/虚拟内存管理.md",
+    "obsidian/OperatingSystem/408/操作系统发展历程.md",
+    "obsidian/DataStructureAndAlgorithm/408/线性表的顺序表示.md",
+    "blog/posts/TRAE Friends @Fuzhou 要点记录.md",
+    "obsidian/OperatingSystem/进程创建与进程通信.md",
+    "obsidian/DataStructureAndAlgorithm/408/线性表的链式表示.md",
+    "obsidian/Tools/linux/Linux基础、杂项.md",
+    "blog/posts/个人站点构建要点(改良版) && Web 开发简要实践.md",
+    "obsidian/Tools/Astral uv.md",
+    "blog/posts/docker-compose + nginx快速构建个人站点.md",
+    "blog/posts/Arch Linux安装要点记录.md",
+    "blog/posts/2024-2025：艰难的起步.md",
+    "202512052209.md",
+    "blog/posts/Cursor Meetup ShangHai 要点记录：学生视角下的 AI+ 产品.md",
+    "blog/posts/Cursor使用心得：从学习到开发.md",
+    "projects/SpaceCaculator.md",
+    "projects/MkDocs-Note.md",
+    "projects/3BodySimulator.md",
+    "blog/index.md"
   ]
 }

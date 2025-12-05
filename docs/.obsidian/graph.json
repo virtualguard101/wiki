@@ -5,20 +5,34 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": false,
+  "collapse-color-groups": true,
   "colorGroups": [
     {
-      "query": "path:OperatingSystem/408  ",
+      "query": "path:obsidian/OperatingSystem/408  ",
       "color": {
         "a": 1,
         "rgb": 14701138
       }
     },
     {
-      "query": "path:DataStructureAndAlgorithm/408  ",
+      "query": "path:obsidian/DataStructureAndAlgorithm/408  ",
       "color": {
         "a": 1,
         "rgb": 14701138
+      }
+    },
+    {
+      "query": "tag:#Blog  ",
+      "color": {
+        "a": 1,
+        "rgb": 10809863
+      }
+    },
+    {
+      "query": "tag:#Projects  ",
+      "color": {
+        "a": 1,
+        "rgb": 774649
       }
     }
   ],
@@ -27,11 +41,11 @@
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
-  "collapse-forces": true,
+  "collapse-forces": false,
   "centerStrength": 0.518713248970312,
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.9348994266555548,
-  "close": false
+  "scale": 0.8684756128348744,
+  "close": true
 }
