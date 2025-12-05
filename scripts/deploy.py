@@ -91,21 +91,21 @@ def main():
                 logger.error("Invalid choice")
         
         # Git operations
-        commit_paths = input("Enter commit paths: ").strip()
-        if not commit_paths:
-            raise ValueError("Please specify at least one file to commit")
+        # commit_paths = input("Enter commit paths: ").strip()
+        # if not commit_paths:
+        #     raise ValueError("Please specify at least one file to commit")
             
-        commit_message = input("Enter commit message: ").strip()
-        if not commit_message:
-            raise ValueError("Commit message cannot be empty")
+        # commit_message = input("Enter commit message: ").strip()
+        # if not commit_message:
+        #     raise ValueError("Commit message cannot be empty")
         
-        # Stage files
-        logger.info(f"Staging files: {commit_paths}")
-        subprocess.run(["git", "add"] + commit_paths.split(), check=True)
+        # # Stage files
+        # logger.info(f"Staging files: {commit_paths}")
+        # subprocess.run(["git", "add"] + commit_paths.split(), check=True)
         
-        # Commit changes
-        logger.info(f"Committing with message: \"{commit_message}\"")
-        subprocess.run(["git", "commit", "-m", commit_message], check=True)
+        # # Commit changes
+        # logger.info(f"Committing with message: \"{commit_message}\"")
+        # subprocess.run(["git", "commit", "-m", commit_message], check=True)
         
         # Push changes
         logger.info("Pushing to origin/main...")
