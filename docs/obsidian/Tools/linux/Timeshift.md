@@ -13,7 +13,7 @@ Timeshift 可帮助定期创建文件系统的增量快照，然后在以后恢�
 
 ## 安装与基本配置
 
-我的操作系统是 [**Arch Linux**](../../../blog/posts/arch-linux.md), 使用[Btrfs文件系统](https://arch.icekylin.online/guide/advanced/btrfs)
+我的操作系统是 [**Arch Linux**](../../../blog/posts/Arch%20Linux安装要点记录.md), 使用[Btrfs文件系统](https://arch.icekylin.online/guide/advanced/btrfs)
 
 基本安装与配置可以参考[设置 Timeshift 快照 | archlinux 简明指南](https://arch.icekylin.online/guide/rookie/desktop-env-and-app.html#_12-%E8%AE%BE%E7%BD%AE-timeshift-%E5%BF%AB%E7%85%A7)
 

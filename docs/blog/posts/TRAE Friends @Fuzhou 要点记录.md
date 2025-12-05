@@ -3,12 +3,14 @@ title: TRAE Friends @Fuzhou 要点记录
 categories:
   - Summary
 date: 2025-11-23 16:00:00
-excerpt: 
-cover: 
+excerpt:
+cover:
 authors:
   - virtualguard101
 tags:
   - AIGC
+  - Meetup
+  - Blog
 mermaid: true
 ---
 

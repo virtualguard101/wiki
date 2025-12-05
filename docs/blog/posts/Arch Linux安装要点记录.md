@@ -7,7 +7,8 @@ excerpt: 记录一下在可移动设备/真机上安装和配置Arch Linux的过
 authors:
   - virtualguard101
 tags:
-  - linux
+  - Linux
+  - Blog
 ---
 
 **记录一下在可移动设备/真机上安装和配置Arch Linux的过程安装过程中遇到的一些问题**

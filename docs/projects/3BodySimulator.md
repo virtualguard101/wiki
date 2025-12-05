@@ -7,10 +7,9 @@ excerpt: C++简易项目：使用C++实现三体运动的核心逻辑，Python�
 authors:
   - virtualguard101
 tags:
-  - c++
   - python
-  - vcpkg
   - 项目构建
+  - Projects
 ---
 
 ## 导言

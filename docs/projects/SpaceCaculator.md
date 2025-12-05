@@ -6,9 +6,9 @@ categories:
 abbrlink: 27707
 date: 2025-03-16 14:48:10
 cover: https://i.imgur.com/rsm0tiV.png
-tags: 
-  - Projects
+tags:
   - Python
+  - Projects
 ---
 
 ## 导言
