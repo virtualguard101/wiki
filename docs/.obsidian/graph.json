@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "path:obsidian/OperatingSystem/408  ",
@@ -25,7 +25,7 @@
       "query": "tag:#Blog  ",
       "color": {
         "a": 1,
-        "rgb": 10809863
+        "rgb": 15379979
       }
     },
     {
@@ -46,6 +46,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.8684756128348744,
+  "scale": 0.9221406743501417,
   "close": true
 }

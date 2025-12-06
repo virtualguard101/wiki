@@ -132,7 +132,7 @@ nav:
         - Introduction to Operating Systems: "obsidian/OperatingSystem/intro/Introduction to Operating Systems.md"
       - 虚拟化:
         - "The Abstraction: The Process": "obsidian/OperatingSystem/virtualization/The Abstraction - The Process.md"
-      - 进程创建与进程通信: "obsidian/OperatingSystem/进程创建与进程通信.md"
+      - Linux环境下的进程创建与进程通信: "obsidian/OperatingSystem/Linux环境下的进程创建与进程通信.md"
     - 软件工程:
       - UML图: "obsidian/SoftwareEngineering/UML图.md"
     - 人工智能:
