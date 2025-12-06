@@ -8,21 +8,21 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ba9f7411704d96dc",
+            "id": "4c6c87506cf2ec0e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "obsidian/OperatingSystem/408/虚拟内存管理.md",
+                "file": "obsidian/OperatingSystem/408/进程的描述与控制.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "虚拟内存管理"
+              "title": "进程的描述与控制"
             }
           },
           {
-            "id": "4c6c87506cf2ec0e",
+            "id": "9d215d562a6b0dea",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -64,7 +64,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#考研408  ",
+                "query": "管道",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -195,13 +195,14 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "4c6c87506cf2ec0e",
+  "active": "9d215d562a6b0dea",
   "lastOpenFiles": [
+    "obsidian/OperatingSystem/Linux环境下的进程创建与进程通信.md",
+    "obsidian/OperatingSystem/408/进程的描述与控制.md",
     "obsidian/OperatingSystem/408/虚拟内存管理.md",
     "obsidian/OperatingSystem/408/操作系统发展历程.md",
     "obsidian/DataStructureAndAlgorithm/408/线性表的顺序表示.md",
     "blog/posts/TRAE Friends @Fuzhou 要点记录.md",
-    "obsidian/OperatingSystem/进程创建与进程通信.md",
     "obsidian/DataStructureAndAlgorithm/408/线性表的链式表示.md",
     "obsidian/Tools/linux/Linux基础、杂项.md",
     "blog/posts/个人站点构建要点(改良版) && Web 开发简要实践.md",
