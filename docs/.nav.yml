@@ -3,6 +3,9 @@ nav:
   - index.md
   - Notebook: 
     - obsidian/index.md
+    - 资源:
+      - 学术资源: "obsidian/Misc/resources/学术资源.md"
+      - 工程、求职、杂项资源: "obsidian/Misc/resources/工程、求职、杂项资源.md"
     - 工具:
       - Linux:
         - Linux杂项/基础: "obsidian/Tools/linux/Linux基础、杂项.md"
@@ -164,9 +167,6 @@ nav:
       - 正则表达式: "obsidian/Misc/正则表达式.md"
       - 开源协议: "obsidian/Misc/开源协议.md"
       - 使用SSH访问GitHub远程仓库: "obsidian/Misc/使用SSH访问GitHub远程仓库.md"
-      - 部分资源收藏:
-        - 学术资源: "obsidian/Misc/resources/学术资源.md"
-        - 工程、求职、杂项资源: "obsidian/Misc/resources/工程、求职、杂项资源.md"
          
   - Blog:
     - blog/index.md
