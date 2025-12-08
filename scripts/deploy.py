@@ -80,7 +80,7 @@ def main():
                     dest_path = hexo_path / wiki_post
                     
                     # Copy file regardless of existence in hexo blog
-                    subprocess.run(f"cp {file} {str(hexo_path)}", shell=True, check=True)
+                    subprocess.run(f"cp '{file}' {str(hexo_path)}", shell=True, check=True)
                     logger.debug(f"Copied: {file} -> {dest_path}")
                 
                 # Build hexo blog

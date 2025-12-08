@@ -3,7 +3,7 @@ title: TRAE Friends @Fuzhou 要点记录
 categories:
   - Summary
 date: 2025-11-23 16:00:00
-excerpt:
+excerpt: 参与了11月23号在福州举办的TRAE Friends活动，对活动分享的内容做一个简要记录
 cover:
 authors:
   - virtualguard101
