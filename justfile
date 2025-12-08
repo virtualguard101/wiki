@@ -17,7 +17,7 @@ jupyter:
 
 sync:
     git checkout main
-    git merge obsidian
+    git merge obsidian -m "Sync from obsidian"
     just d
 
 obsidian:
