@@ -10,6 +10,8 @@ publish: true
 >[Tutorials | The Go Programming Language](https://go.dev/doc/tutorial/)
 >
 >[Go语言圣经（中文版）](https://golang-china.github.io/gopl-zh/)
+>
+>[Go Tour | Go Programming Language](https://go.dev/tour/list)
 
 
 ## 概述
