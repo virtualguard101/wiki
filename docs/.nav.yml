@@ -31,8 +31,8 @@ nav:
         - Python包管理: "obsidian/ProgrammingLanguage/python/Python包管理.md"
         - Python虚拟环境: "obsidian/ProgrammingLanguage/python/Python虚拟环境.md"
       - Golang:
+        - Golang入门要点: "obsidian/ProgrammingLanguage/golang/Golang入门要点.md"
         - 基础:
-          - Golang入门要点: "obsidian/ProgrammingLanguage/golang/Golang入门要点.md"
           - 命名规范: "obsidian/ProgrammingLanguage/golang/Go命名规范.md"
           - Golang程序结构: "obsidian/ProgrammingLanguage/golang/Golang程序结构.md"
           - Golang函数: "obsidian/ProgrammingLanguage/golang/Golang函数.md"
