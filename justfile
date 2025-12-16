@@ -30,3 +30,4 @@ update:
 usync:
     just u
     just sc
+    just ob
