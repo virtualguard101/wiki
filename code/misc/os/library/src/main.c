@@ -9,3 +9,11 @@ static struct Book books[7] = {
     {"Artificial Intelligence: A Modern Approach", "Stuart Russell", 2, 2},
     {"Computer Architecture", "John L. Hennessy", 5, 2},
 };
+
+int main() {
+    printf("父进程图书馆启动 (PID: %d)\n", getpid());
+    pthread_t searcher[4], borrower[2];
+    int searcher_ids[4] = {1, 2, 3, 4};
+
+    return 0;
+}
