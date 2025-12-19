@@ -64,7 +64,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "管道",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -197,6 +197,7 @@
   },
   "active": "9d215d562a6b0dea",
   "lastOpenFiles": [
+    "obsidian/OperatingSystem/virtualization/Process API.md",
     "obsidian/OperatingSystem/Linux环境下的进程创建与进程通信.md",
     "obsidian/OperatingSystem/408/进程的描述与控制.md",
     "obsidian/OperatingSystem/408/虚拟内存管理.md",
