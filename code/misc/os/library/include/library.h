@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 
 // Book structure definition.
@@ -13,23 +14,19 @@ struct Book {
 };
 
 // Read-write lock for synchronizing access to the books array.
-static pthread_rwlock_t rwlock = PTHREAD_RWLOCK_INITIALIZER;
+extern pthread_rwlock_t rwlock;
 
 // Sample book data.
-static struct Book books[7] = {
-    {"The C Programming Language", "Brian W. Kernighan", 5, 3},
-    {"Introduction to Algorithms", "Thomas H. Cormen", 4, 2},
-    {"Computer Networks", "Andrew S. Tanenbaum", 6, 3},
-    {"Operating System Concepts", "Abraham Silberschatz", 3, 2},
-    {"Database System Concepts", "Abraham Silberschatz", 4, 2},
-    {"Artificial Intelligence: A Modern Approach", "Stuart Russell", 2, 2},
-    {"Computer Architecture", "John L. Hennessy", 5, 2},
-};
+extern struct Book books[7];
 
 // Buffer for inter-process communication.
-static char buffer[100];
+extern char buffer[100];
+
 // Pipe file descriptors.
-static int pipe_fd[2];
+extern int pipe_fd[2];
+
+// Send message to parent process by child process.
+void send_message(char type, int thread_id, const char* book_name);
 
 // Print single book information.
 void print_book_info(struct Book books, int pattern);

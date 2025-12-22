@@ -2,6 +2,22 @@
 #include <stdio.h>
 #include <string.h>
 
+// Define shared variables (declared as extern in library.h)
+pthread_rwlock_t rwlock = PTHREAD_RWLOCK_INITIALIZER;
+
+struct Book books[7] = {
+    {"The C Programming Language", "Brian W. Kernighan", 5, 3},
+    {"Introduction to Algorithms", "Thomas H. Cormen", 4, 2},
+    {"Computer Networks", "Andrew S. Tanenbaum", 6, 3},
+    {"Operating System Concepts", "Abraham Silberschatz", 3, 2},
+    {"Database System Concepts", "Abraham Silberschatz", 4, 2},
+    {"Artificial Intelligence: A Modern Approach", "Stuart Russell", 2, 2},
+    {"Computer Architecture", "John L. Hennessy", 5, 2},
+};
+
+char buffer[100];
+int pipe_fd[2];
+
 void print_book_info(struct Book books, int pattern) {
     switch (pattern) {
         case 0:
@@ -30,38 +46,54 @@ int get_random_index(int total) {
     return rand() % total;
 }
 
+// Send message to parent process: format is "请求类型:线程ID:书名\n"
+// type: S=query, B=borrow
+void send_message(char type, int thread_id, const char* book_name) {
+    char msg[128];
+    snprintf(msg, sizeof(msg), "%c:%d:%s\n", type, thread_id, book_name);
+    write(pipe_fd[1], msg, strlen(msg));
+}
+
 void* search_thread(void* arg) {
     int id = *(int*)arg;
-
+    
     // Read lock
     pthread_rwlock_rdlock(&rwlock);
-    int index = get_random_index(3);
+    
+    int index = get_random_index(7);
     printf("查询线程 %d: 正在查询图书 %s\n", id, books[index].name);
-    printf("\n");
-
-    char* msg = books[index].name;
-    write(pipe_fd[1], msg, strlen(msg));
-    close(pipe_fd[1]); // Close write end after writing
-
+    
+    // Send query message to parent process
+    send_message('S', id, books[index].name);
+    
     pthread_rwlock_unlock(&rwlock);
+    
+    usleep(100000); // 100ms delay
 
     return NULL;
 }
 
 void* borrow_thread(void* arg) {
     int id = *(int*)arg;
-
-    // Write lock
-    pthread_rwlock_wrlock(&rwlock);
-    int index = get_random_index(3);
-    printf("借阅线程 %d: 正在借阅图书 %s\n", id, books[index].name);
-    printf("\n");
-
-    char* msg = books[index].name;
-    write(pipe_fd[1], msg, strlen(msg));
-    close(pipe_fd[1]); // Close write end after writing
-
-    pthread_rwlock_unlock(&rwlock);
+    
+    // Wait for search threads to complete
+    usleep(500000); // 500ms
+    
+    // Randomly select 2 books to borrow
+    for (int i = 0; i < 2; i++) {
+        // Write lock
+        pthread_rwlock_wrlock(&rwlock);
+        
+        int index = get_random_index(7);
+        printf("借阅线程 %d: 正在借阅图书 %s\n", id, books[index].name);
+        
+        // Send borrow message to parent process
+        send_message('B', id, books[index].name);
+        
+        pthread_rwlock_unlock(&rwlock);
+        
+        usleep(200000); // 200ms delay
+    }
 
     return NULL;
 }
