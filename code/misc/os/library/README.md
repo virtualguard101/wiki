@@ -39,6 +39,8 @@ make singal
 
 ## How it Works
 
+![](seq.drawio.png)
+
 ```mermaid
 flowchart TB
     subgraph Parent["父进程 (图书馆)"]

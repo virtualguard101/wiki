@@ -150,7 +150,7 @@ void process_message(const char* msg) {
     }
 
     if (type == 'S') {
-        // 查询请求: 显示图书信息
+        // Search request: reply with book info
         printf("父进程回复查询线程 %d: 《%s》- 作者: %s, 可借: %d/%d\n",
                thread_id,
                books[found].name,
