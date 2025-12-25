@@ -10,3 +10,6 @@ docs/projects/assets/log/
 a.out
 .ipynb_checkpoints/
 d2l/
+.gdb_history
+*.o
+
