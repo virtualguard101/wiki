@@ -1,67 +1,84 @@
 #include <stdio.h>
 
-#define MAX_FRAMES 3
-#define REF_LEN 10
+#define FRAME_SIZE 3
 
-void lru_page_replacement() {
-    int ref[] = {7, 0, 1, 2, 0, 3, 0, 4, 2, 3};
-    int frames[MAX_FRAMES] = {-1, -1, -1}; //展示存放
-    int stack[MAX_FRAMES]; //模拟栈
-    int stack_size = 0;
-    int f = 0; //缺页数
-    
-    for(int i = 0; i < REF_LEN; i++){
-        int page = ref[i];//当前页面
-        int found = 0;
-        int pos = -1;
-        
-        for(int j = 0; j < stack_size; j++){//检查当前页面是否在内存中
-            if(page == stack[j]){
-                found = 1;
-                pos = j;
-                break;
-            }
-        }
-        if(found){
-            for (int j = pos; j < stack_size - 1; j++) stack[j] = stack[j + 1];//更新位置
-            stack[stack_size - 1] = page;
-        }else{ // Frame Fault
-            f++;
-            if(stack_size < MAX_FRAMES){//未满
-                stack[stack_size++] = page;
+typedef struct{
+    int data[FRAME_SIZE];
+    int top;
+    int count;
+} Stack;
 
-                for (int j = 0; j < MAX_FRAMES; j++){
-                    if (frames[j] == -1) {
-                        frames[j] = page;
-                        break;
-                    }
-                }
-            }else{
-                int lru_page = stack[0];
-                for(int j = 0; j < stack_size - 1; j++) stack[j] = stack[j + 1];//满了就替换
-                stack[stack_size - 1] = page;
-                
-                for(int j = 0; j < MAX_FRAMES; j++){
-                    if(frames[j] == lru_page){
-                        frames[j] = page;
-                        break;
-                    }
-                }
-            }
-        }
-
-        for(int j = 0; j < MAX_FRAMES; j++){
-            if(frames[j] == -1) printf("x ");
-            else printf("%d ", frames[j]);
-        }
-
-        printf("\n");
-    }
-
-    printf("f=%.1f\n", (float)f / REF_LEN);
+int find(int arr[], int size, int value){
+    for(int i = 0; i < size; i++) if(arr[i] == value) return i;
+    return -1;
 }
 
-int main() {
-    lru_page_replacement();
+void init_stack(Stack *s){
+    s->top = -1;
+    s->count = 0;
+}
+
+void push(Stack *s, int value){//入栈操作
+    if(s->count < FRAME_SIZE){
+        s->data[++s->top] = value;
+        s->count++;
+    }
+    else{
+        for(int i = 0; i < s->count - 1; i++) s->data[i] = s->data[i + 1];
+        s->data[s->top] = value;
+    }
+}
+
+void move_to_top(Stack *s, int index){//更新
+    int value = s->data[index];
+    for(int i = index; i < s->count - 1; i++) s->data[i] = s->data[i + 1];
+    s->data[s->top] = value;
+}
+
+void printmemory(int memory[], int size){
+    for(int i = 0; i < size; i++){
+        if (memory[i] == -1) printf("x ");
+        else printf("%d ", memory[i]);
+    }
+    printf("\n");
+}
+
+void handle_page(Stack *s, int *memory, int page, int *f){
+    int rds = find(memory, FRAME_SIZE, page);//内存中的位置
+    int sds = find(s->data, s->count, page);//栈中的位置
+
+    if(rds == -1){
+        (*f)++;
+        if (s->count < FRAME_SIZE)  memory[s->count] = page;
+        else{
+            int lruPage = s->data[0];
+            int lruIdx = find(memory, FRAME_SIZE, lruPage);
+            memory[lruIdx] = page;
+        }
+        push(s, page);
+    }
+    else move_to_top(s, sds);
+}
+
+void lru_do(int ref[], int ref_len){
+    int memory[FRAME_SIZE] = {-1, -1, -1};
+    Stack stack;
+    int f = 0;
+
+    init_stack(&stack);
+    
+    for(int i = 0; i < ref_len; i++){
+        int page = ref[i];
+        handle_page(&stack, memory, page, &f);
+        printmemory(memory, FRAME_SIZE);
+    }
+
+    printf("f=%.1f\n", (float)f / ref_len);
+}
+
+int main(){
+    int ref[] = {7, 0, 1, 2, 0, 3, 0, 4, 2, 3};
+    int ref_len = sizeof(ref) / sizeof(ref[0]);
+    lru_do(ref, ref_len);
     return 0;
 }

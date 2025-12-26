@@ -47,4 +47,4 @@ clean:
 run: $(TARGET)
 	./$(TARGET)
 
-.PHONY: all clean run singal
+.PHONY: all clean run singal lru
