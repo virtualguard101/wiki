@@ -105,7 +105,7 @@ void* borrow_thread(void* arg) {
     usleep(500000); // 500ms
     
     for (int i = 0; i < 2; i++) {
-        // 写锁
+        // Write lock
         pthread_rwlock_wrlock(&rwlock);
         
         int index = get_random_index(7);
