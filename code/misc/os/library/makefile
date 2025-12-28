@@ -36,12 +36,15 @@ $(BUILD_DIR)/main.o: $(SRC_DIR)/main.c include/library.h
 singal: singal.c
 	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
+lru: lru.c
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
+
 # Clean build artifacts
 clean:
-	rm -rf $(BUILD_DIR) $(TARGET) singal
+	rm -rf $(BUILD_DIR) $(TARGET) singal lru
 
 # Run the program
 run: $(TARGET)
 	./$(TARGET)
 
-.PHONY: all clean run singal
+.PHONY: all clean run singal lru
