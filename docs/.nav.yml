@@ -177,6 +177,7 @@ nav:
     - "3BodySimulator: Python & C++ 项目标准化构建": projects/3BodySimulator.md
     - "SpaceCaculator: Python3面向对象简单应用": projects/SpaceCaculator.md
   - Credits: credits.md
+  # - Todo: todo.md
 
 not_in_nav: |
   projects/log/
