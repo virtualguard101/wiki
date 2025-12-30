@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2025, vg101@smail.fjut.edu.cn
+ * 在链表上实现排序
+ * 功能：直接插入排序、冒泡排序、简单选择排序
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -208,6 +214,7 @@ int main() {
     int almost[MAX_SIZE];
     generateAlmost(almost, MAX_SIZE);
     // 随机数据
+    srand(time(NULL)); // 设置随机种子
     int random[MAX_SIZE];
     generateRandom(random, MAX_SIZE);
 
@@ -216,6 +223,41 @@ int main() {
     LinkList L_reverse = transform(reverse, MAX_SIZE);
     LinkList L_almost = transform(almost, MAX_SIZE);
     LinkList L_random = transform(random, MAX_SIZE);
+
+    // 对不同数据进行排序并记录比较和移动次数
+    int *result;
+
+    // 直接插入排序
+    result = insertSort(L_sorted);
+    printf("直接插入排序 - 已排序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    result = insertSort(L_reverse);
+    printf("直接插入排序 - 逆序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    result = insertSort(L_almost);
+    printf("直接插入排序 - 基本有序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    result = insertSort(L_random);
+    printf("直接插入排序 - 随机数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    printf("\n");
+
+    // 冒泡排序
+    result = bubbleSort(L_sorted);
+    printf("冒泡排序 - 已排序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    result = bubbleSort(L_reverse);
+    printf("冒泡排序 - 逆序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    result = bubbleSort(L_almost);
+    printf("冒泡排序 - 基本有序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    result = bubbleSort(L_random);
+    printf("冒泡排序 - 随机数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    printf("\n");
+
+    // 选择排序
+    result = selectSort(L_sorted);
+    printf("选择排序 - 已排序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    result = selectSort(L_reverse);
+    printf("选择排序 - 逆序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    result = selectSort(L_almost);
+    printf("选择排序 - 基本有序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    result = selectSort(L_random);
+    printf("选择排序 - 随机数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
 
     return 0;
 }
