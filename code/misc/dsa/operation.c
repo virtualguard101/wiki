@@ -8,7 +8,6 @@
 #include <stdlib.h>
 
 #define ElemType int
-#define OK 1
 
 // 单链表节点结构
 typedef struct LNode {
@@ -19,7 +18,7 @@ typedef struct LNode {
 // 初始化链表（不带头结点）
 int initList(LinkList *L) {
     *L = NULL;
-    return OK;
+    return 0;
 }
 
 // 获取链表长度

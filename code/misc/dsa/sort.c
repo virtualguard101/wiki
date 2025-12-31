@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2025, vg101@smail.fjut.edu.cn
+ * 在链表上实现排序
+ * 功能：直接插入排序、冒泡排序、简单选择排序
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -33,6 +39,10 @@ int getLength(LinkList L) {
 int* insertSort(LinkList L) {
     // 用于记录比较和移动次数的临时变量, 0: 比较次数, 1: 移动次数
     static int counter[2] = {0, 0}; 
+    
+    // 重置计数器
+    counter[0] = 0;
+    counter[1] = 0;
 
     if (L->next == NULL || L->next->next == NULL) return NULL;
     
@@ -77,6 +87,10 @@ int* insertSort(LinkList L) {
 // 冒泡排序: 相邻元素两两比较，如果逆序则交换数据域
 int* bubbleSort(LinkList L) {
     static int counter[2] = {0, 0}; // 用于记录比较和移动次数的临时变量
+    
+    // 重置计数器
+    counter[0] = 0;
+    counter[1] = 0;
 
     if (L->next == NULL || L->next->next == NULL) return NULL;
     
@@ -112,6 +126,10 @@ int* bubbleSort(LinkList L) {
 int* selectSort(LinkList L) {
     // 用于记录比较和移动次数的临时变量
     static int counter[2] = {0, 0}; 
+    
+    // 重置计数器
+    counter[0] = 0;
+    counter[1] = 0;
 
     if (L->next == NULL || L->next->next == NULL) return NULL;
     
@@ -183,14 +201,18 @@ void generateRandom(int arr[], int size) {
     }
 }
 
+// 将数组转换为链表
 LinkList transform(int arr[], int size) {
-    // 创建链表并插入数据
+    // 创建链表并使用尾插法插入数据
     LinkList L = initList(L);
+    LNode *tail = L;  // 尾指针，初始指向头结点
+    
     for (int i = 0; i < size; i++) {
         LNode *newNode = (LNode *)malloc(sizeof(LNode));
         newNode->data = arr[i];
-        newNode->next = L->next;
-        L->next = newNode;
+        newNode->next = NULL;
+        tail->next = newNode;
+        tail = newNode;  // 更新尾指针
         L->data++;  // 更新链表长度
     }
     return L;
@@ -208,14 +230,65 @@ int main() {
     int almost[MAX_SIZE];
     generateAlmost(almost, MAX_SIZE);
     // 随机数据
+    srand(time(NULL)); // 设置随机种子
     int random[MAX_SIZE];
     generateRandom(random, MAX_SIZE);
 
-    // 转换为链表
+    // 对不同数据进行排序并记录比较和移动次数
+    int *result;
+
+    // 直接插入排序
     LinkList L_sorted = transform(sorted, MAX_SIZE);
+    result = insertSort(L_sorted);
+    printf("直接插入排序 - 已排序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    
     LinkList L_reverse = transform(reverse, MAX_SIZE);
+    result = insertSort(L_reverse);
+    printf("直接插入排序 - 逆序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    
     LinkList L_almost = transform(almost, MAX_SIZE);
+    result = insertSort(L_almost);
+    printf("直接插入排序 - 基本有序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    
     LinkList L_random = transform(random, MAX_SIZE);
+    result = insertSort(L_random);
+    printf("直接插入排序 - 随机数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    printf("\n");
+
+    // 冒泡排序（重新创建链表）
+    L_sorted = transform(sorted, MAX_SIZE);
+    result = bubbleSort(L_sorted);
+    printf("冒泡排序 - 已排序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    
+    L_reverse = transform(reverse, MAX_SIZE);
+    result = bubbleSort(L_reverse);
+    printf("冒泡排序 - 逆序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    
+    L_almost = transform(almost, MAX_SIZE);
+    result = bubbleSort(L_almost);
+    printf("冒泡排序 - 基本有序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    
+    L_random = transform(random, MAX_SIZE);
+    result = bubbleSort(L_random);
+    printf("冒泡排序 - 随机数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    printf("\n");
+
+    // 选择排序（重新创建链表）
+    L_sorted = transform(sorted, MAX_SIZE);
+    result = selectSort(L_sorted);
+    printf("选择排序 - 已排序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    
+    L_reverse = transform(reverse, MAX_SIZE);
+    result = selectSort(L_reverse);
+    printf("选择排序 - 逆序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    
+    L_almost = transform(almost, MAX_SIZE);
+    result = selectSort(L_almost);
+    printf("选择排序 - 基本有序数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
+    
+    L_random = transform(random, MAX_SIZE);
+    result = selectSort(L_random);
+    printf("选择排序 - 随机数据: \n比较次数 = %d, 移动次数 = %d\n", result[0], result[1]);
 
     return 0;
 }
