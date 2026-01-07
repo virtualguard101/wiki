@@ -7,6 +7,10 @@ hide:
   - toc
 template: projects.html
 projects:
+  - name: ForyoClassifierCNN
+    description: A music classification project for atarayo, yorushika, yoasobi and zutomayo which based on PyTorch.
+    image: foryo-classifier-cnn.png
+
   - name: MkDocs-Note
     description: A MkDocs plugin to add note boxes to your documentation.
     image: mkdocs-note.gif
