@@ -75,7 +75,6 @@ nav:
         - 相似矩阵: "obsidian/Math/LinearAlgebra/相似矩阵.md"
         - 二次型: "obsidian/Math/LinearAlgebra/二次型.md"
     - 数据结构与算法:
-      # - "408":
       - 绪论:
       #   - 算法和算法评价: "obsidian/DataStructure/408/算法和算法评价.md"
         - 递归与迭代: "obsidian/DataStructure/408/迭代与递归.md"

@@ -85,8 +85,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -195,7 +194,7 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "9d215d562a6b0dea",
+  "active": "20f467b276bea52a",
   "lastOpenFiles": [
     "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/哈夫曼树.md",
     "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/二叉排序树.md",
