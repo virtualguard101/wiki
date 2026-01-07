@@ -109,6 +109,7 @@ nav:
         - 树:
           - 树和森林: "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/树和森林.md"
           - 二叉排序树: "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/二叉排序树.md"
+          - 哈夫曼树: "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/哈夫曼树.md"
     - 操作系统:
       - "408":
         - 操作系统概述:
