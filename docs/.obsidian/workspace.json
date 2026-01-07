@@ -64,7 +64,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "sort",
+                "query": "haff",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -197,6 +197,7 @@
   },
   "active": "9d215d562a6b0dea",
   "lastOpenFiles": [
+    "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/哈夫曼树.md",
     "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/二叉排序树.md",
     "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/树和森林.md",
     "obsidian/OperatingSystem/virtualization/Process API.md",
