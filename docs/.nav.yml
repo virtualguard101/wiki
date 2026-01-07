@@ -77,30 +77,30 @@ nav:
     - 数据结构与算法:
       # - "408":
       - 绪论:
-      #   - 算法和算法评价: "obsidian/DataStructureAndAlgorithm/408/算法和算法评价.md"
-        - 递归与迭代: "obsidian/DataStructureAndAlgorithm/408/迭代与递归.md"
+      #   - 算法和算法评价: "obsidian/DataStructure/408/算法和算法评价.md"
+        - 递归与迭代: "obsidian/DataStructure/408/迭代与递归.md"
       - 线性表:
-        - 线性表的顺序表示: "obsidian/DataStructureAndAlgorithm/408/线性表的顺序表示.md"
-        - 线性表的链式表示: "obsidian/DataStructureAndAlgorithm/408/线性表的链式表示.md"
+        - 线性表的顺序表示: "obsidian/DataStructure/408/线性表的顺序表示.md"
+        - 线性表的链式表示: "obsidian/DataStructure/408/线性表的链式表示.md"
       - 栈、队列与数组:
-        - 栈: "obsidian/DataStructureAndAlgorithm/408/栈.md"
-        - 队列: "obsidian/DataStructureAndAlgorithm/408/队列.md"
-        - 栈与队列的应用: "obsidian/DataStructureAndAlgorithm/408/栈与队列的应用.md"
-        - 数组和特殊矩阵: "obsidian/DataStructureAndAlgorithm/408/数组和特殊矩阵.md"
+        - 栈: "obsidian/DataStructure/408/栈.md"
+        - 队列: "obsidian/DataStructure/408/队列.md"
+        - 栈与队列的应用: "obsidian/DataStructure/408/栈与队列的应用.md"
+        - 数组和特殊矩阵: "obsidian/DataStructure/408/数组和特殊矩阵.md"
       - 串:
-        - 串的定义和实现: "obsidian/DataStructureAndAlgorithm/408/串的定义和实现.md"
-        - 串的模式匹配: "obsidian/DataStructureAndAlgorithm/408/串的模式匹配.md"
+        - 串的定义和实现: "obsidian/DataStructure/408/串的定义和实现.md"
+        - 串的模式匹配: "obsidian/DataStructure/408/串的模式匹配.md"
       - 树与二叉树:
-        - 树与二叉树的基本概念: "obsidian/DataStructureAndAlgorithm/408/树与二叉树的基本概念.md"
-        - 二叉树的遍历: "obsidian/DataStructureAndAlgorithm/408/二叉树的遍历.md"
-        - 线索二叉树: "obsidian/DataStructureAndAlgorithm/408/线索二叉树.md"
-        - 树与森林: "obsidian/DataStructureAndAlgorithm/408/树与森林.md"
-        - 树与二叉树的应用: "obsidian/DataStructureAndAlgorithm/408/树与二叉树的应用.md"
+        - 树与二叉树的基本概念: "obsidian/DataStructure/408/树与二叉树的基本概念.md"
+        - 二叉树的遍历: "obsidian/DataStructure/408/二叉树的遍历.md"
+        - 线索二叉树: "obsidian/DataStructure/408/线索二叉树.md"
+        - 树与森林: "obsidian/DataStructure/408/树与森林.md"
+        - 树与二叉树的应用: "obsidian/DataStructure/408/树与二叉树的应用.md"
       # - 图:
-      #   - 图的基本概念: "obsidian/DataStructureAndAlgorithm/408/图的基本概念.md"
-      #   - 图的存储及基本操作: "obsidian/DataStructureAndAlgorithm/408/图的存储及基本操作.md"
-      #   - 图的遍历: "obsidian/DataStructureAndAlgorithm/408/图的遍历.md"
-      #   - 图的应用: "obsidian/DataStructureAndAlgorithm/408/图的应用.md"
+      #   - 图的基本概念: "obsidian/DataStructure/408/图的基本概念.md"
+      #   - 图的存储及基本操作: "obsidian/DataStructure/408/图的存储及基本操作.md"
+      #   - 图的遍历: "obsidian/DataStructure/408/图的遍历.md"
+      #   - 图的应用: "obsidian/DataStructure/408/图的应用.md"
     - 操作系统:
       - "408":
         - 操作系统概述:
