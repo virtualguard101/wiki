@@ -99,7 +99,7 @@ nav:
         - 图的基本概念: "obsidian/DataStructure/408/图的基本概念.md"
         - 图的存储及基本操作: "obsidian/DataStructure/408/图的存储及基本操作.md"
         - 图的遍历: "obsidian/DataStructure/408/图的遍历.md"
-      #   - 图的应用: "obsidian/DataStructure/408/图的应用.md"
+        - 图的应用: "obsidian/DataStructure/408/图的应用.md"
     - 操作系统:
       - "408":
         - 操作系统概述:
