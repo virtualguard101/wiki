@@ -64,7 +64,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "haff",
+                "query": "gra",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -194,8 +194,9 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "20f467b276bea52a",
+  "active": "9d215d562a6b0dea",
   "lastOpenFiles": [
+    "obsidian/DataStructure/408/图的基本概念.md",
     "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/哈夫曼树.md",
     "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/二叉排序树.md",
     "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/树和森林.md",

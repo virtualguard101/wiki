@@ -95,8 +95,8 @@ nav:
         - 线索二叉树: "obsidian/DataStructure/408/线索二叉树.md"
         - 树与森林: "obsidian/DataStructure/408/树与森林.md"
         - 树与二叉树的应用: "obsidian/DataStructure/408/树与二叉树的应用.md"
-      # - 图:
-      #   - 图的基本概念: "obsidian/DataStructure/408/图的基本概念.md"
+      - 图:
+        - 图的基本概念: "obsidian/DataStructure/408/图的基本概念.md"
       #   - 图的存储及基本操作: "obsidian/DataStructure/408/图的存储及基本操作.md"
       #   - 图的遍历: "obsidian/DataStructure/408/图的遍历.md"
       #   - 图的应用: "obsidian/DataStructure/408/图的应用.md"
