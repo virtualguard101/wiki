@@ -196,6 +196,8 @@
   },
   "active": "9d215d562a6b0dea",
   "lastOpenFiles": [
+    "obsidian/DataStructure/408/图的遍历.md",
+    "obsidian/DataStructure/408/图的存储及基本操作.md",
     "obsidian/DataStructure/408/图的基本概念.md",
     "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/哈夫曼树.md",
     "obsidian/DataStructureAndAlgorithm/DataStructure/Tree/二叉排序树.md",
@@ -219,7 +221,6 @@
     "blog/posts/Cursor使用心得：从学习到开发.md",
     "projects/SpaceCaculator.md",
     "projects/MkDocs-Note.md",
-    "projects/3BodySimulator.md",
-    "blog/index.md"
+    "projects/3BodySimulator.md"
   ]
 }
