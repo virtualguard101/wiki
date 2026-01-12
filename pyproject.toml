@@ -16,7 +16,7 @@ dependencies = [
     "mkdocs-git-revision-date-localized-plugin>=1.4.0",
     "mkdocs-rss-plugin>=1.17.4",
     "mkdocs-awesome-nav>=3.2.0",
-    "mkdocs-note==3.0.2",
+    "mkdocs-note==3.1.0",
     "jupyter>=1.1.1",
     "numpy>=2.3.4",
     "matplotlib>=3.10.7",
