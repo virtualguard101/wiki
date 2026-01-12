@@ -29,7 +29,7 @@ publish: true
     **The only things researchers should abied by are debates and dialectics. Only by questioning everything at all times can one avoid falling into prejudice.**  
 
     !!! info "Notice"
-        - This is my personal notebook, the main text is written in **Simplified Chinese**, content is for reference only. If there are any errors, please feel free to correct them.
+        - This is my personal notebook, the main text is written in **Simplified Chinese**, some in English, content is for reference only. If there are any errors, please feel free to correct them.
 
         - Read this Wiki on PC browser for the best experience.
 
@@ -38,7 +38,7 @@ publish: true
     **学者应当遵循之物， 唯有知论与证辩。只有时刻保持对一切的质疑，才能避免陷入偏见。**
 
     !!! info "Notice"
-        - 这是我的个人笔记本，正文部分使用简体中文，内容仅供参考，如有错误，欢迎指正。
+        - 这是我的个人笔记本，正文部分使用简体中文，部分使用**英文**，内容仅供参考，如有错误，欢迎指正。
 
         - 请在PC浏览器上阅读此 Wiki 以获得最佳阅读体验。
 
