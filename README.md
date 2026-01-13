@@ -14,6 +14,9 @@ git clone -b obsidian https://github.com/virtualguard101/note.git
 
 Then open the `note/docs` folder in Obsidian.
 
+> [!NOTE]
+> In obsidian, jupyter notebook is not supported.
+
 ## Read in localhost
 
 Use [MkDocs](https://github.com/mkdocs/mkdocs) & [Mkdocs for Material](https://github.com/squidfunk/mkdocs-material) to build in localhost.
