@@ -194,8 +194,9 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "20f467b276bea52a",
+  "active": "9d215d562a6b0dea",
   "lastOpenFiles": [
+    "obsidian/DataStructure/408/查找的基本概念.md",
     "obsidian/DataStructure/408/图的应用.md",
     "obsidian/DataStructure/408/图的遍历.md",
     "obsidian/DataStructure/408/图的存储及基本操作.md",
@@ -220,7 +221,6 @@
     "202512052209.md",
     "blog/posts/Cursor Meetup ShangHai 要点记录：学生视角下的 AI+ 产品.md",
     "blog/posts/Cursor使用心得：从学习到开发.md",
-    "projects/SpaceCaculator.md",
-    "projects/MkDocs-Note.md"
+    "projects/SpaceCaculator.md"
   ]
 }
