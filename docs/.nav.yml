@@ -102,6 +102,17 @@ nav:
         - 图的应用: "obsidian/DataStructure/408/图的应用.md"
       - 查找:
         - 查找的基本概念: "obsidian/DataStructure/408/查找的基本概念.md"
+        - 顺序查找和折半查找: "obsidian/DataStructure/408/顺序查找和折半查找.md"
+        - 树型查找: "obsidian/DataStructure/408/树型查找.md"
+        - B树和B+树: "obsidian/DataStructure/408/B树和B+树.md"
+        - 散列表: "obsidian/DataStructure/408/散列表.md"
+      - 排序:
+        - 插入排序: "obsidian/DataStructure/408/插入排序.md"
+        - 交换排序: "obsidian/DataStructure/408/交换排序.md"
+        - 选择排序: "obsidian/DataStructure/408/选择排序.md"
+        - 其他内部排序: "obsidian/DataStructure/408/其他内部排序.md"
+        - 各种内部排序算法的比较及应用: "obsidian/DataStructure/408/各种内部排序算法的比较及应用.md"
+        - 外部排序: "obsidian/DataStructure/408/外部排序.md"
     - 操作系统:
       - "408":
         - 操作系统概述:
