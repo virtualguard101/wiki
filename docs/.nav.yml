@@ -150,18 +150,18 @@ nav:
           - 监督学习与非监督学习: "obsidian/MachineLearning/coursera/监督学习与非监督学习.md"
           - 回归: 
             - 回归模型概述: "obsidian/MachineLearning/coursera/回归模型概述.md"
-            - 模型表示法: "obsidian/MachineLearning/coursera/model-repr.ipynb"
+            # - 模型表示法: "obsidian/MachineLearning/coursera/model-repr.ipynb"
             - 成本函数概述: "obsidian/MachineLearning/coursera/成本函数概述.md"
-            - 成本函数可视化: "obsidian/MachineLearning/coursera/cost-func-visual.ipynb"
+            # - 成本函数可视化: "obsidian/MachineLearning/coursera/cost-func-visual.ipynb"
             - 梯度下降: "obsidian/MachineLearning/coursera/梯度下降.md"
-            - 一元线性回归模型的梯度下降实现: "obsidian/MachineLearning/coursera/linear-grad-desent.ipynb"
+            # - 一元线性回归模型的梯度下降实现: "obsidian/MachineLearning/coursera/linear-grad-desent.ipynb"
             - 多元线性回归模型: "obsidian/MachineLearning/coursera/多元线性回归模型.md"
-            - 特征缩放与特征工程: "obsidian/MachineLearning/coursera/feat-engineering.ipynb"
+            # - 特征缩放与特征工程: "obsidian/MachineLearning/coursera/feat-engineering.ipynb"
           - 分类:
-            - 逻辑回归: "obsidian/MachineLearning/coursera/logistic-regression.ipynb"
+            # - 逻辑回归: "obsidian/MachineLearning/coursera/logistic-regression.ipynb"
             - 决策边界: "obsidian/MachineLearning/coursera/决策边界.md"
-            - 逻辑损失与成本函数: "obsidian/MachineLearning/coursera/logistic-loss-cost.ipynb"
-            - 逻辑回归的梯度下降: "obsidian/MachineLearning/coursera/logistic-grad-desent.ipynb"
+            # - 逻辑损失与成本函数: "obsidian/MachineLearning/coursera/logistic-loss-cost.ipynb"
+            # - 逻辑回归的梯度下降: "obsidian/MachineLearning/coursera/logistic-grad-desent.ipynb"
           - 过拟合问题与正则化: "obsidian/MachineLearning/coursera/过拟合问题与正则化.md"
     - Web开发:
       - 入门基础:
