@@ -144,8 +144,12 @@ nav:
       - Linux环境下的进程创建与进程通信: "obsidian/OperatingSystem/Linux环境下的进程创建与进程通信.md"
     - 软件工程:
       - UML图: "obsidian/SoftwareEngineering/UML图.md"
-    # - 计算机听觉:
-    #   - 音乐信息检索:
+    - 音乐声学:
+      - 音乐声学概述: "obsidian/MusicAcoustics/音乐声学概述.md"
+    - 计算机听觉:
+      - 音乐信息检索:
+        - 乐理:
+          - 十二平均律: "obsidian/ComputerAudition/MusicInformationRetrieval/十二平均律.md"
     - 人工智能:
       - 机器学习:
         - "入门":
