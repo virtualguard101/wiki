@@ -2,7 +2,7 @@
 python3.12 -m venv env
 source env/bin/activate
 pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r requirements-vercel.txt
 
 # # Use uv instead
 # curl -LsSf https://astral.sh/uv/install.sh | sh
