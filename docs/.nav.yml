@@ -63,6 +63,9 @@ nav:
       - 离散数学:
         - 集合 & 数学符号与逻辑命题: "obsidian/Math/DiscreteMath/集合 & 数学符号与逻辑命题.md"
         - 证明: "obsidian/Math/DiscreteMath/证明.md"
+      - 高等数学:
+        - 微积分的本质:
+          - 导数: "obsidian/Math/Calculus/overview/导数.md"
       - 线性代数:
         - 行列式: "obsidian/Math/LinearAlgebra/行列式.md"
         - 行列式的展开: "obsidian/Math/LinearAlgebra/行列式的展开.md"
