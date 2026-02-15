@@ -66,6 +66,7 @@ nav:
       - 高等数学:
         - 微积分的本质:
           - 导数: "obsidian/Math/Calculus/overview/导数.md"
+          - 极限: "obsidian/Math/Calculus/overview/极限.md"
       - 线性代数:
         - 行列式: "obsidian/Math/LinearAlgebra/行列式.md"
         - 行列式的展开: "obsidian/Math/LinearAlgebra/行列式的展开.md"
