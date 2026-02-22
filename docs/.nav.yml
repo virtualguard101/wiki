@@ -65,10 +65,10 @@ nav:
         - 证明: "obsidian/Math/DiscreteMath/证明.md"
       - 高等数学:
         - 微积分的本质:
-          - 导数: "obsidian/Math/Calculus/overview/导数.md"
-          - 极限: "obsidian/Math/Calculus/overview/极限.md"
-          - 微积分: "obsidian/Math/Calculus/overview/微积分.md"
-          - 泰勒级数: "obsidian/Math/Calculus/overview/泰勒级数.md"
+          - 导数: "obsidian/Math/Calculus/overview/微积分的本质-导数.md"
+          - 极限: "obsidian/Math/Calculus/overview/微积分的本质-极限.md"
+          - 微积分: "obsidian/Math/Calculus/overview/微积分的本质-微积分.md"
+          - 泰勒级数: "obsidian/Math/Calculus/overview/微积分的本质-泰勒级数.md"
       - 线性代数:
         - Legacy:
           - 行列式: "obsidian/Math/LinearAlgebra/行列式.md"
@@ -82,7 +82,7 @@ nav:
           - 相似矩阵: "obsidian/Math/LinearAlgebra/相似矩阵.md"
           - 二次型: "obsidian/Math/LinearAlgebra/二次型.md"
         - 线性代数的本质:
-          - 向量: "obsidian/Math/LinearAlgebra/overview/向量.md"
+          - 向量: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-向量.md"
     - 数据结构与算法:
       - 绪论:
       #   - 算法和算法评价: "obsidian/DataStructure/408/算法和算法评价.md"

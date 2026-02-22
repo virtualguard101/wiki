@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9d215d562a6b0dea",
+            "id": "6812beaf8e1eb18a",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -179,8 +179,13 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "9d215d562a6b0dea",
+  "active": "6812beaf8e1eb18a",
   "lastOpenFiles": [
+    "obsidian/Math/LinearAlgebra/overview/线性代数的本质-向量.md",
+    "obsidian/Math/Calculus/overview/微积分的本质-微积分.md",
+    "obsidian/Math/Calculus/overview/微积分的本质-泰勒级数.md",
+    "obsidian/Math/Calculus/overview/微积分的本质-极限.md",
+    "obsidian/Math/Calculus/overview/微积分的本质-导数.md",
     "obsidian/OperatingSystem/408/进程的描述与控制.md",
     "obsidian/DataStructure/408/查找的基本概念.md",
     "obsidian/DataStructure/408/图的应用.md",
@@ -201,11 +206,6 @@
     "blog/posts/个人站点构建要点(改良版) && Web 开发简要实践.md",
     "obsidian/Tools/Astral uv.md",
     "blog/posts/docker-compose + nginx快速构建个人站点.md",
-    "blog/posts/Arch Linux安装要点记录.md",
-    "blog/posts/2024-2025：艰难的起步.md",
-    "202512052209.md",
-    "blog/posts/Cursor Meetup ShangHai 要点记录：学生视角下的 AI+ 产品.md",
-    "blog/posts/Cursor使用心得：从学习到开发.md",
-    "projects/SpaceCaculator.md"
+    "blog/posts/Arch Linux安装要点记录.md"
   ]
 }
