@@ -9,7 +9,6 @@ tags:
 authors:
   - virtualguard101
 mermaid: true
-# draft: false
 ---
 
 
