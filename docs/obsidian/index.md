@@ -13,7 +13,7 @@ publish: true
 
 <!-- ![](../assets/images/berkeley-eecs.png) -->
 
-![](../assets/images/iwalkslowly.webp)
+![](../assets/images/index_miku.jpg)
 
 *Image source: [Course Guides | UC berkeley EECS](https://hkn.eecs.berkeley.edu/courseguides){target="_blank"}*
 
