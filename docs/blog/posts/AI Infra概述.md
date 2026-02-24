@@ -1,7 +1,7 @@
 ---
 title: AI Infra概述
 date: 2026-02-23 16:00:00
-excerpt: 去年11月份在CS的学习生涯中遭遇了瓶颈，加上连续遭遇生理与心理上的双重打击，消沉了一段时间。考虑到接下来学业方面大概率以推进11408为主，在研究与工程方面上决定尽可能寻找一个贴近计算机基础学科的方向。经过一段时间的观察与思考，截至写这篇文章时，准备将AI Infra作为日后的主要研究方向.
+excerpt: 去年11月份在CS的自学生涯中遭遇了瓶颈，加上连续遭遇生理与心理上的双重打击，消沉了一段时间。考虑到接下来学业方面大概率以推进11408为主，在研究与工程方面上决定尽可能寻找一个贴近计算机基础学科的方向。经过一段时间的观察与思考，截至写这篇文章时，准备将AI Infra作为日后的主要研究方向.
 cover:
 categories: 
   - Projects
@@ -13,7 +13,7 @@ authors:
 mermaid: true
 ---
 
-**去年11月份在CS的学习生涯中遭遇了瓶颈，加上连续遭遇生理与心理上的双重打击，消沉了一段时间。考虑到接下来学业方面大概率以推进11408为主，在研究与工程方面上决定尽可能寻找一个贴近<i>计算机基础学科</i>的方向。经过一段时间的观察与思考，截至写这篇文章时，准备将<i>AI Infra</i>作为日后的主要研究方向**。
+**去年11月份在CS的自学生涯中遭遇了瓶颈，加上连续遭遇生理与心理上的双重打击，消沉了一段时间。考虑到接下来学业方面大概率以推进11408为主，在研究与工程方面上决定尽可能寻找一个贴近<i>计算机基础学科</i>的方向。经过一段时间的观察与思考，截至写这篇文章时，准备将<i>AI Infra</i>作为日后的主要研究方向**。
 
 AI Infra（AI Infrastructure, AI基础设施）技术栈[^1]，是支撑现代大模型训练、微调、推理、服务化部署和AI Agent运行的整套软硬件体系。它不像传统后端服务那样“搭几台服务器装个k8s”就行，而是高度依赖计算效率、成本控制、稳定性和弹性。
 
@@ -66,13 +66,13 @@ GPU / Network / Storage
 !!! tip "一些前沿方向"
     - 异构计算与编译优化
 
-      - [TVM](https://github.com/apache/tvm): 开源的机器学习编译器，支持将高效计算图部署到不同硬件上，优化加速.
+        - [TVM](https://github.com/apache/tvm): 开源的机器学习编译器，支持将高效计算图部署到不同硬件上，优化加速.
 
-      - [MLIR](https://github.com/llvm/mlir): LLVM 提供的多层次中间表示（MLIR），适用于编译与优化AI计算.
+        - [MLIR](https://github.com/llvm/mlir): LLVM 提供的多层次中间表示（MLIR），适用于编译与优化AI计算.
 
     - Serverless AI
 
-      - [FaaS](https://github.com/openfaas/faas): 提供一个Serverless框架，支持快速部署机器学习模型，优化推理延迟.
+        - [FaaS](https://github.com/openfaas/faas): 提供一个Serverless框架，支持快速部署机器学习模型，优化推理延迟.
 
 ## AI Infra的发展历程
 
@@ -258,7 +258,7 @@ GPU / Network / Storage
 
 ### 工程资料
 
-- [ColossalAI | [HPC-AI Tech](https://github.com/hpcaitech)](https://github.com/hpcaitech/ColossalAI) - https://github.com/hpcaitech/ColossalAI
+- [ColossalAI | HPC-AI Tech](https://github.com/hpcaitech/ColossalAI) - https://github.com/hpcaitech/ColossalAI
 
 
 
@@ -270,7 +270,7 @@ GPU / Network / Storage
 
 [^3]: [深入高可用系统原理与设计](https://www.thebyte.com.cn/)
 
-[^4]: [2025-2026 AI Infra技术栈全景 | Grok](https://grok.com/share/bGVnYWN5_3741cd34-6bd7-4384-9092-48959371736f)
+[^4]: [2025-2026 AI Infra技术栈全景 | Grok](https://grok.com/share/bGVnYWN5_32ec2272-d598-4f07-ab46-f7ebb3344cc8)
 
 [^5]: [AI Infra技术栈分析 | ChatGPT](https://chatgpt.com/share/699d7417-4ee0-800e-95bd-93c8e08e5901)
 
