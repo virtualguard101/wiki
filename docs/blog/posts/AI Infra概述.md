@@ -204,23 +204,76 @@ GPU / Network / Storage
 
 ## 与传统Infra的关系
 
-## 行业现状
+- 二者的**共性**不言而喻，无论是传统Infra还是AI Infra，二者都需要高效、稳定整合“计算、通信、存储”三大核心资源。基础设施之所以被称为基础设施，就是因为它能够为上层应用提供基础的支撑，使得上层应用能够更加高效、稳定地运行。
+
+- 二者的**差异**则更为关键，且根源在于核心硬件不同：传统 Infra 以 CPU 为核心，AI Infra 以 GPU 为核心，这种差异直接导致了通信、存储、软件适配的全链路不同[^2]。
+
+    从硬件逻辑看，CPU 擅长串行计算，适合处理复杂但低并发的任务；GPU 擅长并行计算，适合处理简单但高并发的任务。
+
+    AI Infra 对通信与存储的要求远超传统 Infra：通信层面，GPU 集群需高带宽、低延迟的网络，否则会因数据传输慢拖慢并行计算；传统 Infra 用 10G/100G 以太网即可满足需求。
+
+    存储层面，AI Infra 需高 IOPS 的 NVMe SSD 存储，以支撑每秒数十 GB 的训练数据读取；传统 Infra 用 HDD 机械硬盘即可应对文档、交易数据的存储需求。
+
+## 行业分析
+
+![](https://pic1.zhimg.com/80/v2-03545ba48df4c0b2dfee6afc195b47a3_1440w.webp?source=2c26e567)
+
+### 行业现状概述
+
+人工智能基础设施市场持续呈现显著增长态势，这一趋势预计将在未来长期延续[^6]。
+
+> [有没有大佬帮我解释一下AI Infra到底是干啥的？ - wxz131的回答-1 | 知乎](https://www.zhihu.com/question/4023337465/answer/1950623317519242011?share_code=A6LoAAhNcnIU&utm_psn=2009692977648395347)
+
+### 就业分析
+
+根据业务定位，AI Infra可分为**数据Infra**、**训练Infra**和**推理Infra**三类，分别从事大模型从数据管线搭建，训练到上线部署三个环节的工程化工作[^7]。
+
+行业内需求较高的通常是推理Infra，也有部分厂商将其与训练Infra合并为**推训Infra**一个岗位，主要处理的工作大概就是优化调度算法（用Python）；把某些模型网络层面的计算抽象成OP，再用Cuda kernel重写一遍（用C++）；又或者对着供应商那边工程师都有概率无法提供解决方案的特种AI加速器斗智斗勇，写了半年你自以为优雅的框架驱动洋洋得意，然后被通知今年硬件供应商换了一批[^7]。
+
+#### 三大核心方向
+
+> [有没有大佬帮我解释一下AI infra到底是干啥的？ - wxz131的回答-2 | 知乎](https://www.zhihu.com/question/4023337465/answer/1968440172141085052)
+
+#### 总结
+
+**AI Infra 行业的竞争本质是“垂直整合能力”与“认知深度”的竞争**[^2]。
+
+*核心原则是靠近模型、靠近硬件*: AI Infra 的价值不在于孤立的中间层优化，而在于与上下游的垂直整合。要么主动参与模型设计，将 Infra 优化逻辑融入模型结构；要么深度协同硬件厂商，把硬件特性转化为 Infra 的技术壁垒[^2]。
+
+*充分利用算力的，长远是赢家*: AI Infra 的本质是“延续摩尔定律”，在硬件性能增速放缓的背景下，通过软硬件协同优化将硬件潜力发挥到极致。例如英伟达 GPU 正是凭借 Infra 层面的并行计算优化，实现每两年算力翻一倍，持续抢占 CPU 在 AI 领域的市场份额[^2]。
 
 ## 开源项目参考
 
 ### 理论资料
 
+#### 学习社区/教程
+
 - [AIInfra | GitHub](https://github.com/Infrasys-AI/AIInfra) - https://github.com/Infrasys-AI/AIInfra
 
 - [AIInfra AI基础设施 - Home](https://infrasys-ai.github.io/aiinfra-docs/) - https://infrasys-ai.github.io/aiinfra-docs/
 
+#### 学术论文/会议
+
+
+
+### 工程资料
+
+- [ColossalAI | [HPC-AI Tech](https://github.com/hpcaitech)](https://github.com/hpcaitech/ColossalAI) - https://github.com/hpcaitech/ColossalAI
+
+
+
+
 
 [^1]: [什么是 AI 基础设施？| IBM](https://www.ibm.com/cn-zh/think/topics/ai-infrastructure)
 
-[^2]: [有没有大佬帮我解释一下AI Infra到底是干啥的？| 知乎解答](https://www.zhihu.com/question/4023337465/answer/1950623317519242011?share_code=A6LoAAhNcnIU&utm_psn=2009692977648395347)
+[^2]: [有没有大佬帮我解释一下AI infra到底是干啥的？ - wxz131的回答-1 | 知乎](https://www.zhihu.com/question/4023337465/answer/1950623317519242011?share_code=A6LoAAhNcnIU&utm_psn=2009692977648395347)
 
 [^3]: [深入高可用系统原理与设计](https://www.thebyte.com.cn/)
 
 [^4]: [2025-2026 AI Infra技术栈全景 | Grok](https://grok.com/share/bGVnYWN5_3741cd34-6bd7-4384-9092-48959371736f)
 
 [^5]: [AI Infra技术栈分析 | ChatGPT](https://chatgpt.com/share/699d7417-4ee0-800e-95bd-93c8e08e5901)
+
+[^6]: [AI infrastructure: Midyear 2025 update and future technology considerations | S&P Global](https://www.spglobal.com/market-intelligence/en/news-insights/research/2025/10/ai-infrastructure-midyear-2025-update-and-future-technology-considerations)
+
+[^7]: [在找工作过程中发现社交媒体上好多人在唱衰 AI infra，大家怎么看？ - 锦恢的回答| 知乎](https://www.zhihu.com/question/1896947197616046279/answer/1962610179456636485?share_code=LEc9JPp9mnOF&utm_psn=2009692824292054560)
