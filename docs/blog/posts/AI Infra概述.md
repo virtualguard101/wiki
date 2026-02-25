@@ -272,15 +272,35 @@ GPU / Network / Storage
 
     - [SpecInfer: Accelerating Large Language Model Serving with Tree-based Speculative Inference and Verification](https://dl.acm.org/doi/abs/10.1145/3620666.3651335)
 
+- [MLSys Proceedings](https://proceedings.mlsys.org/): 重点看2024卷和2025卷
 
 ##### 核心会议
 
+- [MLSys](https://mlsys.org/): ML + Systems 交叉，最直接的AI Infra顶级会
 
+- [USENIX Symposium on Operating Systems Design and Implementation](https://www.usenix.org/conferences): 系统顶级会，很多AI Infra突破首发在这里
+
+- [USENIX Symposium on Networked Systems Design and Implementation](https://www.usenix.org/conferences): 网络 + 分布式系统，RoCE/InfiniBand优化常见
+
+##### 高影响力项目组
+
+- [Stanford DAWN](https://dawn.cs.stanford.edu/): A Five-Year Research Project to Democratize AI
+
+- [UC Berkeley RISELab](https://rise.cs.berkeley.edu/): REAL-TIME INTELLIGENT SECURE EXPLAINABLE SYSTEMS
+
+- [NVIDIA Research](https://www.nvidia.com/en-us/research/): Research at NVIDIA 
+
+- [Microsoft DeepSpeed | Microsoft Research](https://www.microsoft.com/en-us/research/project/deepspeed/)
+
+- [*DeepSeek Infra](https://github.com/deepseek-ai/open-infra-index)
 
 ### 工程资料
 
+- [ai-infrastructure | GitHub Topics](https://github.com/topics/ai-infrastructure)
+
 - [ColossalAI | HPC-AI Tech](https://github.com/hpcaitech/ColossalAI) - https://github.com/hpcaitech/ColossalAI
 
+- [DeepSpeed](https://www.deepspeed.ai/) - https://www.deepspeed.ai/
 
 
 
