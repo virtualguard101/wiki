@@ -5,6 +5,7 @@ alias sc := sync
 alias ob := obsidian
 alias u := update
 alias us := usync
+alias nb := newblog
 
 serve:
     uv run mkdocs serve
@@ -31,3 +32,6 @@ usync:
     just u
     just sc
     just ob
+
+newblog title="":
+    cp templates/blog.md "docs/blog/posts/{{ title }}.md"
