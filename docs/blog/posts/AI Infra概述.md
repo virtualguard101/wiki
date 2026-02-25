@@ -252,7 +252,28 @@ GPU / Network / Storage
 
 - [AIInfra AI基础设施 - Home](https://infrasys-ai.github.io/aiinfra-docs/) - https://infrasys-ai.github.io/aiinfra-docs/
 
-#### 学术论文/会议
+#### 学术资料[^4]
+
+##### 高影响力论文
+
+- 分布式训练 & 并行策略
+
+    - [DeepSpeed系列](https://dl.acm.org/doi/abs/10.1145/3394486.3406703)（Microsoft）: [ZeRO系列](https://dl.acm.org/doi/abs/10.1145/3458817.3476205)、[DeepSpeed-MoE](https://proceedings.mlr.press/v162/rajbhandari22a.html?ref=https://githubhelp.com)、[DeepSpeed-Inference](https://ieeexplore.ieee.org/abstract/document/10046087)等
+
+    - Megatron系列（NVIDIA）: [Megatron-LM](https://arxiv.org/abs/1909.08053)等
+
+    - [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)
+
+- 推理 & Serving系统
+
+    - [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://dl.acm.org/doi/abs/10.1145/3600006.3613165)（vLLM原论文, SOSP 2023）: PagedAttention奠基作，vLLM 的核心论文，几乎所有高吞吐推理引擎的起点
+
+    - [SGLang: Efficient Execution of Structured Language Model Programs](https://proceedings.neurips.cc/paper_files/paper/2024/hash/724be4472168f31ba1c9ac630f15dec8-Abstract-Conference.html)
+
+    - [SpecInfer: Accelerating Large Language Model Serving with Tree-based Speculative Inference and Verification](https://dl.acm.org/doi/abs/10.1145/3620666.3651335)
+
+
+##### 核心会议
 
 
 
@@ -270,7 +291,7 @@ GPU / Network / Storage
 
 [^3]: [深入高可用系统原理与设计](https://www.thebyte.com.cn/)
 
-[^4]: [2025-2026 AI Infra技术栈全景 | Grok](https://grok.com/share/bGVnYWN5_32ec2272-d598-4f07-ab46-f7ebb3344cc8)
+[^4]: [2025-2026 AI Infra技术栈全景 | Grok](https://grok.com/share/bGVnYWN5_3aa8e1f8-780a-4107-9afa-1c3197c4dde6)
 
 [^5]: [AI Infra技术栈分析 | ChatGPT](https://chatgpt.com/share/699d7417-4ee0-800e-95bd-93c8e08e5901)
 
