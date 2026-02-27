@@ -15,8 +15,6 @@ publish: true
 
 ![](../assets/images/index_miku.jpg)
 
-*Image source: [Course Guides | UC berkeley EECS](https://hkn.eecs.berkeley.edu/courseguides){target="_blank"}*
-
 <!-- <div>
   <p>
     <em>
@@ -88,7 +86,8 @@ publish: true
 
     欢迎在评论区留下你的见解，如果它有价值，我将感激不尽。
 
+![](../assets/images/berkeley-eecs.png)
 
-![](https://butterblock233.github.io/posts/images/Hello.gif)
+*Image source: [Course Guides | UC berkeley EECS](https://hkn.eecs.berkeley.edu/courseguides)*
 
 *GIF source: [Hello Apple by Meritt Thomas](https://dribbble.com/shots/17347386-Hello-Apple){target="_blank"}*
