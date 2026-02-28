@@ -89,5 +89,3 @@ publish: true
 ![](../assets/images/berkeley-eecs.png)
 
 *Image source: [Course Guides | UC berkeley EECS](https://hkn.eecs.berkeley.edu/courseguides)*
-
-*GIF source: [Hello Apple by Meritt Thomas](https://dribbble.com/shots/17347386-Hello-Apple){target="_blank"}*
