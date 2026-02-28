@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+    <title>vg101&#x27;s Wiki</title>
+    <description>vg101&#x27;s Wiki</description>
+    <link>https://wiki.virtualguard101.com/</link>
+    <atom:link href="https://wiki.virtualguard101.com/rss.xml" rel="self" type="application/rss+xml" />
+    <docs>https://github.com/virtualguard101/wiki</docs>
+    <language>zh</language>
+    <pubDate>Sat, 28 Feb 2026 18:46:45 +0000</pubDate>
+    <lastBuildDate>Sat, 28 Feb 2026 18:46:45 +0000</lastBuildDate>
+    <ttl>1440</ttl>
+    <generator>This site no longer provides RSS and the file is only for backward compatibility</generator>
+</channel>
+</rss>
