@@ -86,6 +86,7 @@ nav:
           - 矩阵与线性变换: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-矩阵与线性变换.md"
           - 矩阵乘法与复合线性变换: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-矩阵乘法与复合线性变换.md"
           - 行列式: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-行列式.md"
+          - 求解线性方程组: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-求解线性方程组.md"
     - 数据结构与算法:
       - 绪论:
       #   - 算法和算法评价: "obsidian/DataStructure/408/算法和算法评价.md"
