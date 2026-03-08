@@ -90,8 +90,8 @@ nav:
           - 求解线性方程组: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-求解线性方程组.md"
           - 点积与对偶性: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-点积与对偶性.md"
           - 叉积: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-叉积.md"
-      # - 概率论与数理统计:
-
+      - 概率论与数理统计:
+        - 事件的概率及运算: "obsidian/Math/Probability/事件的概率及运算.md"
     - 数据结构与算法:
       - 绪论:
       #   - 算法和算法评价: "obsidian/DataStructure/408/算法和算法评价.md"
