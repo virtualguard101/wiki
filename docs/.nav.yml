@@ -61,8 +61,9 @@ nav:
         - Java类与对象: "obsidian/ProgrammingLanguage/java/Java类与对象.md"
     - 数学:
       - 离散数学:
-        - 集合 & 数学符号与逻辑命题: "obsidian/Math/DiscreteMath/集合 & 数学符号与逻辑命题.md"
-        - 证明: "obsidian/Math/DiscreteMath/证明.md"
+        - CS70:
+          - 集合 & 数学符号与逻辑命题: "obsidian/Math/DiscreteMath/集合 & 数学符号与逻辑命题.md"
+          - 证明: "obsidian/Math/DiscreteMath/证明.md"
       - 高等数学:
         - 微积分的本质:
           - 导数: "obsidian/Math/Calculus/overview/微积分的本质-导数.md"
@@ -88,6 +89,9 @@ nav:
           - 行列式: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-行列式.md"
           - 求解线性方程组: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-求解线性方程组.md"
           - 点积与对偶性: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-点积与对偶性.md"
+          - 叉积: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-叉积.md"
+      # - 概率论与数理统计:
+
     - 数据结构与算法:
       - 绪论:
       #   - 算法和算法评价: "obsidian/DataStructure/408/算法和算法评价.md"
@@ -156,6 +160,12 @@ nav:
         - "The Abstraction: The Process": "obsidian/OperatingSystem/virtualization/The Abstraction - The Process.md"
         - "Process API": "obsidian/OperatingSystem/virtualization/Process API.md"
       - Linux环境下的进程创建与进程通信: "obsidian/OperatingSystem/Linux环境下的进程创建与进程通信.md"
+    # - 计算机网络:
+
+    # - 计算机组成原理:
+
+    # - 数据库原理:
+
     - 软件工程:
       - UML图: "obsidian/SoftwareEngineering/UML图.md"
     - 人工智能:
