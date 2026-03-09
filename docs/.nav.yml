@@ -91,7 +91,7 @@ nav:
           - 点积与对偶性: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-点积与对偶性.md"
           - 叉积: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-叉积.md"
       # - 概率论与数理统计:
-        # - 事件的概率及运算: "obsidian/Math/Probability/事件的概率及运算.md"
+
     - 数据结构与算法:
       - 绪论:
       #   - 算法和算法评价: "obsidian/DataStructure/408/算法和算法评价.md"
@@ -161,8 +161,9 @@ nav:
         - "Process API": "obsidian/OperatingSystem/virtualization/Process API.md"
       - Linux环境下的进程创建与进程通信: "obsidian/OperatingSystem/Linux环境下的进程创建与进程通信.md"
     - 计算机网络:
-      - 计算机网络体系结构:
-        - 计算机网络概述: "obsidian/ComputerNetwork/408/计算机网络概述.md"
+      - "408":
+        - 计算机网络体系结构:
+          - 计算机网络概述: "obsidian/ComputerNetwork/408/计算机网络概述.md"
     # - 计算机组成原理:
 
     # - 数据库原理:
