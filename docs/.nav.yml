@@ -64,6 +64,7 @@ nav:
         - CS70:
           - 集合 & 数学符号与逻辑命题: "obsidian/Math/DiscreteMath/集合 & 数学符号与逻辑命题.md"
           - 证明: "obsidian/Math/DiscreteMath/证明.md"
+        # [ ] 命题逻辑的基本概念: "obsidian/Math/DiscreteMath/legacy/命题逻辑的基本概念.md"
       - 高等数学:
         - 微积分的本质:
           - 导数: "obsidian/Math/Calculus/overview/微积分的本质-导数.md"
@@ -132,8 +133,9 @@ nav:
         - 各种内部排序算法的比较及应用: "obsidian/DataStructure/408/各种内部排序算法的比较及应用.md"
         - 外部排序: "obsidian/DataStructure/408/外部排序.md"
     - 计算机组成与体系结构:
-      # - "408":
-
+      - "408":
+        - 计算机系统概述:
+          - 计算机系统层次结构: "obsidian/ComputerOrganizationArchitecture/408/计算机系统层次结构.md"
       - 计算机概述: "obsidian/ComputerOrganizationArchitecture/计算机概述.md"
     - 操作系统:
       - "408":
