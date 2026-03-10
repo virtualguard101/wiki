@@ -65,6 +65,7 @@ nav:
           - 集合 & 数学符号与逻辑命题: "obsidian/Math/DiscreteMath/集合 & 数学符号与逻辑命题.md"
           - 证明: "obsidian/Math/DiscreteMath/证明.md"
         - 命题逻辑的基本概念: "obsidian/Math/DiscreteMath/legacy/命题逻辑的基本概念.md"
+        - 命题逻辑等值演算: "obsidian/Math/DiscreteMath/legacy/命题逻辑等值演算.md"
       - 高等数学:
         - 微积分的本质:
           - 导数: "obsidian/Math/Calculus/overview/微积分的本质-导数.md"
@@ -91,8 +92,9 @@ nav:
           - 求解线性方程组: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-求解线性方程组.md"
           - 点积与对偶性: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-点积与对偶性.md"
           - 叉积: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-叉积.md"
-      # - 概率论与数理统计:
-
+      - 概率论与数理统计:
+        - Legacy:
+          - 事件的运算及概率: "obsidian/Math/Probability/legacy/事件的运算及概率.md"
     - 数据结构与算法:
       - 绪论:
       #   - 算法和算法评价: "obsidian/DataStructure/408/算法和算法评价.md"
