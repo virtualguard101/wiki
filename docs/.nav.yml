@@ -131,6 +131,10 @@ nav:
         - 其他内部排序: "obsidian/DataStructure/408/其他内部排序.md"
         - 各种内部排序算法的比较及应用: "obsidian/DataStructure/408/各种内部排序算法的比较及应用.md"
         - 外部排序: "obsidian/DataStructure/408/外部排序.md"
+    - 计算机组成与体系结构:
+      # - "408":
+
+      - 计算机概述: "obsidian/ComputerOrganizationArchitecture/计算机概述.md"
     - 操作系统:
       - "408":
         - 操作系统概述:
@@ -164,8 +168,6 @@ nav:
       - "408":
         - 计算机网络体系结构:
           - 计算机网络概述: "obsidian/ComputerNetwork/408/计算机网络概述.md"
-    # - 计算机组成原理:
-
     # - 数据库原理:
 
     - 软件工程:
