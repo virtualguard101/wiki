@@ -95,6 +95,14 @@ nav:
       - 概率论与数理统计:
         - Legacy:
           - 事件的运算及概率: "obsidian/Math/Probability/legacy/事件的运算及概率.md"
+        # - "408":
+        #   - 概率论的基本概念:
+        #     [ ] - 随机试验: "obsidian/Math/Probability/408/随机试验.md"
+        #     [ ] - 样本空间和随机事件: "obsidian/Math/Probability/408/样本空间和随机事件.md"
+        #     [ ] - 频率与概率: "obsidian/Math/Probability/408/频率与概率.md"
+        #     [ ] - 古典概型: "obsidian/Math/Probability/408/古典概型.md"
+        #     [ ] - 条件概率: "obsidian/Math/Probability/408/条件概率.md"
+        #     [ ] - 独立性: "obsidian/Math/Probability/408/独立性.md"
     - 数据结构与算法:
       - 绪论:
       #   - 算法和算法评价: "obsidian/DataStructure/408/算法和算法评价.md"
