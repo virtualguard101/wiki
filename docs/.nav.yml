@@ -172,6 +172,7 @@ nav:
       - "408":
         - 计算机网络体系结构:
           - 计算机网络概述: "obsidian/ComputerNetwork/408/计算机网络概述.md"
+          - 计算机网络体系结构与参考模型: "obsidian/ComputerNetwork/408/计算机网络体系结构与参考模型.md"
     # - 数据库原理:
 
     - 软件工程:
