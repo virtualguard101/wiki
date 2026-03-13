@@ -14,7 +14,7 @@ theme:
   name: material
   language: en
   custom_dir: overrides
-  favicon: assets/logo.jpg
+  favicon: assets/avatar_1.jpg
 
   features:
     - announce.dismiss

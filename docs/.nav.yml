@@ -148,7 +148,11 @@ nav:
       - "408":
         - 计算机系统概述:
           - 计算机系统层次结构: "obsidian/ComputerOrganizationArchitecture/408/计算机系统层次结构.md"
+          - 计算机性能指标: "obsidian/ComputerOrganizationArchitecture/408/计算机性能指标.md"
+        - 数据的表示和运算:
+          - 数制与编码: "obsidian/ComputerOrganizationArchitecture/408/数制与编码.md"
       - 计算机概述: "obsidian/ComputerOrganizationArchitecture/计算机概述.md"
+      - 数据的表示: "obsidian/ComputerOrganizationArchitecture/数据的表示.md"
     - 操作系统:
       - "408":
         - 操作系统概述:
