@@ -8,20 +8,6 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:obsidian/OperatingSystem/408  ",
-      "color": {
-        "a": 1,
-        "rgb": 14701138
-      }
-    },
-    {
-      "query": "path:obsidian/DataStructure/408  ",
-      "color": {
-        "a": 1,
-        "rgb": 14701138
-      }
-    },
-    {
       "query": "tag:#Blog  ",
       "color": {
         "a": 1,
@@ -33,6 +19,13 @@
       "color": {
         "a": 1,
         "rgb": 774649
+      }
+    },
+    {
+      "query": "tag:#考研408  ",
+      "color": {
+        "a": 1,
+        "rgb": 14701145
       }
     }
   ],
@@ -46,6 +39,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.93133665483022,
-  "close": true
+  "scale": 0.8206514081229851,
+  "close": false
 }

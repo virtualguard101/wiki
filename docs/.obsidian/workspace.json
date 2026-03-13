@@ -181,6 +181,7 @@
   },
   "active": "6812beaf8e1eb18a",
   "lastOpenFiles": [
+    "obsidian/ProgrammingLanguage/cpp/cs106l/初始化与引用操作.md",
     "obsidian/Math/LinearAlgebra/overview/线性代数的本质-向量.md",
     "obsidian/Math/Calculus/overview/微积分的本质-微积分.md",
     "obsidian/Math/Calculus/overview/微积分的本质-泰勒级数.md",
@@ -205,7 +206,6 @@
     "obsidian/Tools/linux/Linux基础、杂项.md",
     "blog/posts/个人站点构建要点(改良版) && Web 开发简要实践.md",
     "obsidian/Tools/Astral uv.md",
-    "blog/posts/docker-compose + nginx快速构建个人站点.md",
-    "blog/posts/Arch Linux安装要点记录.md"
+    "blog/posts/docker-compose + nginx快速构建个人站点.md"
   ]
 }
