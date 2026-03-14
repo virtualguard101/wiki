@@ -191,8 +191,9 @@ nav:
           - 通信基础: "obsidian/ComputerNetwork/408/通信基础.md"
           - 传输介质: "obsidian/ComputerNetwork/408/传输介质.md"
           - 物理层设备: "obsidian/ComputerNetwork/408/物理层设备.md"
-    # - 数据库原理:
-
+    - 数据库原理:
+      - 数据库系统概述:
+        - 数据库系统的基本概念: "obsidian/Database/数据库系统的基本概念.md"
     - 软件工程:
       - UML图: "obsidian/SoftwareEngineering/UML图.md"
     - 人工智能:
