@@ -93,16 +93,8 @@ nav:
           - 点积与对偶性: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-点积与对偶性.md"
           - 叉积: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-叉积.md"
       - 概率论与数理统计:
-        - Legacy:
-          - 事件的运算及概率: "obsidian/Math/Probability/legacy/事件的运算及概率.md"
-        # - "408":
-        #   - 概率论的基本概念:
-        #     [ ] - 随机试验: "obsidian/Math/Probability/408/随机试验.md"
-        #     [ ] - 样本空间和随机事件: "obsidian/Math/Probability/408/样本空间和随机事件.md"
-        #     [ ] - 频率与概率: "obsidian/Math/Probability/408/频率与概率.md"
-        #     [ ] - 古典概型: "obsidian/Math/Probability/408/古典概型.md"
-        #     [ ] - 条件概率: "obsidian/Math/Probability/408/条件概率.md"
-        #     [ ] - 独立性: "obsidian/Math/Probability/408/独立性.md"
+        - 事件的运算及概率: "obsidian/Math/Probability/事件的运算及概率.md"
+        - 条件概率和全概率公式: "obsidian/Math/Probability/条件概率和全概率公式.md"
       - 数学建模:
         - 部分资源: "obsidian/Math/MathematicalModeling/数学建模部分资源.md"
     - 数据结构与算法:
@@ -191,11 +183,25 @@ nav:
           - 通信基础: "obsidian/ComputerNetwork/408/通信基础.md"
           - 传输介质: "obsidian/ComputerNetwork/408/传输介质.md"
           - 物理层设备: "obsidian/ComputerNetwork/408/物理层设备.md"
+        - 数据链路层:
+          - 数据链路层的功能: "obsidian/ComputerNetwork/408/数据链路层的功能.md"
+          - 组帧: "obsidian/ComputerNetwork/408/组帧.md"
+          - 差错控制: "obsidian/ComputerNetwork/408/差错控制.md"
+          - 流量控制与可靠传输机制: "obsidian/ComputerNetwork/408/流量控制与可靠传输机制.md"
+          - 介质访问控制: "obsidian/ComputerNetwork/408/介质访问控制.md"
+          - 局域网: "obsidian/ComputerNetwork/408/局域网.md"
     - 数据库系统:
       - 数据库系统概述:
         - 数据库系统的基本概念: "obsidian/Database/数据库系统的基本概念.md"
         - 数据库系统的特点与组成: "obsidian/Database/数据库系统的特点与组成.md"
         - 数据库系统结构: "obsidian/Database/数据库系统结构.md"
+      - 信息与数据模型:
+        - 信息的三种世界及描述: "obsidian/Database/信息的三种世界及描述.md"
+        - 数据模型: "obsidian/Database/数据模型.md"
+        - 概念模型: "obsidian/Database/概念模型.md"
+        - 逻辑模型: "obsidian/Database/逻辑模型.md"
+        - 概念模型向逻辑模型的转换: "obsidian/Database/概念模型向逻辑模型的转换.md"
+        - 关系模型: "obsidian/Database/关系模型.md"
     - 软件工程:
       - UML图: "obsidian/SoftwareEngineering/UML图.md"
     - 人工智能:
