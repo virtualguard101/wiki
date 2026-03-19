@@ -20,6 +20,7 @@ nav:
       - Astral uv: "obsidian/Tools/Astral uv.md"
       - Conda: "obsidian/Tools/Conda.md"
       - Jupyter Notebook: "obsidian/Tools/jupyter.ipynb"
+      - chezmoi: "obsidian/Tools/chezmoi.md"
       - 构建工具:
         - GNU Make: "obsidian/Tools/BuildTools/GNU Make.md"
         - CMake: "obsidian/Tools/BuildTools/CMake.md"
