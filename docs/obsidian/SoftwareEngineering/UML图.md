@@ -3,6 +3,8 @@ date: 2025-10-10 12:03:00
 title: UML图
 permalink:
 publish: true
+tags:
+  - 软件工程
 ---
 
 # UML图

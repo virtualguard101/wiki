@@ -206,6 +206,7 @@ nav:
         - 关系模型: "obsidian/Database/关系模型.md"
     - 软件工程:
       - UML图: "obsidian/SoftwareEngineering/UML图.md"
+      - 开发流程与开发规范: "obsidian/SoftwareEngineering/开发流程与开发规范.md"
     - 人工智能:
       - 机器学习:
         - "入门":
@@ -225,6 +226,8 @@ nav:
             # - 逻辑损失与成本函数: "obsidian/MachineLearning/coursera/logistic-loss-cost.ipynb"
             # - 逻辑回归的梯度下降: "obsidian/MachineLearning/coursera/logistic-grad-desent.ipynb"
           - 过拟合问题与正则化: "obsidian/MachineLearning/coursera/过拟合问题与正则化.md"
+      - 智能体:
+        - 智能体概述: "obsidian/ArtificialIntelligence/智能体概述.md"
     - Web开发:
       - 入门基础:
         - HTML要点: "obsidian/Misc/HTML要点.md"
