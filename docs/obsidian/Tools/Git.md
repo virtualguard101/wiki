@@ -510,6 +510,8 @@ git add .
 !!! warning
     若在添加 Git 子模块前就执行了暂存操作，需要首先执行`git rm --cached <submodule_name> -f`强制清除。
 
+#### 添加一个子模块
+
 - 通过以下命令向一个已经存在的 git 仓库添加 Git 子模块：
 ```bash
 git submodule add <url> <repo_name>
@@ -531,6 +533,23 @@ git submodule update
 ```bash
 git submodule update --init --recursive # 首次克隆
 git submodule update --remote --merge   # 后续更新
+```
+
+#### 移除一个子模块
+
+- 解除子模块初始化
+```bash
+git submodule deinit -f -- <submodule_path>
+```
+
+- 删除`.git/modules/<submodule_path>`目录
+```bash
+rm -rf .git/modules/<submodule_path>
+```
+
+- 从索引和工作区中移除子模块（同时会修改`.gitmodules`文件）
+```bash
+git rm -f <submodule_path>
 ```
 
 ## 工程应用
