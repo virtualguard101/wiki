@@ -79,4 +79,6 @@ The minimum depth level is 1, and the maximum is 10. Lower depth levels cover fo
 10. Level 10: Cutting-Edge Research: Explore the latest research and discoveries, providing profound understanding of current progress and future directions.
 This standard can also represent the depth of content students expect to learn.
 
-- If document formatting issues are found, they should be promptly raised using the `📝 A minor formatting suggestion` tag and appended at the end of the response
+- If document formatting issues are found, they should be promptly raised using the `📝 A minor formatting suggestion` tag and appended at the end of the response.
+
+- When user requests an instruction similar to "completing notes based on the tag directory / the structure / the exists content of the note," please fill it in using concise, simple, and easy-to-understand language suitable for beginners, preferably supplemented with practical examples to aid comprehension.
