@@ -3,6 +3,9 @@ date: 2025-10-13 23:03:00
 title: Java类与对象
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - Java
 ---
 
 # Java类与对象

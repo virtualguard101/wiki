@@ -3,6 +3,9 @@ date: 2025-11-22 01:33:16
 title: Golang接口
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - Golang
 ---
 
 # Golang 接口

@@ -3,6 +3,8 @@ date: 2025-10-10 15:23:00
 title: Just
 permalink: 
 publish: true
+tags:
+  - 工具
 ---
 
 # Just

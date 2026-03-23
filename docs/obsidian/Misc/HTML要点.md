@@ -3,6 +3,8 @@ date: 2025-07-10 02:26:00
 title: HTML 要点
 permalink: 
 publish: true
+tags:
+  - 杂项学习
 ---
 
 # HTML 要点

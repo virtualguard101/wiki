@@ -3,6 +3,8 @@ date: 2025-10-20 23:41:43
 title: 使用SSH访问GitHub远程仓库
 permalink:
 publish: true
+tags:
+  - 解决方案
 ---
 
 # 使用SSH访问GitHub远程仓库

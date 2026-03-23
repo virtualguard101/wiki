@@ -3,6 +3,9 @@ date: 2025-10-20 09:52:14
 title: htop
 permalink: 
 publish: true
+tags:
+  - 工具
+  - Linux
 ---
 
 # htop

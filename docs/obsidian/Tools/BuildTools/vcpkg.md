@@ -3,6 +3,9 @@ date: 2025-05-29 22:26:00
 title: vcpkg
 permalink: 
 publish: true
+tags:
+  - 工具
+  - 构建工具
 ---
 
 # vcpkg

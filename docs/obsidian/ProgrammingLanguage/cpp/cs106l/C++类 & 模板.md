@@ -3,6 +3,10 @@ date: 2025-05-15 00:29:00
 title: C++类 & 模板
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - C++
+  - CS106L
 ---
 
 # C++类 & 模板

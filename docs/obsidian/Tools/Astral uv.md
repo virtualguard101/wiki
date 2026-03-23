@@ -3,6 +3,9 @@ date: 2025-10-14 09:11:00
 title: Astral uv
 permalink: 
 publish: true
+tags:
+  - 工具
+  - Python
 ---
 
 # Astral uv

@@ -3,6 +3,9 @@ date: 2025-07-20 09:52:00
 title: JavaScript入门要点
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - JavaScript
 ---
 
 # JavaScript 入门要点

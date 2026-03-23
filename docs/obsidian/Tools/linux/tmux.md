@@ -3,6 +3,9 @@ date: 2025-08-09 11:20:00
 title: tmux
 permalink: 
 publish: true
+tags:
+  - 工具
+  - Linux
 ---
 
 # tmux

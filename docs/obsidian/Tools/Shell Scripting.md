@@ -3,6 +3,10 @@ date: 2025-06-22 14:00:00
 title: Shell Scripting
 permalink: 
 publish: true
+tags:
+  - 工具
+  - Linux
+  - 杂项学习
 ---
 
 # Shell Scripting

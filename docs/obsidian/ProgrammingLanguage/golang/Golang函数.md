@@ -3,6 +3,9 @@ date: 2025-11-18 16:47:36
 title: Golang函数
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - Golang
 ---
 
 # Golang 函数

@@ -3,6 +3,9 @@ date: 2025-10-07 01:08:00
 title: Python包管理
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - Python
 ---
 
 # Python 包管理

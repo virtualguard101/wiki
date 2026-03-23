@@ -3,6 +3,9 @@ date: 2025-11-17 00:41:14
 title: Golang程序结构
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - Golang
 ---
 
 # Golang 程序结构

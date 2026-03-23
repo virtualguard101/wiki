@@ -3,6 +3,10 @@ date: 2025-05-23 00:33:00
 title: C++移动语义
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - C++
+  - CS106L
 ---
 
 # C++移动语义

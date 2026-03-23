@@ -3,6 +3,9 @@ date: 2025-12-20 17:09:35
 title: Process API
 permalink: process-api
 publish: true
+tags:
+  - 操作系统
+  - OSTEP
 ---
 
 # Process API

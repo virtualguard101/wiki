@@ -5,6 +5,7 @@ permalink:
 publish: true
 tags:
   - 操作系统
+  - OSTEP
 ---
 
 # The Abstraction: The Process

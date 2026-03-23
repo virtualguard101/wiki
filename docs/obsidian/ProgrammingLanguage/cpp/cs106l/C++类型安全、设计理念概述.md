@@ -3,6 +3,10 @@ date: 2025-05-25 00:34:00
 title: std::optional & 类型安全
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - C++
+  - CS106L
 ---
 
 # `std::optional`与类型安全
