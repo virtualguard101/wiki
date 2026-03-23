@@ -194,6 +194,9 @@ nav:
           - 流量控制与可靠传输机制: "obsidian/ComputerNetwork/408/流量控制与可靠传输机制.md"
           - 介质访问控制: "obsidian/ComputerNetwork/408/介质访问控制.md"
           - 局域网: "obsidian/ComputerNetwork/408/局域网.md"
+      - CS168:
+        - Layers of the Internet: "obsidian/ComputerNetwork/cs168/Layers of the Internet.md"
+        - Design Principle: "obsidian/ComputerNetwork/cs168/Design Principle.md"
     - 数据库系统:
       - 数据库系统概述:
         - 数据库系统的基本概念: "obsidian/Database/数据库系统的基本概念.md"
