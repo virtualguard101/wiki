@@ -31,6 +31,7 @@ nav:
       - Python:
         - Python包管理: "obsidian/ProgrammingLanguage/python/Python包管理.md"
         - Python虚拟环境: "obsidian/ProgrammingLanguage/python/Python虚拟环境.md"
+        - Python脚本绕过socks报错: "obsidian/ProgrammingLanguage/python/Python脚本绕过socks报错.md"
       - Golang:
         - Golang入门要点: "obsidian/ProgrammingLanguage/golang/Golang入门要点.md"
         - 基础:
