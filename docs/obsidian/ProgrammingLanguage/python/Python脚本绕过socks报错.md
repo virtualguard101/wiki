@@ -1,6 +1,6 @@
 ---
 date: 2026-03-23 09:36:26
-title: Python脚本绕过Socks报错
+title: Python脚本绕过socks报错
 permalink: python-socks
 publish: true
 tags:
@@ -8,7 +8,7 @@ tags:
   - Python
 ---
 
-# Python脚本绕过Socks报错
+# Python脚本绕过socks报错
 
 > [Python脚本绕过Socks报错 | Grok](https://grok.com/share/bGVnYWN5_463dc13b-303e-441e-a2f4-30ae31e805ca)
 
