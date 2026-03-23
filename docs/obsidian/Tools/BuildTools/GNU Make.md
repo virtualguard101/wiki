@@ -3,6 +3,9 @@ date: 2025-05-25 21:26:00
 title: GNU Make
 permalink: 
 publish: true
+tags:
+  - 工具
+  - 构建工具
 ---
 
 # GNU Make

@@ -3,6 +3,9 @@ date: 2025-07-22 14:01:00
 title: JS回调函数简单应用
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - JavaScript
 ---
 
 # JS回调函数简单应用

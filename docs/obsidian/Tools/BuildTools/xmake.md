@@ -3,6 +3,9 @@ date: 2025-05-31 15:26:00
 title: xmake
 permalink: 
 publish: true
+tags:
+  - 工具
+  - 构建工具
 ---
 
 # xmake

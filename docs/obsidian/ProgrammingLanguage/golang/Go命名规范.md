@@ -3,6 +3,9 @@ date: 2025-11-16 16:26:54
 title: Go命名规范
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - Golang
 ---
 
 # Go命名规范

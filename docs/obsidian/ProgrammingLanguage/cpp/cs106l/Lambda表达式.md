@@ -3,6 +3,10 @@ date: 2025-05-17 00:30:00
 title: Lambda表达式
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - C++
+  - CS106L
 ---
 
 # Lambda表达式

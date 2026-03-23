@@ -3,6 +3,9 @@ date: 2025-09-11 20:50:00
 title: Java入门要点
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - Java
 ---
 
 # Java 入门要点

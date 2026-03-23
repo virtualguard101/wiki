@@ -3,6 +3,9 @@ date: 2025-09-17 01:13:00
 title: Rust入门要点
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - Rust
 ---
 
 # Rust 入门要点

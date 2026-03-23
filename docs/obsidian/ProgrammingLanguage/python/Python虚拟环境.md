@@ -3,6 +3,9 @@ date: 2025-10-19 12:28:52
 title: Python虚拟环境
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - Python
 ---
 
 # Python虚拟环境

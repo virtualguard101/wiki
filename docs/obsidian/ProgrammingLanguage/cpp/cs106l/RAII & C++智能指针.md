@@ -3,6 +3,10 @@ date: 2025-05-27 00:35:00
 title: RAII & C++智能指针
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - C++
+  - CS106L
 ---
 
 # RAII & C++智能指针

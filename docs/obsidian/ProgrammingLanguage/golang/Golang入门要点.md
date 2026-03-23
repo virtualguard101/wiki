@@ -3,6 +3,9 @@ date: 2025-11-08 19:24:54
 title: Golang入门要点
 permalink: 
 publish: true
+tags:
+  - 编程语言
+  - Golang
 ---
 
 # Golang 入门要点

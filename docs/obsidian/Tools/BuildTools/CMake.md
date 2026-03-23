@@ -3,6 +3,9 @@ date: 2025-05-29 21:26:00
 title: CMake
 permalink: 
 publish: true
+tags:
+  - 工具
+  - 构建工具
 ---
 
 # CMake

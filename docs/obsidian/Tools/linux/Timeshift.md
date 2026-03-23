@@ -3,6 +3,9 @@ date: 2025-09-23 23:38:00
 title: Timeshift
 permalink: 
 publish: true
+tags:
+  - 工具
+  - Linux
 ---
 
 # Timeshift

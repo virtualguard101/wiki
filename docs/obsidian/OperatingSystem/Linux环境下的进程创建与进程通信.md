@@ -5,6 +5,7 @@ permalink:
 publish: true
 tags:
   - 操作系统
+  - Linux
 ---
 
 # Linux环境下的进程创建与进程通信
