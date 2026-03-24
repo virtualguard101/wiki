@@ -198,17 +198,20 @@ nav:
         - Layers of the Internet: "obsidian/ComputerNetwork/cs168/Layers of the Internet.md"
         - Design Principle: "obsidian/ComputerNetwork/cs168/Design Principle.md"
     - 数据库系统:
-      - 数据库系统概述:
-        - 数据库系统的基本概念: "obsidian/Database/数据库系统的基本概念.md"
-        - 数据库系统的特点与组成: "obsidian/Database/数据库系统的特点与组成.md"
-        - 数据库系统结构: "obsidian/Database/数据库系统结构.md"
-      - 信息与数据模型:
-        - 信息的三种世界及描述: "obsidian/Database/信息的三种世界及描述.md"
-        - 数据模型: "obsidian/Database/数据模型.md"
-        - 概念模型: "obsidian/Database/概念模型.md"
-        - 逻辑模型: "obsidian/Database/逻辑模型.md"
-        - 概念模型向逻辑模型的转换: "obsidian/Database/概念模型向逻辑模型的转换.md"
-        - 关系模型: "obsidian/Database/关系模型.md"
+      - Legacy:
+        - 数据库系统概述:
+          - 数据库系统的基本概念: "obsidian/Database/数据库系统的基本概念.md"
+          - 数据库系统的特点与组成: "obsidian/Database/数据库系统的特点与组成.md"
+          - 数据库系统结构: "obsidian/Database/数据库系统结构.md"
+        - 信息与数据模型:
+          - 信息的三种世界及描述: "obsidian/Database/信息的三种世界及描述.md"
+          - 数据模型: "obsidian/Database/数据模型.md"
+          - 概念模型: "obsidian/Database/概念模型.md"
+          - 逻辑模型: "obsidian/Database/逻辑模型.md"
+          - 概念模型向逻辑模型的转换: "obsidian/Database/概念模型向逻辑模型的转换.md"
+          - 关系模型: "obsidian/Database/关系模型.md"
+      - CMU 15-445:
+        - Relational Model & Algebra: "obsidian/Database/cmu15-445/Relational Model & Algebra.md"
     - 软件工程:
       - UML图: "obsidian/SoftwareEngineering/UML图.md"
       - 开发流程与开发规范: "obsidian/SoftwareEngineering/开发流程与开发规范.md"

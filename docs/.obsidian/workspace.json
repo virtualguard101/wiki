@@ -70,7 +70,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -181,6 +182,7 @@
   },
   "active": "9237bb28f627c394",
   "lastOpenFiles": [
+    "obsidian/Database/cmu15-445/Relational Model & Algebra.md",
     "obsidian/Database/数据库系统结构.md",
     "obsidian/ProgrammingLanguage/cpp/cs106l/初始化与引用操作.md",
     "obsidian/Math/LinearAlgebra/overview/线性代数的本质-向量.md",
@@ -205,7 +207,6 @@
     "blog/posts/TRAE Friends @Fuzhou 要点记录.md",
     "obsidian/DataStructureAndAlgorithm/408/线性表的链式表示.md",
     "obsidian/Tools/linux/Linux基础、杂项.md",
-    "blog/posts/个人站点构建要点(改良版) && Web 开发简要实践.md",
-    "obsidian/Tools/Astral uv.md"
+    "blog/posts/个人站点构建要点(改良版) && Web 开发简要实践.md"
   ]
 }
