@@ -102,6 +102,7 @@ nav:
           - 独立性: "obsidian/Math/Probability/独立性.md"
         - 随机变量及其分布:
           - 离散型随机变量及其分布: "obsidian/Math/Probability/离散型随机变量及其分布.md"
+          - 随机变量的分布函数: "obsidian/Math/Probability/随机变量的分布函数.md"
       - 数学建模:
         - 部分资源: "obsidian/Math/MathematicalModeling/数学建模部分资源.md"
     - 数据结构与算法:
