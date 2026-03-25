@@ -1,6 +1,6 @@
 ---
 date: 2026-03-24 11:37:43
-title: Design Principle
+title: Design Principles
 permalink: desgin-principle
 publish: true
 tags:
@@ -10,13 +10,15 @@ tags:
 
 # Design Principles
 
-## Narraw Waist Model
+## Internet Design Principles
+
+### Narraw Waist Model
 
 ![](assets/design-principle/network_arch.png)
 
 This diagram shows the different components of a network architecture, notice there’s only one protocol at Layer 3. This is the “*narrow waist*” that enables Internet connectivity. 
 
-## Demultiplexing
+### Demultiplexing
 
 Think about that when a router receive a packet, how dose it know which protocol to use to process the packet?
 
@@ -50,7 +52,7 @@ In general, demultiplexing helps the operating system pass packets to the correc
 
 ![](assets/design-principle/demultiplexing_5.png)
 
-## End-to-End Principle
+### End-to-End Principle
 
 In previous discussion, we konw that routers implement L1-L3 only, and end hosts implement Layer 4 (reliability).
 
@@ -84,6 +86,10 @@ The end-to-end principle is not an unbreakable rule:
     - Sending duplicate packets is purely for performance, not correctness.
     
     ![](assets/design-principle/end-to-end.png)
+
+## Designing Resource Sharing
+
+### Statistical Multiplexing
 
 
 [^1]: [Demultiplexing - Network Architecture | CS168 Textbook](https://textbook.cs168.io/intro/architecture.html#demultiplexing)

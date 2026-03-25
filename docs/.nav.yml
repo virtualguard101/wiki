@@ -14,6 +14,7 @@ nav:
         - Linux终端复用器: "obsidian/Tools/linux/tmux.md"
         - Timeshift: "obsidian/Tools/linux/Timeshift.md"
         - htop: "obsidian/Tools/linux/htop.md"
+        - ufw: "obsidian/Tools/linux/ufw.md"
       - 远程服务器使用基础: "obsidian/Tools/远程服务器使用基础.md"
       - Git: "obsidian/Tools/Git.md"
       - Just: "obsidian/Tools/Just.md"
@@ -95,8 +96,13 @@ nav:
           - 点积与对偶性: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-点积与对偶性.md"
           - 叉积: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-叉积.md"
       - 概率论与数理统计:
-        - 事件的运算及概率: "obsidian/Math/Probability/事件的运算及概率.md"
-        - 条件概率和全概率公式: "obsidian/Math/Probability/条件概率和全概率公式.md"
+        - 概率初步:
+          - 事件的运算及概率: "obsidian/Math/Probability/事件的运算及概率.md"
+          - 条件概率和全概率公式: "obsidian/Math/Probability/条件概率和全概率公式.md"
+          - 独立性: "obsidian/Math/Probability/独立性.md"
+        - 随机变量及其分布:
+          - 离散型随机变量及其分布: "obsidian/Math/Probability/离散型随机变量及其分布.md"
+          - 随机变量的分布函数: "obsidian/Math/Probability/随机变量的分布函数.md"
       - 数学建模:
         - 部分资源: "obsidian/Math/MathematicalModeling/数学建模部分资源.md"
     - 数据结构与算法:
@@ -171,12 +177,13 @@ nav:
           - 输入输出管理概述: "obsidian/OperatingSystem/408/输入输出管理概述.md"
           - 设备独立性缓存: "obsidian/OperatingSystem/408/设备独立性缓存.md"
           - 磁盘和固态硬盘: "obsidian/OperatingSystem/408/磁盘和固态硬盘.md"
-      - 绪论:
-        - 操作系统简易模型: "obsidian/OperatingSystem/intro/操作系统简易模型.md"
-        - Introduction to Operating Systems: "obsidian/OperatingSystem/intro/Introduction to Operating Systems.md"
-      - 虚拟化:
-        - "The Abstraction: The Process": "obsidian/OperatingSystem/virtualization/The Abstraction - The Process.md"
-        - "Process API": "obsidian/OperatingSystem/virtualization/Process API.md"
+      - OSTEP:
+        - 绪论:
+          - 操作系统简易模型: "obsidian/OperatingSystem/intro/操作系统简易模型.md"
+          - Introduction to Operating Systems: "obsidian/OperatingSystem/intro/Introduction to Operating Systems.md"
+        - 虚拟化:
+          - "The Abstraction: The Process": "obsidian/OperatingSystem/virtualization/The Abstraction - The Process.md"
+          - "Process API": "obsidian/OperatingSystem/virtualization/Process API.md"
       - Linux环境下的进程创建与进程通信: "obsidian/OperatingSystem/Linux环境下的进程创建与进程通信.md"
     - 计算机网络:
       - "408":
@@ -196,7 +203,7 @@ nav:
           - 局域网: "obsidian/ComputerNetwork/408/局域网.md"
       - CS168:
         - Layers of the Internet: "obsidian/ComputerNetwork/cs168/Layers of the Internet.md"
-        - Design Principle: "obsidian/ComputerNetwork/cs168/Design Principle.md"
+        - Design Principles: "obsidian/ComputerNetwork/cs168/Design Principle.md"
     - 数据库系统:
       - Legacy:
         - 数据库系统概述:
@@ -210,6 +217,11 @@ nav:
           - 逻辑模型: "obsidian/Database/逻辑模型.md"
           - 概念模型向逻辑模型的转换: "obsidian/Database/概念模型向逻辑模型的转换.md"
           - 关系模型: "obsidian/Database/关系模型.md"
+        - 关系代数与关系数据库理论:
+          - 关系的数学定义: "obsidian/Database/关系的数学定义.md"
+          - 关系代数及其演算: "obsidian/Database/关系代数及其演算.md"
+          - 关系数据库理论: "obsidian/Database/关系数据库理论.md"
+          - 关系模式的分解: "obsidian/Database/关系模式的分解.md"
       - CMU 15-445:
         - Relational Model & Algebra: "obsidian/Database/cmu15-445/Relational Model & Algebra.md"
     - 软件工程:
@@ -243,6 +255,7 @@ nav:
     - Misc:
       - 科学上网:
         - 透明代理: "obsidian/Misc/ScientificInternetAccess/透明代理.md"
+        - 自建科学上网节点: "obsidian/Misc/ScientificInternetAccess/自建科学上网节点.md"
       - 正则表达式: "obsidian/Misc/正则表达式.md"
       - 开源协议: "obsidian/Misc/开源协议.md"
       - 使用SSH访问GitHub远程仓库: "obsidian/Misc/使用SSH访问GitHub远程仓库.md"
