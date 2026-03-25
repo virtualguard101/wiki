@@ -57,3 +57,34 @@ sudo apt install ufw
     ```bash
     sudo ufw status verbose
     ```
+
+!!! tip
+    - 注意在只指定端口而不带协议时，UFW 默认会同时开放该端口的 TCP 和 UDP 两个传输层协议
+
+    - 大部分情况下不需要在修改规则后reload，UFW 会立即把规则应用到 iptables（防火墙实时生效）
+
+- 移除一个规则
+
+    ```bash
+    sudo ufw delete allow 22/tcp    # 端口
+    sudo ufw delete allow OpenSSH   # 应用名称
+    sudo ufw delete allow ssh       # 协议/服务名称
+    ```
+
+    还可以通过规则编号来移除一个规则，首先按编号列出所有规则:
+
+    ```bash
+    $ sudo ufw status numbered    # 按编号列出所有规则
+    Status: active
+
+        To                         Action      From
+    --                         ------      ----
+    [1] OpenSSH                    ALLOW IN    Anywhere                  
+    [2] 80/tcp                     ALLOW IN    Anywhere                  
+    [3] 443/tcp                    ALLOW IN    Anywhere                  
+    [4] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
+    ```
+
+    ```bash
+    sudo ufw delete 1    # 移除编号为1的规则
+    ```
