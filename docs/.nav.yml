@@ -96,8 +96,12 @@ nav:
           - 点积与对偶性: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-点积与对偶性.md"
           - 叉积: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-叉积.md"
       - 概率论与数理统计:
-        - 事件的运算及概率: "obsidian/Math/Probability/事件的运算及概率.md"
-        - 条件概率和全概率公式: "obsidian/Math/Probability/条件概率和全概率公式.md"
+        - 概率初步:
+          - 事件的运算及概率: "obsidian/Math/Probability/事件的运算及概率.md"
+          - 条件概率和全概率公式: "obsidian/Math/Probability/条件概率和全概率公式.md"
+          - 独立性: "obsidian/Math/Probability/独立性.md"
+        - 随机变量及其分布:
+          - 离散型随机变量及其分布: "obsidian/Math/Probability/离散型随机变量及其分布.md"
       - 数学建模:
         - 部分资源: "obsidian/Math/MathematicalModeling/数学建模部分资源.md"
     - 数据结构与算法:
