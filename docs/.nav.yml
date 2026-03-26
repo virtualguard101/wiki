@@ -22,6 +22,7 @@ nav:
       - Conda: "obsidian/Tools/Conda.md"
       - Jupyter Notebook: "obsidian/Tools/jupyter.ipynb"
       - chezmoi: "obsidian/Tools/chezmoi.md"
+      - Nginx: "obsidian/Tools/Nginx.md" # [ ] Tools: Nginx usage
       - 构建工具:
         - GNU Make: "obsidian/Tools/BuildTools/GNU Make.md"
         - CMake: "obsidian/Tools/BuildTools/CMake.md"
@@ -103,6 +104,7 @@ nav:
         - 随机变量及其分布:
           - 离散型随机变量及其分布: "obsidian/Math/Probability/离散型随机变量及其分布.md"
           - 随机变量的分布函数: "obsidian/Math/Probability/随机变量的分布函数.md"
+          - 连续型随机变量及其概率密度函数: "obsidian/Math/Probability/连续型随机变量及其概率密度函数.md" # [ ] Probability: Continuous distribution theory
       - 数学建模:
         - 部分资源: "obsidian/Math/MathematicalModeling/数学建模部分资源.md"
     - 数据结构与算法:
@@ -203,7 +205,7 @@ nav:
           - 局域网: "obsidian/ComputerNetwork/408/局域网.md"
       - CS168:
         - Layers of the Internet: "obsidian/ComputerNetwork/cs168/Layers of the Internet.md"
-        - Design Principles: "obsidian/ComputerNetwork/cs168/Design Principle.md"
+        - Design Principles: "obsidian/ComputerNetwork/cs168/Design Principle.md" # [ ] CS168: Design principles
     - 数据库系统:
       - Legacy:
         - 数据库系统概述:
@@ -223,7 +225,7 @@ nav:
           - 关系数据库理论: "obsidian/Database/关系数据库理论.md"
           - 关系模式的分解: "obsidian/Database/关系模式的分解.md"
       - CMU 15-445:
-        - Relational Model & Algebra: "obsidian/Database/cmu15-445/Relational Model & Algebra.md"
+        - Relational Model & Algebra: "obsidian/Database/cmu15-445/Relational Model & Algebra.md" # [ ] CMU15-445: Relational model and algebra
     - 软件工程:
       - UML图: "obsidian/SoftwareEngineering/UML图.md"
       - 开发流程与开发规范: "obsidian/SoftwareEngineering/开发流程与开发规范.md"

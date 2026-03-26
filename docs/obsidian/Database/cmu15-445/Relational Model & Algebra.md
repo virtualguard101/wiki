@@ -9,3 +9,5 @@ tags:
 ---
 
 # Relational Model & Algebra
+
+<!-- [ ] CMU15-445: Relational model and algebra -->
