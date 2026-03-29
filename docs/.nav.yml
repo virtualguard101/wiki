@@ -70,6 +70,7 @@ nav:
           - 证明: "obsidian/Math/DiscreteMath/证明.md"
         - 命题逻辑的基本概念: "obsidian/Math/DiscreteMath/legacy/命题逻辑的基本概念.md"
         - 命题逻辑等值演算: "obsidian/Math/DiscreteMath/legacy/命题逻辑等值演算.md"
+        - 推理理论: "obsidian/Math/DiscreteMath/legacy/推理理论.md"
       - 高等数学:
         - 微积分的本质:
           - 导数: "obsidian/Math/Calculus/overview/微积分的本质-导数.md"
