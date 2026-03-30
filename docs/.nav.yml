@@ -258,9 +258,10 @@ nav:
     - Misc:
       - 解决方案:
         - 透明代理: "obsidian/Misc/ScientificInternetAccess/透明代理.md"
+        - 反向代理: "obsidian/Misc/反向代理.md"
         - 自建科学上网节点: "obsidian/Misc/ScientificInternetAccess/自建科学上网节点.md"
         - 使用SSH访问GitHub远程仓库: "obsidian/Misc/使用SSH访问GitHub远程仓库.md"
-        - 反向代理: "obsidian/Misc/反向代理.md"
+        - 基于DNS-01挑战 + Wildcard证书的Caddy反代: "obsidian/Misc/基于DNS-01挑战 + Wildcard证书的Caddy反代.md"
       - 正则表达式: "obsidian/Misc/正则表达式.md"
       - 开源协议: "obsidian/Misc/开源协议.md"
 
