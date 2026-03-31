@@ -152,7 +152,6 @@ WantedBy=multi-user.target
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable --now caddy
-sudo systemctl status caddy
 ```
 
 查看状态：
