@@ -22,19 +22,26 @@ class LinkData:
 
 LINKS = [
     LinkData(
+        name='Dashboard',
+        url='https://virtualguard101.com',
+        description='',  # 添加描述
+        button_icon='material/monitor-dashboard',
+        link_icon='material/monitor-dashboard',
+    ),
+    LinkData(
         name='Homepage',
         url='https://home.virtualguard101.com',
         description='',  # 添加描述
         button_icon='fontawesome/solid/house',
         link_icon='fontawesome/solid/house',
     ),
-    # LinkData(
-    #     name='Notebook',
-    #     url='https://note.virtualguard101.com',
-    #     description='',  # 添加描述
-    #     button_icon='material/notebook',
-    #     link_icon='material/notebook',
-    # ),
+    LinkData(
+        name='Memos',
+        url='https://memos.virtualguard101.com',
+        description='',  # 添加描述
+        button_icon='material/notebook-plus',
+        link_icon='material/notebook-plus',
+    ),
     LinkData(
         name='Blog with Anime',
         url='https://blog.virtualguard101.com',
