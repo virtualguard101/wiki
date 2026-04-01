@@ -1,5 +1,5 @@
 ---
-icon: material/archive-cog
+icon: fontawesome/solid/blog
 comments: true
 ---
 
