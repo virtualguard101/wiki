@@ -43,13 +43,6 @@ LINKS = [
         link_icon='material/notebook-plus',
     ),
     LinkData(
-        name='Blog with Anime',
-        url='https://blog.virtualguard101.com',
-        description='',  # 添加描述
-        button_icon='fontawesome/solid/blog',
-        link_icon='fontawesome/solid/blog',
-    ),
-    LinkData(
         # https://github.com/travellings-link/travellings
         # https://github.com/travellings-link/travellings/blob/master/docs/join.md
         name='Travelling',
