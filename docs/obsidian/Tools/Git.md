@@ -142,6 +142,7 @@ git push origin -d [branch_name]
 还有一种是推送空分支到远程：
 ```bash
 git push origin :[branch_name]
+```
 
 - 删除远程分支后，更新本地分支列表（将远程仓库拉取到本地仓库）
 ```bash
@@ -183,6 +184,7 @@ git rebase [branch_name]
 
 !!! note
     注意二者的区别除去提交历史上的不同还有命令上分支目标参数的区别：
+
     - `merge`后的分支参数是**被合并的分支**
 
     - `rebase`后的参数是要**合并到的目标分支**
