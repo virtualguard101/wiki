@@ -91,7 +91,5 @@ The end-to-end principle is not an unbreakable rule:
 
 ### Statistical Multiplexing
 
-<!-- [ ] CS168: Design principles -->
-
 
 [^1]: [Demultiplexing - Network Architecture | CS168 Textbook](https://textbook.cs168.io/intro/architecture.html#demultiplexing)

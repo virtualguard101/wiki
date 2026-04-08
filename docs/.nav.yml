@@ -235,8 +235,8 @@ nav:
           - 关系代数及其演算: "obsidian/Database/关系代数及其演算.md"
           - 关系数据库理论: "obsidian/Database/关系数据库理论.md"
           - 关系模式的分解: "obsidian/Database/关系模式的分解.md"
-      - CMU 15-445:
-        - Relational Model & Algebra: "obsidian/Database/cmu15-445/Relational Model & Algebra.md"
+      # - CMU 15-445:
+      # [ ]  - Relational Model & Algebra: "obsidian/Database/cmu15-445/Relational Model & Algebra.md"
     - 软件工程:
       - UML图: "obsidian/SoftwareEngineering/UML图.md"
       - 开发流程与开发规范: "obsidian/SoftwareEngineering/开发流程与开发规范.md"
@@ -262,6 +262,7 @@ nav:
       - 智能体:
         - 智能体概述: "obsidian/ArtificialIntelligence/智能体概述.md"
         - 智能体发展史: "obsidian/ArtificialIntelligence/智能体发展史.md"
+        # [ ] - LLM基础: "obsidian/ArtificialIntelligence/LLM基础.md"
     - Web开发:
       - 入门基础:
         - HTML要点: "obsidian/Misc/HTML要点.md"
