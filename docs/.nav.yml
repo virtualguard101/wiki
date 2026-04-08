@@ -206,14 +206,14 @@ nav:
           - 流量控制与可靠传输机制: "obsidian/ComputerNetwork/408/流量控制与可靠传输机制.md"
           - 介质访问控制: "obsidian/ComputerNetwork/408/介质访问控制.md"
           - 局域网: "obsidian/ComputerNetwork/408/局域网.md"
-        # - 网络层:
-        #   - 网络层的功能: "obsidian/ComputerNetwork/408/网络层的功能.md"
-        #   - IPv4: "obsidian/ComputerNetwork/408/IPv4.md"
-        #   - IPv6: "obsidian/ComputerNetwork/408/IPv6.md"
-        #   - 路由算法与路由协议: "obsidian/ComputerNetwork/408/路由算法与路由协议.md"
-        #   - IP多播: "obsidian/ComputerNetwork/408/IP多播.md"
-        #   - 移动IP: "obsidian/ComputerNetwork/408/移动IP.md"
-        #   - 网络层设备: "obsidian/ComputerNetwork/408/网络层设备.md"
+        - 网络层:
+          - 网络层的功能: "obsidian/ComputerNetwork/408/网络层的功能.md"
+          - IPv4: "obsidian/ComputerNetwork/408/IPv4.md"
+          - IPv6: "obsidian/ComputerNetwork/408/IPv6.md"
+          - 路由算法与路由协议: "obsidian/ComputerNetwork/408/路由算法与路由协议.md"
+          - IP多播: "obsidian/ComputerNetwork/408/IP多播.md"
+          - 移动IP: "obsidian/ComputerNetwork/408/移动IP.md"
+          - 网络层设备: "obsidian/ComputerNetwork/408/网络层设备.md"
       - CS168:
         - Layers of the Internet: "obsidian/ComputerNetwork/cs168/Layers of the Internet.md"
         - Design Principles: "obsidian/ComputerNetwork/cs168/Design Principle.md"
