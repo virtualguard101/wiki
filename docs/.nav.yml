@@ -262,6 +262,7 @@ nav:
       - 智能体:
         - 智能体概述: "obsidian/ArtificialIntelligence/智能体概述.md"
         - 智能体发展史: "obsidian/ArtificialIntelligence/智能体发展史.md"
+      # [ ] - Transformer架构: "obsidian/ArtificialIntelligence/Transformer架构.md"
     - Web开发:
       - 入门基础:
         - HTML要点: "obsidian/Misc/HTML要点.md"
