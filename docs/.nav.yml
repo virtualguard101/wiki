@@ -259,6 +259,8 @@ nav:
             # - 逻辑损失与成本函数: "obsidian/MachineLearning/coursera/logistic-loss-cost.ipynb"
             # - 逻辑回归的梯度下降: "obsidian/MachineLearning/coursera/logistic-grad-desent.ipynb"
           - 过拟合问题与正则化: "obsidian/MachineLearning/coursera/过拟合问题与正则化.md"
+      # - 深度学习:
+        # [ ] - 神经网络基础: "obsidian/DeepLearning/神经网络基础.md"
       - 智能体:
         - 智能体概述: "obsidian/ArtificialIntelligence/智能体概述.md"
         - 智能体发展史: "obsidian/ArtificialIntelligence/智能体发展史.md"
