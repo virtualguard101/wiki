@@ -32,7 +32,7 @@ nav:
       - Python:
         - Python包管理: "obsidian/ProgrammingLanguage/python/Python包管理.md"
         - Python虚拟环境: "obsidian/ProgrammingLanguage/python/Python虚拟环境.md"
-        - Python脚本绕过socks报错: "obsidian/ProgrammingLanguage/python/Python脚本绕过socks报错.md"
+        - PEP8格式化: "obsidian/ProgrammingLanguage/python/PEP8格式化.md"
       - Golang:
         - Golang入门要点: "obsidian/ProgrammingLanguage/golang/Golang入门要点.md"
         - 基础:
@@ -272,6 +272,7 @@ nav:
     - Misc:
       - 解决方案:
         - 透明代理: "obsidian/Misc/ScientificInternetAccess/透明代理.md"
+        - Python脚本绕过socks报错: "obsidian/ProgrammingLanguage/python/Python脚本绕过socks报错.md"
         - 反向代理: "obsidian/Misc/反向代理.md"
         - 自建科学上网节点: "obsidian/Misc/ScientificInternetAccess/自建科学上网节点.md"
         - 使用SSH访问GitHub远程仓库: "obsidian/Misc/使用SSH访问GitHub远程仓库.md"
