@@ -111,6 +111,7 @@ nav:
           - 连续型随机变量及其概率密度函数: "obsidian/Math/Probability/连续型随机变量及其概率密度函数.md"
         - 多维随机变量及其分布:
           - 二维随机变量: "obsidian/Math/Probability/二维随机变量.md"
+          # [ ] - 联合分布: "obsidian/Math/Probability/联合分布.md"
           # [ ] - 边缘分布: "obsidian/Math/Probability/边缘分布.md"
       - 数学建模:
         - 部分资源: "obsidian/Math/MathematicalModeling/数学建模部分资源.md"

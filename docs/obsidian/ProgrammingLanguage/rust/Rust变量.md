@@ -12,7 +12,7 @@ tags:
 
 ## 变量命名
 
-遵循驼峰命名法（camelCase）或蛇形命名法（snake_case），而且两种方法都有对应的适用场景，具体规范可参考[命名规范 | Rust语言圣经](https://beatai.org/rust-course/practice/naming)
+遵循驼峰命名法（camelCase）或蛇形命名法（snake_case），而且两种方法都有对应的适用场景，具体规范可参考[命名规范 | Rust语言圣经](https://beatai.org/rust-course/practice/naming)。
 
 ## 变量绑定
 
