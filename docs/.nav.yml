@@ -43,6 +43,7 @@ nav:
       - Rust:
         - Rust入门要点: "obsidian/ProgrammingLanguage/rust/Rust入门要点.md"
         - Rust变量: "obsidian/ProgrammingLanguage/rust/Rust变量.md"
+        # [ ] - Rust数据类型: "obsidian/ProgrammingLanguage/rust/Rust数据类型.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/ProgrammingLanguage/cpp/cs106l/基础类型与结构体.md"
