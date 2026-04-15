@@ -44,6 +44,7 @@ nav:
         - Rust入门要点: "obsidian/ProgrammingLanguage/rust/Rust入门要点.md"
         - Rust变量: "obsidian/ProgrammingLanguage/rust/Rust变量.md"
         - Rust数据类型: "obsidian/ProgrammingLanguage/rust/Rust数据类型.md"
+        # [ ] - Rust函数: "obsidian/ProgrammingLanguage/rust/Rust函数.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/ProgrammingLanguage/cpp/cs106l/基础类型与结构体.md"
@@ -113,7 +114,7 @@ nav:
         - 多维随机变量及其分布:
           - 二维随机变量: "obsidian/Math/Probability/二维随机变量.md"
           - 联合分布: "obsidian/Math/Probability/联合分布.md"
-          # [ ] - 边缘分布: "obsidian/Math/Probability/边缘分布.md"
+          - 边缘分布: "obsidian/Math/Probability/边缘分布.md"
       - 数学建模:
         - 部分资源: "obsidian/Math/MathematicalModeling/数学建模部分资源.md"
     - 数据结构与算法:
