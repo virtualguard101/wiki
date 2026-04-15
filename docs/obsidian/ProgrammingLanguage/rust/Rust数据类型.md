@@ -83,5 +83,33 @@ NaN具有以下特点：
 
 > [数值类型 | Rust By Practice( Rust 练习实践 )](https://practice-rust-zh.beatai.org/basic-types/numbers.html)
 
+## 其他数据类型
+
+### 布尔类型
+
+### 字符类型
+
+在 Rust 中，字符类型 `char` 是一个 **Unicode 标量值**，占用 4 字节（32 位）。它**可以表示任何 Unicode 字符**，包括 ASCII 字符、汉字、表情符号等。Rust 的 `char` 类型使用单引号 `'` 来表示。
+
+也就是说，下面的这些都是合法的 Rust 字符：
+
+```rust
+fn main() {
+    let c = 'z';
+    let z = 'ℤ';
+    let g = '国';
+    let heart_eyed_cat = '😻';
+}
+```
+
+### 单元类型
+
+单元类型只有一个值，即`()`，用于表示空值或无意义的值，**在内存中占用0个字节**，可以用作一个值来占位。
+
+在Rust中，main 函数是有返回值，且其返回值就是单元类型（`println!()` 的返回值也是 `()`）。
+
+!!! info "发散函数"
+    没有返回值的函数在 Rust 中是有单独的定义的：发散函数( diverging functions )（-> !），顾名思义，无法收敛的函数。
+
 
 [^1]: [浮点数陷阱 - 数值类型 | Rust语言圣经](https://beatai.org/rust-course/basic/base-type/numbers#%E6%B5%AE%E7%82%B9%E6%95%B0%E9%99%B7%E9%98%B1)
