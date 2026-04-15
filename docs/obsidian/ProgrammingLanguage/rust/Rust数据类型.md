@@ -1,8 +1,8 @@
 ---
-date: 2026-04-15 09:44:19
+date: 2026-04-15 12:52:19
 title: Rust数据类型
 permalink: data-type
-publish: false
+publish: true
 tags:
   - 编程语言
   - Rust
@@ -16,12 +16,12 @@ tags:
 
 | 长度 | 有符号类型 | 无符号类型 |
 |:---:|:---:|:---:|
-| 8位 | i8 | u8 |
-| 16位 | i16 | u16 |
-| 32位 | i32 | u32 |
-| 64位 | i64 | u64 |
-| 128位 | i128 | u128 |
-| 依赖平台（x64/x86） | isize | usize |
+| 8位 | `i8` | `u8` |
+| 16位 | `i16` | `u16` |
+| 32位 | `i32` | `u32` |
+| 64位 | `i64` | `u64` |
+| 128位 | `i128` | `u128` |
+| 依赖平台（x64/x86） | `isize` | `usize` |
 
 [绑定](Rust变量.md#变量绑定)一个整形变量时，默认使用i32类型。
 
@@ -78,6 +78,10 @@ NaN具有以下特点：
     ```
 
 - **所有跟NaN相关的操作都会返回NaN**
+
+### Rust By Practice
+
+> [数值类型 | Rust By Practice( Rust 练习实践 )](https://practice-rust-zh.beatai.org/basic-types/numbers.html)
 
 
 [^1]: [浮点数陷阱 - 数值类型 | Rust语言圣经](https://beatai.org/rust-course/basic/base-type/numbers#%E6%B5%AE%E7%82%B9%E6%95%B0%E9%99%B7%E9%98%B1)
