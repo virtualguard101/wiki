@@ -45,6 +45,7 @@ nav:
         - Rust变量: "obsidian/ProgrammingLanguage/rust/Rust变量.md"
         - Rust数据类型: "obsidian/ProgrammingLanguage/rust/Rust数据类型.md"
         - Rust函数: "obsidian/ProgrammingLanguage/rust/Rust函数.md"
+        # [ ] - 所有权与借用: "obsidian/ProgrammingLanguage/rust/所有权与借用.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/ProgrammingLanguage/cpp/cs106l/基础类型与结构体.md"
@@ -75,7 +76,7 @@ nav:
         - 推理理论: "obsidian/Math/DiscreteMath/legacy/推理理论.md"
         - 谓词逻辑: "obsidian/Math/DiscreteMath/legacy/谓词逻辑.md"
         - 集合: "obsidian/Math/DiscreteMath/legacy/集合.md"
-        # - 二元关系: "obsidian/Math/DiscreteMath/legacy/二元关系.md"
+        # [ ] - 二元关系: "obsidian/Math/DiscreteMath/legacy/二元关系.md"
       - 高等数学:
         - 微积分的本质:
           - 导数: "obsidian/Math/Calculus/overview/微积分的本质-导数.md"
