@@ -1,5 +1,5 @@
 ---
-date: 2026-04-16 09:02:13
+date: 2026-04-16 15:23:13
 title: Rust函数
 permalink: func
 publish: true
