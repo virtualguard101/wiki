@@ -10,6 +10,10 @@ tags:
 
 # Relational Model & Algebra
 
+> [Slide - #01: Relational Model & Algebra | CMU 15-445/645](https://15445.courses.cs.cmu.edu/spring2026/slides/01-relationalmodel.pdf)
+>
+> [Notes - #01: Relational Model & Algebra | CMU 15-445/645](https://15445.courses.cs.cmu.edu/spring2026/notes/01-relationalmodel.pdf)
+
 ## Database Background
 
 ### Database Management System (DBMS)
@@ -76,3 +80,26 @@ Three concepts of relational model:
     - Values are (normally) **atomic/scalar**.
 
     - The special value `NULL` is a member of every domain (if allowed).
+
+- *Primary Key*（[**主码**](../关系模型.md#主码)）: The **unique identifier** for each tuple in the relation.
+
+    ![](assets/relation-model-and-algebra/3.png)
+
+    !!! info
+        Some DBMSs will automatically create an internal primary key if a table does not define one.
+
+        DBMS can auto-generation unique primary keys via an [identity column](https://en.wikipedia.org/wiki/Identity_column):
+
+        - IDENTITY (SQL Standard)
+
+        - SEQUENCE (PostgreSQL / Oracle)
+
+        - AUTO_INCREMENT (MySQL)
+
+- *Foreign Key*（**外码**）: The identifier that specifies that an attribute from one relation maps to a tuple in another relation.
+
+    ![](assets/relation-model-and-algebra/4.png)
+
+    ![](assets/relation-model-and-algebra/5.png)
+
+- *Constraints*（**约束**）: Rules that ensure the data in the database is accurate and consistent.
