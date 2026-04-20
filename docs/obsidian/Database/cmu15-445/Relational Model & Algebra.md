@@ -1,5 +1,5 @@
 ---
-date: 2026-04-20 15:41:38
+date: 2026-04-21 01:24:38
 title: Relational Model & Algebra
 permalink: relation-model-and-algebra
 publish: true
@@ -134,3 +134,250 @@ There are two types of DML:
     - SQL is written in a mostly declarative style (calculus-like), while the optimizer translates SQL into relational-algebra-style logical plans (and then physical execution plans).
 
 ### Relational Algebra Operators
+
+> [关系代数及其演算](../关系代数及其演算.md)
+
+#### Selection
+
+*Selection*（[**选择**](../关系代数及其演算.md#选择)）is the operation that selects a subset of tuples from a relation based on a given condition.
+
+- Syntax:
+
+    $$
+    \sigma_{predicate}(R)
+    $$
+
+    The predicate acts as a filter, and we can combine multiple predicates using [conjunctions](../../Math/DiscreteMath/legacy/命题逻辑的基本概念.md#命题联结词) and [disjunctions](../../Math/DiscreteMath/legacy/命题逻辑的基本概念.md#命题联结词).
+
+!!! example
+    ![](assets/relation-model-and-algebra/6.jpg)
+
+    $$
+    \sigma_{a_id = 'a2'}(R)
+    $$
+
+    The corresponding SQL query is:
+
+    ```sql
+    SELECT * FROM R WHERE a_id = 'a2';
+    ```
+
+#### Projection
+
+*Projection*（[**投影**](../关系代数及其演算.md#投影)）takes in a relation and outputs a relation with tuples that contain only specified attributes.
+
+- Syntax: 
+
+    $$
+    \pi_{attributes}(R)
+    $$
+
+    We can rearrange the ordering of the attributes in the input relation as well as manipulate the values.
+
+!!! example
+    ![](assets/relation-model-and-algebra/7.jpg)
+
+    $$
+    \pi_{a_id, b_id}(R)
+    $$
+
+    The corresponding SQL query is:
+
+    ```sql
+    SELECT a_id, b_id FROM R;
+    ```
+
+    For rearrange, we can use selection and projection together:
+
+    $$
+    \pi_{b_id, a_id}(\sigma_{a_id = 'a2'}(R))
+    $$
+
+    The corresponding SQL query is:
+
+    ```sql
+    SELECT b_id, a_id
+        FROM R WHERE a_id = 'a2';
+    ```
+
+#### Union
+
+*Union*（[**并集**](../关系代数及其演算.md#并)）takes in two relations and outputs a relation that contains all tuples that appear in at least one of the input relations.
+
+- Syntax:
+
+    $$
+    R \cup S
+    $$
+
+    !!! warning
+        The two input relations have to have the exact same attributes.
+
+!!! example
+    ![](assets/relation-model-and-algebra/8.jpg)
+
+    The corresponding SQL query is:
+
+    ```sql
+    (SELECT * FROM R) UNION ALL (SELECT * FROM S);
+    ```
+
+#### Intersection
+
+*Intersection*（[**交集**](../关系代数及其演算.md#交)）takes in two relations and outputs a relation that contains all tuples that appear in both of the input relations.
+
+- Syntax:
+
+    $$
+    R \cap S
+    $$
+
+    !!! warning
+        The same as union, the two input relations have to have the exact same attributes.
+
+!!! example
+    ![](assets/relation-model-and-algebra/9.jpg)
+
+    The corresponding SQL query is:
+
+    ```sql
+    (SELECT * FROM R) INTERSECT (SELECT * FROM S);
+    ```
+
+#### Difference
+
+*Difference*（[**差集**](../关系代数及其演算.md#差)）takes in two relations and outputs a relation that contains all tuples that appear in the first relation but not the second relation.
+
+- Syntax:
+
+    $$
+    R - S
+    $$
+
+    !!! warning
+        The same as above, the two input relations have to have the exact same attributes.
+
+!!! example
+    ![](assets/relation-model-and-algebra/10.jpg)
+
+    The corresponding SQL query is:
+
+    ```sql
+    (SELECT * FROM R) EXCEPT (SELECT * FROM S);
+    ```
+
+#### Product
+
+*Product*（[**广义笛卡尔积**](../关系代数及其演算.md#广义笛卡尔积)）takes in two relations and outputs a relation that contains all possible combinations of tuples from the two input relations.
+
+- Syntax:
+
+    $$
+    R \times S
+    $$
+
+!!! example
+    ![](assets/relation-model-and-algebra/11.jpg)
+
+    The corresponding SQL query is:
+
+    ```sql
+    SELECT * FROM R CROSS JOIN S;
+    ```
+
+    Or simply:
+
+    ```sql
+    SELECT * FROM R, S;
+    ```
+
+#### Join
+
+*Join*（[**连接**](../关系代数及其演算.md#连接)）takes in two relations and outputs a relation that contains all the tuples that are a combination of two tuples where for each attribute that the two relations share, the values for that attribute of both tuples are the same.
+
+- Syntax:
+
+    $$
+    R \bowtie S
+    $$
+
+!!! example
+    ![](assets/relation-model-and-algebra/12.jpg)
+
+    ![](assets/relation-model-and-algebra/13.jpg)
+
+    ![](assets/relation-model-and-algebra/14.jpg)
+
+    The corresponding SQL query has three options:
+
+    ```sql
+    SELECT * FROM R NATURAL JOIN S;
+    ```
+
+    ```sql
+    SELECT * FROM R JOIN S USING (a_id, b_id);
+    ```
+
+    ```sql
+    SELECT * FROM R JOIN S
+        ON R.a_id = S.a_id AND R.b_id = S.b_id;
+    ```
+
+#### Some Extra Operators
+
+- Rename: $\rho_{new\_name}(R)$
+
+- Assignment: $R \leftarrow \sigma_{predicate}(R)$
+
+- Division: $R \div S$
+
+- Duplicate Elimination: $\delta(R)$
+
+- Aggregate: $\gamma_{function}(R)$
+
+- Sorting: $\tau_{attribute}(R)$
+
+#### Some Tips with Observation[^1]
+
+Relational algebra defines the fundamental operations to retrieve and manipulate tuples in a relation. It
+also defines an ordering of the high-level steps to compute a query.
+For example, $\sigma_{b_id = 102}(R \bowtie S)$ represents joining R and S and then selecting / filtering the result. However,
+$(R \bowtie (\sigma_{b_id = 102}(S)))$ will do the selection on $S$ first, and then join the result of the selection with $R$.
+
+These two statements will always produce the same answer. However, if $S$ has 1 billion tuples and there is only 1 tuple in $S$ with $b_id = 102$, then $(R \bowtie (\sigma_{b_id = 102}(S)))$ will be significantly faster than $\sigma_{b_id = 102}(R \bowtie S)$. How would you know this if you were using Pandas or another procedural DML?
+
+A better approach is to state the high-level result you want (retrieve the joined tuples from $R$ and $S$ where $b_id$ equals $102$), and let the DBMS decide the steps it should take to compute the query. In SQL (a declarative language) we only express what we want to be computed and we do not specify how to compute the result. The DBMS is responsible for finding the best strategy to execute the query (through Query Optimization). This powerful abstraction has made SQL the de facto standard for writing queries on a relational DBMS since the user of the DBMS does not need to know anything about the internals and can query the database in the most efficient way.
+
+**The relational model is independent of any query language implementation**.
+
+## Other Data Models
+
+### Document Data Model
+
+The document data model is a collection of record documents containing a hierarchy of named field/value pairs.
+
+- A field's value can be either a scalar type, an array of values, or another document.
+
+- Modern implementations use JSON. Older systems use XML or custom object representations.
+
+!!! tip
+    Avoid object-relational impedance mismatch by tightly coupling objects and database.
+
+    ![](assets/relation-model-and-algebra/15.png)
+
+    ![](assets/relation-model-and-algebra/16.png)
+
+### Vector Data Model
+
+The vector data model represents one-dimensional arrays used for nearest-neighbor search (exact or approximate).
+
+- Used for semantic search on embeddings generated by ML-trained transformer models (think ChatGPT).
+
+- Native integration with modern ML tools and APIs (e.g., LangChain, OpenAI).
+
+At their core, these systems use specialized indexes to perform NN searches quickly.
+
+![](assets/relation-model-and-algebra/17.png)
+
+
+[^1]: [Lecture #01: Relational Model & Algebra | CMU 15-445/645 Notes](https://15445.courses.cs.cmu.edu/spring2026/notes/01-relationalmodel.pdf)
