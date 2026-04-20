@@ -28,11 +28,11 @@ tags:
 
 ### Some Data Models
 
-- *Relational*（**关系模型**）-> Most DBMS use this model
+- *Relational*（**关系型**）-> Most DBMS use this model
 
-- *Key-Value*（**键值模型**）-> Simple Apps / Caches
+- *Key-Value*（**键值型**）-> Simple Apps / Caches
 
-- *Graph*（**图模型**）-> NoSQL
+- *Graph*（**图数据库型**）-> NoSQL
 
 - *Document / JSON / XML / Object* -> NoSQL
 
@@ -40,11 +40,11 @@ tags:
 
 - *Array (Vector, Matrix, Tensor)* -> ML / Science
 
-- *Hierarchical*
+- *Hierarchical*（**层次型**）
 
-- *Network*
+- *Network*（**网状型**）
 
-- *Semantic*
+- *Semantic*（**语义型**）
 
 - *Entity-Relationship*（**实体关系**）
 
@@ -54,11 +54,11 @@ tags:
 
 Three concepts of relational model:
 
-- *Structure*（**结构化**）: The definition of relations and their contents independent of their physical representation.
+- *Structure*（**结构**）: The definition of relations and their contents independent of their physical representation.
 
 - *Integrity*（**完整性**）: Ensure the database’s contents satisfy certain constraints.
 
-- *Manipulation*（**可操作性**）: Declarative API for accessing and modifying a database's contents via relations (sets).
+- *Manipulation*（**操作**）: Declarative API for accessing and modifying a database's contents via relations (sets).
 
 !!! tip "Data Independent"
     > [数据库系统结构](../数据库系统结构.md)
@@ -103,3 +103,34 @@ Three concepts of relational model:
     ![](assets/relation-model-and-algebra/5.png)
 
 - *Constraints*（**约束**）: Rules that ensure the data in the database is accurate and consistent.
+
+## Relational Algebra
+
+### Data Manipulation Language (DML)
+
+*Data Manipulation Language*（**DML**, **数据操作语言**）, which refers to the API that a DBMS exposes to applications to store and retrieve information from a database.
+
+There are two types of DML:
+
+- *Procedural*（**过程式**）: The query specifies the (high-level) execution strategy the DBMS should use to find the desired result based on sets / bags.
+
+    !!! example
+        Use a `for` loop to scan all records and count how many records are there to retrieve the number of records in the table.
+
+- *Non-Procedural (Declarative)*（**声明式**）: The query specifies only what data is wanted and not how to find it.
+
+    !!! example
+        Use SQL `SELECT COUNT(*) FROM artist` to count how many records are there in the table.
+
+!!! tip "Why Procedural <=> Relational Algebra, Declarative <=> Relational Calculus?"
+    In CMU 15-445, this mapping is not just terminology:
+
+    - **Procedural DML** corresponds to **Relational Algebra (关系代数)**: emphasize **how** to derive results by composing operators (selection, projection, join, union, difference, etc.).
+
+    - **Non-Procedural (Declarative) DML** corresponds to **Relational Calculus (关系演算)**: emphasize **what** result properties are desired, without specifying execution steps.
+
+    - Under safe/tractable conditions, relational algebra and relational calculus are equivalent in expressive power (same query class, viewed from two angles).
+
+    - SQL is written in a mostly declarative style (calculus-like), while the optimizer translates SQL into relational-algebra-style logical plans (and then physical execution plans).
+
+### Relational Algebra Operators
