@@ -22,11 +22,37 @@ tags:
 
     ![](assets/links/1.png)
 
-## Timing Diagrams
+## Timing Diagram
 
 The left bar is the sender, and the right bar is the recipient. Time starts at 0 and increases as we move down the diagram.
 
 ![](assets/links/2.png)
+
+## Pipe Diagram
+
+Another way to view packets being sent across the network is to draw the bits on the link at a frozen moment in time, which called *pipe diagram*.
+
+Imagine the link is a pipe (similar to the water analogy) and draw the pipe as a rectangle, where the width is the propagation delay, and the height is the bandwidth. The area of the pipe is the capacity of the link.
+
+![](assets/links/3.png)
+
+Pipe diagrams can be useful for comparing different links. Let’s look at the exact same packets traveling through three different links.
+
+If we shorten the propagation delay, the pipe width gets shorter. The pipe height stays the same, and the shape of each rectangular packet is the same:
+
+![](assets/links/4.png)
+
+This corresponds exactly to the variation trend of transmission delay.
+
+## Overloaded Links
+
+> [Overloaded Links - Links | CS168 Textbook](https://textbook.cs168.io/intro/links.html#overloaded-links)
+
+When two packets arriving simultaneously, and we can only send out one. The *transient overload* happens, and it’s extremely common at switches in the Internet.
+
+To cope with transient overload, the switch maintains a queue of packets. If two packets arrive simultaneously, the switch queues one of them and sends out the other one. And the sending process is controlled by a *packet scheduling algorithm*.
+
+However, if we face *persistent overload*, that just isn’t enough capacity on the outgoing link to support the level of incoming traffic. We could still fill he queue up, but that still isn’t enough to support the incoming load. One way or another, **the switch will drop packets**.
 
 
 [^1]: [Properties of Links - Links | CS168 Textbook](https://textbook.cs168.io/intro/links.html#properties-of-links)
