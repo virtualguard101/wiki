@@ -23,3 +23,8 @@ dependencies = [
     "pandas>=2.3.3",
     "click==8.2.1",
 ]
+
+[dependency-groups]
+dev = [
+    "zensical>=0.0.34",
+]
