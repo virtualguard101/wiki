@@ -1,5 +1,5 @@
 ---
-date: 2026-03-24 11:37:43
+date: 2026-04-22 09:59:43
 title: Design Principles
 permalink: desgin-principle
 publish: true
@@ -90,6 +90,30 @@ The end-to-end principle is not an unbreakable rule:
 ## Designing Resource Sharing
 
 ### Statistical Multiplexing
+
+> [ Sharing Resources: Statistical Multiplexing -  Designing Resource Sharing | CS168 Textbook](https://textbook.cs168.io/intro/sharing-resources.html#sharing-resources-statistical-multiplexing)
+
+### Circuit Switching vs. Packet Switching
+
+> [数据交换类型 - 计算机网络概述](../408/计算机网络概述.md#数据交换类型)
+>
+> [Sharing Resources: Circuit Switching vs. Packet Switching -  Designing Resource Sharing | CS168 Textbook](https://textbook.cs168.io/intro/sharing-resources.html#sharing-resources-circuit-switching-vs-packet-switching)
+
+!!! tip
+    In the modern Internet, packet switching is the default approach.
+
+#### Tradeoffs between the two approaches
+
+There are four dimensions we can use to compare the two approaches:
+
+1. Is this a good abstraction (or API) for the network to offer to an application developer?
+
+2. Is the approach efficient at scale? Does the approach use all the available bandwidth on the network, or is some bandwidth wasted?
+
+3. How well does each approach handle failure at scale?
+
+4. How complex is it to implement each approach at scale?
+
 
 
 [^1]: [Demultiplexing - Network Architecture | CS168 Textbook](https://textbook.cs168.io/intro/architecture.html#demultiplexing)

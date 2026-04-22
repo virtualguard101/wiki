@@ -66,29 +66,29 @@ def main():
         # Execute pre-commit hooks with user's input
         run_hooks(config['hooks'], 'pre_commit')
 
-        while True:
-            sync_choice = input("Would you want to sync posts to hexo blog? (y/N): ").strip().lower()
-            if sync_choice == 'n' or sync_choice == '':
-                break
-            elif sync_choice == 'y':
-                # Sync blog posts
-                hexo_path = Path(config['paths']['hexo'])
-                wiki_path = Path(config['paths']['wiki'])
-                logger.info("Syncing blog posts to hexo blog")
-                for file in wiki_path.glob('*.md'):
-                    wiki_post = file.name
-                    dest_path = hexo_path / wiki_post
+        # while True:
+        #     sync_choice = input("Would you want to sync posts to hexo blog? (y/N): ").strip().lower()
+        #     if sync_choice == 'n' or sync_choice == '':
+        #         break
+        #     elif sync_choice == 'y':
+        #         # Sync blog posts
+        #         hexo_path = Path(config['paths']['hexo'])
+        #         wiki_path = Path(config['paths']['wiki'])
+        #         logger.info("Syncing blog posts to hexo blog")
+        #         for file in wiki_path.glob('*.md'):
+        #             wiki_post = file.name
+        #             dest_path = hexo_path / wiki_post
                     
-                    # Copy file regardless of existence in hexo blog
-                    subprocess.run(f"cp '{file}' {str(hexo_path)}", shell=True, check=True)
-                    logger.debug(f"Copied: {file} -> {dest_path}")
+        #             # Copy file regardless of existence in hexo blog
+        #             subprocess.run(f"cp '{file}' {str(hexo_path)}", shell=True, check=True)
+        #             logger.debug(f"Copied: {file} -> {dest_path}")
                 
-                # Build hexo blog
-                subprocess.run("cd ../blog && uv run build.py", shell=True, check=True)
-                logger.info("Blog build completed successfully!")
-                break
-            else:
-                logger.error("Invalid choice")
+        #         # Build hexo blog
+        #         subprocess.run("cd ../blog && uv run build.py", shell=True, check=True)
+        #         logger.info("Blog build completed successfully!")
+        #         break
+        #     else:
+        #         logger.error("Invalid choice")
         
         # Git operations
         # commit_paths = input("Enter commit paths: ").strip()
