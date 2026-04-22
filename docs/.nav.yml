@@ -228,7 +228,7 @@ nav:
           - Design Principles: "obsidian/ComputerNetwork/cs168/Design Principle.md"
           - Links: "obsidian/ComputerNetwork/cs168/Links.md"
         - Routing:
-          - Introduction to Routing: "obsidian/ComputerNetwork/cs168/Routing/Introduction to Routing.md"
+          - Introduction to Routing: "obsidian/ComputerNetwork/cs168/Introduction to Routing.md"
     - 数据库系统:
       - Legacy:
         - 数据库系统概述:
