@@ -1,8 +1,8 @@
 ---
-date: 2026-04-23 12:26:45
+date: 2026-04-23 22:52:45
 title: Traceroute
 permalink: proj-1
-publish: false
+publish: true
 tags:
   - 计算机网络
   - CS168
@@ -88,10 +88,64 @@ In these three problems, it is obviosly to figure out 'why' according to [Tracer
 
 - For 2, we know that in order to consider that whether the destination is reachable, it will reply while some errors occur, such as we send a packet to an *unreachable port*. So we can send a UDP packet in some "invalid ways" so that we can get the error response(an ICMP-over-IP packet) from the destination.
 
-- For 3, 
-
     !!! tip
         Recall that on a computer, each running service is associated with a port number. If we pick a port number that’s not associated with any running service, the destination computer will get confused and send back a “Port Unreachable” error message: “The port you asked for does not correspond to an existing application.”[^2]
+
+- For 3, one probe per TTL is often not enough: loss and delay jitter can make results unstable, and under ECMP different probes may take different paths. So traceroute sends multiple probes per TTL to get more reliable RTTs and expose path diversity.
+
+### Traceroute Main Logic
+
+```python
+def traceroute(sendsock: util.Socket, recvsock: util.Socket, ip: str) \
+        -> list[list[str]]:
+    """ Run traceroute and returns the discovered path.
+
+    Calls util.print_result() on the result of each TTL's probes to show
+    progress.
+
+    Arguments:
+    sendsock -- This is a UDP socket you will use to send traceroute probes.
+    recvsock -- This is the socket on which you will receive ICMP responses.
+    ip -- This is the IP address of the end host you will be tracerouting.
+
+    Returns:
+    A list of lists representing the routers discovered for each ttl that was
+    probed.  The ith list contains all of the routers found with TTL probe of
+    i+1.   The routers discovered in the ith list can be in any order.  If no
+    routers were found, the ith list can be empty.  If `ip` is discovered, it
+    should be included as the final element in the list.
+    """
+
+    # Accumulate one router list per TTL hop.
+    discovered_routers = []
+    # Probe TTL values from 1 up to the configured maximum.
+    for ttl in range(1, TRACEROUTE_MAX_TTL+1):
+        # Configure outgoing probe packets to expire after `ttl` hops.
+        sendsock.set_ttl(ttl)
+        # Store unique router IPs discovered for this specific TTL.
+        routers = []
+        # Send multiple probes for this TTL to tolerate packet loss.
+        for _ in range(PROBE_ATTEMPT_COUNT):
+            # Send a UDP traceroute probe toward the target host and destination port.
+            sendsock.sendto(b"traceroute probe", (ip, TRACEROUTE_PORT_NUMBER))
+            # Try to read one valid ICMP response for this probe.
+            addr = probe_response(recvsock=recvsock, ttl=ttl)
+            # Keep only non-empty and non-duplicate hop addresses.
+            if addr and addr not in routers:
+                routers.append(addr)
+        # Print intermediate traceroute output for this TTL.
+        util.print_result(routers=routers, ttl=ttl)
+        # Persist this TTL result into the overall traceroute path.
+        discovered_routers.append(routers)
+        # Stop early once the destination host is reached.
+        if ip in routers:
+            break
+    return discovered_routers
+```
+
+### Some Troubleshooting
+
+> [Troubleshooting - Traceroute | vglab](https://github.com/virtualguard101/vglab/blob/main/network/cs168/traceroute/troubleshooting.md)
 
 
 [^1]: [Hints - Parsing Packets - Project 1A: Basic Traceroute | CS168 SP26](https://sp26.cs168.io/proj1/proj1a/#hints)
