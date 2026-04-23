@@ -5,8 +5,8 @@ site_author: virtualguard101{}
 #   minutes – searchable, customizable, in 60+ languages, for all devices
 site_name: vgca101's Wiki
 site_url: https://wiki.virtualguard101.com
-repo_url: https://github.com/virtualguard101/wiki
-repo_name: virtualguard101/wiki
+repo_url: https://github.com/virtualguard101/vglab
+repo_name: virtualguard101/vglab
 edit_uri: blob/main/docs/
 
 ## Configuration
