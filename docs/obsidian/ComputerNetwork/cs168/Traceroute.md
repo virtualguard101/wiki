@@ -72,9 +72,28 @@ When implementing the headers, we need to pay attention to the following points:
     # Notice: `byteorder='big'` is necessary to convert the bytes to an integer in network byte order(big-end).
     ```
 
-### Auxiliary Functions
+#### Auxiliary Functions
 
 According to the [guide](https://sp26.cs168.io/proj1/guide/#2-introducing-traceroute), we need to understand and implement three points:
 
+1. How to exploiting the TTL field to trace the route.
+
+2. Why and how we use ICMP *packet unreachable* messages to trace the route.
+
+3. Why and how we use multiple probes to trace the route.
+
+In these three problems, it is obviosly to figure out 'why' according to [Traceroute Principle](#Principles-Overview):
+
+- For 1, we can get answer from the principles directly.
+
+- For 2, we know that in order to consider that whether the destination is reachable, it will reply while some errors occur, such as we send a packet to an *unreachable port*. So we can send a UDP packet in some "invalid ways" so that we can get the error response(an ICMP-over-IP packet) from the destination.
+
+- For 3, 
+
+    !!! tip
+        Recall that on a computer, each running service is associated with a port number. If we pick a port number that’s not associated with any running service, the destination computer will get confused and send back a “Port Unreachable” error message: “The port you asked for does not correspond to an existing application.”[^2]
+
 
 [^1]: [Hints - Parsing Packets - Project 1A: Basic Traceroute | CS168 SP26](https://sp26.cs168.io/proj1/proj1a/#hints)
+
+[^2]: [Unreachable Ports - Introducing Traceroute - Traceroute Guide | CS168 SP26](https://sp26.cs168.io/proj1/guide/#24-unreachable-ports)
