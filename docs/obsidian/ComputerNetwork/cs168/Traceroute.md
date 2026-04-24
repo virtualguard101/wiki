@@ -16,6 +16,9 @@ In this project, we need to implement the traceroute program, which is a tool to
 
 ## Principles Overview
 
+!!! info
+    Normally, if we send a packet and receive a response packet, we don’t know what path the packets used to travel through the network. In other words, we can’t figure out which intermediate routers forwarded your packet. None of the header fields tell us about the path the packet used.
+
 Traceroute discovers each hop on the path by sending probe packets with gradually increasing TTL values (1, 2, 3, ...).  
 
 When a router decrements TTL to 0, it drops the packet and returns an ICMP *Time Exceeded* message, revealing that router's IP.  
