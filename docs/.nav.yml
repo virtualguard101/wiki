@@ -251,7 +251,7 @@ nav:
           - 关系模式的分解: "obsidian/Database/关系模式的分解.md"
       - CMU 15-445:
         - Relational Model & Algebra: "obsidian/Database/cmu15-445/Relational Model & Algebra.md"
-        - Modern SQL: "obsidian/Database/cmu15-445/Modern SQL.md"
+        # [ ] - Modern SQL: "obsidian/Database/cmu15-445/Modern SQL.md"
     - 软件工程:
       - UML图: "obsidian/SoftwareEngineering/UML图.md"
       - 开发流程与开发规范: "obsidian/SoftwareEngineering/开发流程与开发规范.md"
