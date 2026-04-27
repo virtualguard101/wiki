@@ -12,7 +12,7 @@ tags:
 
 ## 通过fork系统调用创建进程
 
-在[Linux基础、杂项](../Tools/linux/Linux基础、杂项.md)环境下，可通过`fork()`系统调用创建新的进程：
+在[Linux](../Tools/linux/Linux基础、杂项.md)环境下，可通过`fork()`系统调用创建新的进程：
 
 ```c
 #include <unistd.h>
