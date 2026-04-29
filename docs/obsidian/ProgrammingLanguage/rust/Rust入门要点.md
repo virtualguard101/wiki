@@ -1,5 +1,5 @@
 ---
-date: 2025-09-17 01:13:00
+date: 2026-04-29 11:57:00
 title: Rust入门要点
 permalink: 
 publish: true
@@ -9,6 +9,10 @@ tags:
 ---
 
 # Rust 入门要点
+
+> [Rust语言圣经](https://beatai.org/rust-course/about-book)
+>
+>[Rust By Practice](https://practice-rust.beatai.org/why-exercise.html)
 
 ## 安装编译环境
 
@@ -163,6 +167,6 @@ Cargo 的强大之处在于其可作为一个**统一工具链**使用，==即**
     See 'cargo help <command>' for more information on a specific command.
     ```
 
-## 一个简单的猜数字游戏
+## 学习Rust适合写什么练手项目
 
-- [编写一个猜数字游戏 | Rust 程序设计语言 简体中文版](https://kaisery.github.io/trpl-zh-cn/ch02-00-guessing-game-tutorial.html)
+> [学习Rust适合写什么练手项目？| 花宝宝-微信文章](https://mp.weixin.qq.com/s/jJvo3i0h3oteXeM_96ScwA)
