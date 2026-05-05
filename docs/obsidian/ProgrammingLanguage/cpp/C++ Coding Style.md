@@ -1,5 +1,5 @@
 ---
-date: 2026-05-05 23:40:32
+date: 2026-05-05 23:51:32
 title: C++ Coding Style
 permalink: cpp-coding-style
 publish: true
@@ -30,6 +30,20 @@ C++ 社区里认可度较高的风格主要有 [Google](https://google.github.io
 
 - **关键词**：规范严格、可维护优先、审查友好。
 
+#### 命名规范
+
+- **类型（class/struct/enum/typedef）**：`PascalCase`，如 `HttpClient`。
+
+- **函数名**：`PascalCase`，如 `SendRequest()`。
+
+- **变量名（局部变量/参数/成员变量）**：`snake_case`，如 `retry_count`。
+
+- **常量名**：`kPascalCase`，如 `kDefaultTimeoutMs`。
+
+- **宏名**：`ALL_CAPS_WITH_UNDERSCORES`，如 `MAX_BUFFER_SIZE`。
+
+- **命名空间**：一般使用小写（必要时可下划线分词），如 `net`、`image_codec`。
+
 ### LLVM Coding Standards
 
 > [LLVM Coding Standards](https://llvm.org/docs/CodingStandards.html)
@@ -39,6 +53,18 @@ C++ 社区里认可度较高的风格主要有 [Google](https://google.github.io
 - **适合场景**：编译器、基础设施、中大型开源项目。
 
 - **关键词**：现代 C++、风格统一、工程实践成熟。
+
+#### 命名规范
+
+- **类型（class/struct/enum）**：`PascalCase`，如 `SmallVector`。
+
+- **函数名**：`camelCase`，如 `getElementPtr()`。
+
+- **变量名**：`camelCase`，如 `retryCount`。
+
+- **常量名**：LLVM 中常见常量也采用 `camelCase`（具体以子项目约定为准）。
+
+- **宏名**：`ALL_CAPS_WITH_UNDERSCORES`。
 
 ### Mozilla C++ Style
 
@@ -50,6 +76,18 @@ C++ 社区里认可度较高的风格主要有 [Google](https://google.github.io
 
 - **关键词**：兼容性、审查效率、稳健维护。
 
+#### 命名规范
+
+- **类型（class/struct/enum）**：`PascalCase`。
+
+- **函数名**：通常使用 `camelCase`。
+
+- **变量名**：通常使用 `camelCase`。
+
+- **常量名**：常见 `k` 前缀或项目自定义约定（以仓库规则为准）。
+
+- **宏名**：`ALL_CAPS_WITH_UNDERSCORES`。
+
 ### Chromium C++ Style
 
 > [Chromium C++ Style](https://chromium.googlesource.com/chromium/src/+/main/styleguide/c++/c++.md)
@@ -60,6 +98,18 @@ C++ 社区里认可度较高的风格主要有 [Google](https://google.github.io
 
 - **关键词**：性能、安全、可审查性。
 
+#### 命名规范
+
+- **类型（class/struct/enum）**：`PascalCase`。
+
+- **函数名**：`camelCase`（和 Chromium 代码风格保持一致）。
+
+- **变量名**：`camelCase`。
+
+- **常量名**：常见 `k` 前缀 + `PascalCase`，如 `kMaxRetryCount`。
+
+- **宏名**：`ALL_CAPS_WITH_UNDERSCORES`。
+
 ### C++ Core Guidelines（原则集）
 
 > [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
@@ -69,6 +119,22 @@ C++ 社区里认可度较高的风格主要有 [Google](https://google.github.io
 - **适合场景**：新项目设计、旧项目现代化重构。
 
 - **关键词**：RAII、类型安全、资源管理、现代 C++ 思维。
+
+#### 命名规范
+
+- **说明**：Core Guidelines 不是“统一排版手册”，而是“现代 C++ 设计原则集”，对命名不做像 Google/LLVM 那样的强制统一。
+
+- **实践建议**：在项目中选择一套固定命名风格并长期一致；优先保证“见名知意”与语义清晰。
+
+- **推荐基线**（可选）：
+
+    - 类型：`PascalCase`
+
+    - 函数/变量：`snake_case` 或 `camelCase`（二选一，不混用）
+
+    - 常量：`kPascalCase`
+
+    - 宏：`ALL_CAPS_WITH_UNDERSCORES`
 
 
 ## Formatting Tools
