@@ -60,6 +60,7 @@ nav:
           - C++移动语义: "obsidian/ProgrammingLanguage/cpp/cs106l/C++移动语义.md"
           - C++类型安全、设计理念概述: "obsidian/ProgrammingLanguage/cpp/cs106l/C++类型安全、设计理念概述.md"
           - RAII & C++智能指针: "obsidian/ProgrammingLanguage/cpp/cs106l/RAII & C++智能指针.md"
+        - C++ Coding Style: "obsidian/ProgrammingLanguage/cpp/C++ Coding Style.md"
       - JavaScript:
         - JavaScript入门要点: "obsidian/ProgrammingLanguage/javascript/JavaScript入门要点.md"
         - JS回调函数简单应用: "obsidian/ProgrammingLanguage/javascript/JS回调函数简单应用.md"
