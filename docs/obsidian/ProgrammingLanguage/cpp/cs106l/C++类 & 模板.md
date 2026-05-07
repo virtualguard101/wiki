@@ -49,7 +49,7 @@ tags:
 !!! note
     有关类模板的介绍，移步[Class Templates | CS106L-TextBook](https://cs106l.github.io/textbook/templates/class-templates)
 
-**源文件（`.cpp`）**
+**源文件（`.cpp`/`.cc`）**
 
 - 用于存放头文件中声明的类方法和类定义的实现
 
