@@ -7,6 +7,9 @@ hide:
   - toc
 template: projects.html
 projects:
+  - name: haruhiloop
+    description: A time-loop command-line simulator inspired by "The Endless August" from The Melancholy of Haruhi Suzumiya.
+    image: haruhiloop.gif
   - name: ForyoClassifierCNN
     description: A music classification project for atarayo, yorushika, yoasobi and zutomayo which based on PyTorch.
     image: foryo-classifier-cnn.png
