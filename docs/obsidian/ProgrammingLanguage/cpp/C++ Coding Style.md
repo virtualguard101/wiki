@@ -149,6 +149,31 @@ C++ 社区里认可度较高的风格主要有 [Google](https://google.github.io
 
 - **常见用法**：在仓库根目录放 `.clang-format`，提交前自动格式化。
 
+    - 在项目根目录生成[对应风格](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)的 `.clang-format`：
+
+        ```bash
+        clang-format -style=<format_option> -dump-config > .clang-format
+        ```
+
+    - 终端预览格式化结果：
+
+        ```bash
+        clang-format <file1> <file2> ...
+        ```
+    
+    - 写入格式化：
+
+        ```bash
+        clang-format -i <file1> <file2> ...
+        ```
+
+    - 配合 [`rg`](https://github.com/burntsushi/ripgrep) 批量处理：
+
+        ```bash
+        rg --files /path -g '*.{h,hpp,cc,cpp,cxx}' -0 | xargs -0 clang-format -i
+        ```
+
+
 ### clang-tidy
 
 > [clang-tidy](https://clang.llvm.org/extra/clang-tidy/)
