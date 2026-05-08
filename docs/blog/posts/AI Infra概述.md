@@ -252,6 +252,10 @@ GPU / Network / Storage
 
 - [AIInfra AI基础设施 - Home](https://infrasys-ai.github.io/aiinfra-docs/) - https://infrasys-ai.github.io/aiinfra-docs/
 
+- [AIInfraGuide | GitHub](https://github.com/caomaolufei/AIInfraGuide) - https://github.com/caomaolufei/AIInfraGuide
+
+- [AI Infra Guide - AI Infra 全栈知识库](https://caomaolufei.github.io/AIInfraGuide/) - https://caomaolufei.github.io/AIInfraGuide/
+
 #### 学术资料[^4]
 
 ##### 高影响力论文
