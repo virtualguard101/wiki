@@ -408,7 +408,7 @@ constexpr double fib(int n) {
 
 #### `const` vs `constexpr`
 
-在实际工程中，`const`与`constexpr`都可以用于“不可修改”的语义，但二者的关注点不同：
+在实际工程中，[`const`](初始化与引用操作.md#const-关键字)与`constexpr`都可以用于“不可修改”的语义，但二者的关注点不同：
 
 - `const`：强调**运行期只读**（不可修改）
 
