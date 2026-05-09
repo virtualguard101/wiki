@@ -287,6 +287,7 @@ void swap(T& a, T& b) {
 ```
 
 也可为模板参数设置默认类型：
+
 ```cpp
 template <typename Type=int>
 Type customMin(Type a, Type b) {
@@ -310,8 +311,10 @@ int main() {
     std::cout << smartMin(101, 5.5) << std::endl;
     return 0;
 }
+```
 
 针对上面在头文件中定义的模板类的结构，我们可以在源文件中通过模板函数来完成其成员函数的实现：
+
 ```cpp
 template <class T>
 Container<T>::Container(T val) {
@@ -328,6 +331,7 @@ T Container<T>::getValue() {
 
 !!! note
     需注意若上述模板函数为以下形式，即未在类的命名空间后添加模板类的参数类型，**模板参数将不会传递**：
+
     ```cpp
     template <class T>
     Container::Container(T val) {
