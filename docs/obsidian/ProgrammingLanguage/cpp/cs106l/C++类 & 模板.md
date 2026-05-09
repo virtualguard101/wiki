@@ -406,6 +406,83 @@ constexpr double fib(int n) {
 
 变量也可以使用`constexpr`修饰。
 
+#### `const` vs `constexpr`
+
+在实际工程中，`const`与`constexpr`都可以用于“不可修改”的语义，但二者的关注点不同：
+
+- `const`：强调**运行期只读**（不可修改）
+
+- `constexpr`：强调**编译期常量表达式**（也不可修改）
+
+以播放器解码流程中的分块读取为例：
+
+```cpp
+constexpr ma_uint64 kChunkFrames = 4096;
+std::vector<float> chunk(kChunkFrames * decoded.channels, 0.0f);
+```
+
+这里使用`constexpr`的原因是：`kChunkFrames`是一个固定参数，不依赖运行时输入，且语义上希望明确它是“编译期确定的常量”。
+
+如果写成：
+
+```cpp
+const ma_uint64 kChunkFrames = 4096;
+```
+
+在这个函数里通常也能正常工作，但它表达的是“不可改”，而不如`constexpr`直接强调“编译期常量”的意图。
+
+再看一个更适合`const`的值：
+
+```cpp
+const size_t copySamples = static_cast<size_t>(readFrames * decoded.channels);
+```
+
+`copySamples`依赖`readFrames`（运行时数据），它不是编译期常量；此时使用`const`表示“本次作用域内不再修改”就足够了。
+
+可记为：
+
+- 固定配置参数、编译期可确定：优先`constexpr`
+
+- 运行期计算得到但希望只读：使用`const`
+
+##### 真正拉开差距的场景
+
+很多时候二者看起来“都能用”，但在需要**编译期常量**的上下文里，差距会非常明显。
+
+- 场景一：用于模板参数（例如`std::array`长度）
+
+```cpp
+constexpr int kCompileSize = 4096;
+std::array<float, kCompileSize> a;
+```
+
+上例中`kCompileSize`是编译期常量表达式，因此可作为模板参数。
+
+如果改成依赖运行时数据：
+
+```cpp
+int runtimeSize = decoded.channels * 1024;
+const int kRuntimeSize = runtimeSize;
+// std::array<float, kRuntimeSize> b; // 编译错误：不是常量表达式
+```
+
+虽然`kRuntimeSize`被`const`修饰，不可修改，但它的值来自运行时，因此不能用于要求编译期常量的场景。
+
+- 场景二：初始化约束不同
+
+```cpp
+const int x = runtimeSize;      // 合法：运行时只读变量
+// constexpr int y = runtimeSize; // 非法：constexpr要求编译期可求值
+```
+
+这里体现出核心差异：
+
+- `const`：运行时计算得到的值后续不能修改
+
+- `constexpr`：编译阶段就必须可确定
+
+因此，若希望变量不仅不可改，还能参与编译期计算（模板参数、数组维度、`if constexpr`分支等），应优先选择`constexpr`。
+
 ## 常量接口
 
 现有一个用户自定义类`Student`：
