@@ -1,5 +1,5 @@
 ---
-date: 2025-05-23 00:33:00
+date: 2026-05-10 15:08:00
 title: C++移动语义
 permalink: 
 publish: true
@@ -78,9 +78,42 @@ class HumanGenome {
 
 当原始对象不再需要时，你可以使用 `std::move()` 来转移（而不是复制）其资源。关于`std::move`的应用场景，还可参考[What is `std::move()`, and when should it be used? | stackoverflow](https://stackoverflow.com/questions/3413470/what-is-stdmove-and-when-should-it-be-used)
 
+### 应用场景
+
+#### 资源所有权转移
+
+在 [`vocalplayer`](https://github.com/virtualguard101/vocalplayer) 的音频播放引擎模块中有如下代码：
+
+```cpp
+void AudioEngine::Load(DecodedTrack decoded_track, const TrackInfo& track_info) {
+  decoded_track_ = std::move(decoded_track);
+  // ...
+}
+```
+
+这里的核心点是：
+
+1. `DecodedTrack` 内部包含 `std::vector<float> interleaved_samples`，音频数据量通常很大。
+
+2. `std::move(decoded_track)` 并不“搬运”数据本身，它只把 `decoded_track` 转成右值引用。
+
+3. 真正的资源转移发生在 `DecodedTrack`（以及其成员 `std::vector`）的移动赋值过程中。
+
+4. 这样写可以避免大规模深拷贝，减少内存分配与拷贝成本。
+
+5. 被 move 后的 `decoded_track` 仍是“有效但值未知”状态，因此后续不应再依赖其原始内容。
+
+这种“**按值接收参数 + move 到成员**”是现代 C++ 很常见的写法：
+
+- 调用方传右值时：通常可直接走移动路径，成本低。
+
+- 调用方传左值时：会先拷贝到形参，再 move 到成员，语义清晰且实现统一。
+
+因此，`decoded_track_ = std::move(decoded_track);` 的本质是：**把解码后的大块 PCM 资源所有权转交给播放器引擎内部，避免不必要的复制**。
+
 通常，我们希望避免在应用程序代码中使用 `std::move()`。直接在应用程序代码中使用 `std::move()` 可能会导致代码的可读性和可维护性降低。在类定义中使用它，比如构造函数和运算符。
 
-如果你定义了移动构造函数和移动赋值运算符，编译器可以在很大程度上进行优化，而不需要你显式地使用 `std::move()`。
+如果你定义了移动构造函数和移动赋值运算符，编译器可以在很大程度上进行优化，而不需要显式地使用 `std::move()`。
 
 ## SMFs的一些应用理念
 
