@@ -231,7 +231,7 @@ nav:
                   - Links: "obsidian/ComputerNetwork/cs168/Links.md"
               - Routing:
                   - Introduction to Routing: "obsidian/ComputerNetwork/cs168/Introduction to Routing.md"
-                # [ ] - Routing States: "obsidian/ComputerNetwork/cs168/Routing States.md"
+                  - Routing States: "obsidian/ComputerNetwork/cs168/Routing States.md"
               - Traceroute: "obsidian/ComputerNetwork/cs168/Traceroute.md"
       - 数据库系统:
           - Legacy:
