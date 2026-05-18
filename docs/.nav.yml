@@ -33,19 +33,6 @@ nav:
         - Python包管理: "obsidian/ProgrammingLanguage/python/Python包管理.md"
         - Python虚拟环境: "obsidian/ProgrammingLanguage/python/Python虚拟环境.md"
         - PEP8格式化: "obsidian/ProgrammingLanguage/python/PEP8格式化.md"
-      - Golang:
-        - Golang入门要点: "obsidian/ProgrammingLanguage/golang/Golang入门要点.md"
-        - 基础:
-          - 命名规范: "obsidian/ProgrammingLanguage/golang/Go命名规范.md"
-          - Golang程序结构: "obsidian/ProgrammingLanguage/golang/Golang程序结构.md"
-          - Golang函数: "obsidian/ProgrammingLanguage/golang/Golang函数.md"
-          - Golang接口: "obsidian/ProgrammingLanguage/golang/Golang接口.md"
-      - Rust:
-        - Rust入门要点: "obsidian/ProgrammingLanguage/rust/Rust入门要点.md"
-        - Rust变量: "obsidian/ProgrammingLanguage/rust/Rust变量.md"
-        - Rust数据类型: "obsidian/ProgrammingLanguage/rust/Rust数据类型.md"
-        - Rust函数: "obsidian/ProgrammingLanguage/rust/Rust函数.md"
-        # [ ] - 所有权与借用: "obsidian/ProgrammingLanguage/rust/所有权与借用.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/ProgrammingLanguage/cpp/cs106l/基础类型与结构体.md"
@@ -62,6 +49,19 @@ nav:
           - RAII & C++智能指针: "obsidian/ProgrammingLanguage/cpp/cs106l/RAII & C++智能指针.md"
         - C++ Coding Style: "obsidian/ProgrammingLanguage/cpp/C++ Coding Style.md"
         - 自增表达式: "obsidian/ProgrammingLanguage/cpp/自增表达式.md"
+      - Rust:
+        - Rust入门要点: "obsidian/ProgrammingLanguage/rust/Rust入门要点.md"
+        - Rust变量: "obsidian/ProgrammingLanguage/rust/Rust变量.md"
+        - Rust数据类型: "obsidian/ProgrammingLanguage/rust/Rust数据类型.md"
+        - Rust函数: "obsidian/ProgrammingLanguage/rust/Rust函数.md"
+        # [ ] - 所有权与借用: "obsidian/ProgrammingLanguage/rust/所有权与借用.md"
+      - Golang:
+        - Golang入门要点: "obsidian/ProgrammingLanguage/golang/Golang入门要点.md"
+        - 基础:
+          - 命名规范: "obsidian/ProgrammingLanguage/golang/Go命名规范.md"
+          - Golang程序结构: "obsidian/ProgrammingLanguage/golang/Golang程序结构.md"
+          - Golang函数: "obsidian/ProgrammingLanguage/golang/Golang函数.md"
+          - Golang接口: "obsidian/ProgrammingLanguage/golang/Golang接口.md"
       - JavaScript:
         - JavaScript入门要点: "obsidian/ProgrammingLanguage/javascript/JavaScript入门要点.md"
         - JS回调函数简单应用: "obsidian/ProgrammingLanguage/javascript/JS回调函数简单应用.md"
