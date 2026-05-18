@@ -7,9 +7,14 @@ hide:
   - toc
 template: projects.html
 projects:
+  - name: vocalplayer
+    description: A creative C++ CLI music player with real-time rhythm visualization in the terminal. 
+    image: vocalplayer.png
+
   - name: haruhiloop
     description: A time-loop command-line simulator inspired by "The Endless August" from The Melancholy of Haruhi Suzumiya.
     image: haruhiloop.gif
+
   - name: ForyoClassifierCNN
     description: A music classification project for atarayo, yorushika, yoasobi and zutomayo which based on PyTorch.
     image: foryo-classifier-cnn.png
