@@ -82,7 +82,7 @@ class HumanGenome {
 
 #### 资源所有权转移
 
-在 [`vocalplayer`](https://github.com/virtualguard101/vocalplayer) 的音频播放引擎模块中有如下代码：
+在 [`vocalplayer`](../../../../projects/vocalplayer.md) 的音频播放引擎模块中有如下代码：
 
 ```cpp
 void AudioEngine::Load(DecodedTrack decoded_track, const TrackInfo& track_info) {

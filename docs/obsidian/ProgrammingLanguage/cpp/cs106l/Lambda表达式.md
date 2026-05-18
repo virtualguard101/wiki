@@ -1,5 +1,5 @@
 ---
-date: 2025-05-17 00:30:00
+date: 2026-05-18 10:10:00
 title: Lambda表达式
 permalink: 
 publish: true
@@ -94,6 +94,89 @@ int main() {
     - 任何返回`bool`值的函数都属于谓词函数
 
     - 谓词函数可以是**一元**或**多元**的，即单参数的或多参数的
+
+同一套「可调用对象作参数」的写法还可用于更广的[**回调/策略注入**](#回调策略注入)；谓词只是其中返回 `bool`、用于判断的那一类。
+
+### 回调/策略注入
+
+与「把 `lambda` 当谓词传给算法」使用**同一套机制**（可调用对象作为参数），但**意图往往更广**：由被调用方在合适时机「反过来」执行你注入的逻辑，即**控制反转** + **策略注入**。
+
+常见角色可区分如下：
+
+| 角色 | 典型签名 | 作用 | 示例 |
+|------|----------|------|------|
+| **谓词 (predicate)** | 返回 `bool`，常带参数 | 判断某条件是否成立 | `std::find_if` 的第四个参数；循环的 `should_stop` |
+| **回调 (callback)** | 常为 `void`，任意参数 | 事件发生时通知调用方 | `on_click`、`on_intent` |
+| **提供者 (provider)** | 返回某种值 | 需要时由调用方拉取数据 | 每帧 `VisualFrame()`、播放列表视图模型 |
+
+项目 [`vocalplayer`](../../../../projects/vocalplayer.md) 中，有 `TuiRenderer::Run` 接口：
+
+```cpp
+void Run(const std::function<VisualFrame()>& frame_provider,
+         const std::function<PlaylistViewModel()>& playlist_provider,
+         const std::function<void(UiIntent)>& on_intent,
+         const std::function<void(int)>& on_selection_changed,
+         const std::function<bool()>& should_stop,
+         UiSessionState* session_state = nullptr);
+```
+
+控制层用多个 `lambda` 注入具体逻辑（节选）：
+
+```cpp
+tui_renderer_.Run(
+    [&] {
+      return BuildPlaybackVisualFrame(
+          audio_engine_, analyzer_, spectrum_peaks_l, spectrum_peaks_r);
+    },
+    [&] {
+      PlaylistViewModel view_model;
+      view_model.tracks = track_names;
+      view_model.current_track_index = current_index;
+      // ...
+      return view_model;
+    },
+    [&](UiIntent intent) { /* 处理切歌、暂停、退出等 */ },
+    [&](int next_selected_index) { selected_index.store(/* ... */); },
+    [&] {
+      PlaybackState state = audio_engine_.GetPlaybackState();
+      return state.is_finished || switch_requested.load();
+    },
+    &ui_session_state);
+```
+
+对应关系：
+
+- `frame_provider` / `playlist_provider`：**数据提供者**，不是谓词。
+
+- `on_intent` / `on_selection_changed`：**事件回调**，不是谓词。
+
+- `should_stop`：**谓词式用法**——无参、返回 `bool`，供 UI 循环判断何时退出（与上一节 `count_occurrences` 中的 `pred` 同类，只是无参且交给自定义 API）。
+
+编译器会根据 `lambda` 的签名**隐式转换**为对应的 `std::function<...>`（捕获方式与调用约定需匹配）。
+
+!!! note "与谓词传递的关系"
+    - **机制相同**：都是把 `lambda`（或函数对象）当作参数传给另一模块，由对方在内部调用。
+
+    - **不全是谓词**：一次注入里可以同时有 provider、handler、predicate 等多种角色；只有返回 `bool`、用于判断分支/循环的那类才算谓词。
+
+    - **设计动机**：UI 层只定义「我需要什么钩子」，业务逻辑通过 `lambda` 从外层注入，避免渲染层依赖播放/切歌实现（依赖倒置）。
+
+**捕获选择**：回调常需读写外层局部状态（引擎、原子标志、索引等），多用 `[&]` **按引用捕获**；若用 `[=]` 会复制快照，与真实控制状态脱节。只读、且生命周期安全时可用 `[=]`。
+
+与手写 **函数对象** 等价：下面两种写法语义相同，`lambda` 只是更简洁。
+
+```cpp
+// lambda
+auto frame_provider = [&]() -> VisualFrame {
+  return BuildPlaybackVisualFrame(/* ... */);
+};
+
+// 等价的函数对象（见下一节 Functor）
+struct FrameProvider {
+  AudioEngine& engine;
+  VisualFrame operator()() const { return BuildPlaybackVisualFrame(engine, /* ... */); }
+};
+```
 
 ### 函数对象/函子(Function Object/Functor)
 
