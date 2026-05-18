@@ -22,4 +22,5 @@ dependencies = [
     "matplotlib>=3.10.7",
     "pandas>=2.3.3",
     "click==8.2.1",
+    "ruamel-yaml>=0.19.1",
 ]

@@ -1,317 +1,317 @@
 ## Page tree
 nav:
-    - index.md
-    - Notebook:
-          - obsidian/index.md
-          - 通用资源:
-                - 学术资源: "obsidian/Misc/resources/学术资源.md"
-                - 工程、求职、杂项资源: "obsidian/Misc/resources/工程、求职、杂项资源.md"
-          - 工具:
-                - Linux:
-                      - Linux杂项/基础: "obsidian/Tools/linux/Linux基础、杂项.md"
-                      - Linux定时任务: "obsidian/Tools/linux/Linux定时任务.md"
-                      - Shell Scripting: "obsidian/Tools/Shell Scripting.md"
-                      - Linux终端复用器: "obsidian/Tools/linux/tmux.md"
-                      - Timeshift: "obsidian/Tools/linux/Timeshift.md"
-                      - htop: "obsidian/Tools/linux/htop.md"
-                      - ufw: "obsidian/Tools/linux/ufw.md"
-                - 远程服务器使用基础: "obsidian/Tools/远程服务器使用基础.md"
-                - Git: "obsidian/Tools/Git.md"
-                - Just: "obsidian/Tools/Just.md"
-                - Astral uv: "obsidian/Tools/Astral uv.md"
-                - Conda: "obsidian/Tools/Conda.md"
-                - Jupyter Notebook: "obsidian/Tools/jupyter.ipynb"
-                - chezmoi: "obsidian/Tools/chezmoi.md"
-                - 构建工具:
-                      - GNU Make: "obsidian/Tools/BuildTools/GNU Make.md"
-                      - CMake: "obsidian/Tools/BuildTools/CMake.md"
-                      - vcpkg: "obsidian/Tools/BuildTools/vcpkg.md"
-                      - SCons: "obsidian/Tools/BuildTools/SCons.md"
-                      - xmake: "obsidian/Tools/BuildTools/xmake.md"
-          - 编程语言:
-                - Python:
-                      - Python包管理: "obsidian/ProgrammingLanguage/python/Python包管理.md"
-                      - Python虚拟环境: "obsidian/ProgrammingLanguage/python/Python虚拟环境.md"
-                      - PEP8格式化: "obsidian/ProgrammingLanguage/python/PEP8格式化.md"
-                - Golang:
-                      - Golang入门要点: "obsidian/ProgrammingLanguage/golang/Golang入门要点.md"
-                      - 基础:
-                            - 命名规范: "obsidian/ProgrammingLanguage/golang/Go命名规范.md"
-                            - Golang程序结构: "obsidian/ProgrammingLanguage/golang/Golang程序结构.md"
-                            - Golang函数: "obsidian/ProgrammingLanguage/golang/Golang函数.md"
-                            - Golang接口: "obsidian/ProgrammingLanguage/golang/Golang接口.md"
-                - Rust:
-                      - Rust入门要点: "obsidian/ProgrammingLanguage/rust/Rust入门要点.md"
-                      - Rust变量: "obsidian/ProgrammingLanguage/rust/Rust变量.md"
-                      - Rust数据类型: "obsidian/ProgrammingLanguage/rust/Rust数据类型.md"
-                      - Rust函数: "obsidian/ProgrammingLanguage/rust/Rust函数.md"
-                  # [ ] - 所有权与借用: "obsidian/ProgrammingLanguage/rust/所有权与借用.md"
-                - C++:
-                      - "Standard C++ Programming":
-                            - 基础类型与结构体: "obsidian/ProgrammingLanguage/cpp/cs106l/基础类型与结构体.md"
-                            - 初始化与引用操作: "obsidian/ProgrammingLanguage/cpp/cs106l/初始化与引用操作.md"
-                            - C++流: "obsidian/ProgrammingLanguage/cpp/cs106l/C++流.md"
-                            - STL容器: "obsidian/ProgrammingLanguage/cpp/cs106l/STL容器.md"
-                            - 迭代器和指针: "obsidian/ProgrammingLanguage/cpp/cs106l/迭代器和指针.md"
-                            - C++类 & 模板: "obsidian/ProgrammingLanguage/cpp/cs106l/C++类 & 模板.md"
-                            - Lambda表达式: "obsidian/ProgrammingLanguage/cpp/cs106l/Lambda表达式.md"
-                            - 运算符重载: "obsidian/ProgrammingLanguage/cpp/cs106l/运算符重载.md"
-                            - 特殊成员函数: "obsidian/ProgrammingLanguage/cpp/cs106l/特殊成员函数.md"
-                            - C++移动语义: "obsidian/ProgrammingLanguage/cpp/cs106l/C++移动语义.md"
-                            - C++类型安全、设计理念概述: "obsidian/ProgrammingLanguage/cpp/cs106l/C++类型安全、设计理念概述.md"
-                            - RAII & C++智能指针: "obsidian/ProgrammingLanguage/cpp/cs106l/RAII & C++智能指针.md"
-                      - C++ Coding Style: "obsidian/ProgrammingLanguage/cpp/C++ Coding Style.md"
-                      - 自增表达式: "obsidian/ProgrammingLanguage/cpp/自增表达式.md"
-                - JavaScript:
-                      - JavaScript入门要点: "obsidian/ProgrammingLanguage/javascript/JavaScript入门要点.md"
-                      - JS回调函数简单应用: "obsidian/ProgrammingLanguage/javascript/JS回调函数简单应用.md"
-                - Java:
-                      - Java入门要点: "obsidian/ProgrammingLanguage/java/Java入门要点.md"
-                      - Java类与对象: "obsidian/ProgrammingLanguage/java/Java类与对象.md"
-          - 数学:
-                - 离散数学:
-                      - CS70:
-                            - 集合 & 数学符号与逻辑命题: "obsidian/Math/DiscreteMath/集合 & 数学符号与逻辑命题.md"
-                            - 证明: "obsidian/Math/DiscreteMath/证明.md"
-                      - 命题逻辑的基本概念: "obsidian/Math/DiscreteMath/legacy/命题逻辑的基本概念.md"
-                      - 命题逻辑等值演算: "obsidian/Math/DiscreteMath/legacy/命题逻辑等值演算.md"
-                      - 推理理论: "obsidian/Math/DiscreteMath/legacy/推理理论.md"
-                      - 谓词逻辑: "obsidian/Math/DiscreteMath/legacy/谓词逻辑.md"
-                      - 集合: "obsidian/Math/DiscreteMath/legacy/集合.md"
-                      - 二元关系: "obsidian/Math/DiscreteMath/legacy/二元关系.md"
-                - 高等数学:
-                      - 微积分的本质:
-                            - 导数: "obsidian/Math/Calculus/overview/微积分的本质-导数.md"
-                            - 极限: "obsidian/Math/Calculus/overview/微积分的本质-极限.md"
-                            - 微积分: "obsidian/Math/Calculus/overview/微积分的本质-微积分.md"
-                            - 泰勒级数: "obsidian/Math/Calculus/overview/微积分的本质-泰勒级数.md"
-                - 线性代数:
-                      - Legacy:
-                            - 行列式: "obsidian/Math/LinearAlgebra/行列式.md"
-                            - 行列式的展开: "obsidian/Math/LinearAlgebra/行列式的展开.md"
-                            - 矩阵: "obsidian/Math/LinearAlgebra/矩阵.md"
-                            - 逆矩阵: "obsidian/Math/LinearAlgebra/逆矩阵.md"
-                            - 矩阵的行列式计算: "obsidian/Math/LinearAlgebra/矩阵的行列式计算.md"
-                            - 矩阵的初等变换: "obsidian/Math/LinearAlgebra/矩阵的初等变换.md"
-                            - 向量: "obsidian/Math/LinearAlgebra/向量.md"
-                            - 线性方程组: "obsidian/Math/LinearAlgebra/线性方程组.md"
-                            - 相似矩阵: "obsidian/Math/LinearAlgebra/相似矩阵.md"
-                            - 二次型: "obsidian/Math/LinearAlgebra/二次型.md"
-                      - 线性代数的本质:
-                            - 向量: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-向量.md"
-                            - 矩阵与线性变换: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-矩阵与线性变换.md"
-                            - 矩阵乘法与复合线性变换: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-矩阵乘法与复合线性变换.md"
-                            - 行列式: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-行列式.md"
-                            - 求解线性方程组: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-求解线性方程组.md"
-                            - 点积与对偶性: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-点积与对偶性.md"
-                            - 叉积: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-叉积.md"
-                - 概率论与数理统计:
-                      - 概率初步:
-                            - 事件的运算及概率: "obsidian/Math/Probability/事件的运算及概率.md"
-                            - 条件概率和全概率公式: "obsidian/Math/Probability/条件概率和全概率公式.md"
-                            - 独立性: "obsidian/Math/Probability/独立性.md"
-                      - 随机变量及其分布:
-                            - 离散型随机变量及其分布: "obsidian/Math/Probability/离散型随机变量及其分布.md"
-                            - 随机变量的分布函数: "obsidian/Math/Probability/随机变量的分布函数.md"
-                            - 连续型随机变量及其概率密度函数: "obsidian/Math/Probability/连续型随机变量及其概率密度函数.md"
-                      - 多维随机变量及其分布:
-                            - 二维随机变量: "obsidian/Math/Probability/二维随机变量.md"
-                            - 联合分布: "obsidian/Math/Probability/联合分布.md"
-                            - 边缘分布: "obsidian/Math/Probability/边缘分布.md"
-                - 数学建模:
-                      - 部分资源: "obsidian/Math/MathematicalModeling/数学建模部分资源.md"
-          - 数据结构与算法:
-                - 绪论:
-                      #  - 算法和算法评价: "obsidian/DataStructure/408/算法和算法评价.md"
-                      - 递归与迭代: "obsidian/DataStructure/408/迭代与递归.md"
-                - 线性表:
-                      - 线性表的顺序表示: "obsidian/DataStructure/408/线性表的顺序表示.md"
-                      - 线性表的链式表示: "obsidian/DataStructure/408/线性表的链式表示.md"
-                - 栈、队列与数组:
-                      - 栈: "obsidian/DataStructure/408/栈.md"
-                      - 队列: "obsidian/DataStructure/408/队列.md"
-                      - 栈与队列的应用: "obsidian/DataStructure/408/栈与队列的应用.md"
-                      - 数组和特殊矩阵: "obsidian/DataStructure/408/数组和特殊矩阵.md"
-                - 串:
-                      - 串的定义和实现: "obsidian/DataStructure/408/串的定义和实现.md"
-                      - 串的模式匹配: "obsidian/DataStructure/408/串的模式匹配.md"
-                - 树与二叉树:
-                      - 树与二叉树的基本概念: "obsidian/DataStructure/408/树与二叉树的基本概念.md"
-                      - 二叉树的遍历: "obsidian/DataStructure/408/二叉树的遍历.md"
-                      - 线索二叉树: "obsidian/DataStructure/408/线索二叉树.md"
-                      - 树与森林: "obsidian/DataStructure/408/树与森林.md"
-                      - 树与二叉树的应用: "obsidian/DataStructure/408/树与二叉树的应用.md"
-                - 图:
-                      - 图的基本概念: "obsidian/DataStructure/408/图的基本概念.md"
-                      - 图的存储及基本操作: "obsidian/DataStructure/408/图的存储及基本操作.md"
-                      - 图的遍历: "obsidian/DataStructure/408/图的遍历.md"
-                      - 图的应用: "obsidian/DataStructure/408/图的应用.md"
-                - 查找:
-                      - 查找的基本概念: "obsidian/DataStructure/408/查找的基本概念.md"
-                      - 顺序查找和折半查找: "obsidian/DataStructure/408/顺序查找和折半查找.md"
-                      - 树型查找: "obsidian/DataStructure/408/树型查找.md"
-                      - B树和B+树: "obsidian/DataStructure/408/B树和B+树.md"
-                      - 散列表: "obsidian/DataStructure/408/散列表.md"
-                - 排序:
-                      - 插入排序: "obsidian/DataStructure/408/插入排序.md"
-                      - 交换排序: "obsidian/DataStructure/408/交换排序.md"
-                      - 选择排序: "obsidian/DataStructure/408/选择排序.md"
-                      - 其他内部排序: "obsidian/DataStructure/408/其他内部排序.md"
-                      - 各种内部排序算法的比较及应用: "obsidian/DataStructure/408/各种内部排序算法的比较及应用.md"
-                      - 外部排序: "obsidian/DataStructure/408/外部排序.md"
-          - 计算机组成与体系结构:
-                - "408":
-                      - 计算机系统概述:
-                            - 计算机系统层次结构: "obsidian/ComputerOrganizationArchitecture/408/计算机系统层次结构.md"
-                            - 计算机性能指标: "obsidian/ComputerOrganizationArchitecture/408/计算机性能指标.md"
-                      - 数据的表示和运算:
-                            - 数制与编码: "obsidian/ComputerOrganizationArchitecture/408/数制与编码.md"
-                            - 运算方法和运算电路: "obsidian/ComputerOrganizationArchitecture/408/运算方法和运算电路.md"
-                            - 浮点数表示与运算: "obsidian/ComputerOrganizationArchitecture/408/浮点数表示与运算.md"
-                - 计算机概述: "obsidian/ComputerOrganizationArchitecture/计算机概述.md"
-                - 数据的表示: "obsidian/ComputerOrganizationArchitecture/数据的表示.md"
-          - 操作系统:
-                - "408":
-                      - 操作系统概述:
-                            - 操作系统基本特性: "obsidian/OperatingSystem/408/操作系统基本特性.md"
-                            - 操作系统发展历程: "obsidian/OperatingSystem/408/操作系统发展历程.md"
-                            - 操作系统运行环境: "obsidian/OperatingSystem/408/操作系统运行环境.md"
-                      - 进程管理:
-                            - 进程的描述与控制: "obsidian/OperatingSystem/408/进程的描述与控制.md"
-                            - 处理机调度: "obsidian/OperatingSystem/408/处理机调度.md"
-                            - 同步与互斥: "obsidian/OperatingSystem/408/同步与互斥.md"
-                            - 死锁: "obsidian/OperatingSystem/408/死锁.md"
-                      - 内存管理:
-                            - 内存管理概述: "obsidian/OperatingSystem/408/内存管理概述.md"
-                            - 虚拟内存管理: "obsidian/OperatingSystem/408/虚拟内存管理.md"
-                      - 文件管理:
-                            - 文件系统概述: "obsidian/OperatingSystem/408/文件系统概述.md"
-                            - 目录: "obsidian/OperatingSystem/408/目录.md"
-                            - 文件系统: "obsidian/OperatingSystem/408/文件系统.md"
-                      - I/O管理:
-                            - 输入输出管理概述: "obsidian/OperatingSystem/408/输入输出管理概述.md"
-                            - 设备独立性缓存: "obsidian/OperatingSystem/408/设备独立性缓存.md"
-                            - 磁盘和固态硬盘: "obsidian/OperatingSystem/408/磁盘和固态硬盘.md"
-                - OSTEP:
-                      - 绪论:
-                            - 操作系统简易模型: "obsidian/OperatingSystem/intro/操作系统简易模型.md"
-                            - Introduction to Operating Systems: "obsidian/OperatingSystem/intro/Introduction to Operating Systems.md"
-                      - 虚拟化:
-                            - "The Abstraction: The Process": "obsidian/OperatingSystem/virtualization/The Abstraction - The Process.md"
-                            - "Process API": "obsidian/OperatingSystem/virtualization/Process API.md"
-                - Linux环境下的进程创建与进程通信: "obsidian/OperatingSystem/Linux环境下的进程创建与进程通信.md"
-          - 计算机网络:
-                - "408":
-                      - 计算机网络体系结构:
-                            - 计算机网络概述: "obsidian/ComputerNetwork/408/计算机网络概述.md"
-                            - 计算机网络体系结构与参考模型: "obsidian/ComputerNetwork/408/计算机网络体系结构与参考模型.md"
-                      - 物理层:
-                            - 通信基础: "obsidian/ComputerNetwork/408/通信基础.md"
-                            - 传输介质: "obsidian/ComputerNetwork/408/传输介质.md"
-                            - 物理层设备: "obsidian/ComputerNetwork/408/物理层设备.md"
-                      - 数据链路层:
-                            - 数据链路层的功能: "obsidian/ComputerNetwork/408/数据链路层的功能.md"
-                            - 组帧: "obsidian/ComputerNetwork/408/组帧.md"
-                            - 差错控制: "obsidian/ComputerNetwork/408/差错控制.md"
-                            - 流量控制与可靠传输机制: "obsidian/ComputerNetwork/408/流量控制与可靠传输机制.md"
-                            - 介质访问控制: "obsidian/ComputerNetwork/408/介质访问控制.md"
-                            - 局域网: "obsidian/ComputerNetwork/408/局域网.md"
-                      - 网络层:
-                            - 网络层的功能: "obsidian/ComputerNetwork/408/网络层的功能.md"
-                            - IPv4: "obsidian/ComputerNetwork/408/IPv4.md"
-                            - IPv6: "obsidian/ComputerNetwork/408/IPv6.md"
-                            - 路由算法与路由协议: "obsidian/ComputerNetwork/408/路由算法与路由协议.md"
-                            - IP多播: "obsidian/ComputerNetwork/408/IP多播.md"
-                            - 移动IP: "obsidian/ComputerNetwork/408/移动IP.md"
-                            - 网络层设备: "obsidian/ComputerNetwork/408/网络层设备.md"
-                - CS168:
-                      - Introduction:
-                            - Layers of the Internet: "obsidian/ComputerNetwork/cs168/Layers of the Internet.md"
-                            - Design Principles: "obsidian/ComputerNetwork/cs168/Design Principle.md"
-                            - Links: "obsidian/ComputerNetwork/cs168/Links.md"
-                      - Routing:
-                            - Introduction to Routing: "obsidian/ComputerNetwork/cs168/Introduction to Routing.md"
-                            - Routing States: "obsidian/ComputerNetwork/cs168/Routing States.md"
-                            # [ ] - Distance-Vector Protocols: "obsidian/ComputerNetwork/cs168/Distance-Vector Protocols.md"
-                      - Traceroute: "obsidian/ComputerNetwork/cs168/Traceroute.md"
-          - 数据库系统:
-                - Legacy:
-                      - 数据库系统概述:
-                            - 数据库系统的基本概念: "obsidian/Database/数据库系统的基本概念.md"
-                            - 数据库系统的特点与组成: "obsidian/Database/数据库系统的特点与组成.md"
-                            - 数据库系统结构: "obsidian/Database/数据库系统结构.md"
-                      - 信息与数据模型:
-                            - 信息的三种世界及描述: "obsidian/Database/信息的三种世界及描述.md"
-                            - 数据模型: "obsidian/Database/数据模型.md"
-                            - 概念模型: "obsidian/Database/概念模型.md"
-                            - 逻辑模型: "obsidian/Database/逻辑模型.md"
-                            - 概念模型向逻辑模型的转换: "obsidian/Database/概念模型向逻辑模型的转换.md"
-                            - 关系模型: "obsidian/Database/关系模型.md"
-                      - 关系代数与关系数据库理论:
-                            - 关系的数学定义: "obsidian/Database/关系的数学定义.md"
-                            - 关系代数及其演算: "obsidian/Database/关系代数及其演算.md"
-                            - 关系数据库理论: "obsidian/Database/关系数据库理论.md"
-                            - 关系模式的分解: "obsidian/Database/关系模式的分解.md"
-                - CMU 15-445:
-                      - Relational Model & Algebra: "obsidian/Database/cmu15-445/Relational Model & Algebra.md"
-                  # [ ] - Modern SQL: "obsidian/Database/cmu15-445/Modern SQL.md"
-          - 软件工程:
-                - UML图: "obsidian/SoftwareEngineering/UML图.md"
-                - 开发流程与开发规范: "obsidian/SoftwareEngineering/开发流程与开发规范.md"
-                - 语义化版本: "obsidian/SoftwareEngineering/语义化版本.md"
-          - 人工智能:
-                - 机器学习:
-                      - "入门":
-                            - 监督学习与非监督学习: "obsidian/MachineLearning/coursera/监督学习与非监督学习.md"
-                            - 回归:
-                                  - 回归模型概述: "obsidian/MachineLearning/coursera/回归模型概述.md"
-                                  # - 模型表示法: "obsidian/MachineLearning/coursera/model-repr.ipynb"
-                                  - 成本函数概述: "obsidian/MachineLearning/coursera/成本函数概述.md"
-                                  # - 成本函数可视化: "obsidian/MachineLearning/coursera/cost-func-visual.ipynb"
-                                  - 梯度下降: "obsidian/MachineLearning/coursera/梯度下降.md"
-                                  # - 一元线性回归模型的梯度下降实现: "obsidian/MachineLearning/coursera/linear-grad-desent.ipynb"
-                                  - 多元线性回归模型: "obsidian/MachineLearning/coursera/多元线性回归模型.md"
-                              # - 特征缩放与特征工程: "obsidian/MachineLearning/coursera/feat-engineering.ipynb"
-                            - 分类:
-                                  # - 逻辑回归: "obsidian/MachineLearning/coursera/logistic-regression.ipynb"
-                                  - 决策边界: "obsidian/MachineLearning/coursera/决策边界.md"
-                              # - 逻辑损失与成本函数: "obsidian/MachineLearning/coursera/logistic-loss-cost.ipynb"
-                              # - 逻辑回归的梯度下降: "obsidian/MachineLearning/coursera/logistic-grad-desent.ipynb"
-                            - 过拟合问题与正则化: "obsidian/MachineLearning/coursera/过拟合问题与正则化.md"
-                        # - 深度学习:
+  - index.md
+  - Notebook:
+    - obsidian/index.md
+    - 通用资源:
+      - 学术资源: "obsidian/Misc/resources/学术资源.md"
+      - 工程、求职、杂项资源: "obsidian/Misc/resources/工程、求职、杂项资源.md"
+    - 工具:
+      - Linux:
+        - Linux杂项/基础: "obsidian/Tools/linux/Linux基础、杂项.md"
+        - Linux定时任务: "obsidian/Tools/linux/Linux定时任务.md"
+        - Shell Scripting: "obsidian/Tools/Shell Scripting.md"
+        - Linux终端复用器: "obsidian/Tools/linux/tmux.md"
+        - Timeshift: "obsidian/Tools/linux/Timeshift.md"
+        - htop: "obsidian/Tools/linux/htop.md"
+        - ufw: "obsidian/Tools/linux/ufw.md"
+      - 远程服务器使用基础: "obsidian/Tools/远程服务器使用基础.md"
+      - Git: "obsidian/Tools/Git.md"
+      - Just: "obsidian/Tools/Just.md"
+      - Astral uv: "obsidian/Tools/Astral uv.md"
+      - Conda: "obsidian/Tools/Conda.md"
+      - Jupyter Notebook: "obsidian/Tools/jupyter.ipynb"
+      - chezmoi: "obsidian/Tools/chezmoi.md"
+      - 构建工具:
+        - GNU Make: "obsidian/Tools/BuildTools/GNU Make.md"
+        - CMake: "obsidian/Tools/BuildTools/CMake.md"
+        - vcpkg: "obsidian/Tools/BuildTools/vcpkg.md"
+        - SCons: "obsidian/Tools/BuildTools/SCons.md"
+        - xmake: "obsidian/Tools/BuildTools/xmake.md"
+    - 编程语言:
+      - Python:
+        - Python包管理: "obsidian/ProgrammingLanguage/python/Python包管理.md"
+        - Python虚拟环境: "obsidian/ProgrammingLanguage/python/Python虚拟环境.md"
+        - PEP8格式化: "obsidian/ProgrammingLanguage/python/PEP8格式化.md"
+      - C++:
+        - "Standard C++ Programming":
+          - 基础类型与结构体: "obsidian/ProgrammingLanguage/cpp/cs106l/基础类型与结构体.md"
+          - 初始化与引用操作: "obsidian/ProgrammingLanguage/cpp/cs106l/初始化与引用操作.md"
+          - C++流: "obsidian/ProgrammingLanguage/cpp/cs106l/C++流.md"
+          - STL容器: "obsidian/ProgrammingLanguage/cpp/cs106l/STL容器.md"
+          - 迭代器和指针: "obsidian/ProgrammingLanguage/cpp/cs106l/迭代器和指针.md"
+          - C++类 & 模板: "obsidian/ProgrammingLanguage/cpp/cs106l/C++类 & 模板.md"
+          - Lambda表达式: "obsidian/ProgrammingLanguage/cpp/cs106l/Lambda表达式.md"
+          - 运算符重载: "obsidian/ProgrammingLanguage/cpp/cs106l/运算符重载.md"
+          - 特殊成员函数: "obsidian/ProgrammingLanguage/cpp/cs106l/特殊成员函数.md"
+          - C++移动语义: "obsidian/ProgrammingLanguage/cpp/cs106l/C++移动语义.md"
+          - C++类型安全、设计理念概述: "obsidian/ProgrammingLanguage/cpp/cs106l/C++类型安全、设计理念概述.md"
+          - RAII & C++智能指针: "obsidian/ProgrammingLanguage/cpp/cs106l/RAII & C++智能指针.md"
+        - C++ Coding Style: "obsidian/ProgrammingLanguage/cpp/C++ Coding Style.md"
+        - 自增表达式: "obsidian/ProgrammingLanguage/cpp/自增表达式.md"
+      - Rust:
+        - Rust入门要点: "obsidian/ProgrammingLanguage/rust/Rust入门要点.md"
+        - Rust变量: "obsidian/ProgrammingLanguage/rust/Rust变量.md"
+        - Rust数据类型: "obsidian/ProgrammingLanguage/rust/Rust数据类型.md"
+        - Rust函数: "obsidian/ProgrammingLanguage/rust/Rust函数.md"
+        # [ ] - 所有权与借用: "obsidian/ProgrammingLanguage/rust/所有权与借用.md"
+      - Golang:
+        - Golang入门要点: "obsidian/ProgrammingLanguage/golang/Golang入门要点.md"
+        - 基础:
+          - 命名规范: "obsidian/ProgrammingLanguage/golang/Go命名规范.md"
+          - Golang程序结构: "obsidian/ProgrammingLanguage/golang/Golang程序结构.md"
+          - Golang函数: "obsidian/ProgrammingLanguage/golang/Golang函数.md"
+          - Golang接口: "obsidian/ProgrammingLanguage/golang/Golang接口.md"
+      - JavaScript:
+        - JavaScript入门要点: "obsidian/ProgrammingLanguage/javascript/JavaScript入门要点.md"
+        - JS回调函数简单应用: "obsidian/ProgrammingLanguage/javascript/JS回调函数简单应用.md"
+      - Java:
+        - Java入门要点: "obsidian/ProgrammingLanguage/java/Java入门要点.md"
+        - Java类与对象: "obsidian/ProgrammingLanguage/java/Java类与对象.md"
+    - 数学:
+      - 离散数学:
+        - CS70:
+          - 集合 & 数学符号与逻辑命题: "obsidian/Math/DiscreteMath/集合 & 数学符号与逻辑命题.md"
+          - 证明: "obsidian/Math/DiscreteMath/证明.md"
+        - 命题逻辑的基本概念: "obsidian/Math/DiscreteMath/legacy/命题逻辑的基本概念.md"
+        - 命题逻辑等值演算: "obsidian/Math/DiscreteMath/legacy/命题逻辑等值演算.md"
+        - 推理理论: "obsidian/Math/DiscreteMath/legacy/推理理论.md"
+        - 谓词逻辑: "obsidian/Math/DiscreteMath/legacy/谓词逻辑.md"
+        - 集合: "obsidian/Math/DiscreteMath/legacy/集合.md"
+        - 二元关系: "obsidian/Math/DiscreteMath/legacy/二元关系.md"
+      - 高等数学:
+        - 微积分的本质:
+          - 导数: "obsidian/Math/Calculus/overview/微积分的本质-导数.md"
+          - 极限: "obsidian/Math/Calculus/overview/微积分的本质-极限.md"
+          - 微积分: "obsidian/Math/Calculus/overview/微积分的本质-微积分.md"
+          - 泰勒级数: "obsidian/Math/Calculus/overview/微积分的本质-泰勒级数.md"
+      - 线性代数:
+        - Legacy:
+          - 行列式: "obsidian/Math/LinearAlgebra/行列式.md"
+          - 行列式的展开: "obsidian/Math/LinearAlgebra/行列式的展开.md"
+          - 矩阵: "obsidian/Math/LinearAlgebra/矩阵.md"
+          - 逆矩阵: "obsidian/Math/LinearAlgebra/逆矩阵.md"
+          - 矩阵的行列式计算: "obsidian/Math/LinearAlgebra/矩阵的行列式计算.md"
+          - 矩阵的初等变换: "obsidian/Math/LinearAlgebra/矩阵的初等变换.md"
+          - 向量: "obsidian/Math/LinearAlgebra/向量.md"
+          - 线性方程组: "obsidian/Math/LinearAlgebra/线性方程组.md"
+          - 相似矩阵: "obsidian/Math/LinearAlgebra/相似矩阵.md"
+          - 二次型: "obsidian/Math/LinearAlgebra/二次型.md"
+        - 线性代数的本质:
+          - 向量: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-向量.md"
+          - 矩阵与线性变换: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-矩阵与线性变换.md"
+          - 矩阵乘法与复合线性变换: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-矩阵乘法与复合线性变换.md"
+          - 行列式: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-行列式.md"
+          - 求解线性方程组: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-求解线性方程组.md"
+          - 点积与对偶性: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-点积与对偶性.md"
+          - 叉积: "obsidian/Math/LinearAlgebra/overview/线性代数的本质-叉积.md"
+      - 概率论与数理统计:
+        - 概率初步:
+          - 事件的运算及概率: "obsidian/Math/Probability/事件的运算及概率.md"
+          - 条件概率和全概率公式: "obsidian/Math/Probability/条件概率和全概率公式.md"
+          - 独立性: "obsidian/Math/Probability/独立性.md"
+        - 随机变量及其分布:
+          - 离散型随机变量及其分布: "obsidian/Math/Probability/离散型随机变量及其分布.md"
+          - 随机变量的分布函数: "obsidian/Math/Probability/随机变量的分布函数.md"
+          - 连续型随机变量及其概率密度函数: "obsidian/Math/Probability/连续型随机变量及其概率密度函数.md"
+        - 多维随机变量及其分布:
+          - 二维随机变量: "obsidian/Math/Probability/二维随机变量.md"
+          - 联合分布: "obsidian/Math/Probability/联合分布.md"
+          - 边缘分布: "obsidian/Math/Probability/边缘分布.md"
+      - 数学建模:
+        - 部分资源: "obsidian/Math/MathematicalModeling/数学建模部分资源.md"
+    - 数据结构与算法:
+      - 绪论:
+        #   - 算法和算法评价: "obsidian/DataStructure/408/算法和算法评价.md"
+        - 递归与迭代: "obsidian/DataStructure/408/迭代与递归.md"
+      - 线性表:
+        - 线性表的顺序表示: "obsidian/DataStructure/408/线性表的顺序表示.md"
+        - 线性表的链式表示: "obsidian/DataStructure/408/线性表的链式表示.md"
+      - 栈、队列与数组:
+        - 栈: "obsidian/DataStructure/408/栈.md"
+        - 队列: "obsidian/DataStructure/408/队列.md"
+        - 栈与队列的应用: "obsidian/DataStructure/408/栈与队列的应用.md"
+        - 数组和特殊矩阵: "obsidian/DataStructure/408/数组和特殊矩阵.md"
+      - 串:
+        - 串的定义和实现: "obsidian/DataStructure/408/串的定义和实现.md"
+        - 串的模式匹配: "obsidian/DataStructure/408/串的模式匹配.md"
+      - 树与二叉树:
+        - 树与二叉树的基本概念: "obsidian/DataStructure/408/树与二叉树的基本概念.md"
+        - 二叉树的遍历: "obsidian/DataStructure/408/二叉树的遍历.md"
+        - 线索二叉树: "obsidian/DataStructure/408/线索二叉树.md"
+        - 树与森林: "obsidian/DataStructure/408/树与森林.md"
+        - 树与二叉树的应用: "obsidian/DataStructure/408/树与二叉树的应用.md"
+      - 图:
+        - 图的基本概念: "obsidian/DataStructure/408/图的基本概念.md"
+        - 图的存储及基本操作: "obsidian/DataStructure/408/图的存储及基本操作.md"
+        - 图的遍历: "obsidian/DataStructure/408/图的遍历.md"
+        - 图的应用: "obsidian/DataStructure/408/图的应用.md"
+      - 查找:
+        - 查找的基本概念: "obsidian/DataStructure/408/查找的基本概念.md"
+        - 顺序查找和折半查找: "obsidian/DataStructure/408/顺序查找和折半查找.md"
+        - 树型查找: "obsidian/DataStructure/408/树型查找.md"
+        - B树和B+树: "obsidian/DataStructure/408/B树和B+树.md"
+        - 散列表: "obsidian/DataStructure/408/散列表.md"
+      - 排序:
+        - 插入排序: "obsidian/DataStructure/408/插入排序.md"
+        - 交换排序: "obsidian/DataStructure/408/交换排序.md"
+        - 选择排序: "obsidian/DataStructure/408/选择排序.md"
+        - 其他内部排序: "obsidian/DataStructure/408/其他内部排序.md"
+        - 各种内部排序算法的比较及应用: "obsidian/DataStructure/408/各种内部排序算法的比较及应用.md"
+        - 外部排序: "obsidian/DataStructure/408/外部排序.md"
+    - 计算机组成与体系结构:
+      - "408":
+        - 计算机系统概述:
+          - 计算机系统层次结构: "obsidian/ComputerOrganizationArchitecture/408/计算机系统层次结构.md"
+          - 计算机性能指标: "obsidian/ComputerOrganizationArchitecture/408/计算机性能指标.md"
+        - 数据的表示和运算:
+          - 数制与编码: "obsidian/ComputerOrganizationArchitecture/408/数制与编码.md"
+          - 运算方法和运算电路: "obsidian/ComputerOrganizationArchitecture/408/运算方法和运算电路.md"
+          - 浮点数表示与运算: "obsidian/ComputerOrganizationArchitecture/408/浮点数表示与运算.md"
+      - 计算机概述: "obsidian/ComputerOrganizationArchitecture/计算机概述.md"
+      - 数据的表示: "obsidian/ComputerOrganizationArchitecture/数据的表示.md"
+    - 操作系统:
+      - "408":
+        - 操作系统概述:
+          - 操作系统基本特性: "obsidian/OperatingSystem/408/操作系统基本特性.md"
+          - 操作系统发展历程: "obsidian/OperatingSystem/408/操作系统发展历程.md"
+          - 操作系统运行环境: "obsidian/OperatingSystem/408/操作系统运行环境.md"
+        - 进程管理:
+          - 进程的描述与控制: "obsidian/OperatingSystem/408/进程的描述与控制.md"
+          - 处理机调度: "obsidian/OperatingSystem/408/处理机调度.md"
+          - 同步与互斥: "obsidian/OperatingSystem/408/同步与互斥.md"
+          - 死锁: "obsidian/OperatingSystem/408/死锁.md"
+        - 内存管理:
+          - 内存管理概述: "obsidian/OperatingSystem/408/内存管理概述.md"
+          - 虚拟内存管理: "obsidian/OperatingSystem/408/虚拟内存管理.md"
+        - 文件管理:
+          - 文件系统概述: "obsidian/OperatingSystem/408/文件系统概述.md"
+          - 目录: "obsidian/OperatingSystem/408/目录.md"
+          - 文件系统: "obsidian/OperatingSystem/408/文件系统.md"
+        - I/O管理:
+          - 输入输出管理概述: "obsidian/OperatingSystem/408/输入输出管理概述.md"
+          - 设备独立性缓存: "obsidian/OperatingSystem/408/设备独立性缓存.md"
+          - 磁盘和固态硬盘: "obsidian/OperatingSystem/408/磁盘和固态硬盘.md"
+      - OSTEP:
+        - 绪论:
+          - 操作系统简易模型: "obsidian/OperatingSystem/intro/操作系统简易模型.md"
+          - Introduction to Operating Systems: "obsidian/OperatingSystem/intro/Introduction to Operating Systems.md"
+        - 虚拟化:
+          - "The Abstraction: The Process": "obsidian/OperatingSystem/virtualization/The Abstraction - The Process.md"
+          - "Process API": "obsidian/OperatingSystem/virtualization/Process API.md"
+      - Linux环境下的进程创建与进程通信: "obsidian/OperatingSystem/Linux环境下的进程创建与进程通信.md"
+    - 计算机网络:
+      - "408":
+        - 计算机网络体系结构:
+          - 计算机网络概述: "obsidian/ComputerNetwork/408/计算机网络概述.md"
+          - 计算机网络体系结构与参考模型: "obsidian/ComputerNetwork/408/计算机网络体系结构与参考模型.md"
+        - 物理层:
+          - 通信基础: "obsidian/ComputerNetwork/408/通信基础.md"
+          - 传输介质: "obsidian/ComputerNetwork/408/传输介质.md"
+          - 物理层设备: "obsidian/ComputerNetwork/408/物理层设备.md"
+        - 数据链路层:
+          - 数据链路层的功能: "obsidian/ComputerNetwork/408/数据链路层的功能.md"
+          - 组帧: "obsidian/ComputerNetwork/408/组帧.md"
+          - 差错控制: "obsidian/ComputerNetwork/408/差错控制.md"
+          - 流量控制与可靠传输机制: "obsidian/ComputerNetwork/408/流量控制与可靠传输机制.md"
+          - 介质访问控制: "obsidian/ComputerNetwork/408/介质访问控制.md"
+          - 局域网: "obsidian/ComputerNetwork/408/局域网.md"
+        - 网络层:
+          - 网络层的功能: "obsidian/ComputerNetwork/408/网络层的功能.md"
+          - IPv4: "obsidian/ComputerNetwork/408/IPv4.md"
+          - IPv6: "obsidian/ComputerNetwork/408/IPv6.md"
+          - 路由算法与路由协议: "obsidian/ComputerNetwork/408/路由算法与路由协议.md"
+          - IP多播: "obsidian/ComputerNetwork/408/IP多播.md"
+          - 移动IP: "obsidian/ComputerNetwork/408/移动IP.md"
+          - 网络层设备: "obsidian/ComputerNetwork/408/网络层设备.md"
+      - CS168:
+        - Introduction:
+          - Layers of the Internet: "obsidian/ComputerNetwork/cs168/Layers of the Internet.md"
+          - Design Principles: "obsidian/ComputerNetwork/cs168/Design Principle.md"
+          - Links: "obsidian/ComputerNetwork/cs168/Links.md"
+        - Routing:
+          - Introduction to Routing: "obsidian/ComputerNetwork/cs168/Introduction to Routing.md"
+          - Routing States: "obsidian/ComputerNetwork/cs168/Routing States.md"
+          # [ ] - Distance-Vector Protocols: "obsidian/ComputerNetwork/cs168/Distance-Vector Protocols.md"
+        - Traceroute: "obsidian/ComputerNetwork/cs168/Traceroute.md"
+    - 数据库系统:
+      - Legacy:
+        - 数据库系统概述:
+          - 数据库系统的基本概念: "obsidian/Database/数据库系统的基本概念.md"
+          - 数据库系统的特点与组成: "obsidian/Database/数据库系统的特点与组成.md"
+          - 数据库系统结构: "obsidian/Database/数据库系统结构.md"
+        - 信息与数据模型:
+          - 信息的三种世界及描述: "obsidian/Database/信息的三种世界及描述.md"
+          - 数据模型: "obsidian/Database/数据模型.md"
+          - 概念模型: "obsidian/Database/概念模型.md"
+          - 逻辑模型: "obsidian/Database/逻辑模型.md"
+          - 概念模型向逻辑模型的转换: "obsidian/Database/概念模型向逻辑模型的转换.md"
+          - 关系模型: "obsidian/Database/关系模型.md"
+        - 关系代数与关系数据库理论:
+          - 关系的数学定义: "obsidian/Database/关系的数学定义.md"
+          - 关系代数及其演算: "obsidian/Database/关系代数及其演算.md"
+          - 关系数据库理论: "obsidian/Database/关系数据库理论.md"
+          - 关系模式的分解: "obsidian/Database/关系模式的分解.md"
+      - CMU 15-445:
+        - Relational Model & Algebra: "obsidian/Database/cmu15-445/Relational Model & Algebra.md"
+        # [ ] - Modern SQL: "obsidian/Database/cmu15-445/Modern SQL.md"
+    - 软件工程:
+      - UML图: "obsidian/SoftwareEngineering/UML图.md"
+      - 开发流程与开发规范: "obsidian/SoftwareEngineering/开发流程与开发规范.md"
+      - 语义化版本: "obsidian/SoftwareEngineering/语义化版本.md"
+    - 人工智能:
+      - 机器学习:
+        - "入门":
+          - 监督学习与非监督学习: "obsidian/MachineLearning/coursera/监督学习与非监督学习.md"
+          - 回归:
+            - 回归模型概述: "obsidian/MachineLearning/coursera/回归模型概述.md"
+            # - 模型表示法: "obsidian/MachineLearning/coursera/model-repr.ipynb"
+            - 成本函数概述: "obsidian/MachineLearning/coursera/成本函数概述.md"
+            # - 成本函数可视化: "obsidian/MachineLearning/coursera/cost-func-visual.ipynb"
+            - 梯度下降: "obsidian/MachineLearning/coursera/梯度下降.md"
+            # - 一元线性回归模型的梯度下降实现: "obsidian/MachineLearning/coursera/linear-grad-desent.ipynb"
+            - 多元线性回归模型: "obsidian/MachineLearning/coursera/多元线性回归模型.md"
+            # - 特征缩放与特征工程: "obsidian/MachineLearning/coursera/feat-engineering.ipynb"
+          - 分类:
+            # - 逻辑回归: "obsidian/MachineLearning/coursera/logistic-regression.ipynb"
+            - 决策边界: "obsidian/MachineLearning/coursera/决策边界.md"
+            # - 逻辑损失与成本函数: "obsidian/MachineLearning/coursera/logistic-loss-cost.ipynb"
+            # - 逻辑回归的梯度下降: "obsidian/MachineLearning/coursera/logistic-grad-desent.ipynb"
+          - 过拟合问题与正则化: "obsidian/MachineLearning/coursera/过拟合问题与正则化.md"
+          # - 深度学习:
 
-                - 智能体:
-                      - 智能体概述: "obsidian/ArtificialIntelligence/智能体概述.md"
-                      - 智能体发展史: "obsidian/ArtificialIntelligence/智能体发展史.md"
-          - Web开发:
-                - 入门基础:
-                      - HTML要点: "obsidian/Misc/HTML要点.md"
-                      - CSS要点: "obsidian/Misc/CSS要点.md"
-          - Audio:
-                - PCM术语与概念: "obsidian/Audio/PCM术语与概念.md"
-          - Misc:
-                - 解决方案:
-                      - 透明代理: "obsidian/Misc/ScientificInternetAccess/透明代理.md"
-                      - Python脚本绕过socks报错: "obsidian/ProgrammingLanguage/python/Python脚本绕过socks报错.md"
-                      - 反向代理: "obsidian/Misc/反向代理.md"
-                      - 自建科学上网节点: "obsidian/Misc/ScientificInternetAccess/自建科学上网节点.md"
-                      - 使用SSH访问GitHub远程仓库: "obsidian/Misc/使用SSH访问GitHub远程仓库.md"
-                      - 基于DNS-01挑战 + Wildcard证书的Caddy反代: "obsidian/Misc/基于DNS-01挑战 + Wildcard证书的Caddy反代.md"
-                - 查看端口占用情况: "obsidian/Misc/查看端口占用情况.md"
-                - 正则表达式: "obsidian/Misc/正则表达式.md"
-                - 开源协议: "obsidian/Misc/开源协议.md"
+      - 智能体:
+        - 智能体概述: "obsidian/ArtificialIntelligence/智能体概述.md"
+        - 智能体发展史: "obsidian/ArtificialIntelligence/智能体发展史.md"
+    - Web开发:
+      - 入门基础:
+        - HTML要点: "obsidian/Misc/HTML要点.md"
+        - CSS要点: "obsidian/Misc/CSS要点.md"
+    - Audio:
+      - PCM术语与概念: "obsidian/Audio/PCM术语与概念.md"
+    - Misc:
+      - 解决方案:
+        - 透明代理: "obsidian/Misc/ScientificInternetAccess/透明代理.md"
+        - Python脚本绕过socks报错: "obsidian/ProgrammingLanguage/python/Python脚本绕过socks报错.md"
+        - 反向代理: "obsidian/Misc/反向代理.md"
+        - 自建科学上网节点: "obsidian/Misc/ScientificInternetAccess/自建科学上网节点.md"
+        - 使用SSH访问GitHub远程仓库: "obsidian/Misc/使用SSH访问GitHub远程仓库.md"
+        - 基于DNS-01挑战 + Wildcard证书的Caddy反代: "obsidian/Misc/基于DNS-01挑战 + Wildcard证书的Caddy反代.md"
+      - 查看端口占用情况: "obsidian/Misc/查看端口占用情况.md"
+      - 正则表达式: "obsidian/Misc/正则表达式.md"
+      - 开源协议: "obsidian/Misc/开源协议.md"
 
-    - Blog:
-          - blog/index.md
-    - Projects:
-          - Showcase: projects/index.md
-          - "haruhiloop: 一个受《凉宫春日的忧郁》中“无尽的八月”情节启发的时间循环模拟器": projects/haruhiloop.md
-          - "ForyoClassifierCNN: A music classification project based on PyTorch": projects/ForyoClassifierCNN.ipynb
-          - "MkDocs-Note: 一个用于在MkDocs文档中管理并部署笔记的插件": projects/MkDocs-Note.md
-          - "3BodySimulator: Python & C++ 项目标准化构建": projects/3BodySimulator.md
-          - "SpaceCaculator: Python3面向对象简单应用": projects/SpaceCaculator.md
-    - Credits: credits.md
-    # - Todo: todo.md
+  - Blog:
+    - blog/index.md
+  - Projects:
+    - Showcase: projects/index.md
+    - "haruhiloop: 一个受《凉宫春日的忧郁》中“无尽的八月”情节启发的时间循环模拟器": projects/haruhiloop.md
+    - "ForyoClassifierCNN: A music classification project based on PyTorch": projects/ForyoClassifierCNN.ipynb
+    - "MkDocs-Note: 一个用于在MkDocs文档中管理并部署笔记的插件": projects/MkDocs-Note.md
+    - "3BodySimulator: Python & C++ 项目标准化构建": projects/3BodySimulator.md
+    - "SpaceCaculator: Python3面向对象简单应用": projects/SpaceCaculator.md
+  - Credits: credits.md
+  # - Todo: todo.md
 
 not_in_nav: |
-    projects/log/
+  projects/log/
