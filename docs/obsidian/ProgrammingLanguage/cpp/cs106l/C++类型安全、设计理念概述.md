@@ -36,7 +36,7 @@ void removeOddsFromEnd(std::vector<int>& vec) {
 
 `std::optional<T>` 是 C++17 引入的一个[模板类](C++类%20&%20模板.md#模板类)，它可以包含一个类型为 `T` 的值，或者不包含任何值（用 `std::nullopt` 表示）。
 
-!!! note "`nullopt` vs `nullptr`
+!!! note "`nullopt` vs `nullptr`"
     注意区别二者
 
     - `nullptr`：是一个指针字面量，**可以转换为任何指针类型**，表示空指针。
