@@ -235,6 +235,7 @@ nav:
           - Routing States: "obsidian/ComputerNetwork/cs168/Routing States.md"
           # [ ] - Distance-Vector Protocols: "obsidian/ComputerNetwork/cs168/Distance-Vector Protocols.md"
         - Traceroute: "obsidian/ComputerNetwork/cs168/Traceroute.md"
+      - 套接字接口: "obsidian/ComputerNetwork/套接字接口.md"
     - 数据库系统:
       - Legacy:
         - 数据库系统概述:
