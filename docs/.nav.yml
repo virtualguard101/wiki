@@ -50,6 +50,7 @@ nav:
         - C++ Coding Style: "obsidian/ProgrammingLanguage/cpp/C++ Coding Style.md"
         - 自增表达式: "obsidian/ProgrammingLanguage/cpp/自增表达式.md"
         - STL概述: "obsidian/ProgrammingLanguage/cpp/STL概述.md"
+        - C++头文件: "obsidian/ProgrammingLanguage/cpp/C++头文件.md"
       - Rust:
         - Rust入门要点: "obsidian/ProgrammingLanguage/rust/Rust入门要点.md"
         - Rust变量: "obsidian/ProgrammingLanguage/rust/Rust变量.md"
