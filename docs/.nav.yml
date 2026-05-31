@@ -290,10 +290,10 @@ nav:
       - 智能体:
         - 智能体概述: "obsidian/ArtificialIntelligence/智能体概述.md"
         - 智能体发展史: "obsidian/ArtificialIntelligence/智能体发展史.md"
-    - Web开发:
-      - 入门基础:
-        - HTML要点: "obsidian/Misc/HTML要点.md"
-        - CSS要点: "obsidian/Misc/CSS要点.md"
+    - Web:
+      - HTML要点: "obsidian/Misc/HTML要点.md"
+      - CSS要点: "obsidian/Misc/CSS要点.md"
+      - 安全要点: "obsidian/Misc/Web安全要点.md"
     - Audio:
       - PCM术语与概念: "obsidian/Audio/PCM术语与概念.md"
     - Misc:
