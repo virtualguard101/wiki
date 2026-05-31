@@ -51,6 +51,7 @@ nav:
         - 自增表达式: "obsidian/ProgrammingLanguage/cpp/自增表达式.md"
         - STL概述: "obsidian/ProgrammingLanguage/cpp/STL概述.md"
         - C++头文件: "obsidian/ProgrammingLanguage/cpp/C++头文件.md"
+        - 内联与ODR: "obsidian/ProgrammingLanguage/cpp/内联与ODR.md"
       - Rust:
         - Rust入门要点: "obsidian/ProgrammingLanguage/rust/Rust入门要点.md"
         - Rust变量: "obsidian/ProgrammingLanguage/rust/Rust变量.md"
