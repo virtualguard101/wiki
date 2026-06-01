@@ -205,7 +205,138 @@ git rebase [branch_name]
 >具体用法可参考[官方教程](https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E5%B1%9E%E6%80%A7)
 
 !!! note "`.gitattributes`模板"
-    对于`.gitattribute`文件，[这个仓库](https://github.com/gitattributes/gitattributes)收录了大量的**模板**以供参考。
+    对于`.gitattributes`文件，[这个仓库](https://github.com/gitattributes/gitattributes)收录了大量的**模板**以供参考。
+
+##### 常见写法
+
+`.gitattributes` 与 `.gitignore` 类似，按**路径模式**为文件设置属性；区别在于它不改变「是否纳入版本控制」，而是告诉 Git（以及 GitHub 等工具）**如何处理**这些文件。
+
+**基本语法：**
+
+```gitattributes
+# 注释
+
+# 单文件
+README.md linguist-documentation
+
+# 目录（推荐写 ** 递归）
+network/cs168/** linguist-vendored
+
+# 多种属性写在同一行
+*.sh text eol=lf
+
+# 否定：取消继承的属性
+special.bin -text
+```
+
+- 模式规则与 `.gitignore` 相近（`/` 开头表示相对仓库根、`**` 递归、`*` 通配）。
+
+- 属性名不区分大小写。
+
+- 可在**仓库根**、子目录各放一份；子目录里的规则只作用于该目录及以下。
+
+优先级：**更具体的路径 > 更通用的通配 > 默认**。
+
+###### 换行与文本 / 二进制
+
+| 属性 | 含义 |
+|------|------|
+| `text` | 当作文本，做换行规范化 |
+| `-text` | 不当作文本（二进制） |
+| `text=auto` | 让 Git 猜测是否文本 |
+| `eol=lf` / `eol=crlf` | 检出 / 提交时统一换行 |
+| `working-tree-encoding=UTF-8` | 工作区编码（较少用） |
+
+跨平台协作时常用写法：
+
+```gitattributes
+* text=auto
+*.png -text
+*.jpg -text
+*.sh text eol=lf
+*.bat text eol=crlf
+```
+
+###### diff / merge 行为
+
+| 属性 | 含义 |
+|------|------|
+| `diff` | 用某种 diff 驱动（如 `diff=python`） |
+| `-diff` | `git diff` 不显示内容差异（大文件、生成物） |
+| `merge=union` | 冲突时保留双方行（对 lock 文件需谨慎） |
+| `merge=ours` | 冲突时固定保留「我们」的版本 |
+
+```gitattributes
+package-lock.json -diff
+*.pb -diff
+*.pbxproj merge=union
+```
+
+###### GitHub Linguist（语言统计）
+
+只影响 **GitHub 仓库首页语言条**，不改变编译或本地 Git 的常规行为。
+
+| 属性 | 效果 |
+|------|------|
+| `linguist-vendored` | 不计入语言统计（第三方、课程代码） |
+| `linguist-generated` | 生成代码，通常也不计或降权 |
+| `linguist-documentation` | 算作文档，不算主语言 |
+| `linguist-language=Cpp` | 强制识别为某语言 |
+| `linguist-detectable=false` | 完全不参与检测 |
+
+!!! note
+    `linguist-*` **只影响 GitHub 展示**；修改后需 **commit 并 push**，语言条才会更新（有时需等待数分钟）。子模块目录内的文件由**子模块自己的** `.gitattributes` 决定，父仓库规则通常打不到 submodule 内部。
+
+###### 归档与导出
+
+| 属性 | 含义 |
+|------|------|
+| `export-ignore` | `git archive` 打 zip / tar 时**不包含** |
+| `export-subst` | 归档时对 `$Format:...$` 做关键字替换 |
+
+```gitattributes
+tests/** export-ignore
+.github/** export-ignore
+```
+
+###### 自定义 filter
+
+配合 `.git/config` 或全局 config 里的 `filter.*`：
+
+```gitattributes
+*.enc filter=crypt
+```
+
+提交时执行 `clean`，检出时执行 `smudge`——适合加密、大文件等场景，日常项目较少手写。
+
+###### 其它常见属性
+
+| 属性 | 含义 |
+|------|------|
+| `binary` | 强调二进制（常与 `-text` 一起） |
+| `ident` | 在 blob 里记录对象 id |
+| `filter=lfs` | Git LFS 跟踪（通常由 `git lfs track` 写入） |
+
+###### 实用组合示例
+
+```gitattributes
+# 默认：文本自动、换行 LF
+* text=auto eol=lf
+
+# 二进制
+*.{png,gif,ico,woff,woff2} -text
+
+# 生成物 / 锁文件：少 diff、语言条忽略
+dist/** linguist-generated -diff
+vendor/** linguist-vendored
+
+# 文档
+docs/** linguist-documentation
+*.md linguist-documentation
+
+# 扩展名误导时强制语言
+*.h linguist-language=C
+```
 
 ### 忽略文件
 
