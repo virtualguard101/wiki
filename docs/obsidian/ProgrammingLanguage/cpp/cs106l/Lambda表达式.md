@@ -1,7 +1,7 @@
 ---
-date: 2026-05-18 10:10:00
+date: 2026-06-05 19:18:00
 title: Lambda表达式
-permalink: 
+permalink: lambda-expr
 publish: true
 tags:
   - 编程语言
@@ -221,4 +221,163 @@ lambda(5);
 
 ### 虚拟函数（`virtual`）
 
-- [Virtual Function in C++ | GeeksForGeeks](https://www.geeksforgeeks.org/virtual-function-cpp/)
+> [Virtual Function in C++ | GeeksForGeeks](https://www.geeksforgeeks.org/virtual-function-cpp/)
+
+`virtual` 修饰的成员函数是 C++ **运行时多态**的核心机制：通过**基类指针或引用**调用函数时，实际执行的是**对象真实类型**中的版本，而不是指针/引用静态类型上的版本。
+
+与上一节的函数对象/`lambda`/`std::function`不同，虚函数依赖**继承层次**和**动态绑定**，更适合「同一接口、多种实现、运行时才知道具体类型」的扩展点（协议抽象、驱动、插件等）。
+
+#### 静态绑定 vs 动态绑定
+
+没有 `virtual` 时，成员函数调用在**编译期**就按指针/引用的**静态类型**绑定：
+
+```cpp
+class Animal {
+ public:
+  void Speak() { /* 基类实现 */ }
+};
+
+class Dog : public Animal {
+ public:
+  void Speak() { /* 狗叫 */ }
+};
+
+Dog d;
+Animal* p = &d;
+p->Speak();  // 调用 Animal::Speak，不是 Dog::Speak
+```
+
+加上 `virtual` 后，同一段代码会走**动态绑定**：
+
+```cpp
+class Animal {
+ public:
+  virtual void Speak() { /* 基类实现 */ }
+};
+
+class Dog : public Animal {
+ public:
+  void Speak() override { /* 狗叫 */ }
+};
+
+Dog d;
+Animal* p = &d;
+p->Speak();  // 调用 Dog::Speak
+```
+
+#### 实现原理（简要）
+
+带虚函数的类通常会有**虚函数表（vtable）**和**虚表指针（vptr）**：
+
+![](assets/lambda-expr/1.webp)
+
+- 每个含虚函数的类有一张 vtable，存放各虚函数的实际入口地址。
+
+- 每个对象在构造时把 vptr 指向对应类型的 vtable。
+
+- 通过基类指针调用虚函数时，经 vptr 查表，在**运行时**决定调用哪个实现。
+
+因此虚函数调用比非虚函数多一次间接跳转，通常还有轻微缓存影响；在热路径上是否使用虚函数是常见的设计权衡。
+
+#### 纯虚函数与抽象类
+
+`= 0` 表示**纯虚函数**，该类成为**抽象类**，不能直接实例化：
+
+```cpp
+class NetworkProtocol {
+ public:
+  virtual ~NetworkProtocol() = default;
+
+  virtual int Number() const = 0;
+  virtual void HandlePacket(PacketBuffer pkt) = 0;
+};
+```
+
+派生类必须实现所有纯虚函数后才能实例化。抽象类用于定义**契约**：规定子类必须提供哪些能力，而不关心具体实现细节。
+
+#### 虚析构函数
+
+基类析构函数应为 `virtual`，否则通过基类指针 `delete` 派生对象时，可能只析构基类部分，造成资源泄漏或未定义行为：
+
+```cpp
+class LinkEndpoint {
+ public:
+  virtual ~LinkEndpoint() = default;
+  // ...
+};
+```
+
+多态基类几乎总是需要虚析构；`= default` 让编译器生成默认实现，同时保持多态析构语义。
+
+#### 带默认实现的虚函数
+
+虚函数可以在基类中提供**默认实现**，派生类可选择覆盖：
+
+```cpp
+class LinkEndpoint {
+ public:
+  virtual StackResult WritePackets(/* ... */) {
+    return ErrorCode::kNotSupported;
+  }
+
+  virtual void Wait() {}  // 无异步线程的实现可为空操作
+};
+```
+
+这是**接口 + 可选扩展**的常见模式：不支持的实现沿用默认行为，支持的再 `override`。
+
+#### 相关关键字（C++11 及以后）
+
+| 关键字 | 作用 |
+|--------|------|
+| `override` | 显式标记覆盖基类虚函数；写错签名会在编译期报错 |
+| `final` | 禁止进一步 override（可用于类或函数） |
+| `= default` | 让编译器生成默认实现（常用于虚析构） |
+| `= 0` | 纯虚函数，强制派生类实现 |
+
+推荐写法：
+
+```cpp
+class IPv4Protocol : public NetworkProtocol {
+ public:
+  int Number() const override;
+  void HandlePacket(PacketBuffer pkt) override;
+};
+```
+
+#### 哪些函数不能 / 不宜是 `virtual`？
+
+- **构造函数**：不能是 virtual（对象尚未完成构造，vtable 未就绪）。
+
+- **静态成员函数**：不能是 virtual（不依赖对象，无 `this`）。
+
+- **普通成员函数**：若不需要多态，不要用 virtual（避免 vtable 开销和语义膨胀）。
+
+- **模板成员函数**：不能是 virtual（实例化在编译期，与动态绑定冲突）。
+
+#### 常见陷阱
+
+- 按值传递导致对象切片（object slicing）
+
+    ```cpp
+    void Process(LinkEndpoint ep);   // 按值传递会切片，丢失派生类部分
+    void Process(LinkEndpoint& ep);  // 引用可以
+    void Process(LinkEndpoint* ep);  // 指针可以
+    ```
+
+- 构造/析构函数中调用虚函数
+
+    构造/析构期间，对象的动态类型是「当前正在构造/析构的那一层」，不会调到更派生类的 `override`。这是语言规则，不是 bug。
+
+- 忘记虚析构
+
+    多态基类没有虚析构，是经典未定义行为来源。
+
+#### 与函数对象 / `lambda` 的对比
+
+| 机制 | 多态时机 | 典型场景 |
+|------|----------|----------|
+| 虚函数 | 运行时，经继承 + vtable | 协议栈分层、驱动、长期存在的类型层次 |
+| 函数对象 / `lambda` | 编译期模板或类型擦除（`std::function`） | 算法谓词、回调注入、一次性策略 |
+
+二者可并存：例如协议栈用虚接口定义分层边界，层内算法仍可用 `lambda` 作谓词或回调。
