@@ -256,6 +256,8 @@ GPU / Network / Storage
 
 - [AI Infra Guide - AI Infra 全栈知识库](https://caomaolufei.github.io/AIInfraGuide/) - https://caomaolufei.github.io/AIInfraGuide/
 
+- [AI-Infra-from-Zero-to-Hero | GitHub](https://github.com/HuaizhengZhang/AI-Infra-from-Zero-to-Hero) - https://github.com/HuaizhengZhang/AI-Infra-from-Zero-to-Hero
+
 #### 学术资料[^4]
 
 ##### 高影响力论文
@@ -306,7 +308,7 @@ GPU / Network / Storage
 
 - [DeepSpeed](https://www.deepspeed.ai/) - https://www.deepspeed.ai/
 
-
+- [open-infra-index: Production-tested AI infrastructure tools for efficient AGI development and community-driven innovation | GitHub](https://github.com/deepseek-ai/open-infra-index) - https://github.com/deepseek-ai/open-infra-index
 
 
 [^1]: [什么是 AI 基础设施？| IBM](https://www.ibm.com/cn-zh/think/topics/ai-infrastructure)
