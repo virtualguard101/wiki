@@ -15,6 +15,7 @@ nav:
         - Timeshift: "obsidian/Tools/linux/Timeshift.md"
         - htop: "obsidian/Tools/linux/htop.md"
         - ufw: "obsidian/Tools/linux/ufw.md"
+        - 软件包管理: "obsidian/Tools/linux/软件包管理.md"
       - 远程服务器使用基础: "obsidian/Tools/远程服务器使用基础.md"
       - Git: "obsidian/Tools/Git.md"
       - Just: "obsidian/Tools/Just.md"
