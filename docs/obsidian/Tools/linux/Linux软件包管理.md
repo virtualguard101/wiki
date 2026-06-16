@@ -1,6 +1,6 @@
 ---
-date: 2026-06-15 19:58:35
-title: 软件包管理
+date: 2026-06-16 14:47:35
+title: Linux软件包管理
 permalink: linux-app-pkg
 publish: true
 tags:
@@ -8,7 +8,7 @@ tags:
   - Linux
 ---
 
-# 软件包管理
+# Linux软件包管理
 
 在创建这篇笔记近期，Arch Linux AUR（Arch User Repository, 用户仓库）发生了[软件包投毒事件](https://www.archlinuxcn.org/active-aur-malicious-packages-incident/)，关于恶意代码的详细分析可以参考[这篇文章](https://ioctl.fail/preliminary-analysis-of-aur-malware/)。
 
@@ -33,11 +33,11 @@ tags:
 | 更新软件仓库 | `apt update` | — (automatic) | `pacman -Sy` | `zypper refresh` | `emerge --sync` | — (automatic) | `brew update` | `nix-channel --upgrade` | `xbps-install -S` |
 | 显示可更新软件包 | `apt list --upgradable` | `dnf check-update` | `pacman -Qu` | `zypper list-updates` | `emerge -avtuDN --with-bdeps=y @world` or `emerge -u --pretend @world` | `winget upgrade` | `brew outdated` | `nix-channel --upgrade && nix-env -u && nix-collect-garbage` | `./xbps-src update-check ${PKG}` (requires void-packages repository) |
 | 更新所有软件包 | `apt upgrade` | `dnf upgrade` | `pacman -Syu` | `zypper update` | `emerge -u -D --with-bdeps=y @world` | `winget upgrade --all` | `brew upgrade` | `nix-env -u && nix-collect-garbage` | `xbps-install -Su` |
-| Show unused dependencies | `apt autoremove --dry-run` | `dnf repoquery --unneeded` | `pacman -Qdt` | `zypper packages --unneeded` | `emerge -caD` or `emerge --depclean --pretend` | — | `brew autoremove --dry-run` | — | `xbps-remove -o` |
+| 显示未使用的依赖 | `apt autoremove --dry-run` | `dnf repoquery --unneeded` | `pacman -Qdt` | `zypper packages --unneeded` | `emerge -caD` or `emerge --depclean --pretend` | — | `brew autoremove --dry-run` | — | `xbps-remove -o` |
 | 删除未使用的依赖 | `apt autoremove` | `dnf autoremove` | `pacman -Rsn $(pacman -Qdtq)` | `zypper remove -u` | `emerge --depclean` | — | `brew autoremove && brew cleanup` | `nix-collect-garbage -d` | `xbps-remove -of` |
 | 删除软件包和未使用的依赖 | `apt-get remove --auto-remove ${PKG}` | `dnf remove ${PKG}` | `pacman -Rs ${PKG}` | `zypper remove -u ${PKG}` | `emerge -c ${PKG}` or `emerge --depclean ${PKG}` | `winget uninstall %PKG%` | `brew uninstall ${PKG} && brew autoremove` | `nix-env -e ${PKG} && nix-env -u` | `xbps-remove -R ${PKG}` |
 
-更详细的信息还可参考[Arch Wiki](https://wiki.archlinux.org/title/Pacman/Rosetta)
+更详细的信息还可参考[Arch Wiki](https://wiki.archlinux.org/title/Pacman/Rosetta)。
 
 ### Windows的软件包管理生态
 
@@ -289,4 +289,78 @@ docker run -it debian:bookworm
 在Arch Linux上，访问AUR仓库一般使用[AUR Helper](https://wiki.archlinux.org/title/AUR_helpers)，目前主流的AUR Helper有[yay](https://github.com/Jguer/yay)、[paru](https://github.com/Morganamilo/paru)、[pikaur](https://github.com/actionless/pikaur)等。
 
 !!! warning
-    事实上，Arch Linux官方是[不建议使用AUR的](https://wiki.archlinux.org/title/AUR)，因为 AUR 软件包是用户生成的内容，这些 PKGBUILD 完全非官方且未经彻底审查。
+    Arch Linux 官方**不支持**（unsupported）[AUR helpers](https://wiki.archlinux.org/title/AUR_helpers)，官方推荐熟悉手动构建流程（获取 PKGBUILD → 审查 → `makepkg` → `pacman -U`），以便排查问题并审查软件来源。
+
+    此外，[AUR 软件包均为用户提交内容](https://wiki.archlinux.org/title/AUR)，PKGBUILD 完全非官方且未经彻底审查，使用前必须自行检查 PKGBUILD、`.install` 等文件。部分 AUR Helper（如 yay、paru）可在安装前展示 PKGBUILD 或 diff，但这**不能替代**仔细的人工审查。
+
+通用的安装/更新与审查流程可直接参考[Arch Wiki](https://wiki.archlinux.org/title/Arch_User_Repository#Installing_and_upgrading_packages)。
+
+若使用 AUR Helper，应优先选择支持 **File review** 和 **Diff view** 的工具（如 yay、paru），并养成以下习惯：
+
+#### 安装前先获取、后构建
+
+不要直接「一键安装」，先用 Helper 只拉取构建文件，审查通过后再构建：
+
+```bash
+# yay：仅获取 PKGBUILD，不构建
+yay -G package_name
+cd package_name
+
+# paru：同上
+paru -G package_name
+cd package_name
+```
+
+审查完成后，再在包目录内手动 `makepkg -si`，或确认无误后交给 Helper 安装。
+
+#### 更新时查看 diff
+
+AUR 包更新时，维护者可能修改 PKGBUILD 或安装脚本——这正是投毒事件常见的攻击面：
+
+```bash
+# 在已 clone 的包目录中
+git pull
+git show                    # 查看最近一次提交的变更
+git difftool @~..@          # 与上一版本逐文件对比
+```
+
+yay / paru 在更新时通常也会展示 diff，**不要习惯性按 `y` 跳过**。
+
+#### 需要重点审查的文件
+
+| 文件 | 关注什么 |
+| --- | --- |
+| **`PKGBUILD`** | `source` 是否指向可信地址；`pkgver` 是否异常；`build()` / `package()` 有无可疑命令 |
+| **`.install`** | `pre_install` / `post_install` 等 hook 是否执行远程脚本、修改系统关键路径 |
+| **补丁 / 脚本** | `.patch`、`.sh` 等附带文件的内容 |
+| **`.SRCINFO`** | 与 PKGBUILD 是否一致（应通过 `makepkg --printsrcinfo` 生成） |
+
+尤其警惕：`curl ... \| bash`、`wget` 拉取不明二进制、向 `~/.bashrc` / `~/.ssh` 写入内容、base64 编码的隐蔽载荷等。
+
+#### 辅助工具
+
+Arch Wiki 提到 [traur](https://aur.archlinux.org/packages/traur) AUR、[ks-aur-scanner](https://aur.archlinux.org/packages/ks-aur-scanner) AUR 等可辅助扫描 PKGBUILD，但**只是辅助**，不能代替自己读一遍。
+
+#### `--editmenu`
+
+```bash
+# 安装前用编辑器打开 PKGBUILD（yay）
+yay --editmenu -S package_name
+
+# paru 默认会在构建前展示文件列表，更新时展示 diff
+# 可在 /etc/paru.conf 中确认未关闭审查相关选项
+```
+
+可设置 `DIFFVIEWER` / `EDITOR` 环境变量，让 diff 和编辑使用自己熟悉的工具（如 `vimdiff`、`nvim`）。
+
+#### 审查清单
+
+1. 维护者是否可信？包页面评论、投票数、最近更新时间
+
+2. `source` 来源是否官方？校验和（`sha256sums`）是否匹配
+
+3. 构建/安装脚本有无网络请求、权限提升、修改其他用户文件
+
+4. **更新时**：本次变更改了什么？是否只该改 `pkgver` 却动了 `build()`？
+
+5. 有疑问时，可以到[aur-general 邮件列表](https://lists.archlinux.org/mailman3/lists/aur-general.lists.archlinux.org/) 求助
