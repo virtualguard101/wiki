@@ -14,7 +14,7 @@ tags:
 
 [供应链投毒](https://zh.wikipedia.org/zh-cn/%E4%BE%9B%E5%BA%94%E9%93%BE%E6%94%BB%E5%87%BB)在现在已经不是什么稀奇事了，本次安全事件只要在更新或安装软件包时对所有的 PKGBUILD 和安装脚本变更进行仔细审查即可有效规避风险。
 
-借助此次事件，也深入学习一下 Linux 软件包管理要点与原理，以及在Arch Linux上，如何审查第三方软件包的安全性。
+由于Arch Linux是我目前的主力操作系统[^1]，借助此次事件，也深入学习一下 Linux 软件包管理要点与原理，以及在Arch Linux上，如何审查第三方软件包的安全性。
 
 ## 软件包管理器
 
@@ -364,3 +364,6 @@ yay --editmenu -S package_name
 4. **更新时**：本次变更改了什么？是否只该改 `pkgver` 却动了 `build()`？
 
 5. 有疑问时，可以到[aur-general 邮件列表](https://lists.archlinux.org/mailman3/lists/aur-general.lists.archlinux.org/) 求助
+
+
+[^1]: [Arch Linux安装要点记录](../../../blog/posts/Arch%20Linux安装要点记录.md)
