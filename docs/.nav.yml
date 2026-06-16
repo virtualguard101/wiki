@@ -262,7 +262,11 @@ nav:
           - 关系代数及其演算: "obsidian/Database/关系代数及其演算.md"
           - 关系数据库理论: "obsidian/Database/关系数据库理论.md"
           - 关系模式的分解: "obsidian/Database/关系模式的分解.md"
-        - SQL操作要点: "obsidian/Database/SQL操作要点.md"
+        - SQL操作要点:
+          - 建表: "obsidian/Database/SQL操作要点-建表.md"
+          - 查询: "obsidian/Database/SQL操作要点-查询.md"
+          - 辅助索引: "obsidian/Database/SQL操作要点-辅助索引.md"
+          - 视图: "obsidian/Database/SQL操作要点-视图.md"
       - CMU 15-445:
         - Relational Model & Algebra: "obsidian/Database/cmu15-445/Relational Model & Algebra.md"
         # [ ] - Modern SQL: "obsidian/Database/cmu15-445/Modern SQL.md"
