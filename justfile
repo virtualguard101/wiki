@@ -6,6 +6,7 @@ alias ob := obsidian
 alias u := update
 alias us := usync
 alias nb := newblog
+alias mi := mv-image
 
 serve:
     uv run mkdocs serve
@@ -35,3 +36,6 @@ usync:
 
 newblog title="":
     cp templates/blog.md "docs/blog/posts/{{ title }}.md"
+
+mv-image dest:
+    uv run scripts/mv_image.py {{ dest }}
