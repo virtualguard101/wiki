@@ -220,7 +220,7 @@ nav:
           - 差错控制: "obsidian/ComputerNetwork/408/差错控制.md"
           - 流量控制与可靠传输机制: "obsidian/ComputerNetwork/408/流量控制与可靠传输机制.md"
           - 介质访问控制: "obsidian/ComputerNetwork/408/介质访问控制.md"
-          - 局域网: "obsidian/ComputerNetwork/408/局域网.md"
+          - 局域网和广域网: "obsidian/ComputerNetwork/408/局域网和广域网.md"
         - 网络层:
           - 网络层的功能: "obsidian/ComputerNetwork/408/网络层的功能.md"
           - IPv4: "obsidian/ComputerNetwork/408/IPv4.md"
