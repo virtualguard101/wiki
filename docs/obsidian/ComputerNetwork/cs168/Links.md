@@ -16,7 +16,7 @@ tags:
 
 - *Propagation Delay*（[**传播时延**](../408/计算机网络概述.md#时延)）: The properties tells us how long it takes for a bit to travel from one end of the link to the other.
 
-- *Bandwidth Delay Product*（[**延时带宽积**](../408/计算机网络概述.md#延时带宽积)）: As the name suggests, it is the product of the bandwidth and the propagation delay.
+- *Bandwidth Delay Product*（[**时延带宽积**](../408/计算机网络概述.md#时延带宽积)）: As the name suggests, it is the product of the bandwidth and the propagation delay.
 
     Intuitively, this is the capacity of the link, or the number of bits that exist on the link at any given instant. In the pipe analogy, if we fill up the pipe and freeze time, the capacity of the pipe is how much water is in the pipe in that instant[^1].
 
