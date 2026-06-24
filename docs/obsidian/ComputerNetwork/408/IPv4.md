@@ -160,6 +160,18 @@ tags:
 
 ### 划分子网
 
+![](assets/ipv4/7.jpg)
+
+<div class="responsive-video-container">
+    <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=70228743&bvid=BV19E411D78Q&cid=30172843810&p=48&autoplay=0"
+    scrolling="no" 
+    border="0" 
+    frameborder="no" 
+    framespacing="0" 
+    allowfullscreen="true"> 
+    </iframe>
+</div>
+
 子网划分的本质：**从主机位借若干位做子网号**，让一个大网段变成多个更小网段。
 
 做题最常见两种问法：
@@ -187,8 +199,6 @@ tags:
 - 这里会自然连到 ARP（见后文）
 
 ### 无分类编址CIDR
-
-CIDR 的两条“408 必背原则”：
 
 - **用前缀长度表示网络规模**：`/x`
 
