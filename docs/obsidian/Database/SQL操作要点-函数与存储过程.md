@@ -1,13 +1,13 @@
 ---
 date: 2026-06-25 20:38:46
-title: SQL操作要点-函数与存储过程
+title: SQL函数与存储过程
 permalink: sql-func-procedure
 publish: true
 tags:
   - 数据库系统
 ---
 
-# SQL函数与存储过程
+# 函数与存储过程
 
 ## 函数
 

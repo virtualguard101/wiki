@@ -1,6 +1,6 @@
 ---
 date: 2026-06-16 17:12:44
-title: SQL操作要点-查询
+title: SQL查询
 permalink: select
 publish: true
 tags:
