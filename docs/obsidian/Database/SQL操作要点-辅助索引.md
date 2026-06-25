@@ -1,6 +1,6 @@
 ---
 date: 2026-06-25 15:40:19
-title: SQL操作要点-辅助索引
+title: SQL辅助索引
 permalink: view
 publish: true
 tags:

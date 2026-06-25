@@ -1,6 +1,6 @@
 ---
 date: 2026-06-25 20:13:51
-title: SQL操作要点-建表
+title: SQL建表
 permalink: create
 publish: true
 tags:

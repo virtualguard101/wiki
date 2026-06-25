@@ -1,6 +1,6 @@
 ---
 date: 2026-06-16 17:17:59
-title: SQL操作要点-视图
+title: SQL视图
 permalink: view
 publish: true
 tags:
