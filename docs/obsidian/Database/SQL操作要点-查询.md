@@ -1,5 +1,5 @@
 ---
-date: 2026-06-16 17:12:44
+date: 2026-06-28 23:12:44
 title: SQL查询
 permalink: select
 publish: true
@@ -176,13 +176,103 @@ order by datediff(curdate(), due_date) desc;
 
     ![](assets/create/1.jpg)
 
-- 连接查询
-
-    ![](assets/create/2.jpg)
-
 - `like`：模糊匹配。`like '%张%'` 表示匹配包含“张”的任意字符串；`like '张%'` 表示匹配以“张”开头的任意字符串；`like '%张'` 表示匹配以“张”结尾的任意字符串。
 
 - `_` 通配符：匹配单个任意字符。`like '张_'` 表示匹配以“张”开头，后面跟着一个任意字符的任意字符串。
+
+### 连接查询
+
+当所需信息分散在多个表中时，需要用**连接查询**（`JOIN`）按关联字段把行拼在一起。常见写法是在 `FROM` 后列出多张表，用 `ON` 指定连接条件；也可在 `WHERE` 中写等值条件（旧式写法，不推荐）。
+
+![](assets/create/2.jpg)
+
+#### 内连接
+
+**内连接**（`INNER JOIN`，可简写为 `JOIN`）只返回两表在连接条件上**都能匹配**的行，不匹配的行会被丢弃。
+
+例如，查询每条借阅记录对应的书名和读者姓名，需要把 [`borrow`](#查询) 分别与 [`book`](#查询)、[`reader`](#查询) 关联：
+
+```sql
+select b.borrow_id, bk.book_name, r.name, b.borrow_date, b.due_date
+from borrow b
+inner join book bk on b.book_id = bk.book_id
+inner join reader r on b.reader_id = r.reader_id;
+```
+
+- `b`、`bk`、`r` 是**表别名**，便于引用列并避免歧义。
+- `on b.book_id = bk.book_id` 表示按图书编号关联借阅表与图书表。
+- 若某本书从未被借出，或某位读者没有借阅记录，这些行不会出现在结果中。
+
+#### 左连接
+
+**左连接**（`LEFT JOIN`）保留**左表全部行**；右表找不到匹配时，右表列以 `NULL` 填充。
+
+例如，列出所有图书及其借阅次数（含从未被借出的书）：
+
+```sql
+select bk.book_id, bk.book_name, count(br.borrow_id) as borrow_count
+from book bk
+left join borrow br on bk.book_id = br.book_id
+group by bk.book_id, bk.book_name;
+```
+
+- 左表是 `book`，因此每本书至少出现一行。
+- 从未被借出的书，`borrow_count` 为 `0`（`count(br.borrow_id)` 不计 `NULL`）。
+
+又如，查询所有读者及其最近一次借阅日期（含从未借书的读者）：
+
+```sql
+select r.reader_id, r.name, max(br.borrow_date) as last_borrow_date
+from reader r
+left join borrow br on r.reader_id = br.reader_id
+group by r.reader_id, r.name;
+```
+
+#### 右连接
+
+**右连接**（`RIGHT JOIN`）与左连接对称：保留**右表全部行**，左表无匹配时填充 `NULL`。
+
+```sql
+select bk.book_name, br.borrow_date
+from book bk
+right join borrow br on bk.book_id = br.book_id;
+```
+
+效果上等价于把 `book` 与 `borrow` 的位置对调后写 `LEFT JOIN`。实际开发中更常用 `LEFT JOIN`，右连接较少见。
+
+#### 全外连接
+
+**全外连接**（`FULL OUTER JOIN`）返回两表所有行：能匹配的拼在一起，不能匹配的以 `NULL` 补全。MySQL **不直接支持** `FULL OUTER JOIN`，可用 `LEFT JOIN` 与 `RIGHT JOIN` 的 `UNION` 模拟：
+
+```sql
+select bk.book_id, bk.book_name, br.borrow_id
+from book bk
+left join borrow br on bk.book_id = br.book_id
+union
+select bk.book_id, bk.book_name, br.borrow_id
+from book bk
+right join borrow br on bk.book_id = br.book_id;
+```
+
+#### 多表连接与筛选
+
+连接后仍可配合 `WHERE`、`ORDER BY` 等子句。例如，查询当前逾期未还记录及对应书名、读者姓名：
+
+```sql
+select br.borrow_id, bk.book_name, r.name,
+       datediff(curdate(), br.due_date) as overdue_days
+from borrow br
+inner join book bk on br.book_id = bk.book_id
+inner join reader r on br.reader_id = r.reader_id
+where br.due_date < curdate() and br.actual_return_date is null
+order by overdue_days desc;
+```
+
+#### 注意事项
+
+- 连接条件应写在 `ON` 中；`WHERE` 用于对连接后的结果进一步过滤。
+- 多表存在同名列时，必须用 `表名.列名` 或别名限定，如 `bk.book_id`。
+- 连接字段最好有索引（如外键列），否则大表连接时性能会明显下降。
 
 ### 参数化查询
 
