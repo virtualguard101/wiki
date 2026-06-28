@@ -186,6 +186,13 @@ order by datediff(curdate(), due_date) desc;
 
 ![](assets/create/2.jpg)
 
+!!! tip
+    - 连接条件应写在 `ON` 中；`WHERE` 用于对连接后的结果进一步过滤。
+
+    - 多表存在同名列时，必须用 `表名.列名` 或别名限定，如 `bk.book_id`。
+
+    - 连接字段最好有索引（如外键列），否则大表连接时性能会明显下降。
+
 #### 内连接
 
 **内连接**（`INNER JOIN`，可简写为 `JOIN`）只返回两表在连接条件上**都能匹配**的行，不匹配的行会被丢弃。
@@ -267,12 +274,6 @@ inner join reader r on br.reader_id = r.reader_id
 where br.due_date < curdate() and br.actual_return_date is null
 order by overdue_days desc;
 ```
-
-#### 注意事项
-
-- 连接条件应写在 `ON` 中；`WHERE` 用于对连接后的结果进一步过滤。
-- 多表存在同名列时，必须用 `表名.列名` 或别名限定，如 `bk.book_id`。
-- 连接字段最好有索引（如外键列），否则大表连接时性能会明显下降。
 
 ### 参数化查询
 
