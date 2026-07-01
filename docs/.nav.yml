@@ -124,6 +124,7 @@ nav:
           - 联合分布: "obsidian/Math/Probability/联合分布.md"
           - 边缘分布: "obsidian/Math/Probability/边缘分布.md"
         - 抽样分布: "obsidian/Math/Probability/抽样分布.md"
+        - 参数估计: "obsidian/Math/Probability/参数估计.md"
       - 数学建模:
         - 部分资源: "obsidian/Math/MathematicalModeling/数学建模部分资源.md"
     - 数据结构与算法:
