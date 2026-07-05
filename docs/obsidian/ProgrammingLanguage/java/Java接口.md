@@ -183,3 +183,59 @@ names.add("Alice");
 names.add("Bob");
 names.sort(String::compareTo);            // 接受 Comparator 函数式接口
 ```
+
+## 与 Go 接口对比
+
+[Go 的接口](../golang/Golang接口.md)设计思路与 Java 有显著差异：
+
+### 实现方式：显式 vs 隐式
+
+| | Java | Go |
+|---|------|-----|
+| 实现声明 | 必须写 `implements` | **隐式满足**，无需声明 |
+| 类型检查 | 名义类型（Nominal） | 结构类型（Structural） |
+| 比喻 | 需要"签字画押"才算履约 | "走起来像鸭子就是鸭子" |
+
+```java
+// Java：不声明 implements，即使有同名方法也不能当 Writer 用
+class FileWriter implements Writer {
+    @Override
+    public void write(byte[] data) { /* ... */ }
+}
+```
+
+```go
+// Go：只要方法签名匹配，自动满足接口
+type FileWriter struct{}
+func (f FileWriter) Write(data []byte) (int, error) { /* ... */ }
+var w Writer = FileWriter{}  // ✅ 无需 implements
+```
+
+### 接口能包含什么
+
+| 成员 | Java | Go |
+|------|------|-----|
+| 抽象方法 | ✅ | ✅（只有方法签名） |
+| 默认方法 `default` | ✅（Java 8+） | ❌ |
+| 静态方法 | ✅（Java 8+） | ❌ |
+| 常量/字段 | ✅ `public static final` | ❌ |
+| 空接口（任意类型） | ❌（有 `Object` 根类） | ✅ `interface{}` / `any` |
+
+### 设计理念
+
+| 维度 | Java | Go |
+|------|------|-----|
+| 继承模型 | 单继承类 + 多实现接口 | 无继承，靠**组合 + 嵌入** |
+| 接口粒度 | 可大可小（如 `List` 方法较多） | 倾向**小接口**，按需组合（`Reader` + `Writer`） |
+| 第三方扩展 | 需修改源码或包装类 | 第三方类型可**直接**满足你的接口 |
+| 函数式支持 | 函数式接口 + Lambda | 函数是一等公民，`func` 类型 |
+
+### 相同点
+
+- 都用于定义**行为契约**，实现多态与解耦
+
+- 都支持一个类型**同时满足多个接口**
+
+- 都可以把接口作为**函数参数/返回值**类型
+
+- 调用方都只依赖接口，不依赖具体实现
