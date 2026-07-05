@@ -73,6 +73,7 @@ nav:
       - Java:
         - Java入门要点: "obsidian/ProgrammingLanguage/java/Java入门要点.md"
         - Java类与对象: "obsidian/ProgrammingLanguage/java/Java类与对象.md"
+        - Java接口: "obsidian/ProgrammingLanguage/java/Java接口.md"
     - 数学:
       - 离散数学:
         - CS70:
