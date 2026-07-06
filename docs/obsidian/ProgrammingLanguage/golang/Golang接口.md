@@ -447,17 +447,3 @@ func processData(r Reader, w Writer) {
 // 第三方库的类型也可以
 // 你的自定义类型也可以
 ```
-
-## 与 Java 接口对比小结
-
-完整对比见 [Java 接口](../java/Java接口.md#与-go-接口对比)，此处归纳最常碰到的三点：
-
-1. **显式 vs 隐式**：Java 必须 `implements`；Go 方法签名匹配即实现，第三方类型无需改源码。
-
-2. **接口能力**：Java 8+ 接口可有 `default`/`static` 方法和常量；Go 接口只有方法签名，常量和默认逻辑放在具体类型上。
-
-3. **设计粒度**：Java 常见大接口（如 `List`）；Go 倾向 `io.Reader` / `io.Writer` 式小接口，用嵌入组合扩展。
-
-!!! questions
-    - 从 Java 转 Go 时，为什么总觉得"接口怎么没写 implements"？
-    - Go 没有 `default` 方法，给已有接口加新方法时怎么办？
