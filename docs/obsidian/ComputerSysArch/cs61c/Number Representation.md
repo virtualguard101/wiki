@@ -83,3 +83,30 @@ Anything you can itemize, you can digitize. With $N$ bits, you can represent at 
     - not $\pi$
 
 ## Binary, Decimal, Hex
+
+> [数制与编码 - 进制计数制及其相互转换](../408/数制与编码.md#进制计数制及其相互转换)
+
+## Integer Representations
+
+How can we use $N$ bits to represent a set of integers? There are many systems, and not all of them can represent $2^N$ unique integers with $N$ bits. We focus on two kinds:
+
+- *Signed integers* (**有符号整数**): positive integers, negative integers, and zero.
+
+- *Unsigned integers* (**无符号整数**): non-negative integers (i.e. zero and positive).
+
+### N-bit Unsigned Integer Representation
+
+The simplest scheme: **just treat the bitstring as a plain base-2 number and convert**. With $N$ bits we can represent $2^N$ unsigned integers.
+
+- `0b0...0` ($N$ zeros) represents $0$.
+
+- `0b1...1` ($N$ ones) represents $2^N - 1$ (the largest value — *not* $2^N$, because we start counting from $0$).
+
+- Everything else: assume the bitstring is the base-2 representation of a number, and convert.
+
+So the representable range is $[0,\ 2^N - 1]$.
+
+!!! info "Unsigned integers in C"
+    C supports this representation. Built-in types like `unsigned int` are ambiguous because the standard doesn't fix the **width** of an `int`. The header `inttypes.h` provides fixed-width typedefs — `uint8_t`, `uint16_t`, `uint32_t`, etc. — to specify 8-bit, 16-bit, 32-bit unsigned integers explicitly.
+
+### Desigin Considerations
