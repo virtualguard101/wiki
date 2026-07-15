@@ -179,6 +179,8 @@ nav:
       - 数字逻辑电路基础:
         - 晶体管与门电路: "obsidian/ComputerSysArch/晶体管与门电路.md"
         - 组合逻辑电路: "obsidian/ComputerSysArch/组合逻辑电路.md"
+      - CS61C:
+        - Number Representation: "obsidian/ComputerSysArch/cs61c/Number Representation.md"
     - 操作系统:
       - "408":
         - 操作系统概述:
