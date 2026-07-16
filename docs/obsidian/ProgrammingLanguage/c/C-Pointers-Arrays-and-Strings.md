@@ -1,5 +1,5 @@
 ---
-date: 2026-07-16 22:14:22
+date: 2026-07-16 22:39:22
 title: C Pointers, Arrays, and Strings
 permalink: c-prt-arr-str
 publish: true
@@ -26,9 +26,21 @@ tags:
 
     - Understand that because C is pass-by-value, pointers facilitate updates to values in memory when performing function calls.
 
+    - Declare and initialize C arrays.
+
+    - Understand that C arrays should be treated as contiguous blocks of memory, not as pointers. Array names are synonymous with the location of the first element in the array.
+
+    - Translate array indexing into pointer arithmetic followed by a dereference operation.
+
+    - Decay arrays to pointers when used as formal parameters for function definitions or arguments to functions.
+
+    - Differentiate between an array of characters and a C string.
+
+    - Know how to use standard C library functions in string.h.
+
 ## Memory, Addresses, and Pointers
 
-### Memory Layout
+### Memory Layout in Simplified Model
 
 For now, picture all of memory as one huge array that starts at address `0x00000000`.
 
@@ -214,3 +226,115 @@ increment_ptr(&q);  /* now *q is 60 */
 
 !!! note "Pass-by-value reminder"
     Function parameters get a **copy** of the argument. To modify a variable in the caller, pass its address and update through a pointer. To modify a pointer in the caller, pass the address of that pointer (`T **`).
+
+## Arrays
+
+C arrays are relatively primitive constructs. Keep these three points in mind:
+
+1. **Array declarations** set aside a **contiguous block** of memory.
+
+2. An **array name** is synonymous with the location of the **first element**.
+
+3. Arrays **decay to pointers** when used as function parameters or function arguments.
+
+!!! tip "C Programming Practice Reminders"
+
+    !!! warning "Reminder 1: Keep array sizes in constants"
+        Prefer a single source of truth for the size, instead of repeating magic numbers:
+
+        ```c
+        /* avoid */
+        int i, arr[10];
+        for (i = 0; i < 10; i++) { /* ... */ }
+
+        /* better */
+        const int ARRAY_SIZE = 10;
+        int i, a[ARRAY_SIZE];
+        for (i = 0; i < ARRAY_SIZE; i++) { /* ... */ }
+        ```
+
+    !!! warning "Reminder 2: Array bounds are not checked"
+        Element access is just pointer arithmetic plus a dereference, so it is easy to walk off the end of an array:
+
+        ```c
+        const int N = 100;
+        int foo[N];
+        int i;
+        for (i = 0; i <= N; ++i) {  /* bug: should be i < N */
+            foo[i] = 0;
+        }
+        ```
+
+        Accessing past the end is a **buffer overflow**. It can corrupt other program data and is a common security vulnerability.
+
+    !!! warning "Reminder 3: Choose formal parameter definitions wisely"
+        As function parameters, `char *str` and `char str[]` are equivalent. Prefer `char *str` when possible—it makes clearer that the parameter is a pointer.
+
+    !!! warning "Reminder 4: Always pass in array lengths"
+        A decayed array parameter is just a pointer: the callee cannot recover the original length. If the function needs the size, pass it explicitly as another argument.
+
+## C Strings
+
+### C Strings vs. `char` Arrays
+
+A **C string** is a `char` array followed by a **null terminator** (`'\0'`, ASCII `0`). The null terminator is what lets you recover the string length from just a pointer to the start.
+
+```c
+char my_str[] = {'e', 'x', 'a', 'm', 'p', 'l', 'e', '\0'};
+```
+
+With double quotes, the null terminator is added automatically:
+
+```c
+char *my_str = "example";  /* 7 chars + '\0' */
+```
+
+!!! tip "Quick check"
+    Is `arr` a C string?
+
+    ```c
+    char arr[] = {'h', 'e', 'l', 'l', 'o'};
+    ```
+
+    **No.** It is a `char` array, but without `'\0'` it is not a C string.
+
+!!! warning
+    When allocating space for a string, leave room for the null terminator. The array may be larger than the string it stores, but it must never be shorter.
+
+### `<string.h>`
+
+Common string functions live in `<string.h>`:
+
+- `strlen`: count characters before `'\0'` (does not include the terminator)
+
+- `strcpy`: copy characters until `'\0'`, including the terminator
+
+A simple sketch of `strlen`:
+
+```c
+int strlen(char s[]) {
+    size_t n = 0;
+    while (*(s++) != 0) { n++; }
+    return n;
+}
+```
+
+Here `char s[]` as a parameter is sugar for `char *s`.
+
+Use `man strlen` (or other man pages) to look up library functions.
+
+### String Literals
+
+Strings created with `"..."` via a pointer are **immutable** (read-only):
+
+```c
+char *my_immutable_str = "Hello";  /* do not modify */
+```
+
+By contrast, initializing a `char` array with a string literal creates a **mutable** copy:
+
+```c
+char my_str[] = "hello";  /* can modify my_str[i] */
+```
+
+The difference comes from memory layout: the first points into a read-only data segment, while the second lives on the stack as a writable array.
