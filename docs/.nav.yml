@@ -36,6 +36,7 @@ nav:
         - PEP8格式化: "obsidian/ProgrammingLanguage/python/PEP8格式化.md"
       - C:
         - C Basics: "obsidian/ProgrammingLanguage/c/C Basics.md"
+        - C Pointers, Arrays, and Strings: "obsidian/ProgrammingLanguage/c/C-Pointers-Arrays-and-Strings.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/ProgrammingLanguage/cpp/cs106l/基础类型与结构体.md"
