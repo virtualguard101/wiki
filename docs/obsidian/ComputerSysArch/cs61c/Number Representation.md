@@ -1,5 +1,5 @@
 ---
-date: 2026-07-16 16:19:36
+date: 2026-07-16 16:41:36
 title: Number Representation
 permalink: num-repr
 publish: true
@@ -191,7 +191,7 @@ Sign-Magnitude is mainly a straw-man for general-purpose integer ALU design, tho
 
 ![](assets/num-repr/ones-complement-bitflip.png)
 
-Example — $-7$ in **8-bit** Ones' Complement (**反码**):
+Example — $-7$ in **8-bit** *Ones' Complement* ([反码](../408/数制与编码.md#反码表示法)):
 
 1. $+7$ = `0000 0111`
 
@@ -215,7 +215,25 @@ Historically used for a while, then largely abandoned for [Two's Complement](htt
 
 ### Bias Encoding
 
-*Bias Encoding* (**偏置编码 / 移码**):
+*Bias Encoding* (**偏置编码**):
+
+!!! review "Bias Encoding vs [408 移码](../408/数制与编码.md#移码表示法)"
+    两者属于同一类编码思想（偏置 / excess code）：机器里按**无符号整数**存比特串，解读时再 **加上固定 bias**。
+
+    | | CS61C *Bias Encoding* | 408 *移码* |
+    |---|---|---|
+    | 定位 | 通用框架，bias **可任意选取** | 与补码绑定的**固定规则** |
+    | 常见偏置 | 示例：$-(2^{N-1}-1)$（4 位时 bias $= -7$） | 等价于 bias $= -2^{n-1}$（4 位时 bias $= -8$） |
+    | 定义方式 | 无符号读数 $+$ bias | 补码**符号位取反** |
+    | 零的表示 | 取决于 bias | 固定为 `[+0]_移 = 1,000` |
+
+    **4 位对比**：
+
+    - CS61C (bias $= -7$)：`0000` $\to -7$，`1000` $\to 1$，`1111` $\to 8$
+
+    - 408 移码 (bias $= -8$)：`0000` $\to -8$，`1000` $\to 0$，`1111` $\to 7$
+
+    408 移码可写成 $[x]_移 = x + 2^{n-1}$，表示范围与补码一致。CS61C 先讲一般思想；到浮点指数（如 IEEE 754 bias $= 127$）时，用的就是这类固定偏置的移码。
 
 - Keep a fixed **bias**.
 
