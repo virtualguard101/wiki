@@ -34,6 +34,8 @@ nav:
         - Python包管理: "obsidian/ProgrammingLanguage/python/Python包管理.md"
         - Python虚拟环境: "obsidian/ProgrammingLanguage/python/Python虚拟环境.md"
         - PEP8格式化: "obsidian/ProgrammingLanguage/python/PEP8格式化.md"
+      - C:
+        - C Basics: "obsidian/ProgrammingLanguage/c/C Basics.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/ProgrammingLanguage/cpp/cs106l/基础类型与结构体.md"
