@@ -1,5 +1,5 @@
 ---
-date: 2026-07-17 23:37:46
+date: 2026-07-17 23:39:46
 title: Floating Point
 permalink: float
 publish: true
