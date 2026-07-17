@@ -485,8 +485,8 @@ Beyond `float` / `double`, IEEE 754 also defines:
 | Format | Width | Exponent | Significand | Notes |
 |--------|-------|----------|-------------|-------|
 | Half (`binary16`) | 16 | 5 | 10 | Compact |
-| Single (`binary32`) | 32 | 8 | 23 | C `float` |
-| Double (`binary64`) | 64 | 11 | 52 | C `double` |
+| Single (`binary32`) | 32 | 8 | 23 | [C `float`](../../ProgrammingLanguage/c/C%20Basics.md#C-Basic-Types) |
+| Double (`binary64`) | 64 | 11 | 52 | [C `double`](../../ProgrammingLanguage/c/C%20Basics.md#C-Basic-Types) |
 | Quad (`binary128`) | 128 | 15 | 112 | Huge range / precision |
 | Octuple (`binary256`) | 256 | 19 | 237 | Rare |
 
