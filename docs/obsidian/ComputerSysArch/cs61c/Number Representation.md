@@ -22,6 +22,10 @@ tags:
     </iframe>
 </div>
 
+<div class="text-center-container" style="text-align: center;">
+    <strong>Learning architecture means learning binary abstraction!</strong>
+</div>
+
 !!! abstract "Learning Outcomes"
     - Know the terms: bits, bytes, bitstrings
 
