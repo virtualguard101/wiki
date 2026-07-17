@@ -16,6 +16,7 @@ nav:
         - htop: "obsidian/Tools/linux/htop.md"
         - ufw: "obsidian/Tools/linux/ufw.md"
         - Linux软件包管理: "obsidian/Tools/linux/Linux软件包管理.md"
+        - Man pages: "obsidian/Tools/linux/Man pages.md"
       - 远程服务器使用基础: "obsidian/Tools/远程服务器使用基础.md"
       - Git: "obsidian/Tools/Git.md"
       - Just: "obsidian/Tools/Just.md"
