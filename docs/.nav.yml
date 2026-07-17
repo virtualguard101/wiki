@@ -16,6 +16,7 @@ nav:
         - htop: "obsidian/Tools/linux/htop.md"
         - ufw: "obsidian/Tools/linux/ufw.md"
         - Linux软件包管理: "obsidian/Tools/linux/Linux软件包管理.md"
+        - Man pages: "obsidian/Tools/linux/Man pages.md"
       - 远程服务器使用基础: "obsidian/Tools/远程服务器使用基础.md"
       - Git: "obsidian/Tools/Git.md"
       - Just: "obsidian/Tools/Just.md"
@@ -37,6 +38,9 @@ nav:
       - C:
         - C Basics: "obsidian/ProgrammingLanguage/c/C Basics.md"
         - C Pointers, Arrays, and Strings: "obsidian/ProgrammingLanguage/c/C-Pointers-Arrays-and-Strings.md"
+        - C Memory Management: "obsidian/ProgrammingLanguage/c/C Memory Management.md"
+        # - C Generics, Function Pointers: "obsidian/ProgrammingLanguage/c/C Generics and Function Pointers.md"
+        # - C Odds and Ends: "obsidian/ProgrammingLanguage/c/C Odds and Ends.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/ProgrammingLanguage/cpp/cs106l/基础类型与结构体.md"
