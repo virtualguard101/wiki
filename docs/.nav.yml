@@ -341,7 +341,7 @@ nav:
     - "vocalplayer: A CLI music player with real-time rhythm visualization": "projects/vocalplayer.md"
     - "haruhiloop: 一个受《凉宫春日的忧郁》中“无尽的八月”情节启发的时间循环模拟器": projects/haruhiloop.md
     - "ForyoClassifierCNN: A music classification project based on PyTorch": projects/ForyoClassifierCNN.ipynb
-    - "MkDocs-Note: 一个用于在MkDocs文档中管理并部署笔记的插件": projects/MkDocs-Note.md
+    - "MkDocs-Note: A MkDocs plugin to add note boxes to your documentation ": projects/MkDocs-Note.md
     - "3BodySimulator: Python & C++ 项目标准化构建": projects/3BodySimulator.md
     - "SpaceCaculator: Python3面向对象简单应用": projects/SpaceCaculator.md
   - Credits: credits.md

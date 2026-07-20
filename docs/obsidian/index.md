@@ -56,7 +56,7 @@ publish: true
 
     - ⚡ Meanwhile an open source amateur.
 
-    - 🌱 Currently researching AI Infrastructure and other fields related to ==**Artificial Intelligence**==, and exploring basic theory of Computer Science, also engaging in some research activities ~~and some meaningless tricks~~.
+    - 🌱 Currently researching **Computer System and Architecture** and some fields related to **AI Infrastructure**, and exploring basic theory of Computer Science, also engaging in some research activities ~~and some meaningless tricks~~.
 
     - 📫 Contact information and other sites are available on my [Homepage](https://virtualguard101.com/).
 
@@ -66,7 +66,7 @@ publish: true
 
     - ⚡ 同时也是一名开源开好者。
 
-    - 🌱 目前正在研究 AI 基础设施等与 ==**人工智能**== 相关的领域，同时也在探索计算机科学的基础理论，并参与一些研究活动，~~以及整些花活~~。
+    - 🌱 目前正在研究计算机系统与体系结构以及一些与**AI基础设施**相关的领域，同时也在探索计算机科学的基础理论，并参与一些研究活动，~~以及整些花活~~。
 
     - 📫 联系方式及其他站点参见[我的主页](https://home.virtualguard101.com/)。
 
