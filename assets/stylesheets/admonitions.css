@@ -1,0 +1,17 @@
+:root {
+  --md-admonition-icon--review: url("data:image/svg+xml;utf8,<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M0,12L2.1,14.1L6.6,9.6L5.2,8.2L0,13.4M7,12L9.1,14.1L17.6,5.6L16.2,4.2L9.1,11.3L7,9.2M22.3,5.6L10.4,17.5L5.7,12.8L4.3,14.2L10.4,20.3L23.7,7L22.3,5.6Z'/></svg>");
+}
+.md-typeset .admonition.review,
+.md-typeset details.review {
+  border-color: rgb(43, 129, 155);
+}
+.md-typeset .review > .admonition-title,
+.md-typeset .review > summary {
+  background-color: rgba(43, 155, 70, 0.1);
+}
+.md-typeset .review > .admonition-title::before,
+.md-typeset .review > summary::before {
+  background-color: rgb(43, 129, 155);
+  -webkit-mask-image: var(--md-admonition-icon--review);
+          mask-image: var(--md-admonition-icon--review);
+}
