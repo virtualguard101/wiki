@@ -320,8 +320,8 @@ nav:
       - HTML要点: "obsidian/Misc/HTML要点.md"
       - CSS要点: "obsidian/Misc/CSS要点.md"
       - 安全要点: "obsidian/Misc/Web安全要点.md"
-    - Audio:
-      - PCM术语与概念: "obsidian/Audio/PCM术语与概念.md"
+    - 音频:
+      - PCM术语与概念: "obsidian/音频/PCM术语与概念.md"
     - Misc:
       - 解决方案:
         - 透明代理: "obsidian/Misc/科学上网/透明代理.md"
