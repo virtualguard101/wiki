@@ -18,9 +18,9 @@ tags:
 
 通过本次项目你会了解到：
 
-- 1. [C++](../obsidian/ProgrammingLanguage/cpp/cs106l/初始化与引用操作.md)项目标准化基础
+- 1. [C++](../obsidian/编程语言/cpp/cs106l/初始化与引用操作.md)项目标准化基础
 
-- 2. [CMake](../obsidian/Tools/BuildTools/CMake.md)、[vcpkg](../obsidian/Tools/BuildTools/vcpkg.md)等C++构建工具的基本使用
+- 2. [CMake](../obsidian/Tools/构建工具/CMake.md)、[vcpkg](../obsidian/Tools/构建工具/vcpkg.md)等C++构建工具的基本使用
 
 - 3. 多语言配合构建（C++ & Python）
 

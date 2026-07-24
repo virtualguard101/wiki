@@ -147,7 +147,7 @@ There are two types of DML:
     \sigma_{predicate}(R)
     $$
 
-    The predicate acts as a filter, and we can combine multiple predicates using [conjunctions](../../Math/DiscreteMath/legacy/命题逻辑的基本概念.md#命题联结词) and [disjunctions](../../Math/DiscreteMath/legacy/命题逻辑的基本概念.md#命题联结词).
+    The predicate acts as a filter, and we can combine multiple predicates using [conjunctions](../../数学/离散数学/legacy/命题逻辑的基本概念.md#命题联结词) and [disjunctions](../../数学/离散数学/legacy/命题逻辑的基本概念.md#命题联结词).
 
 !!! example
     ![](assets/relation-model-and-algebra/6.jpg)

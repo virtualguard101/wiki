@@ -26,7 +26,7 @@ tags:
 
     - [Git](../obsidian/Tools/Git.md)
 
-    - [Python 包](../obsidian/ProgrammingLanguage/python/Python包管理.md)
+    - [Python 包](../obsidian/编程语言/python/Python包管理.md)
 
     - [开源协议](../obsidian/Misc/开源协议.md)
 

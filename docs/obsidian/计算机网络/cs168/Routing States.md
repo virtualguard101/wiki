@@ -102,7 +102,7 @@ How do we apply this condition to check if a global state is valid?
 - The result is a *directed delivery tree*（**有向传递树**） for that destination.
 
 !!! tip "Directed Delivery Tree"
-    The essence of the directed delivery tree is the *minimum spanning tree*（[**最小生成树**](../../DataStructure/408/图的应用.md#最小生成树)）, which *rooted at the destination*. 
+    The essence of the directed delivery tree is the *minimum spanning tree*（[**最小生成树**](../../数据结构与算法/408/图的应用.md#最小生成树)）, which *rooted at the destination*. 
 
     - directed = Edges have arrows.
 
@@ -164,7 +164,7 @@ Least-cost routing: Assign costs to every edge, and find paths with lowest cost.
 
 - Costs can be arbitrary. Routing protocols don't care where the costs come from.
 
-To simply, it is to *weight each link based on actual conditions*, and then find the *shortest weighted path*（[**最短带权路径**](../../DataStructure/408/图的应用.md#最短路径)）.
+To simply, it is to *weight each link based on actual conditions*, and then find the *shortest weighted path*（[**最短带权路径**](../../数据结构与算法/408/图的应用.md#最短路径)）.
 
 ![](assets/routing-state/15.png)
 

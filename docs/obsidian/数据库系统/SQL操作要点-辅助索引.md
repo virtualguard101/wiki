@@ -64,7 +64,7 @@ create index idx_cate_author on book_info(cate_id, author);
 复合索引遵循**最左前缀原则**：索引 `(cate_id, author)` 能加速 `WHERE cate_id = ?` 或 `WHERE cate_id = ? AND author = ?`，但单独 `WHERE author = ?` 通常用不上该索引。
 
 !!! info "复合索引与B+树"
-    复合索引之所以能够支持对索引中最左边一列或左边连续多列的查询，根本原因在于[B+树](../DataStructure/408/B树和B+树.md#B树的基本概念)的排序规则。
+    复合索引之所以能够支持对索引中最左边一列或左边连续多列的查询，根本原因在于[B+树](../数据结构与算法/408/B树和B+树.md#B树的基本概念)的排序规则。
 
     复合索引的索引项是按照定义顺序进行排序的：
 

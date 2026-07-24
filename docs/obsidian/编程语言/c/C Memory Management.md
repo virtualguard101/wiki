@@ -65,7 +65,7 @@ Declaration always implies allocation, but allocation does not always imply a na
 
 ### Four Regions of Memory
 
-> [内存管理概述 - 进程的内存映像](../../OperatingSystem/408/内存管理概述.md#进程的内存映像)
+> [内存管理概述 - 进程的内存映像](../../操作系统/408/内存管理概述.md#进程的内存映像)
 
 A C program’s address space typically has four segments:
 
@@ -240,11 +240,11 @@ A user-space heap allocator sits on top of memory the OS already mapped into you
 
 | Topic | Why it matters for `malloc` | OS notes |
 |-------|----------------------------|----------|
-| **Load** | How a program is brought into memory | [装入方式](../../OperatingSystem/408/内存管理概述.md#装入方式) |
-| **Heap in the address space** | Where the heap segment lives | [进程的内存映像](../../OperatingSystem/408/内存管理概述.md#进程的内存映像) |
-| **Dynamic partition allocation** | OS-level strategies parallel heap block selection | [动态分区分配算法](../../OperatingSystem/408/内存管理概述.md#动态分区分配算法) |
-| **Context switch** | Saving/restoring execution state when switching tasks | [进程控制块](../../OperatingSystem/408/进程的描述与控制.md#进程控制块) |
-| **Virtual memory** | OS may map more virtual pages on demand when the heap grows | [虚拟内存管理](../../OperatingSystem/408/虚拟内存管理.md) |
+| **Load** | How a program is brought into memory | [装入方式](../../操作系统/408/内存管理概述.md#装入方式) |
+| **Heap in the address space** | Where the heap segment lives | [进程的内存映像](../../操作系统/408/内存管理概述.md#进程的内存映像) |
+| **Dynamic partition allocation** | OS-level strategies parallel heap block selection | [动态分区分配算法](../../操作系统/408/内存管理概述.md#动态分区分配算法) |
+| **Context switch** | Saving/restoring execution state when switching tasks | [进程控制块](../../操作系统/408/进程的描述与控制.md#进程控制块) |
+| **Virtual memory** | OS may map more virtual pages on demand when the heap grows | [虚拟内存管理](../../操作系统/408/虚拟内存管理.md) |
 
 #### Designing a Heap Allocator
 
@@ -282,7 +282,7 @@ When several free blocks are large enough, common policies are:
 | **First fit** | Take the first block that fits | Fast, but fragments the front of the list |
 | **Next fit** | Like first fit, but resume from the last search position | Spreads small gaps more evenly |
 
-These mirror OS [动态分区分配算法](../../OperatingSystem/408/内存管理概述.md#动态分区分配算法) (首次适应 / 最佳适应 / 邻近适应).
+These mirror OS [动态分区分配算法](../../操作系统/408/内存管理概述.md#动态分区分配算法) (首次适应 / 最佳适应 / 邻近适应).
 
 ```mermaid
 flowchart TD

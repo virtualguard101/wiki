@@ -44,7 +44,7 @@ Demultiplexing can not only use for choosing the protocol to process the packet 
         ![](assets/design-principle/physical_port.png)
 
 !!! note "socket[^1]"
-    The term *socket* (**套接字**) refers to an [OS mechanism](../../OperatingSystem/408/进程的描述与控制.md#套接字) for connecting an application to the networking stack in the OS. When an application opens a socket, that socket is associated with a logical port number. When the OS receives a packet, it uses the port number to direct that packet to the associated socket.
+    The term *socket* (**套接字**) refers to an [OS mechanism](../../操作系统/408/进程的描述与控制.md#套接字) for connecting an application to the networking stack in the OS. When an application opens a socket, that socket is associated with a logical port number. When the OS receives a packet, it uses the port number to direct that packet to the associated socket.
 
 In general, demultiplexing helps the operating system pass packets to the correct application, based on the [Layers Abstraction](Layers%20of%20the%20Internet.md#Layers-of-the-Internet) we've discussed previously.
 
