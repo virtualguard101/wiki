@@ -13,3 +13,4 @@ d2l/
 .gdb_history
 *.o
 office/
+.stfolder/
