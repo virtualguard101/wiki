@@ -85,6 +85,73 @@ ASSET_SUFFIXES = set(CONTENT_TYPES) | {".pdf", ".mp4", ".webm", ".svg"}
 log = logging.getLogger("notion_sync")
 
 
+def _load_dotenv(path: Path) -> None:
+    """Load KEY=VALUE lines into os.environ without overriding existing vars."""
+    if not path.is_file():
+        return
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        key = key.strip()
+        value = value.strip().strip("'").strip('"')
+        if key and key not in os.environ:
+            os.environ[key] = value
+
+
+def _token_from_cursor_mcp() -> Optional[str]:
+    """Reuse Notion token already configured for Cursor MCP (local dev)."""
+    mcp_path = Path.home() / ".cursor" / "mcp.json"
+    if not mcp_path.is_file():
+        return None
+    try:
+        data = json.loads(mcp_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    servers = data.get("mcpServers") or {}
+    for name in ("notionApi", "Notion", "notion"):
+        env = (servers.get(name) or {}).get("env") or {}
+        for key in ("NOTION_TOKEN", "NOTION_API_KEY"):
+            val = env.get(key)
+            if val:
+                return str(val).strip()
+    for cfg in servers.values():
+        env = (cfg or {}).get("env") or {}
+        for key in ("NOTION_TOKEN", "NOTION_API_KEY"):
+            val = env.get(key)
+            if val:
+                return str(val).strip()
+    return None
+
+
+def resolve_token(explicit: Optional[str] = None) -> Optional[str]:
+    """Resolve Notion token without requiring --token every run.
+
+    Order: CLI → env → wiki `.env` / `.notion_token` → ~/.config/notion/token
+    → Cursor `~/.cursor/mcp.json`.
+    """
+    if explicit and explicit.strip():
+        return explicit.strip()
+
+    _load_dotenv(ROOT / ".env")
+    for key in ("NOTION_TOKEN", "NOTION_API_KEY"):
+        val = os.environ.get(key)
+        if val and val.strip():
+            return val.strip()
+
+    for path in (
+        ROOT / ".notion_token",
+        Path.home() / ".config" / "notion" / "token",
+    ):
+        if path.is_file():
+            val = path.read_text(encoding="utf-8").strip()
+            if val:
+                return val
+
+    return _token_from_cursor_mcp()
+
+
 def setup_logging(verbose: bool = False) -> None:
     level = logging.DEBUG if verbose else logging.INFO
     handler = logging.StreamHandler(sys.stdout)
@@ -1199,9 +1266,12 @@ def collect_targets(
 
 
 def run_sync(args: argparse.Namespace) -> int:
-    token = args.token or os.environ.get("NOTION_TOKEN") or os.environ.get("NOTION_API_KEY")
+    token = resolve_token(args.token)
     if not token and not args.dry_run:
-        log.error("set NOTION_TOKEN / NOTION_API_KEY or pass --token")
+        log.error(
+            "Notion token not found. Set NOTION_TOKEN, add wiki/.env, "
+            "or configure notionApi in ~/.cursor/mcp.json"
+        )
         return 1
 
     state_path: Path = args.state
