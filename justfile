@@ -7,6 +7,7 @@ alias u := update
 alias us := usync
 alias nb := newblog
 alias mi := mv-image
+alias ns := notion-sync
 
 serve:
     uv run mkdocs serve
@@ -28,6 +29,7 @@ obsidian:
 update:
     just ob
     uv run scripts/update.py
+    just ns
 
 usync:
     just u
@@ -39,3 +41,25 @@ newblog title="":
 
 mv-image dest:
     uv run scripts/mv_image.py {{ dest }}
+
+# Incremental Notion sync (git diff). Examples:
+#   just notion-sync --dry-run
+#   just notion-sync --base HEAD~3 --section obsidian/
+#   just notion-sync-full --section obsidian/
+notion-sync *args:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    args=( {{args}} )
+    if [[ ${#args[@]} -gt 0 && ${args[0]} == -- ]]; then
+      args=( "${args[@]:1}" )
+    fi
+    uv run scripts/notion_sync.py "${args[@]}"
+
+notion-sync-full *args:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    args=( {{args}} )
+    if [[ ${#args[@]} -gt 0 && ${args[0]} == -- ]]; then
+      args=( "${args[@]:1}" )
+    fi
+    uv run scripts/notion_sync.py --full "${args[@]}"

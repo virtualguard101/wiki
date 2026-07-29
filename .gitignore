@@ -14,3 +14,9 @@ d2l/
 *.o
 office/
 .stfolder/
+# Notion sync (state may be CI-cached; never commit logs)
+.notion_sync_state.json
+.notion_migration_*.json
+.notion_image_*.json
+.notion_image_*.log
+*.notion*.log
