@@ -70,7 +70,7 @@ class FenceProtectionTests(unittest.TestCase):
         self.assertIn("#### `$0...$9` && `$#` && `$@/$*`（参数管理）", out)
         self.assertIn("#### `$?` && `$!` && `$$`（流程控制）", out)
         self.assertIn("`$n`", out)
-        self.assertIn("`$`n`$", out)  # prose math $n$ still converts
+        self.assertIn("$`n`$", out)  # prose math $n$ still converts
         self.assertNotIn("$`0...`", out)
         self.assertNotIn("$`#`", out)
         self.assertNotIn("$`@`", out)
