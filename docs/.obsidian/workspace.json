@@ -157,13 +157,23 @@
               "icon": "lucide-list",
               "title": "大纲"
             }
+          },
+          {
+            "id": "ac104938df179979",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -176,10 +186,11 @@
       "command-palette:打开命令面板": false,
       "workspaces:管理工作区布局": false,
       "random-note:开始漫游笔记": false,
-      "markdown-importer:打开 Markdown 格式转换器": false
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "20f467b276bea52a",
+  "active": "9237bb28f627c394",
   "lastOpenFiles": [
     "obsidian/ComputerNetwork/套接字接口.md",
     "obsidian/OperatingSystem/408/死锁.md",

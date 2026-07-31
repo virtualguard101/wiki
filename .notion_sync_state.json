@@ -1,0 +1,1283 @@
+{
+  "root_page_id": "3aba3d42-6eec-816b-8e88-ed2956be408f",
+  "data_source_id": "3aba3d42-6eec-80e9-8a37-000be17e3045",
+  "title_property": "页面",
+  "pages": {
+    "Notebook": {
+      "id": "3aba3d42-6eec-816b-8e88-ed2956be408f",
+      "url": "https://www.notion.so/3aba3d426eec816b8e88ed2956be408f"
+    },
+    "Notebook/通用资源": {
+      "id": "3aba3d42-6eec-819a-8af7-df317bf87826",
+      "url": "https://app.notion.com/p/3aba3d426eec819a8af7df317bf87826"
+    },
+    "obsidian/Misc/resources/学术资源.md": {
+      "id": "3aba3d42-6eec-81b8-a3e4-ca909afbe0e4",
+      "url": "https://app.notion.com/p/3aba3d426eec81b8a3e4ca909afbe0e4"
+    },
+    "obsidian/Misc/resources/工程、求职、杂项资源.md": {
+      "id": "3aba3d42-6eec-81de-ba0c-c8e8c09f7d8f",
+      "url": "https://app.notion.com/p/3aba3d426eec81deba0cc8e8c09f7d8f"
+    },
+    "Notebook/工具": {
+      "id": "3aba3d42-6eec-81fe-ac90-dff57d3b02f1",
+      "url": "https://app.notion.com/p/3aba3d426eec81feac90dff57d3b02f1"
+    },
+    "Notebook/工具/Linux": {
+      "id": "3aba3d42-6eec-8193-bfba-c0bec3e2b660",
+      "url": "https://app.notion.com/p/Linux-3aba3d426eec8193bfbac0bec3e2b660"
+    },
+    "obsidian/Tools/linux/Linux基础、杂项.md": {
+      "id": "3aba3d42-6eec-8177-b160-c77835460491",
+      "url": "https://app.notion.com/p/Linux-3aba3d426eec8177b160c77835460491"
+    },
+    "obsidian/Tools/linux/Linux定时任务.md": {
+      "id": "3aba3d42-6eec-817e-9c68-e641b06d8d2a",
+      "url": "https://app.notion.com/p/Linux-3aba3d426eec817e9c68e641b06d8d2a"
+    },
+    "obsidian/Tools/Shell Scripting.md": {
+      "id": "3aba3d42-6eec-813d-aacb-f26dbc23d41a",
+      "url": "https://app.notion.com/p/Shell-Scripting-3aba3d426eec813daacbf26dbc23d41a"
+    },
+    "obsidian/Tools/linux/tmux.md": {
+      "id": "3aba3d42-6eec-8187-b3fb-f5eac7e5c3fc",
+      "url": "https://app.notion.com/p/Linux-3aba3d426eec8187b3fbf5eac7e5c3fc"
+    },
+    "obsidian/Tools/linux/Timeshift.md": {
+      "id": "3aba3d42-6eec-8120-a36a-f4fb65ac1ad5",
+      "url": "https://app.notion.com/p/Timeshift-3aba3d426eec8120a36af4fb65ac1ad5"
+    },
+    "obsidian/Tools/linux/htop.md": {
+      "id": "3aba3d42-6eec-81d1-87b6-c8560b93cea9",
+      "url": "https://app.notion.com/p/htop-3aba3d426eec81d187b6c8560b93cea9"
+    },
+    "obsidian/Tools/linux/ufw.md": {
+      "id": "3aba3d42-6eec-81cc-9b1f-cf74de44e0ff",
+      "url": "https://app.notion.com/p/ufw-3aba3d426eec81cc9b1fcf74de44e0ff"
+    },
+    "obsidian/Tools/linux/Linux软件包管理.md": {
+      "id": "3aba3d42-6eec-81a7-aec6-c5b6b6b8923b",
+      "url": "https://app.notion.com/p/Linux-3aba3d426eec81a7aec6c5b6b6b8923b"
+    },
+    "obsidian/Tools/linux/Man pages.md": {
+      "id": "3aba3d42-6eec-811c-98f9-db448651fb0c",
+      "url": "https://app.notion.com/p/Man-pages-3aba3d426eec811c98f9db448651fb0c"
+    },
+    "obsidian/Tools/远程服务器使用基础.md": {
+      "id": "3aba3d42-6eec-8193-b331-c6c38e713de2",
+      "url": "https://app.notion.com/p/3aba3d426eec8193b331c6c38e713de2"
+    },
+    "obsidian/Tools/Git.md": {
+      "id": "3aba3d42-6eec-814c-93d2-e7d74d492adc",
+      "url": "https://app.notion.com/p/Git-3aba3d426eec814c93d2e7d74d492adc"
+    },
+    "obsidian/Tools/Just.md": {
+      "id": "3aba3d42-6eec-819e-bc4a-f07ca4f87373",
+      "url": "https://app.notion.com/p/Just-3aba3d426eec819ebc4af07ca4f87373"
+    },
+    "obsidian/Tools/Astral uv.md": {
+      "id": "3aba3d42-6eec-8130-ab36-ccf5c66889f1",
+      "url": "https://app.notion.com/p/Astral-uv-3aba3d426eec8130ab36ccf5c66889f1"
+    },
+    "obsidian/Tools/Conda.md": {
+      "id": "3aba3d42-6eec-8138-a54e-f2799b1103de",
+      "url": "https://app.notion.com/p/Conda-3aba3d426eec8138a54ef2799b1103de"
+    },
+    "obsidian/Tools/jupyter.ipynb": {
+      "id": "3aba3d42-6eec-81df-bba1-cf7978b5b3e9",
+      "url": "https://app.notion.com/p/Jupyter-Notebook-3aba3d426eec81dfbba1cf7978b5b3e9"
+    },
+    "obsidian/Tools/chezmoi.md": {
+      "id": "3aba3d42-6eec-81a5-b3ff-fa35d1f2fd0d",
+      "url": "https://app.notion.com/p/chezmoi-3aba3d426eec81a5b3fffa35d1f2fd0d"
+    },
+    "Notebook/工具/构建工具": {
+      "id": "3aba3d42-6eec-81d6-be7b-e41c904f222e",
+      "url": "https://app.notion.com/p/3aba3d426eec81d6be7be41c904f222e"
+    },
+    "obsidian/Tools/构建工具/GNU Make.md": {
+      "id": "3aba3d42-6eec-81b5-b448-c57eaa196f95",
+      "url": "https://app.notion.com/p/GNU-Make-3aba3d426eec81b5b448c57eaa196f95"
+    },
+    "obsidian/Tools/构建工具/CMake.md": {
+      "id": "3aba3d42-6eec-8170-9dba-d032a59accde",
+      "url": "https://app.notion.com/p/CMake-3aba3d426eec81709dbad032a59accde"
+    },
+    "obsidian/Tools/构建工具/vcpkg.md": {
+      "id": "3aba3d42-6eec-81bf-a57c-db7af430de25",
+      "url": "https://app.notion.com/p/vcpkg-3aba3d426eec81bfa57cdb7af430de25"
+    },
+    "obsidian/Tools/构建工具/SCons.md": {
+      "id": "3aba3d42-6eec-81f5-bff7-e4c7ef4256ca",
+      "url": "https://app.notion.com/p/SCons-3aba3d426eec81f5bff7e4c7ef4256ca"
+    },
+    "obsidian/Tools/构建工具/xmake.md": {
+      "id": "3aba3d42-6eec-819c-bf26-c5813db7c2ef",
+      "url": "https://app.notion.com/p/xmake-3aba3d426eec819cbf26c5813db7c2ef"
+    },
+    "Notebook/编程语言": {
+      "id": "3aba3d42-6eec-81b0-97a3-fd7408f1e3f8",
+      "url": "https://app.notion.com/p/3aba3d426eec81b097a3fd7408f1e3f8"
+    },
+    "Notebook/编程语言/Python": {
+      "id": "3aba3d42-6eec-81e3-ab0d-f3b165ea98ca",
+      "url": "https://app.notion.com/p/Python-3aba3d426eec81e3ab0df3b165ea98ca"
+    },
+    "obsidian/编程语言/python/Python包管理.md": {
+      "id": "3aba3d42-6eec-81ab-8045-ccf61e199185",
+      "url": "https://app.notion.com/p/Python-3aba3d426eec81ab8045ccf61e199185"
+    },
+    "obsidian/编程语言/python/Python虚拟环境.md": {
+      "id": "3aba3d42-6eec-818b-a041-dbd8acc862e4",
+      "url": "https://app.notion.com/p/Python-3aba3d426eec818ba041dbd8acc862e4"
+    },
+    "obsidian/编程语言/python/PEP8格式化.md": {
+      "id": "3aba3d42-6eec-812b-a959-cebc3576d99f",
+      "url": "https://app.notion.com/p/PEP8-3aba3d426eec812ba959cebc3576d99f"
+    },
+    "Notebook/编程语言/C": {
+      "id": "3aba3d42-6eec-815e-a22f-c299501fdef7",
+      "url": "https://app.notion.com/p/C-3aba3d426eec815ea22fc299501fdef7"
+    },
+    "obsidian/编程语言/c/C Basics.md": {
+      "id": "3aba3d42-6eec-816a-9a61-fb6bca61c1e7",
+      "url": "https://app.notion.com/p/C-Basics-3aba3d426eec816a9a61fb6bca61c1e7"
+    },
+    "obsidian/编程语言/c/C-Pointers-Arrays-and-Strings.md": {
+      "id": "3aba3d42-6eec-813b-a4d9-f032d9207a9b",
+      "url": "https://app.notion.com/p/C-Pointers-Arrays-and-Strings-3aba3d426eec813ba4d9f032d9207a9b"
+    },
+    "obsidian/编程语言/c/C Memory Management.md": {
+      "id": "3aba3d42-6eec-81c4-a4f8-ebf312ee56dc",
+      "url": "https://app.notion.com/p/C-Memory-Management-3aba3d426eec81c4a4f8ebf312ee56dc"
+    },
+    "Notebook/编程语言/C++": {
+      "id": "3aba3d42-6eec-812f-b67c-e306a2c451c9",
+      "url": "https://app.notion.com/p/C-3aba3d426eec812fb67ce306a2c451c9"
+    },
+    "Notebook/编程语言/C++/Standard C++ Programming": {
+      "id": "3aba3d42-6eec-8198-a992-ea1d5f80084a",
+      "url": "https://app.notion.com/p/Standard-C-Programming-3aba3d426eec8198a992ea1d5f80084a"
+    },
+    "obsidian/编程语言/cpp/cs106l/基础类型与结构体.md": {
+      "id": "3aba3d42-6eec-816d-aeac-d66d3f771c13",
+      "url": "https://app.notion.com/p/3aba3d426eec816daeacd66d3f771c13"
+    },
+    "obsidian/编程语言/cpp/cs106l/初始化与引用操作.md": {
+      "id": "3aba3d42-6eec-81f0-a8e9-cdca601c75f9",
+      "url": "https://app.notion.com/p/3aba3d426eec81f0a8e9cdca601c75f9"
+    },
+    "obsidian/编程语言/cpp/cs106l/C++流.md": {
+      "id": "3aba3d42-6eec-81ac-99ce-d398ad5758e5",
+      "url": "https://app.notion.com/p/C-3aba3d426eec81ac99ced398ad5758e5"
+    },
+    "obsidian/编程语言/cpp/cs106l/STL容器.md": {
+      "id": "3aba3d42-6eec-81b3-9005-ee1a4f4faaa9",
+      "url": "https://app.notion.com/p/STL-3aba3d426eec81b39005ee1a4f4faaa9"
+    },
+    "obsidian/编程语言/cpp/cs106l/迭代器和指针.md": {
+      "id": "3aba3d42-6eec-81b6-91a0-d07b89de6811",
+      "url": "https://app.notion.com/p/3aba3d426eec81b691a0d07b89de6811"
+    },
+    "obsidian/编程语言/cpp/cs106l/C++类 & 模板.md": {
+      "id": "3aba3d42-6eec-81b7-9a15-d9fde36a15d6",
+      "url": "https://app.notion.com/p/C-3aba3d426eec81b79a15d9fde36a15d6"
+    },
+    "obsidian/编程语言/cpp/cs106l/Lambda表达式.md": {
+      "id": "3aba3d42-6eec-81b9-b9c5-f4f8872463a2",
+      "url": "https://app.notion.com/p/Lambda-3aba3d426eec81b9b9c5f4f8872463a2"
+    },
+    "obsidian/编程语言/cpp/cs106l/运算符重载.md": {
+      "id": "3aba3d42-6eec-8103-a449-e50c6265edae",
+      "url": "https://app.notion.com/p/3aba3d426eec8103a449e50c6265edae"
+    },
+    "obsidian/编程语言/cpp/cs106l/特殊成员函数.md": {
+      "id": "3aba3d42-6eec-81d2-88ac-f6eb45b5208b",
+      "url": "https://app.notion.com/p/3aba3d426eec81d288acf6eb45b5208b"
+    },
+    "obsidian/编程语言/cpp/cs106l/C++移动语义.md": {
+      "id": "3aba3d42-6eec-81e7-aa54-ed511e8f4a82",
+      "url": "https://app.notion.com/p/C-3aba3d426eec81e7aa54ed511e8f4a82"
+    },
+    "obsidian/编程语言/cpp/cs106l/C++类型安全、设计理念概述.md": {
+      "id": "3aba3d42-6eec-8117-9e45-e1607d0c586b",
+      "url": "https://app.notion.com/p/C-3aba3d426eec81179e45e1607d0c586b"
+    },
+    "obsidian/编程语言/cpp/cs106l/RAII & C++智能指针.md": {
+      "id": "3aba3d42-6eec-810b-9b5e-e0df54f735a0",
+      "url": "https://app.notion.com/p/RAII-C-3aba3d426eec810b9b5ee0df54f735a0"
+    },
+    "obsidian/编程语言/cpp/C++ Coding Style.md": {
+      "id": "3aba3d42-6eec-8124-bb01-c8d81c13d0b7",
+      "url": "https://app.notion.com/p/C-Coding-Style-3aba3d426eec8124bb01c8d81c13d0b7"
+    },
+    "obsidian/编程语言/cpp/自增表达式.md": {
+      "id": "3aba3d42-6eec-818e-a6ce-ebe7f1458426",
+      "url": "https://app.notion.com/p/3aba3d426eec818ea6ceebe7f1458426"
+    },
+    "obsidian/编程语言/cpp/STL概述.md": {
+      "id": "3aba3d42-6eec-815f-ba70-eac0f9cbdb44",
+      "url": "https://app.notion.com/p/STL-3aba3d426eec815fba70eac0f9cbdb44"
+    },
+    "obsidian/编程语言/cpp/C++头文件.md": {
+      "id": "3aba3d42-6eec-819b-8d82-d5c39212c06a",
+      "url": "https://app.notion.com/p/C-3aba3d426eec819b8d82d5c39212c06a"
+    },
+    "obsidian/编程语言/cpp/内联与ODR.md": {
+      "id": "3aba3d42-6eec-8194-ae9a-db30b5401bdc",
+      "url": "https://app.notion.com/p/ODR-3aba3d426eec8194ae9adb30b5401bdc"
+    },
+    "obsidian/编程语言/cpp/C++命名空间.md": {
+      "id": "3aba3d42-6eec-81e7-ab9c-ec694cd47a3b",
+      "url": "https://app.notion.com/p/C-3aba3d426eec81e7ab9cec694cd47a3b"
+    },
+    "Notebook/编程语言/Rust": {
+      "id": "3aba3d42-6eec-815d-b98d-d3451c8be8d5",
+      "url": "https://app.notion.com/p/Rust-3aba3d426eec815db98dd3451c8be8d5"
+    },
+    "obsidian/编程语言/rust/Rust入门要点.md": {
+      "id": "3aba3d42-6eec-817d-a33f-e2a09ce7fa8d",
+      "url": "https://app.notion.com/p/Rust-3aba3d426eec817da33fe2a09ce7fa8d"
+    },
+    "obsidian/编程语言/rust/Rust变量.md": {
+      "id": "3aba3d42-6eec-8155-b688-ca4e15900768",
+      "url": "https://app.notion.com/p/Rust-3aba3d426eec8155b688ca4e15900768"
+    },
+    "obsidian/编程语言/rust/Rust数据类型.md": {
+      "id": "3aba3d42-6eec-8151-8797-e41003fe3c9b",
+      "url": "https://app.notion.com/p/Rust-3aba3d426eec81518797e41003fe3c9b"
+    },
+    "obsidian/编程语言/rust/Rust函数.md": {
+      "id": "3aba3d42-6eec-81ea-a5cc-e640abc2d178",
+      "url": "https://app.notion.com/p/Rust-3aba3d426eec81eaa5cce640abc2d178"
+    },
+    "Notebook/编程语言/Golang": {
+      "id": "3aba3d42-6eec-81ed-ab7d-fa9c8885704d",
+      "url": "https://app.notion.com/p/Golang-3aba3d426eec81edab7dfa9c8885704d"
+    },
+    "obsidian/编程语言/golang/Golang入门要点.md": {
+      "id": "3aba3d42-6eec-8106-a268-faa86fe3862b",
+      "url": "https://app.notion.com/p/Golang-3aba3d426eec8106a268faa86fe3862b"
+    },
+    "Notebook/编程语言/Golang/基础": {
+      "id": "3aba3d42-6eec-81dd-a8e4-d05b4beb6db4",
+      "url": "https://app.notion.com/p/3aba3d426eec81dda8e4d05b4beb6db4"
+    },
+    "obsidian/编程语言/golang/Go命名规范.md": {
+      "id": "3aba3d42-6eec-81f2-8864-fb99a90fa765",
+      "url": "https://app.notion.com/p/3aba3d426eec81f28864fb99a90fa765"
+    },
+    "obsidian/编程语言/golang/Golang程序结构.md": {
+      "id": "3aba3d42-6eec-8141-bc64-f55036c14816",
+      "url": "https://app.notion.com/p/Golang-3aba3d426eec8141bc64f55036c14816"
+    },
+    "obsidian/编程语言/golang/Golang函数.md": {
+      "id": "3aba3d42-6eec-81db-8e52-c8f2df6fc764",
+      "url": "https://app.notion.com/p/Golang-3aba3d426eec81db8e52c8f2df6fc764"
+    },
+    "obsidian/编程语言/golang/Golang接口.md": {
+      "id": "3aba3d42-6eec-8158-8f12-d79c877f9e22",
+      "url": "https://app.notion.com/p/Golang-3aba3d426eec81588f12d79c877f9e22"
+    },
+    "Notebook/编程语言/JavaScript": {
+      "id": "3aba3d42-6eec-816e-a68a-d49f3ce85ad9",
+      "url": "https://app.notion.com/p/JavaScript-3aba3d426eec816ea68ad49f3ce85ad9"
+    },
+    "obsidian/编程语言/javascript/JavaScript入门要点.md": {
+      "id": "3aba3d42-6eec-8109-9c0a-e511445fc078",
+      "url": "https://app.notion.com/p/JavaScript-3aba3d426eec81099c0ae511445fc078"
+    },
+    "obsidian/编程语言/javascript/JS回调函数简单应用.md": {
+      "id": "3aba3d42-6eec-814f-ae04-c2138553f86c",
+      "url": "https://app.notion.com/p/JS-3aba3d426eec814fae04c2138553f86c"
+    },
+    "Notebook/编程语言/Java": {
+      "id": "3aba3d42-6eec-8194-9423-f8b2fd817afc",
+      "url": "https://app.notion.com/p/Java-3aba3d426eec81949423f8b2fd817afc"
+    },
+    "obsidian/编程语言/java/Java入门要点.md": {
+      "id": "3aba3d42-6eec-8149-bcaf-c9d5a7ea8be4",
+      "url": "https://app.notion.com/p/Java-3aba3d426eec8149bcafc9d5a7ea8be4"
+    },
+    "obsidian/编程语言/java/Java类与对象.md": {
+      "id": "3aba3d42-6eec-81c0-a29e-eaa90fc8ff12",
+      "url": "https://app.notion.com/p/Java-3aba3d426eec81c0a29eeaa90fc8ff12"
+    },
+    "obsidian/编程语言/java/Java接口.md": {
+      "id": "3aba3d42-6eec-81dd-aa70-d9207af7b79f",
+      "url": "https://app.notion.com/p/Java-3aba3d426eec81ddaa70d9207af7b79f"
+    },
+    "Notebook/数学": {
+      "id": "3aba3d42-6eec-812c-bb9d-c7ab9af74bc6",
+      "url": "https://app.notion.com/p/3aba3d426eec812cbb9dc7ab9af74bc6"
+    },
+    "Notebook/数学/离散数学": {
+      "id": "3aba3d42-6eec-81b9-ba9e-de40c5efd064",
+      "url": "https://app.notion.com/p/3aba3d426eec81b9ba9ede40c5efd064"
+    },
+    "Notebook/数学/离散数学/CS70": {
+      "id": "3aba3d42-6eec-81f2-a774-f42f782aab61",
+      "url": "https://app.notion.com/p/CS70-3aba3d426eec81f2a774f42f782aab61"
+    },
+    "obsidian/数学/离散数学/集合 & 数学符号与逻辑命题.md": {
+      "id": "3aba3d42-6eec-81e0-aa0a-f285bea6527c",
+      "url": "https://app.notion.com/p/3aba3d426eec81e0aa0af285bea6527c"
+    },
+    "obsidian/数学/离散数学/证明.md": {
+      "id": "3aba3d42-6eec-815a-853e-dc57fa85c708",
+      "url": "https://app.notion.com/p/3aba3d426eec815a853edc57fa85c708"
+    },
+    "obsidian/数学/离散数学/legacy/命题逻辑的基本概念.md": {
+      "id": "3aba3d42-6eec-81d9-8102-e3c29e65a253",
+      "url": "https://app.notion.com/p/3aba3d426eec81d98102e3c29e65a253"
+    },
+    "obsidian/数学/离散数学/legacy/命题逻辑等值演算.md": {
+      "id": "3aba3d42-6eec-8189-83c0-e95195939602",
+      "url": "https://app.notion.com/p/3aba3d426eec818983c0e95195939602"
+    },
+    "obsidian/数学/离散数学/legacy/推理理论.md": {
+      "id": "3aba3d42-6eec-812c-84a5-c23a274b1356",
+      "url": "https://app.notion.com/p/3aba3d426eec812c84a5c23a274b1356"
+    },
+    "obsidian/数学/离散数学/legacy/谓词逻辑.md": {
+      "id": "3aba3d42-6eec-8181-b2a3-c3e55266e381",
+      "url": "https://app.notion.com/p/3aba3d426eec8181b2a3c3e55266e381"
+    },
+    "obsidian/数学/离散数学/legacy/集合.md": {
+      "id": "3aba3d42-6eec-8180-88dd-e0f37e9be89a",
+      "url": "https://app.notion.com/p/3aba3d426eec818088dde0f37e9be89a"
+    },
+    "obsidian/数学/离散数学/legacy/二元关系.md": {
+      "id": "3aba3d42-6eec-816a-89fb-f47fe14d30a5",
+      "url": "https://app.notion.com/p/3aba3d426eec816a89fbf47fe14d30a5"
+    },
+    "Notebook/数学/高等数学": {
+      "id": "3aba3d42-6eec-815f-b1b1-f13f261ea61d",
+      "url": "https://app.notion.com/p/3aba3d426eec815fb1b1f13f261ea61d"
+    },
+    "Notebook/数学/高等数学/微积分的本质": {
+      "id": "3aba3d42-6eec-81fd-ab2b-d6ccadefe136",
+      "url": "https://app.notion.com/p/3aba3d426eec81fdab2bd6ccadefe136"
+    },
+    "obsidian/数学/微积分/overview/微积分的本质-导数.md": {
+      "id": "3aba3d42-6eec-81a1-9286-e8054221e9e8",
+      "url": "https://app.notion.com/p/3aba3d426eec81a19286e8054221e9e8"
+    },
+    "obsidian/数学/微积分/overview/微积分的本质-极限.md": {
+      "id": "3aba3d42-6eec-8174-87bd-e63471dc283a",
+      "url": "https://app.notion.com/p/3aba3d426eec817487bde63471dc283a"
+    },
+    "obsidian/数学/微积分/overview/微积分的本质-微积分.md": {
+      "id": "3aba3d42-6eec-81a7-bdc6-e57c3fa049c0",
+      "url": "https://app.notion.com/p/3aba3d426eec81a7bdc6e57c3fa049c0"
+    },
+    "obsidian/数学/微积分/overview/微积分的本质-泰勒级数.md": {
+      "id": "3aba3d42-6eec-8115-9df7-fad3e74bf34e",
+      "url": "https://app.notion.com/p/3aba3d426eec81159df7fad3e74bf34e"
+    },
+    "Notebook/数学/线性代数": {
+      "id": "3aba3d42-6eec-81c0-ab5c-d857a0d55616",
+      "url": "https://app.notion.com/p/3aba3d426eec81c0ab5cd857a0d55616"
+    },
+    "Notebook/数学/线性代数/Legacy": {
+      "id": "3aba3d42-6eec-8124-aae5-c8f860ccb21c",
+      "url": "https://app.notion.com/p/Legacy-3aba3d426eec8124aae5c8f860ccb21c"
+    },
+    "obsidian/数学/线性代数/行列式.md": {
+      "id": "3aba3d42-6eec-81e6-bef0-fdfe1f2e0cb1",
+      "url": "https://app.notion.com/p/3aba3d426eec81e6bef0fdfe1f2e0cb1"
+    },
+    "obsidian/数学/线性代数/行列式的展开.md": {
+      "id": "3aba3d42-6eec-8114-9cec-df6d9e251e3a",
+      "url": "https://app.notion.com/p/3aba3d426eec81149cecdf6d9e251e3a"
+    },
+    "obsidian/数学/线性代数/矩阵.md": {
+      "id": "3aba3d42-6eec-814b-bda8-cd7dde3116b4",
+      "url": "https://app.notion.com/p/3aba3d426eec814bbda8cd7dde3116b4"
+    },
+    "obsidian/数学/线性代数/逆矩阵.md": {
+      "id": "3aba3d42-6eec-8131-969b-d707a523780e",
+      "url": "https://app.notion.com/p/3aba3d426eec8131969bd707a523780e"
+    },
+    "obsidian/数学/线性代数/矩阵的行列式计算.md": {
+      "id": "3aba3d42-6eec-81ef-beab-e09d6ab5c49f",
+      "url": "https://app.notion.com/p/3aba3d426eec81efbeabe09d6ab5c49f"
+    },
+    "obsidian/数学/线性代数/矩阵的初等变换.md": {
+      "id": "3aba3d42-6eec-81b7-9be8-c151a9661fe2",
+      "url": "https://app.notion.com/p/3aba3d426eec81b79be8c151a9661fe2"
+    },
+    "obsidian/数学/线性代数/向量.md": {
+      "id": "3aba3d42-6eec-8109-9728-ef941492996a",
+      "url": "https://app.notion.com/p/3aba3d426eec81099728ef941492996a"
+    },
+    "obsidian/数学/线性代数/线性方程组.md": {
+      "id": "3aba3d42-6eec-81f8-8160-e73b8a4ab726",
+      "url": "https://app.notion.com/p/3aba3d426eec81f88160e73b8a4ab726"
+    },
+    "obsidian/数学/线性代数/相似矩阵.md": {
+      "id": "3aba3d42-6eec-81a1-88b1-df390bdc834c",
+      "url": "https://app.notion.com/p/3aba3d426eec81a188b1df390bdc834c"
+    },
+    "obsidian/数学/线性代数/二次型.md": {
+      "id": "3aba3d42-6eec-811a-9a6b-c90d0d3e460d",
+      "url": "https://app.notion.com/p/3aba3d426eec811a9a6bc90d0d3e460d"
+    },
+    "Notebook/数学/线性代数/线性代数的本质": {
+      "id": "3aba3d42-6eec-8195-b3d9-ee0e1a03468d",
+      "url": "https://app.notion.com/p/3aba3d426eec8195b3d9ee0e1a03468d"
+    },
+    "obsidian/数学/线性代数/overview/线性代数的本质-向量.md": {
+      "id": "3aba3d42-6eec-81f7-9efb-f6b93a195b58",
+      "url": "https://app.notion.com/p/3aba3d426eec81f79efbf6b93a195b58"
+    },
+    "obsidian/数学/线性代数/overview/线性代数的本质-矩阵与线性变换.md": {
+      "id": "3aba3d42-6eec-81c3-a4e9-e9a68be8feba",
+      "url": "https://app.notion.com/p/3aba3d426eec81c3a4e9e9a68be8feba"
+    },
+    "obsidian/数学/线性代数/overview/线性代数的本质-矩阵乘法与复合线性变换.md": {
+      "id": "3aba3d42-6eec-8153-8acc-dfad68441e25",
+      "url": "https://app.notion.com/p/3aba3d426eec81538accdfad68441e25"
+    },
+    "obsidian/数学/线性代数/overview/线性代数的本质-行列式.md": {
+      "id": "3aba3d42-6eec-8142-b6bc-e21e85ea004e",
+      "url": "https://app.notion.com/p/3aba3d426eec8142b6bce21e85ea004e"
+    },
+    "obsidian/数学/线性代数/overview/线性代数的本质-求解线性方程组.md": {
+      "id": "3aba3d42-6eec-812b-ac2c-c5a7d9c69d79",
+      "url": "https://app.notion.com/p/3aba3d426eec812bac2cc5a7d9c69d79"
+    },
+    "obsidian/数学/线性代数/overview/线性代数的本质-点积与对偶性.md": {
+      "id": "3aba3d42-6eec-8175-b54d-cab0021ef08f",
+      "url": "https://app.notion.com/p/3aba3d426eec8175b54dcab0021ef08f"
+    },
+    "obsidian/数学/线性代数/overview/线性代数的本质-叉积.md": {
+      "id": "3aba3d42-6eec-81a7-87f8-d00812af4d2e",
+      "url": "https://app.notion.com/p/3aba3d426eec81a787f8d00812af4d2e"
+    },
+    "Notebook/数学/概率论与数理统计": {
+      "id": "3aba3d42-6eec-810a-9a12-f3b88c33a143",
+      "url": "https://app.notion.com/p/3aba3d426eec810a9a12f3b88c33a143"
+    },
+    "Notebook/数学/概率论与数理统计/概率初步": {
+      "id": "3aba3d42-6eec-81c2-bb7c-eaf2dd50fbc4",
+      "url": "https://app.notion.com/p/3aba3d426eec81c2bb7ceaf2dd50fbc4"
+    },
+    "obsidian/数学/概率论与数理统计/事件的运算及概率.md": {
+      "id": "3aba3d42-6eec-8179-9694-c45b8dcd6747",
+      "url": "https://app.notion.com/p/3aba3d426eec81799694c45b8dcd6747"
+    },
+    "obsidian/数学/概率论与数理统计/条件概率和全概率公式.md": {
+      "id": "3aba3d42-6eec-8191-97b3-ec0f77e4f32c",
+      "url": "https://app.notion.com/p/3aba3d426eec819197b3ec0f77e4f32c"
+    },
+    "obsidian/数学/概率论与数理统计/独立性.md": {
+      "id": "3aba3d42-6eec-815c-8501-e970c20ba6cc",
+      "url": "https://app.notion.com/p/3aba3d426eec815c8501e970c20ba6cc"
+    },
+    "Notebook/数学/概率论与数理统计/随机变量及其分布": {
+      "id": "3aba3d42-6eec-818e-b939-e7f09811e914",
+      "url": "https://app.notion.com/p/3aba3d426eec818eb939e7f09811e914"
+    },
+    "obsidian/数学/概率论与数理统计/离散型随机变量及其分布.md": {
+      "id": "3aba3d42-6eec-813d-ba05-cbf856843065",
+      "url": "https://app.notion.com/p/3aba3d426eec813dba05cbf856843065"
+    },
+    "obsidian/数学/概率论与数理统计/随机变量的分布函数.md": {
+      "id": "3aba3d42-6eec-81c3-a4c5-d6af7f5fbc18",
+      "url": "https://app.notion.com/p/3aba3d426eec81c3a4c5d6af7f5fbc18"
+    },
+    "obsidian/数学/概率论与数理统计/连续型随机变量及其概率密度函数.md": {
+      "id": "3aba3d42-6eec-81b1-8108-c1e8bad6884a",
+      "url": "https://app.notion.com/p/3aba3d426eec81b18108c1e8bad6884a"
+    },
+    "Notebook/数学/概率论与数理统计/多维随机变量及其分布": {
+      "id": "3aba3d42-6eec-8118-aa57-dfd39a47cc2c",
+      "url": "https://app.notion.com/p/3aba3d426eec8118aa57dfd39a47cc2c"
+    },
+    "obsidian/数学/概率论与数理统计/二维随机变量.md": {
+      "id": "3aba3d42-6eec-813a-8804-c38b94fc5c51",
+      "url": "https://app.notion.com/p/3aba3d426eec813a8804c38b94fc5c51"
+    },
+    "obsidian/数学/概率论与数理统计/联合分布.md": {
+      "id": "3aba3d42-6eec-8146-a50d-cc5280b27f2a",
+      "url": "https://app.notion.com/p/3aba3d426eec8146a50dcc5280b27f2a"
+    },
+    "obsidian/数学/概率论与数理统计/边缘分布.md": {
+      "id": "3aba3d42-6eec-812e-8867-ebde1c73e28b",
+      "url": "https://app.notion.com/p/3aba3d426eec812e8867ebde1c73e28b"
+    },
+    "obsidian/数学/概率论与数理统计/抽样分布.md": {
+      "id": "3aba3d42-6eec-81c6-a206-ef3277176096",
+      "url": "https://app.notion.com/p/3aba3d426eec81c6a206ef3277176096"
+    },
+    "obsidian/数学/概率论与数理统计/参数估计.md": {
+      "id": "3aba3d42-6eec-81fc-af22-f494e01b38a8",
+      "url": "https://app.notion.com/p/3aba3d426eec81fcaf22f494e01b38a8"
+    },
+    "Notebook/数学/数学建模": {
+      "id": "3aba3d42-6eec-81cd-913a-cfb97819de16",
+      "url": "https://app.notion.com/p/3aba3d426eec81cd913acfb97819de16"
+    },
+    "obsidian/数学/数学建模/数学建模部分资源.md": {
+      "id": "3aba3d42-6eec-81ed-ae19-c1795b99e3f9",
+      "url": "https://app.notion.com/p/3aba3d426eec81edae19c1795b99e3f9"
+    },
+    "Notebook/数据结构与算法": {
+      "id": "3aba3d42-6eec-812b-9dbf-f3042c338400",
+      "url": "https://app.notion.com/p/3aba3d426eec812b9dbff3042c338400"
+    },
+    "Notebook/数据结构与算法/绪论": {
+      "id": "3aba3d42-6eec-81ce-a2a7-ea928e221908",
+      "url": "https://app.notion.com/p/3aba3d426eec81cea2a7ea928e221908"
+    },
+    "obsidian/数据结构与算法/408/迭代与递归.md": {
+      "id": "3aba3d42-6eec-8194-a1e6-ed42ed19e3c9",
+      "url": "https://app.notion.com/p/3aba3d426eec8194a1e6ed42ed19e3c9"
+    },
+    "Notebook/数据结构与算法/线性表": {
+      "id": "3aba3d42-6eec-81a2-b8b1-e34b3dfa980f",
+      "url": "https://app.notion.com/p/3aba3d426eec81a2b8b1e34b3dfa980f"
+    },
+    "obsidian/数据结构与算法/408/线性表的顺序表示.md": {
+      "id": "3aba3d42-6eec-81a7-94e3-e7af733c693b",
+      "url": "https://app.notion.com/p/3aba3d426eec81a794e3e7af733c693b"
+    },
+    "obsidian/数据结构与算法/408/线性表的链式表示.md": {
+      "id": "3aba3d42-6eec-8114-ac23-e2a0fb92575b",
+      "url": "https://app.notion.com/p/3aba3d426eec8114ac23e2a0fb92575b"
+    },
+    "Notebook/数据结构与算法/栈、队列与数组": {
+      "id": "3aba3d42-6eec-8167-a403-c2aa3c2914a1",
+      "url": "https://app.notion.com/p/3aba3d426eec8167a403c2aa3c2914a1"
+    },
+    "obsidian/数据结构与算法/408/栈.md": {
+      "id": "3aba3d42-6eec-8181-add2-ddf6148a4cd5",
+      "url": "https://app.notion.com/p/3aba3d426eec8181add2ddf6148a4cd5"
+    },
+    "obsidian/数据结构与算法/408/队列.md": {
+      "id": "3aba3d42-6eec-81ab-9e7c-ea0f3edb8ff2",
+      "url": "https://app.notion.com/p/3aba3d426eec81ab9e7cea0f3edb8ff2"
+    },
+    "obsidian/数据结构与算法/408/栈与队列的应用.md": {
+      "id": "3aba3d42-6eec-81ac-ac51-d617121d25ad",
+      "url": "https://app.notion.com/p/3aba3d426eec81acac51d617121d25ad"
+    },
+    "obsidian/数据结构与算法/408/数组和特殊矩阵.md": {
+      "id": "3aba3d42-6eec-81ce-a88a-e271e57bd22b",
+      "url": "https://app.notion.com/p/3aba3d426eec81cea88ae271e57bd22b"
+    },
+    "Notebook/数据结构与算法/串": {
+      "id": "3aba3d42-6eec-815b-ad36-e3e5ee6a4194",
+      "url": "https://app.notion.com/p/3aba3d426eec815bad36e3e5ee6a4194"
+    },
+    "obsidian/数据结构与算法/408/串的定义和实现.md": {
+      "id": "3aba3d42-6eec-818f-b5a4-ea421a7f5332",
+      "url": "https://app.notion.com/p/3aba3d426eec818fb5a4ea421a7f5332"
+    },
+    "obsidian/数据结构与算法/408/串的模式匹配.md": {
+      "id": "3aba3d42-6eec-81bf-a906-c16896679cc8",
+      "url": "https://app.notion.com/p/3aba3d426eec81bfa906c16896679cc8"
+    },
+    "Notebook/数据结构与算法/树与二叉树": {
+      "id": "3aba3d42-6eec-8153-9bda-f18d2c706d86",
+      "url": "https://app.notion.com/p/3aba3d426eec81539bdaf18d2c706d86"
+    },
+    "obsidian/数据结构与算法/408/树与二叉树的基本概念.md": {
+      "id": "3aba3d42-6eec-81c3-a1c3-c1858fb8e2f2",
+      "url": "https://app.notion.com/p/3aba3d426eec81c3a1c3c1858fb8e2f2"
+    },
+    "obsidian/数据结构与算法/408/二叉树的遍历.md": {
+      "id": "3aba3d42-6eec-8124-be28-c93e3ba8588d",
+      "url": "https://app.notion.com/p/3aba3d426eec8124be28c93e3ba8588d"
+    },
+    "obsidian/数据结构与算法/408/线索二叉树.md": {
+      "id": "3aba3d42-6eec-8112-9358-ee10342abdcc",
+      "url": "https://app.notion.com/p/3aba3d426eec81129358ee10342abdcc"
+    },
+    "obsidian/数据结构与算法/408/树与森林.md": {
+      "id": "3aba3d42-6eec-81e8-b16e-c6819ae3694a",
+      "url": "https://app.notion.com/p/3aba3d426eec81e8b16ec6819ae3694a"
+    },
+    "obsidian/数据结构与算法/408/树与二叉树的应用.md": {
+      "id": "3aba3d42-6eec-81a1-9d74-e1918135ecaa",
+      "url": "https://app.notion.com/p/3aba3d426eec81a19d74e1918135ecaa"
+    },
+    "Notebook/数据结构与算法/图": {
+      "id": "3aba3d42-6eec-818f-a1d0-f5ed89155277",
+      "url": "https://app.notion.com/p/3aba3d426eec818fa1d0f5ed89155277"
+    },
+    "obsidian/数据结构与算法/408/图的基本概念.md": {
+      "id": "3aba3d42-6eec-8156-a94f-ee19397245b5",
+      "url": "https://app.notion.com/p/3aba3d426eec8156a94fee19397245b5"
+    },
+    "obsidian/数据结构与算法/408/图的存储及基本操作.md": {
+      "id": "3aba3d42-6eec-815c-812a-d6784f5a0ac8",
+      "url": "https://app.notion.com/p/3aba3d426eec815c812ad6784f5a0ac8"
+    },
+    "obsidian/数据结构与算法/408/图的遍历.md": {
+      "id": "3aba3d42-6eec-813a-bb4e-f6693b86a514",
+      "url": "https://app.notion.com/p/3aba3d426eec813abb4ef6693b86a514"
+    },
+    "obsidian/数据结构与算法/408/图的应用.md": {
+      "id": "3aba3d42-6eec-81b7-9ab5-d74cc9ff55f8",
+      "url": "https://app.notion.com/p/3aba3d426eec81b79ab5d74cc9ff55f8"
+    },
+    "Notebook/数据结构与算法/查找": {
+      "id": "3aba3d42-6eec-81db-8ce9-c21454db1cd1",
+      "url": "https://app.notion.com/p/3aba3d426eec81db8ce9c21454db1cd1"
+    },
+    "obsidian/数据结构与算法/408/查找的基本概念.md": {
+      "id": "3aba3d42-6eec-81c1-9702-e9b6759399ab",
+      "url": "https://app.notion.com/p/3aba3d426eec81c19702e9b6759399ab"
+    },
+    "obsidian/数据结构与算法/408/顺序查找和折半查找.md": {
+      "id": "3aba3d42-6eec-817f-914d-c4a0618d03bd",
+      "url": "https://app.notion.com/p/3aba3d426eec817f914dc4a0618d03bd"
+    },
+    "obsidian/数据结构与算法/408/树型查找.md": {
+      "id": "3aba3d42-6eec-81a0-97d8-c6e0d301577a",
+      "url": "https://app.notion.com/p/3aba3d426eec81a097d8c6e0d301577a"
+    },
+    "obsidian/数据结构与算法/408/B树和B+树.md": {
+      "id": "3aba3d42-6eec-8136-b4aa-ecffaac69e2d",
+      "url": "https://app.notion.com/p/B-B-3aba3d426eec8136b4aaecffaac69e2d"
+    },
+    "obsidian/数据结构与算法/408/散列表.md": {
+      "id": "3aba3d42-6eec-8130-acdf-f1fa142139da",
+      "url": "https://app.notion.com/p/3aba3d426eec8130acdff1fa142139da"
+    },
+    "Notebook/数据结构与算法/排序": {
+      "id": "3aba3d42-6eec-812d-b139-f3b1c2ff86ba",
+      "url": "https://app.notion.com/p/3aba3d426eec812db139f3b1c2ff86ba"
+    },
+    "obsidian/数据结构与算法/408/插入排序.md": {
+      "id": "3aba3d42-6eec-8174-affc-c03dff164733",
+      "url": "https://app.notion.com/p/3aba3d426eec8174affcc03dff164733"
+    },
+    "obsidian/数据结构与算法/408/交换排序.md": {
+      "id": "3aba3d42-6eec-81e4-94ec-da846a8a86b9",
+      "url": "https://app.notion.com/p/3aba3d426eec81e494ecda846a8a86b9"
+    },
+    "obsidian/数据结构与算法/408/选择排序.md": {
+      "id": "3aba3d42-6eec-81ae-bf82-d06c7b76fdbb",
+      "url": "https://app.notion.com/p/3aba3d426eec81aebf82d06c7b76fdbb"
+    },
+    "obsidian/数据结构与算法/408/其他内部排序.md": {
+      "id": "3aba3d42-6eec-8133-ae51-d6a4bbd54454",
+      "url": "https://app.notion.com/p/3aba3d426eec8133ae51d6a4bbd54454"
+    },
+    "obsidian/数据结构与算法/408/各种内部排序算法的比较及应用.md": {
+      "id": "3aba3d42-6eec-819f-9e9d-fd8dba8641ae",
+      "url": "https://app.notion.com/p/3aba3d426eec819f9e9dfd8dba8641ae"
+    },
+    "obsidian/数据结构与算法/408/外部排序.md": {
+      "id": "3aba3d42-6eec-81b1-b93d-c5956b31dc1a",
+      "url": "https://app.notion.com/p/3aba3d426eec81b1b93dc5956b31dc1a"
+    },
+    "Notebook/计算机系统与体系结构": {
+      "id": "3aba3d42-6eec-81e8-98a6-d2ae1d8cca5f",
+      "url": "https://app.notion.com/p/3aba3d426eec81e898a6d2ae1d8cca5f"
+    },
+    "Notebook/计算机系统与体系结构/408": {
+      "id": "3aba3d42-6eec-8178-9b90-e45e4d42b946",
+      "url": "https://app.notion.com/p/408-3aba3d426eec81789b90e45e4d42b946"
+    },
+    "Notebook/计算机系统与体系结构/408/计算机系统概述": {
+      "id": "3aba3d42-6eec-8104-9633-ffe945fd5809",
+      "url": "https://app.notion.com/p/3aba3d426eec81049633ffe945fd5809"
+    },
+    "obsidian/计算机系统与体系结构/408/计算机系统层次结构.md": {
+      "id": "3aba3d42-6eec-8104-8723-f28dbc7ca164",
+      "url": "https://app.notion.com/p/3aba3d426eec81048723f28dbc7ca164"
+    },
+    "obsidian/计算机系统与体系结构/408/计算机性能指标.md": {
+      "id": "3aba3d42-6eec-81ef-b4c1-e56068fad108",
+      "url": "https://app.notion.com/p/3aba3d426eec81efb4c1e56068fad108"
+    },
+    "Notebook/计算机系统与体系结构/408/数据的表示和运算": {
+      "id": "3aba3d42-6eec-8156-95ee-d58f11c17aaf",
+      "url": "https://app.notion.com/p/3aba3d426eec815695eed58f11c17aaf"
+    },
+    "obsidian/计算机系统与体系结构/408/数制与编码.md": {
+      "id": "3aba3d42-6eec-8152-9704-eee49ddea8db",
+      "url": "https://app.notion.com/p/3aba3d426eec81529704eee49ddea8db"
+    },
+    "obsidian/计算机系统与体系结构/408/运算方法和运算电路.md": {
+      "id": "3aba3d42-6eec-81da-8c4a-f0ec52092872",
+      "url": "https://app.notion.com/p/3aba3d426eec81da8c4af0ec52092872"
+    },
+    "obsidian/计算机系统与体系结构/408/浮点数表示与运算.md": {
+      "id": "3aba3d42-6eec-8183-9577-f235ec0faf44",
+      "url": "https://app.notion.com/p/3aba3d426eec81839577f235ec0faf44"
+    },
+    "Notebook/计算机系统与体系结构/数字逻辑电路基础": {
+      "id": "3aba3d42-6eec-8159-84fb-def1440ea5ba",
+      "url": "https://app.notion.com/p/3aba3d426eec815984fbdef1440ea5ba"
+    },
+    "obsidian/计算机系统与体系结构/晶体管与门电路.md": {
+      "id": "3aba3d42-6eec-811a-a74f-e76f9093c2eb",
+      "url": "https://app.notion.com/p/3aba3d426eec811aa74fe76f9093c2eb"
+    },
+    "obsidian/计算机系统与体系结构/组合逻辑电路.md": {
+      "id": "3aba3d42-6eec-815a-b162-dafb72999882",
+      "url": "https://app.notion.com/p/3aba3d426eec815ab162dafb72999882"
+    },
+    "obsidian/计算机系统与体系结构/组合逻辑电路的设计原理.md": {
+      "id": "3aba3d42-6eec-818e-88f1-f7ad4b83880c",
+      "url": "https://app.notion.com/p/3aba3d426eec818e88f1f7ad4b83880c"
+    },
+    "Notebook/计算机系统与体系结构/CS61C": {
+      "id": "3aba3d42-6eec-8165-af8c-cc284e3ace92",
+      "url": "https://app.notion.com/p/CS61C-3aba3d426eec8165af8ccc284e3ace92"
+    },
+    "obsidian/计算机系统与体系结构/cs61c/Number Representation.md": {
+      "id": "3aba3d42-6eec-811d-98ae-d20996ef6b7b",
+      "url": "https://app.notion.com/p/Number-Representation-3aba3d426eec811d98aed20996ef6b7b"
+    },
+    "obsidian/计算机系统与体系结构/cs61c/Floating Point.md": {
+      "id": "3aba3d42-6eec-81ac-a49f-ea2a159e5e85",
+      "url": "https://app.notion.com/p/Floating-Point-3aba3d426eec81aca49fea2a159e5e85"
+    },
+    "Notebook/操作系统": {
+      "id": "3aba3d42-6eec-81ac-aa33-c0c578397566",
+      "url": "https://app.notion.com/p/3aba3d426eec81acaa33c0c578397566"
+    },
+    "Notebook/操作系统/408": {
+      "id": "3aba3d42-6eec-8181-b723-c3c8108cb5ba",
+      "url": "https://app.notion.com/p/408-3aba3d426eec8181b723c3c8108cb5ba"
+    },
+    "Notebook/操作系统/408/操作系统概述": {
+      "id": "3aba3d42-6eec-81eb-add3-c2a9c844a039",
+      "url": "https://app.notion.com/p/3aba3d426eec81ebadd3c2a9c844a039"
+    },
+    "obsidian/操作系统/408/操作系统基本特性.md": {
+      "id": "3aba3d42-6eec-8184-9e98-d9e46d421d90",
+      "url": "https://app.notion.com/p/3aba3d426eec81849e98d9e46d421d90"
+    },
+    "obsidian/操作系统/408/操作系统发展历程.md": {
+      "id": "3aba3d42-6eec-813d-b87c-e2894155c652",
+      "url": "https://app.notion.com/p/3aba3d426eec813db87ce2894155c652"
+    },
+    "obsidian/操作系统/408/操作系统运行环境.md": {
+      "id": "3aba3d42-6eec-817e-be81-ef292ab70210",
+      "url": "https://app.notion.com/p/3aba3d426eec817ebe81ef292ab70210"
+    },
+    "Notebook/操作系统/408/进程管理": {
+      "id": "3aba3d42-6eec-8117-a2c0-e64d6b4536a5",
+      "url": "https://app.notion.com/p/3aba3d426eec8117a2c0e64d6b4536a5"
+    },
+    "obsidian/操作系统/408/进程的描述与控制.md": {
+      "id": "3aba3d42-6eec-8185-a6ad-e8eef6886ae0",
+      "url": "https://app.notion.com/p/3aba3d426eec8185a6ade8eef6886ae0"
+    },
+    "obsidian/操作系统/408/处理机调度.md": {
+      "id": "3aba3d42-6eec-8145-9cc0-c0690a9b1733",
+      "url": "https://app.notion.com/p/3aba3d426eec81459cc0c0690a9b1733"
+    },
+    "obsidian/操作系统/408/同步与互斥.md": {
+      "id": "3aba3d42-6eec-81f1-8156-e4f47407b271",
+      "url": "https://app.notion.com/p/3aba3d426eec81f18156e4f47407b271"
+    },
+    "obsidian/操作系统/408/死锁.md": {
+      "id": "3aba3d42-6eec-81eb-bab1-f2f2a1736d60",
+      "url": "https://app.notion.com/p/3aba3d426eec81ebbab1f2f2a1736d60"
+    },
+    "Notebook/操作系统/408/内存管理": {
+      "id": "3aba3d42-6eec-81ef-9055-c60f3ac4f583",
+      "url": "https://app.notion.com/p/3aba3d426eec81ef9055c60f3ac4f583"
+    },
+    "obsidian/操作系统/408/内存管理概述.md": {
+      "id": "3aba3d42-6eec-8108-bb33-e849182d6891",
+      "url": "https://app.notion.com/p/3aba3d426eec8108bb33e849182d6891"
+    },
+    "obsidian/操作系统/408/虚拟内存管理.md": {
+      "id": "3aba3d42-6eec-8188-8b70-efd69c80dd7a",
+      "url": "https://app.notion.com/p/3aba3d426eec81888b70efd69c80dd7a"
+    },
+    "Notebook/操作系统/408/文件管理": {
+      "id": "3aba3d42-6eec-81ce-a50d-db147163b327",
+      "url": "https://app.notion.com/p/3aba3d426eec81cea50ddb147163b327"
+    },
+    "obsidian/操作系统/408/文件系统概述.md": {
+      "id": "3aba3d42-6eec-8175-8979-f2eb4e0fc3dd",
+      "url": "https://app.notion.com/p/3aba3d426eec81758979f2eb4e0fc3dd"
+    },
+    "obsidian/操作系统/408/目录.md": {
+      "id": "3aba3d42-6eec-814e-aa53-e37c5ee52465",
+      "url": "https://app.notion.com/p/3aba3d426eec814eaa53e37c5ee52465"
+    },
+    "obsidian/操作系统/408/文件系统.md": {
+      "id": "3aba3d42-6eec-81c5-b94c-fa8523ad8dbe",
+      "url": "https://app.notion.com/p/3aba3d426eec81c5b94cfa8523ad8dbe"
+    },
+    "Notebook/操作系统/408/I/O管理": {
+      "id": "3aba3d42-6eec-8114-b0ec-c5cfd9b0f592",
+      "url": "https://app.notion.com/p/I-O-3aba3d426eec8114b0ecc5cfd9b0f592"
+    },
+    "obsidian/操作系统/408/输入输出管理概述.md": {
+      "id": "3aba3d42-6eec-81e5-bd66-dcf89d7c13e2",
+      "url": "https://app.notion.com/p/3aba3d426eec81e5bd66dcf89d7c13e2"
+    },
+    "obsidian/操作系统/408/设备独立性缓存.md": {
+      "id": "3aba3d42-6eec-815e-ba8a-cc8ff6e5b44a",
+      "url": "https://app.notion.com/p/3aba3d426eec815eba8acc8ff6e5b44a"
+    },
+    "obsidian/操作系统/408/磁盘和固态硬盘.md": {
+      "id": "3aba3d42-6eec-811c-91cf-e72d09bdf20d",
+      "url": "https://app.notion.com/p/3aba3d426eec811c91cfe72d09bdf20d"
+    },
+    "Notebook/操作系统/OSTEP": {
+      "id": "3aba3d42-6eec-8100-86cb-ff49f9fb5e2b",
+      "url": "https://app.notion.com/p/OSTEP-3aba3d426eec810086cbff49f9fb5e2b"
+    },
+    "Notebook/操作系统/OSTEP/绪论": {
+      "id": "3aba3d42-6eec-81ef-902f-ec7b6c5ce21e",
+      "url": "https://app.notion.com/p/3aba3d426eec81ef902fec7b6c5ce21e"
+    },
+    "obsidian/操作系统/intro/操作系统简易模型.md": {
+      "id": "3aba3d42-6eec-8182-afb1-cef04c300f49",
+      "url": "https://app.notion.com/p/3aba3d426eec8182afb1cef04c300f49"
+    },
+    "obsidian/操作系统/intro/Introduction to Operating Systems.md": {
+      "id": "3aba3d42-6eec-81da-b646-de268e8bf372",
+      "url": "https://app.notion.com/p/Introduction-to-Operating-Systems-3aba3d426eec81dab646de268e8bf372"
+    },
+    "Notebook/操作系统/OSTEP/虚拟化": {
+      "id": "3aba3d42-6eec-81dc-a1cc-e4abd8c2ad72",
+      "url": "https://app.notion.com/p/3aba3d426eec81dca1cce4abd8c2ad72"
+    },
+    "obsidian/操作系统/virtualization/The Abstraction - The Process.md": {
+      "id": "3aba3d42-6eec-818a-9db2-ef4e4f37c0b8",
+      "url": "https://app.notion.com/p/The-Abstraction-The-Process-3aba3d426eec818a9db2ef4e4f37c0b8"
+    },
+    "obsidian/操作系统/virtualization/Process API.md": {
+      "id": "3aba3d42-6eec-8118-8557-d628d5f50892",
+      "url": "https://app.notion.com/p/Process-API-3aba3d426eec81188557d628d5f50892"
+    },
+    "obsidian/操作系统/Linux环境下的进程创建与进程通信.md": {
+      "id": "3aba3d42-6eec-81f8-9921-c65c71d34a5f",
+      "url": "https://app.notion.com/p/Linux-3aba3d426eec81f89921c65c71d34a5f"
+    },
+    "Notebook/计算机网络": {
+      "id": "3aba3d42-6eec-8103-9007-dd6687271fa5",
+      "url": "https://app.notion.com/p/3aba3d426eec81039007dd6687271fa5"
+    },
+    "Notebook/计算机网络/408": {
+      "id": "3aba3d42-6eec-817f-8edf-f8696538e39a",
+      "url": "https://app.notion.com/p/408-3aba3d426eec817f8edff8696538e39a"
+    },
+    "Notebook/计算机网络/408/计算机网络体系结构": {
+      "id": "3aba3d42-6eec-8152-a8ed-ef86a1d8ad8b",
+      "url": "https://app.notion.com/p/3aba3d426eec8152a8edef86a1d8ad8b"
+    },
+    "obsidian/计算机网络/408/计算机网络概述.md": {
+      "id": "3aba3d42-6eec-81b1-89ca-fb750aa09927",
+      "url": "https://app.notion.com/p/3aba3d426eec81b189cafb750aa09927"
+    },
+    "obsidian/计算机网络/408/计算机网络体系结构与参考模型.md": {
+      "id": "3aba3d42-6eec-81f8-a72d-fc78f1cc0e85",
+      "url": "https://app.notion.com/p/3aba3d426eec81f8a72dfc78f1cc0e85"
+    },
+    "Notebook/计算机网络/408/物理层": {
+      "id": "3aba3d42-6eec-8133-b2df-c1b8b41cb256",
+      "url": "https://app.notion.com/p/3aba3d426eec8133b2dfc1b8b41cb256"
+    },
+    "obsidian/计算机网络/408/通信基础.md": {
+      "id": "3aba3d42-6eec-81d0-8b77-fefc1b74ff25",
+      "url": "https://app.notion.com/p/3aba3d426eec81d08b77fefc1b74ff25"
+    },
+    "obsidian/计算机网络/408/传输介质.md": {
+      "id": "3aba3d42-6eec-816a-a7d4-ef2164e8ff5f",
+      "url": "https://app.notion.com/p/3aba3d426eec816aa7d4ef2164e8ff5f"
+    },
+    "obsidian/计算机网络/408/物理层设备.md": {
+      "id": "3aba3d42-6eec-8128-bc1f-d8d7868ccd39",
+      "url": "https://app.notion.com/p/3aba3d426eec8128bc1fd8d7868ccd39"
+    },
+    "Notebook/计算机网络/408/数据链路层": {
+      "id": "3aba3d42-6eec-8138-8a66-f6af86b7fda1",
+      "url": "https://app.notion.com/p/3aba3d426eec81388a66f6af86b7fda1"
+    },
+    "obsidian/计算机网络/408/数据链路层的功能.md": {
+      "id": "3aba3d42-6eec-8161-a87a-c4f555d123cb",
+      "url": "https://app.notion.com/p/3aba3d426eec8161a87ac4f555d123cb"
+    },
+    "obsidian/计算机网络/408/组帧.md": {
+      "id": "3aba3d42-6eec-81b3-8d3f-cf943347256d",
+      "url": "https://app.notion.com/p/3aba3d426eec81b38d3fcf943347256d"
+    },
+    "obsidian/计算机网络/408/差错控制.md": {
+      "id": "3aba3d42-6eec-81e4-a3a1-d19a54d5c1d5",
+      "url": "https://app.notion.com/p/3aba3d426eec81e4a3a1d19a54d5c1d5"
+    },
+    "obsidian/计算机网络/408/流量控制与可靠传输机制.md": {
+      "id": "3aba3d42-6eec-8163-ab66-e70cbe126be4",
+      "url": "https://app.notion.com/p/3aba3d426eec8163ab66e70cbe126be4"
+    },
+    "obsidian/计算机网络/408/介质访问控制.md": {
+      "id": "3aba3d42-6eec-8123-820c-f0910172ecda",
+      "url": "https://app.notion.com/p/3aba3d426eec8123820cf0910172ecda"
+    },
+    "obsidian/计算机网络/408/局域网和广域网.md": {
+      "id": "3aba3d42-6eec-8195-a84e-d91656885751",
+      "url": "https://app.notion.com/p/3aba3d426eec8195a84ed91656885751"
+    },
+    "Notebook/计算机网络/408/网络层": {
+      "id": "3aba3d42-6eec-81ba-a869-c7a5978b2eff",
+      "url": "https://app.notion.com/p/3aba3d426eec81baa869c7a5978b2eff"
+    },
+    "obsidian/计算机网络/408/网络层的功能.md": {
+      "id": "3aba3d42-6eec-811c-8fb3-ef8516b2e6af",
+      "url": "https://app.notion.com/p/3aba3d426eec811c8fb3ef8516b2e6af"
+    },
+    "obsidian/计算机网络/408/IPv4.md": {
+      "id": "3aba3d42-6eec-8154-a41b-fb553401d391",
+      "url": "https://app.notion.com/p/IPv4-3aba3d426eec8154a41bfb553401d391"
+    },
+    "obsidian/计算机网络/408/IPv6.md": {
+      "id": "3aba3d42-6eec-810f-8828-eb19a66960b3",
+      "url": "https://app.notion.com/p/IPv6-3aba3d426eec810f8828eb19a66960b3"
+    },
+    "obsidian/计算机网络/408/路由算法与路由协议.md": {
+      "id": "3aba3d42-6eec-8185-9295-f4fa216c8d2c",
+      "url": "https://app.notion.com/p/3aba3d426eec81859295f4fa216c8d2c"
+    },
+    "obsidian/计算机网络/408/IP多播.md": {
+      "id": "3aba3d42-6eec-813e-b419-f68737f79888",
+      "url": "https://app.notion.com/p/IP-3aba3d426eec813eb419f68737f79888"
+    },
+    "obsidian/计算机网络/408/移动IP.md": {
+      "id": "3aba3d42-6eec-81dd-964b-cff896262652",
+      "url": "https://app.notion.com/p/IP-3aba3d426eec81dd964bcff896262652"
+    },
+    "obsidian/计算机网络/408/网络层设备.md": {
+      "id": "3aba3d42-6eec-8154-ad8e-f79a1070f91c",
+      "url": "https://app.notion.com/p/3aba3d426eec8154ad8ef79a1070f91c"
+    },
+    "Notebook/计算机网络/408/传输层": {
+      "id": "3aba3d42-6eec-810f-bba8-ec0b54571367",
+      "url": "https://app.notion.com/p/3aba3d426eec810fbba8ec0b54571367"
+    },
+    "obsidian/计算机网络/408/传输层提供的服务.md": {
+      "id": "3aba3d42-6eec-81f1-8150-dbf230172edb",
+      "url": "https://app.notion.com/p/3aba3d426eec81f18150dbf230172edb"
+    },
+    "obsidian/计算机网络/408/UDP.md": {
+      "id": "3aba3d42-6eec-81db-9bc7-c66e32e62545",
+      "url": "https://app.notion.com/p/UDP-3aba3d426eec81db9bc7c66e32e62545"
+    },
+    "obsidian/计算机网络/408/TCP.md": {
+      "id": "3aba3d42-6eec-8101-8f49-f69d6b5d5466",
+      "url": "https://app.notion.com/p/TCP-3aba3d426eec81018f49f69d6b5d5466"
+    },
+    "Notebook/计算机网络/CS168": {
+      "id": "3aba3d42-6eec-81ea-9b13-c1d9e4f8506d",
+      "url": "https://app.notion.com/p/CS168-3aba3d426eec81ea9b13c1d9e4f8506d"
+    },
+    "Notebook/计算机网络/CS168/Introduction": {
+      "id": "3aba3d42-6eec-81b0-b54e-f9c8da749aca",
+      "url": "https://app.notion.com/p/Introduction-3aba3d426eec81b0b54ef9c8da749aca"
+    },
+    "obsidian/计算机网络/cs168/Layers of the Internet.md": {
+      "id": "3aba3d42-6eec-8111-8760-e50bb64a6773",
+      "url": "https://app.notion.com/p/Layers-of-the-Internet-3aba3d426eec81118760e50bb64a6773"
+    },
+    "obsidian/计算机网络/cs168/Design Principle.md": {
+      "id": "3aba3d42-6eec-8101-9296-d1f344d8295e",
+      "url": "https://app.notion.com/p/Design-Principles-3aba3d426eec81019296d1f344d8295e"
+    },
+    "obsidian/计算机网络/cs168/Links.md": {
+      "id": "3aba3d42-6eec-81c1-956b-c79f9d5cdb4a",
+      "url": "https://app.notion.com/p/Links-3aba3d426eec81c1956bc79f9d5cdb4a"
+    },
+    "Notebook/计算机网络/CS168/Routing": {
+      "id": "3aba3d42-6eec-8131-8518-ffc6a7456d74",
+      "url": "https://app.notion.com/p/Routing-3aba3d426eec81318518ffc6a7456d74"
+    },
+    "obsidian/计算机网络/cs168/Introduction to Routing.md": {
+      "id": "3aba3d42-6eec-819b-b6a5-ea76cb55096e",
+      "url": "https://app.notion.com/p/Introduction-to-Routing-3aba3d426eec819bb6a5ea76cb55096e"
+    },
+    "obsidian/计算机网络/cs168/Routing States.md": {
+      "id": "3aba3d42-6eec-818f-be91-d6cb55436aee",
+      "url": "https://app.notion.com/p/Routing-States-3aba3d426eec818fbe91d6cb55436aee"
+    },
+    "obsidian/计算机网络/cs168/Distance-Vector Protocols.md": {
+      "id": "3aba3d42-6eec-81be-9657-c557ed063801",
+      "url": "https://app.notion.com/p/Distance-Vector-Protocols-3aba3d426eec81be9657c557ed063801"
+    },
+    "obsidian/计算机网络/cs168/Traceroute.md": {
+      "id": "3aba3d42-6eec-8106-9432-fd1a8ac304b3",
+      "url": "https://app.notion.com/p/Traceroute-3aba3d426eec81069432fd1a8ac304b3"
+    },
+    "obsidian/计算机网络/套接字接口.md": {
+      "id": "3aba3d42-6eec-812a-9022-daa3658d1b72",
+      "url": "https://app.notion.com/p/3aba3d426eec812a9022daa3658d1b72"
+    },
+    "Notebook/数据库系统": {
+      "id": "3aba3d42-6eec-8128-b417-f323207a60bb",
+      "url": "https://app.notion.com/p/3aba3d426eec8128b417f323207a60bb"
+    },
+    "Notebook/数据库系统/Legacy": {
+      "id": "3aba3d42-6eec-8166-be1e-de999fbf5812",
+      "url": "https://app.notion.com/p/Legacy-3aba3d426eec8166be1ede999fbf5812"
+    },
+    "Notebook/数据库系统/Legacy/数据库系统概述": {
+      "id": "3aba3d42-6eec-81fd-b62f-d6709ae6bbb3",
+      "url": "https://app.notion.com/p/3aba3d426eec81fdb62fd6709ae6bbb3"
+    },
+    "obsidian/数据库系统/数据库系统的基本概念.md": {
+      "id": "3aba3d42-6eec-81de-a462-f4c8a820cac1",
+      "url": "https://app.notion.com/p/3aba3d426eec81dea462f4c8a820cac1"
+    },
+    "obsidian/数据库系统/数据库系统的特点与组成.md": {
+      "id": "3aba3d42-6eec-812f-8fdc-ed0b7b73bcdb",
+      "url": "https://app.notion.com/p/3aba3d426eec812f8fdced0b7b73bcdb"
+    },
+    "obsidian/数据库系统/数据库系统结构.md": {
+      "id": "3aba3d42-6eec-8193-aaed-ff1ae88026f4",
+      "url": "https://app.notion.com/p/3aba3d426eec8193aaedff1ae88026f4"
+    },
+    "Notebook/数据库系统/Legacy/信息与数据模型": {
+      "id": "3aba3d42-6eec-81f7-b602-c9c8dbd04b5d",
+      "url": "https://app.notion.com/p/3aba3d426eec81f7b602c9c8dbd04b5d"
+    },
+    "obsidian/数据库系统/信息的三种世界及描述.md": {
+      "id": "3aba3d42-6eec-8134-8900-f7c36e60d029",
+      "url": "https://app.notion.com/p/3aba3d426eec81348900f7c36e60d029"
+    },
+    "obsidian/数据库系统/数据模型.md": {
+      "id": "3aba3d42-6eec-81cd-9056-f5b488f12d1e",
+      "url": "https://app.notion.com/p/3aba3d426eec81cd9056f5b488f12d1e"
+    },
+    "obsidian/数据库系统/概念模型.md": {
+      "id": "3aba3d42-6eec-811e-bc88-e340c3f97f9f",
+      "url": "https://app.notion.com/p/3aba3d426eec811ebc88e340c3f97f9f"
+    },
+    "obsidian/数据库系统/逻辑模型.md": {
+      "id": "3aba3d42-6eec-8126-8a2a-cffd2ac1646f",
+      "url": "https://app.notion.com/p/3aba3d426eec81268a2acffd2ac1646f"
+    },
+    "obsidian/数据库系统/概念模型向逻辑模型的转换.md": {
+      "id": "3aba3d42-6eec-817c-8427-c03b49b22ab8",
+      "url": "https://app.notion.com/p/3aba3d426eec817c8427c03b49b22ab8"
+    },
+    "obsidian/数据库系统/关系模型.md": {
+      "id": "3aba3d42-6eec-816d-8dd8-c58d2c78738c",
+      "url": "https://app.notion.com/p/3aba3d426eec816d8dd8c58d2c78738c"
+    },
+    "Notebook/数据库系统/Legacy/关系代数与关系数据库理论": {
+      "id": "3aba3d42-6eec-8121-b3e8-ca7df04aa0ec",
+      "url": "https://app.notion.com/p/3aba3d426eec8121b3e8ca7df04aa0ec"
+    },
+    "obsidian/数据库系统/关系的数学定义.md": {
+      "id": "3aba3d42-6eec-8151-b50a-f582cdae17cc",
+      "url": "https://app.notion.com/p/3aba3d426eec8151b50af582cdae17cc"
+    },
+    "obsidian/数据库系统/关系代数及其演算.md": {
+      "id": "3aba3d42-6eec-8127-9e54-f15630a30a58",
+      "url": "https://app.notion.com/p/3aba3d426eec81279e54f15630a30a58"
+    },
+    "obsidian/数据库系统/关系数据库理论.md": {
+      "id": "3aba3d42-6eec-8103-97d9-f8719a881434",
+      "url": "https://app.notion.com/p/3aba3d426eec810397d9f8719a881434"
+    },
+    "obsidian/数据库系统/关系模式的分解.md": {
+      "id": "3aba3d42-6eec-81bc-9ccc-dc867be9fe5e",
+      "url": "https://app.notion.com/p/3aba3d426eec81bc9cccdc867be9fe5e"
+    },
+    "Notebook/数据库系统/Legacy/SQL操作要点": {
+      "id": "3aba3d42-6eec-817b-987c-c0483f1adf9c",
+      "url": "https://app.notion.com/p/SQL-3aba3d426eec817b987cc0483f1adf9c"
+    },
+    "obsidian/数据库系统/SQL操作要点-建表.md": {
+      "id": "3aba3d42-6eec-812f-9692-ec71addc440c",
+      "url": "https://app.notion.com/p/3aba3d426eec812f9692ec71addc440c"
+    },
+    "obsidian/数据库系统/SQL操作要点-查询.md": {
+      "id": "3aba3d42-6eec-8136-9607-cec96c2085cf",
+      "url": "https://app.notion.com/p/3aba3d426eec81369607cec96c2085cf"
+    },
+    "obsidian/数据库系统/SQL操作要点-辅助索引.md": {
+      "id": "3aba3d42-6eec-8176-a010-f5d9b00a429b",
+      "url": "https://app.notion.com/p/3aba3d426eec8176a010f5d9b00a429b"
+    },
+    "obsidian/数据库系统/SQL操作要点-视图.md": {
+      "id": "3aba3d42-6eec-816f-a965-dd37295d24dc",
+      "url": "https://app.notion.com/p/3aba3d426eec816fa965dd37295d24dc"
+    },
+    "obsidian/数据库系统/SQL操作要点-函数与存储过程.md": {
+      "id": "3aba3d42-6eec-8176-81b3-f69bec9d8487",
+      "url": "https://app.notion.com/p/3aba3d426eec817681b3f69bec9d8487"
+    },
+    "obsidian/数据库系统/SQL操作要点-事务管理与并发控制.md": {
+      "id": "3aba3d42-6eec-8182-91ea-e8dc693a8755",
+      "url": "https://app.notion.com/p/3aba3d426eec818291eae8dc693a8755"
+    },
+    "obsidian/数据库系统/SQL操作要点-触发器与事件调度.md": {
+      "id": "3aba3d42-6eec-8107-a32f-c354db67d51d",
+      "url": "https://app.notion.com/p/3aba3d426eec8107a32fc354db67d51d"
+    },
+    "Notebook/数据库系统/CMU 15-445": {
+      "id": "3aba3d42-6eec-810f-826b-e18966f150d8",
+      "url": "https://app.notion.com/p/CMU-15-445-3aba3d426eec810f826be18966f150d8"
+    },
+    "obsidian/数据库系统/cmu15-445/Relational Model & Algebra.md": {
+      "id": "3aba3d42-6eec-81e3-8540-c12da4607bb5",
+      "url": "https://app.notion.com/p/Relational-Model-Algebra-3aba3d426eec81e38540c12da4607bb5"
+    },
+    "Notebook/软件工程": {
+      "id": "3aba3d42-6eec-81c4-a969-c8792ac3097d",
+      "url": "https://app.notion.com/p/3aba3d426eec81c4a969c8792ac3097d"
+    },
+    "obsidian/软件工程/UML图.md": {
+      "id": "3aba3d42-6eec-81cd-bc2a-df710256a1c2",
+      "url": "https://app.notion.com/p/UML-3aba3d426eec81cdbc2adf710256a1c2"
+    },
+    "obsidian/软件工程/开发流程与开发规范.md": {
+      "id": "3aba3d42-6eec-8104-a414-f017c7740dd2",
+      "url": "https://app.notion.com/p/3aba3d426eec8104a414f017c7740dd2"
+    },
+    "obsidian/软件工程/语义化版本.md": {
+      "id": "3aba3d42-6eec-81f2-b139-f66f2eab1089",
+      "url": "https://app.notion.com/p/3aba3d426eec81f2b139f66f2eab1089"
+    },
+    "Notebook/人工智能": {
+      "id": "3aba3d42-6eec-811b-ac1a-d093c0179c80",
+      "url": "https://app.notion.com/p/3aba3d426eec811bac1ad093c0179c80"
+    },
+    "Notebook/人工智能/机器学习": {
+      "id": "3aba3d42-6eec-8107-8205-e11460007dd5",
+      "url": "https://app.notion.com/p/3aba3d426eec81078205e11460007dd5"
+    },
+    "Notebook/人工智能/机器学习/入门": {
+      "id": "3aba3d42-6eec-810e-9cb9-f234f616eccc",
+      "url": "https://app.notion.com/p/3aba3d426eec810e9cb9f234f616eccc"
+    },
+    "obsidian/机器学习/coursera/监督学习与非监督学习.md": {
+      "id": "3aba3d42-6eec-8174-85e2-ee5df369e7a4",
+      "url": "https://app.notion.com/p/3aba3d426eec817485e2ee5df369e7a4"
+    },
+    "Notebook/人工智能/机器学习/入门/回归": {
+      "id": "3aba3d42-6eec-81ab-87f6-c98778021026",
+      "url": "https://app.notion.com/p/3aba3d426eec81ab87f6c98778021026"
+    },
+    "obsidian/机器学习/coursera/回归模型概述.md": {
+      "id": "3aba3d42-6eec-8165-ad6e-d5105143d8d9",
+      "url": "https://app.notion.com/p/3aba3d426eec8165ad6ed5105143d8d9"
+    },
+    "obsidian/机器学习/coursera/成本函数概述.md": {
+      "id": "3aba3d42-6eec-8140-90fc-e3a18417e1f9",
+      "url": "https://app.notion.com/p/3aba3d426eec814090fce3a18417e1f9"
+    },
+    "obsidian/机器学习/coursera/梯度下降.md": {
+      "id": "3aba3d42-6eec-8113-9ddc-e436911839fa",
+      "url": "https://app.notion.com/p/3aba3d426eec81139ddce436911839fa"
+    },
+    "obsidian/机器学习/coursera/多元线性回归模型.md": {
+      "id": "3aba3d42-6eec-8173-bb75-f957d78af85e",
+      "url": "https://app.notion.com/p/3aba3d426eec8173bb75f957d78af85e"
+    },
+    "Notebook/人工智能/机器学习/入门/分类": {
+      "id": "3aba3d42-6eec-812a-82c2-f6d2222adb09",
+      "url": "https://app.notion.com/p/3aba3d426eec812a82c2f6d2222adb09"
+    },
+    "obsidian/机器学习/coursera/决策边界.md": {
+      "id": "3aba3d42-6eec-8191-a8d2-e88707ef95a8",
+      "url": "https://app.notion.com/p/3aba3d426eec8191a8d2e88707ef95a8"
+    },
+    "obsidian/机器学习/coursera/过拟合问题与正则化.md": {
+      "id": "3aba3d42-6eec-8142-871d-c25860f2fa0e",
+      "url": "https://app.notion.com/p/3aba3d426eec8142871dc25860f2fa0e"
+    },
+    "Notebook/人工智能/智能体": {
+      "id": "3aba3d42-6eec-810b-8c3d-e1eee04e7172",
+      "url": "https://app.notion.com/p/3aba3d426eec810b8c3de1eee04e7172"
+    },
+    "obsidian/人工智能/智能体概述.md": {
+      "id": "3aba3d42-6eec-8142-b012-c11e6a0712a9",
+      "url": "https://app.notion.com/p/3aba3d426eec8142b012c11e6a0712a9"
+    },
+    "obsidian/人工智能/智能体发展史.md": {
+      "id": "3aba3d42-6eec-81c0-84e0-cb19616077b6",
+      "url": "https://app.notion.com/p/3aba3d426eec81c084e0cb19616077b6"
+    },
+    "Notebook/Web": {
+      "id": "3aba3d42-6eec-8107-b47a-de3c5b8b233c",
+      "url": "https://app.notion.com/p/Web-3aba3d426eec8107b47ade3c5b8b233c"
+    },
+    "obsidian/Misc/HTML要点.md": {
+      "id": "3aba3d42-6eec-81be-bec8-c97905bfe74f",
+      "url": "https://app.notion.com/p/HTML-3aba3d426eec81bebec8c97905bfe74f"
+    },
+    "obsidian/Misc/CSS要点.md": {
+      "id": "3aba3d42-6eec-81bf-a21e-c6b50f700c7c",
+      "url": "https://app.notion.com/p/CSS-3aba3d426eec81bfa21ec6b50f700c7c"
+    },
+    "obsidian/Misc/Web安全要点.md": {
+      "id": "3aba3d42-6eec-8181-84b6-dc09c9bdb6c2",
+      "url": "https://app.notion.com/p/3aba3d426eec818184b6dc09c9bdb6c2"
+    },
+    "Notebook/音频": {
+      "id": "3aba3d42-6eec-81d0-8ee6-cb4d21b92157",
+      "url": "https://app.notion.com/p/3aba3d426eec81d08ee6cb4d21b92157"
+    },
+    "obsidian/音频/PCM术语与概念.md": {
+      "id": "3aba3d42-6eec-8124-8aae-cb2a91038f76",
+      "url": "https://app.notion.com/p/PCM-3aba3d426eec81248aaecb2a91038f76"
+    },
+    "Notebook/Misc": {
+      "id": "3aba3d42-6eec-8136-9e5c-f36db9adb60f",
+      "url": "https://app.notion.com/p/Misc-3aba3d426eec81369e5cf36db9adb60f"
+    },
+    "Notebook/Misc/解决方案": {
+      "id": "3aba3d42-6eec-8182-b47b-c72d8da226a6",
+      "url": "https://app.notion.com/p/3aba3d426eec8182b47bc72d8da226a6"
+    },
+    "obsidian/Misc/科学上网/透明代理.md": {
+      "id": "3aba3d42-6eec-81b2-9571-d3b9bfef060e",
+      "url": "https://app.notion.com/p/3aba3d426eec81b29571d3b9bfef060e"
+    },
+    "obsidian/编程语言/python/Python脚本绕过socks报错.md": {
+      "id": "3aba3d42-6eec-816e-a916-c88ceb8df5ad",
+      "url": "https://app.notion.com/p/Python-socks-3aba3d426eec816ea916c88ceb8df5ad"
+    },
+    "obsidian/Misc/反向代理.md": {
+      "id": "3aba3d42-6eec-817e-8ab8-db061e28fe6f",
+      "url": "https://app.notion.com/p/3aba3d426eec817e8ab8db061e28fe6f"
+    },
+    "obsidian/Misc/科学上网/自建科学上网节点.md": {
+      "id": "3aba3d42-6eec-8125-90d5-ddd7792e62b5",
+      "url": "https://app.notion.com/p/3aba3d426eec812590d5ddd7792e62b5"
+    },
+    "obsidian/Misc/使用SSH访问GitHub远程仓库.md": {
+      "id": "3aba3d42-6eec-8186-ba63-d0a57f1345d4",
+      "url": "https://app.notion.com/p/SSH-GitHub-3aba3d426eec8186ba63d0a57f1345d4"
+    },
+    "obsidian/Misc/基于DNS-01挑战 + Wildcard证书的Caddy反代.md": {
+      "id": "3aba3d42-6eec-81ca-8d0a-fd5d0b597bc9",
+      "url": "https://app.notion.com/p/DNS-01-Wildcard-Caddy-3aba3d426eec81ca8d0afd5d0b597bc9"
+    },
+    "obsidian/Misc/弹性GPU算力租凭选购.md": {
+      "id": "3aba3d42-6eec-81e7-b62e-d9bc7c038823",
+      "url": "https://app.notion.com/p/GPU-3aba3d426eec81e7b62ed9bc7c038823"
+    },
+    "obsidian/Misc/查看端口占用情况.md": {
+      "id": "3aba3d42-6eec-8181-971a-dbbafcc8c6f5",
+      "url": "https://app.notion.com/p/3aba3d426eec8181971adbbafcc8c6f5"
+    },
+    "obsidian/Misc/正则表达式.md": {
+      "id": "3aba3d42-6eec-813a-8fc8-e5ec48effe55",
+      "url": "https://app.notion.com/p/3aba3d426eec813a8fc8e5ec48effe55"
+    },
+    "obsidian/Misc/开源协议.md": {
+      "id": "3aba3d42-6eec-81c5-a31c-c349e640796c",
+      "url": "https://app.notion.com/p/3aba3d426eec81c5a31cc349e640796c"
+    },
+    "obsidian/index.md": {
+      "id": "3aea3d42-6eec-81de-ae5a-eefa3fd71caa",
+      "url": "https://app.notion.com/p/index-3aea3d426eec81deae5aeefa3fd71caa"
+    }
+  }
+}
