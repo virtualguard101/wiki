@@ -593,6 +593,71 @@ def ipynb_to_markdown(path: Path) -> Tuple[Dict[str, Any], str]:
     return meta, body
 
 
+def normalize_blockquotes_for_notion(text: str) -> str:
+    """Drop MkDocs blank quote markers (`>` alone) and collapse quote runs for Notion.
+
+    In MkDocs/Material, a lone `>` between quote lines acts as a paragraph/line break
+    and does not render as an empty citation. Notion treats that line as an empty
+    quote block. Convert each contiguous `>` run into a single Notion multi-line
+    quote using `<br>`, omitting blank quote lines.
+    """
+    lines = text.splitlines()
+    out: List[str] = []
+    i = 0
+    quote_re = re.compile(r"^([ \t]*)>([ \t]?)(.*)$")
+    fence_re = re.compile(r"^([ \t]*)(`{3,}|~{3,})(.*)$")
+
+    while i < len(lines):
+        line = lines[i]
+        fence = fence_re.match(line)
+        if fence:
+            marker = fence.group(2)
+            ch = marker[0]
+            n = len(marker)
+            out.append(line)
+            i += 1
+            while i < len(lines):
+                out.append(lines[i])
+                close = fence_re.match(lines[i])
+                if (
+                    close
+                    and close.group(2)[0] == ch
+                    and len(close.group(2)) >= n
+                    and close.group(3).strip() == ""
+                ):
+                    i += 1
+                    break
+                i += 1
+            continue
+
+        m = quote_re.match(line)
+        if not m:
+            out.append(line)
+            i += 1
+            continue
+
+        indent = m.group(1)
+        parts: List[str] = []
+        while i < len(lines):
+            qm = quote_re.match(lines[i])
+            if not qm or qm.group(1) != indent:
+                break
+            body = qm.group(3)
+            # Lone `>` / `> ` → MkDocs line break; skip for Notion.
+            if body.strip() == "":
+                i += 1
+                continue
+            parts.append(body)
+            i += 1
+
+        if not parts:
+            continue
+        # Notion multi-line quote: one `>` line with <br> separators.
+        out.append(f"{indent}> {'<br>'.join(parts)}")
+
+    return "\n".join(out)
+
+
 def convert_markdown_file(
     file_path: Path,
     site_url: str,
@@ -609,6 +674,7 @@ def convert_markdown_file(
         body = strip_duplicate_h1(title, body)
 
     body = convert_html_blocks(body)
+    body = normalize_blockquotes_for_notion(body)
     body = convert_admonitions_and_tabs(body)
     body = convert_inline_math(body)
     body = convert_images(body, file_path, site_url, upload_local=upload_local)
