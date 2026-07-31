@@ -303,39 +303,77 @@ def collect_indented_block(lines: List[str], start: int, indent: int) -> Tuple[L
             collected.append("")
             i += 1
             continue
-        if not line.startswith(" " * indent) and line.strip():
+        leading = len(line) - len(line.lstrip(" "))
+        # Also accept tabs as indent units (rare in these notes).
+        if leading < indent and not line.startswith("\t" * (indent // 4 or 1)):
+            # Allow tab-indented content roughly equivalent to spaces.
+            if line.startswith("\t"):
+                tab_count = len(line) - len(line.lstrip("\t"))
+                if tab_count * 4 < indent:
+                    break
+                collected.append(line[tab_count:])
+                i += 1
+                continue
             break
-        collected.append(line[indent:] if line.startswith(" ") else line)
+        collected.append(line[indent:] if leading >= indent else line.lstrip(" "))
         i += 1
     return collected, i
 
 
 def notion_indent_block(text: str, tabs: int = 1) -> str:
+    """Indent block children for Notion; keep blank lines indented so nesting holds."""
     prefix = "\t" * tabs
-    return "\n".join(prefix + line if line else line for line in text.splitlines())
+    out: List[str] = []
+    for line in text.splitlines():
+        if line.strip() == "":
+            out.append(f"{prefix}<empty-block/>")
+        else:
+            out.append(prefix + line)
+    return "\n".join(out)
+
+
+_ADMON_LINE_RE = re.compile(
+    r"^(?P<indent>[ \t]*)"
+    r"(?P<markers>[!?]{3})(?P<expanded>\+?)"
+    r"\s*(?P<type>\w+)"
+    r"(?P<rest>.*?)\s*$"
+)
+_ADMON_INLINE_RE = re.compile(r"\binline(?:\s+end)?\b", re.IGNORECASE)
+_ADMON_TITLE_RE = re.compile(r'"([^"]*)"')
+
+
+def _parse_admonition_rest(rest: str) -> Tuple[Optional[str], bool]:
+    """Parse optional inline flag + quoted title from the remainder of an admonition header."""
+    rest = rest.strip()
+    if not rest:
+        return None, False
+    inline = bool(_ADMON_INLINE_RE.search(rest))
+    # Strip inline markers before / after title.
+    cleaned = _ADMON_INLINE_RE.sub(" ", rest)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    title_match = _ADMON_TITLE_RE.search(cleaned)
+    title = title_match.group(1) if title_match else None
+    return title, inline
 
 
 def convert_admonitions_and_tabs(text: str) -> str:
     lines = text.splitlines()
     out: List[str] = []
     i = 0
-    admon_re = re.compile(
-        r"^(?P<markers>[!?]{3})(?P<expanded>\+?)\s+"
-        r"(?P<type>\w+)(?:\s+(?P<title>\"[^\"]*\"|inline(?:\s+end)?))?\s*$"
-    )
-    tab_re = re.compile(r'^===\s+"([^"]+)"\s*$')
+    tab_re = re.compile(r'^([ \t]*)===\s+"([^"]+)"\s*$')
 
     while i < len(lines):
         line = lines[i]
-        ad_match = admon_re.match(line)
+        ad_match = _ADMON_LINE_RE.match(line)
         if ad_match:
+            indent_ws = ad_match.group("indent") or ""
+            indent = len(indent_ws.replace("\t", "    "))
             markers = ad_match.group("markers")
             ad_type = ad_match.group("type")
-            title_raw = ad_match.group("title")
-            if title_raw and title_raw.strip() in ("inline", "inline end"):
-                title_raw = None
-            title = title_raw.strip('"') if title_raw and title_raw.startswith('"') else None
-            block_lines, i = collect_indented_block(lines, i + 1, 4)
+            title, _inline = _parse_admonition_rest(ad_match.group("rest") or "")
+            # Material body is indented 4 spaces beyond the admonition marker line.
+            body_indent = indent + 4
+            block_lines, i = collect_indented_block(lines, i + 1, body_indent)
             inner = convert_admonitions_and_tabs("\n".join(block_lines).strip("\n"))
             if markers.startswith("?"):
                 summary = title or ad_type.capitalize()
@@ -345,6 +383,7 @@ def convert_admonitions_and_tabs(text: str) -> str:
                 )
             else:
                 color, icon = ADMONITION_STYLES.get(ad_type, ("gray_bg", "📌"))
+                # Inline admonitions have no Notion float equivalent → normal callout.
                 header = f"**{title}**\n" if title else ""
                 block = (
                     f'<callout icon="{icon}" color="{color}">\n'
@@ -356,8 +395,10 @@ def convert_admonitions_and_tabs(text: str) -> str:
 
         tab_match = tab_re.match(line)
         if tab_match:
-            label = tab_match.group(1)
-            block_lines, i = collect_indented_block(lines, i + 1, 4)
+            label = tab_match.group(2)
+            indent_ws = tab_match.group(1) or ""
+            indent = len(indent_ws.replace("\t", "    "))
+            block_lines, i = collect_indented_block(lines, i + 1, indent + 4)
             inner = convert_admonitions_and_tabs("\n".join(block_lines).strip("\n"))
             out.append(f"### {label}")
             out.append(inner)
@@ -489,16 +530,84 @@ def convert_links(
     return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", repl, text)
 
 
+def ipynb_to_markdown(path: Path) -> Tuple[Dict[str, Any], str]:
+    """Convert a Jupyter notebook to markdown (cells only; no raw JSON)."""
+    data = json.loads(path.read_text(encoding="utf-8"))
+    meta: Dict[str, Any] = {}
+    nb_meta = data.get("metadata") or {}
+    # Prefer explicit title from notebook metadata when present.
+    if isinstance(nb_meta.get("title"), str):
+        meta["title"] = nb_meta["title"]
+
+    parts: List[str] = []
+    for cell in data.get("cells") or []:
+        ctype = cell.get("cell_type")
+        source = cell.get("source") or []
+        if isinstance(source, list):
+            text = "".join(source)
+        else:
+            text = str(source)
+        text = text.rstrip("\n")
+        if not text.strip():
+            continue
+        if ctype == "markdown":
+            parts.append(text)
+        elif ctype == "code":
+            lang = ""
+            kernelspec = nb_meta.get("kernelspec") or {}
+            language = kernelspec.get("language") or ""
+            if language:
+                lang = str(language)
+            else:
+                lang = "python"
+            parts.append(f"```{lang}\n{text}\n```")
+            # Include plain-text / stream outputs when useful.
+            outputs = cell.get("outputs") or []
+            out_chunks: List[str] = []
+            for out in outputs:
+                otype = out.get("output_type")
+                if otype == "stream":
+                    text_out = out.get("text") or ""
+                    if isinstance(text_out, list):
+                        text_out = "".join(text_out)
+                    if str(text_out).strip():
+                        out_chunks.append(str(text_out).rstrip())
+                elif otype in ("execute_result", "display_data"):
+                    data_out = out.get("data") or {}
+                    if "text/plain" in data_out:
+                        plain = data_out["text/plain"]
+                        if isinstance(plain, list):
+                            plain = "".join(plain)
+                        if str(plain).strip():
+                            out_chunks.append(str(plain).rstrip())
+                    elif "text/markdown" in data_out:
+                        md = data_out["text/markdown"]
+                        if isinstance(md, list):
+                            md = "".join(md)
+                        if str(md).strip():
+                            out_chunks.append(str(md).rstrip())
+            if out_chunks:
+                parts.append("```\n" + "\n".join(out_chunks) + "\n```")
+        # skip raw cells
+    body = "\n\n".join(parts).strip() + "\n"
+    return meta, body
+
+
 def convert_markdown_file(
     file_path: Path,
     site_url: str,
     page_map: Dict[str, Dict[str, str]],
     upload_local: Optional[Any] = None,
 ) -> Tuple[str, str, Dict[str, Any]]:
-    raw = file_path.read_text(encoding="utf-8")
-    meta, body = parse_frontmatter(raw)
-    title = (meta.get("title") or title_from_path(file_path)).strip()
-    body = strip_duplicate_h1(title, body)
+    if file_path.suffix.lower() == ".ipynb":
+        meta, body = ipynb_to_markdown(file_path)
+        title = (meta.get("title") or title_from_path(file_path)).strip()
+    else:
+        raw = file_path.read_text(encoding="utf-8")
+        meta, body = parse_frontmatter(raw)
+        title = (meta.get("title") or title_from_path(file_path)).strip()
+        body = strip_duplicate_h1(title, body)
+
     body = convert_html_blocks(body)
     body = convert_admonitions_and_tabs(body)
     body = convert_inline_math(body)
@@ -543,8 +652,11 @@ def notion_request(
     path: str,
     payload: Optional[dict] = None,
     notion_version: str = NOTION_VERSION_PAGES,
-    retries: int = 5,
+    retries: int = 6,
 ) -> dict:
+    import http.client
+    import ssl
+
     url = f"https://api.notion.com/v1/{path}"
     data = json.dumps(payload).encode("utf-8") if payload is not None else None
     last_error: Optional[Exception] = None
@@ -566,15 +678,25 @@ def notion_request(
         except urllib.error.HTTPError as exc:
             last_error = exc
             err_body = exc.read().decode("utf-8", errors="replace")
-            if exc.code == 429:
+            if exc.code in (429, 502, 503, 504):
                 wait = 2.0 * (attempt + 1)
-                log.warning("rate limited; retry in %.1fs", wait)
+                log.warning("HTTP %s; retry in %.1fs", exc.code, wait)
                 time.sleep(wait)
                 continue
             raise urllib.error.HTTPError(url, exc.code, err_body, exc.headers, None) from exc
-        except (urllib.error.URLError, TimeoutError) as exc:
+        except (
+            urllib.error.URLError,
+            TimeoutError,
+            http.client.IncompleteRead,
+            http.client.RemoteDisconnected,
+            ssl.SSLError,
+            ConnectionResetError,
+            BrokenPipeError,
+        ) as exc:
             last_error = exc
-            time.sleep(1.5 * (attempt + 1))
+            wait = 1.5 * (attempt + 1)
+            log.warning("transient network error (%s); retry in %.1fs", type(exc).__name__, wait)
+            time.sleep(wait)
     assert last_error is not None
     raise last_error
 
@@ -1001,9 +1123,7 @@ def _classify_path(diff: DiffSet, path: str, *, deleted: bool) -> None:
     rel = path[5:]  # strip docs/
     suffix = Path(rel).suffix.lower()
     if suffix in (".md", ".ipynb"):
-        # Notebooks are rendered as .md siblings in nav when applicable.
-        if suffix == ".ipynb":
-            rel = rel[:-6] + ".md"
+        # Keep .ipynb keys as-is when that is the nav source (mkdocs-jupyter).
         if deleted:
             diff.md_deleted.add(rel)
         else:
@@ -1278,9 +1398,16 @@ def run_sync(args: argparse.Namespace) -> int:
     sections: Optional[List[str]] = args.section
 
     # Resolve what to sync.
+    path_list: list[str] = []
     if args.paths:
+        path_list.extend(args.paths)
+    if getattr(args, "paths_file", None):
+        raw = Path(args.paths_file).read_text(encoding="utf-8")
+        path_list.extend(line.strip() for line in raw.splitlines() if line.strip())
+
+    if path_list:
         normalized = set()
-        for p in args.paths:
+        for p in path_list:
             rel = docs_rel(p)
             if rel.startswith("docs/"):
                 rel = rel[5:]
@@ -1401,6 +1528,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--paths",
         nargs="+",
         help="Only sync these docs-relative paths (skip git diff)",
+    )
+    p.add_argument(
+        "--paths-file",
+        type=Path,
+        help="Newline-separated docs-relative paths (handles spaces safely)",
     )
     p.add_argument("--site-url", default=DEFAULT_SITE_URL)
     p.add_argument("--state", type=Path, default=DEFAULT_STATE)
