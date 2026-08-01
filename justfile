@@ -8,6 +8,7 @@ alias us := usync
 alias nb := newblog
 alias mi := mv-image
 alias ns := notion-sync
+alias nsf := notion-sync-full
 
 serve:
     uv run mkdocs serve
