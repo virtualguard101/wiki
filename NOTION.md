@@ -134,6 +134,9 @@ flowchart TD
 - rebuild state 时，同父同标题页面可能匹配错误。  
 - 本地删除默认不 prune Notion 页面。  
 - 全量且含大量本地图时仍然较慢；日常应依赖 git diff 增量。  
+- 所有 `index.md` 不同步到 Notion。  
+- frontmatter `tags` / `tag` 会写入 Notion multi_select 属性「标签」（可用 `NOTION_TAGS_PROPERTY` 覆盖）。  
+  Wiki 对**尚未出现在 schema 中的选项**赋值会静默失败（HTTP 200 但标签仍空），同步时会先把缺失选项合并进 data source，再写页面属性。  
 
 ## 兼容性修复（admonition / ipynb）
 

@@ -45,6 +45,7 @@ DEFAULT_WIKI_DATABASE = os.environ.get(
     "NOTION_WIKI_DATABASE", "3aba3d42-6eec-816b-8e88-ed2956be408f"
 )
 DEFAULT_TITLE_PROP = os.environ.get("NOTION_TITLE_PROPERTY", "页面")
+DEFAULT_TAGS_PROP = os.environ.get("NOTION_TAGS_PROPERTY", "标签")
 
 NOTION_VERSION_PAGES = "2025-09-03"
 NOTION_VERSION_MARKDOWN = "2026-03-11"
@@ -269,17 +270,51 @@ def parse_frontmatter(text: str) -> Tuple[Dict[str, Any], str]:
         return {}, text
     raw = text[3:end].strip()
     body = text[end + 4 :].lstrip("\n")
-    meta: Dict[str, Any] = {}
-    for line in raw.splitlines():
-        if ":" not in line:
-            continue
-        key, value = line.split(":", 1)
-        key = key.strip()
-        value = value.strip()
-        if value.startswith('"') and value.endswith('"'):
-            value = value[1:-1]
-        meta[key] = value
+    if not raw:
+        return {}, body
+    try:
+        yaml = YAML(typ="safe")
+        loaded = yaml.load(raw)
+        meta = loaded if isinstance(loaded, dict) else {}
+    except Exception:
+        # Fallback: flat key: value (no nested lists).
+        meta = {}
+        for line in raw.splitlines():
+            if ":" not in line:
+                continue
+            key, value = line.split(":", 1)
+            key = key.strip()
+            value = value.strip()
+            if value.startswith('"') and value.endswith('"'):
+                value = value[1:-1]
+            meta[key] = value
     return meta, body
+
+
+def extract_tags(meta: Dict[str, Any]) -> List[str]:
+    """Normalize frontmatter tags/tag into a list of non-empty strings."""
+    raw = meta.get("tags", meta.get("tag", None))
+    if raw is None:
+        return []
+    if isinstance(raw, str):
+        parts = [p.strip() for p in re.split(r"[,;]", raw)]
+        return [p for p in parts if p]
+    if isinstance(raw, (list, tuple)):
+        out: List[str] = []
+        for item in raw:
+            if item is None:
+                continue
+            s = str(item).strip()
+            if s:
+                out.append(s)
+        return out
+    s = str(raw).strip()
+    return [s] if s else []
+
+
+def is_index_doc(rel: str) -> bool:
+    """True for any docs-relative path whose basename is index.md."""
+    return Path(rel).name.lower() == "index.md"
 
 
 def strip_duplicate_h1(title: str, body: str) -> str:
@@ -666,11 +701,11 @@ def convert_markdown_file(
 ) -> Tuple[str, str, Dict[str, Any]]:
     if file_path.suffix.lower() == ".ipynb":
         meta, body = ipynb_to_markdown(file_path)
-        title = (meta.get("title") or title_from_path(file_path)).strip()
+        title = str(meta.get("title") or title_from_path(file_path)).strip()
     else:
         raw = file_path.read_text(encoding="utf-8")
         meta, body = parse_frontmatter(raw)
-        title = (meta.get("title") or title_from_path(file_path)).strip()
+        title = str(meta.get("title") or title_from_path(file_path)).strip()
         body = strip_duplicate_h1(title, body)
 
     body = convert_html_blocks(body)
@@ -819,6 +854,121 @@ def update_page_markdown(token: str, page_id: str, markdown: str) -> None:
         },
         notion_version=NOTION_VERSION_MARKDOWN,
     )
+
+
+@dataclass
+class TagsSchemaCache:
+    """Cached multi_select options for the wiki「标签」property."""
+
+    data_source_id: str
+    property_name: str = DEFAULT_TAGS_PROP
+    option_names: Set[str] = field(default_factory=set)
+    loaded: bool = False
+
+    def refresh(self, token: str) -> None:
+        ds = notion_request(token, "GET", f"data_sources/{self.data_source_id}")
+        prop = (ds.get("properties") or {}).get(self.property_name) or {}
+        if prop.get("type") != "multi_select":
+            raise RuntimeError(
+                f"Notion property {self.property_name!r} is not multi_select "
+                f"(got {prop.get('type')!r})"
+            )
+        options = (prop.get("multi_select") or {}).get("options") or []
+        self.option_names = {
+            str(o.get("name", "")).strip() for o in options if o.get("name")
+        }
+        self.loaded = True
+
+    def ensure_options(self, token: str, tags: List[str]) -> None:
+        """Merge missing tag names into the data source schema (preserving existing)."""
+        if not tags:
+            return
+        if not self.loaded:
+            self.refresh(token)
+        missing = [t for t in tags if t not in self.option_names]
+        if not missing:
+            return
+
+        ds = notion_request(token, "GET", f"data_sources/{self.data_source_id}")
+        prop = (ds.get("properties") or {}).get(self.property_name) or {}
+        existing = (prop.get("multi_select") or {}).get("options") or []
+        # Keep id/name/color so Notion does not wipe prior options.
+        merged: List[dict] = []
+        seen: Set[str] = set()
+        for opt in existing:
+            name = str(opt.get("name", "")).strip()
+            if not name or name in seen:
+                continue
+            entry: dict = {"id": opt["id"], "name": name}
+            if opt.get("color"):
+                entry["color"] = opt["color"]
+            merged.append(entry)
+            seen.add(name)
+        for name in tags:
+            if name not in seen:
+                merged.append({"name": name})
+                seen.add(name)
+
+        log.info(
+            "adding %d tag option(s) to schema: %s",
+            len(missing),
+            ", ".join(missing),
+        )
+        notion_request(
+            token,
+            "PATCH",
+            f"data_sources/{self.data_source_id}",
+            {
+                "properties": {
+                    self.property_name: {
+                        "multi_select": {"options": merged},
+                    }
+                }
+            },
+        )
+        self.option_names = seen
+        self.loaded = True
+
+
+def update_page_tags(
+    token: str,
+    page_id: str,
+    tags: List[str],
+    *,
+    property_name: str = DEFAULT_TAGS_PROP,
+    tags_cache: Optional[TagsSchemaCache] = None,
+) -> List[str]:
+    """Write frontmatter tags into Notion multi_select「标签」; return applied names.
+
+    Wiki quirk: assigning a multi_select name that is not yet in the data-source
+    schema returns HTTP 200 but leaves the property empty. Ensure options first.
+    """
+    if tags_cache is not None:
+        tags_cache.ensure_options(token, tags)
+
+    page = notion_request(
+        token,
+        "PATCH",
+        f"pages/{page_id}",
+        {
+            "properties": {
+                property_name: {
+                    "multi_select": [{"name": t} for t in tags],
+                }
+            }
+        },
+    )
+    prop = (page.get("properties") or {}).get(property_name) or {}
+    applied = [
+        str(o.get("name", "")).strip()
+        for o in (prop.get("multi_select") or [])
+        if o.get("name")
+    ]
+    if set(applied) != set(tags):
+        raise RuntimeError(
+            f"tags write mismatch on {page_id}: wanted {tags}, got {applied}"
+        )
+    return applied
 
 
 def upload_local_file(token: str, path: Path, cache: Dict[str, str]) -> str:
@@ -1209,7 +1359,7 @@ def expand_asset_dependents(
         return set()
     candidates: List[Path] = []
     for item in nav_index.values():
-        if not item.file_rel:
+        if not item.file_rel or is_index_doc(item.file_rel):
             continue
         if sections and not any(item.file_rel.startswith(s) for s in sections):
             continue
@@ -1335,6 +1485,7 @@ def sync_one_page(
     delay: float,
     dry_run: bool,
     upload_images: bool,
+    tags_cache: Optional[TagsSchemaCache] = None,
 ) -> str:
     assert item.file_rel
     source = DOCS_ROOT / item.file_rel
@@ -1382,34 +1533,51 @@ def sync_one_page(
         image_paths.append(path)
         return f"⟦LOCALIMG:{len(image_paths) - 1}⟧"
 
-    title_conv, content, _ = convert_markdown_file(
+    title_conv, content, meta = convert_markdown_file(
         source,
         site_url,
         state.pages,
         upload_local=upload_local if upload_images else None,
     )
+    tags = extract_tags(meta)
     _ = title_conv
 
     if dry_run:
         log.info(
-            "dry-run %s content=%d chars images=%d",
+            "dry-run %s content=%d chars images=%d tags=%s",
             item.file_rel,
             len(content),
             len(image_paths),
+            tags,
         )
         return "dry-run"
 
     page_id = state.pages[item.file_rel]["id"]
     update_page_markdown(token, page_id, content)
+    applied_tags: List[str] = []
+    try:
+        applied_tags = update_page_tags(
+            token, page_id, tags, tags_cache=tags_cache
+        )
+    except urllib.error.HTTPError as exc:
+        body = getattr(exc, "reason", "") or ""
+        log.warning("tags update failed for %s: %s %s", item.file_rel, exc.code, body)
+    except RuntimeError as exc:
+        log.warning("tags update failed for %s: %s", item.file_rel, exc)
     attached = 0
     if upload_images and image_paths:
         attached = attach_placeholder_images(token, page_id, image_paths)
+    if set(applied_tags) == set(tags):
+        tags_display: Any = applied_tags or "—"
+    else:
+        tags_display = f"FAILED wanted={tags} applied={applied_tags}"
     log.info(
-        "ok %s (%s, images=%d/%d)",
+        "ok %s (%s, images=%d/%d, tags=%s)",
         item.file_rel,
         "created" if created else "updated",
         attached,
         len(image_paths),
+        tags_display,
     )
     time.sleep(delay)
     return "created" if created else "updated"
@@ -1423,14 +1591,25 @@ def collect_targets(
     sections: Optional[List[str]],
 ) -> Tuple[List[NavItem], Set[str]]:
     """Return (pages to sync, deleted rel paths)."""
-    deleted = {p for p in diff.md_deleted if filter_sections(p, sections)}
+    deleted = {
+        p
+        for p in diff.md_deleted
+        if filter_sections(p, sections) and not is_index_doc(p)
+    }
+
+    def _include(rel: str) -> bool:
+        if is_index_doc(rel):
+            return False
+        if not filter_sections(rel, sections):
+            return False
+        return True
 
     if full:
         items = [
             item
             for item in nav_index.values()
             if item.file_rel
-            and filter_sections(item.file_rel, sections)
+            and _include(item.file_rel)
             and (DOCS_ROOT / item.file_rel).exists()
         ]
         return items, deleted
@@ -1441,6 +1620,9 @@ def collect_targets(
 
     items: List[NavItem] = []
     for rel in sorted(wanted):
+        if is_index_doc(rel):
+            log.info("skip index.md: %s", rel)
+            continue
         if not filter_sections(rel, sections):
             continue
         item = nav_index.get(rel)
@@ -1542,6 +1724,13 @@ def run_sync(args: argparse.Namespace) -> int:
         log.info("nothing to sync")
         return 0
 
+    tags_cache: Optional[TagsSchemaCache] = None
+    if not args.dry_run and token:
+        tags_cache = TagsSchemaCache(
+            data_source_id=state.data_source_id or args.data_source_id,
+            property_name=DEFAULT_TAGS_PROP,
+        )
+
     log.info("syncing %d page(s)", len(targets))
     stats = {"created": 0, "updated": 0, "dry-run": 0, "missing": 0, "failed": 0}
     for item in targets:
@@ -1556,6 +1745,7 @@ def run_sync(args: argparse.Namespace) -> int:
                 args.delay,
                 args.dry_run,
                 upload_images=not args.no_images,
+                tags_cache=tags_cache,
             )
             stats[result] = stats.get(result, 0) + 1
         except urllib.error.HTTPError as exc:
