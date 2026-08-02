@@ -77,10 +77,11 @@ flowchart TD
 日常不同步全库，而是：
 
 1. **定 base**：`--base` → `GITHUB_EVENT_BEFORE` / `NOTION_SYNC_BASE` → `HEAD~1`；无效、`full` 或无父提交时走全量。  
-2. **`git diff --name-status --find-renames base...HEAD -- docs`**，分类为：
+2. **`git -c core.quotepath=false diff --name-status --find-renames base...HEAD -- docs`**，分类为：
    - `.md` / `.ipynb` → 改动 / 删除  
    - 图片等资源 → `assets_changed`  
    - `.nav.yml` → `nav_changed`（单独变更**不会**自动全量刷页；全量需 `--full`）  
+   （关掉 `core.quotepath`：默认会把中文路径编成 `"docs/...\350..."`，导致增量恒为空。）  
 3. **资源变更扩页**：在 nav 列出的 markdown 中查找引用了变更资源的页面，并入待同步集合。  
 4. 不在 nav 中的变更文件会 skip。
 
