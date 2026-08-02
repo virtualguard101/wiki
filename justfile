@@ -48,19 +48,6 @@ mv-image dest:
 #   just notion-sync --base HEAD~3 --section obsidian/
 #   just notion-sync-full --section obsidian/
 notion-sync *args:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    args=( {{args}} )
-    if [[ ${#args[@]} -gt 0 && ${args[0]} == -- ]]; then
-      args=( "${args[@]:1}" )
-    fi
-    uv run scripts/notion_sync.py "${args[@]}"
-
-notion-sync-full *args:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    args=( {{args}} )
-    if [[ ${#args[@]} -gt 0 && ${args[0]} == -- ]]; then
-      args=( "${args[@]:1}" )
-    fi
-    uv run scripts/notion_sync.py --full "${args[@]}"
+    uvx mkdocs-note ns {{ args }}
+notion-sync-full:
+    uvx mkdocs-note ns --full
