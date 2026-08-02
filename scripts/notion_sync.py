@@ -693,6 +693,66 @@ def normalize_blockquotes_for_notion(text: str) -> str:
     return "\n".join(out)
 
 
+_TABLE_SEP_CELL_RE = re.compile(r"^:?-+:?$")
+_FENCE_LINE_RE = re.compile(r"^([ \t]*)(`{3,}|~{3,})(.*)$")
+
+
+def is_gfm_table_separator_row(line: str) -> bool:
+    """True for GFM alignment rows like `|:-:|`, `|:-|`, `|-:|`, `| --- | :---: |`."""
+    s = line.strip()
+    if "|" not in s:
+        return False
+    core = s[1:] if s.startswith("|") else s
+    if core.endswith("|"):
+        core = core[:-1]
+    cells = core.split("|")
+    if not cells:
+        return False
+    for cell in cells:
+        if not _TABLE_SEP_CELL_RE.fullmatch(cell.strip()):
+            return False
+    return True
+
+
+def strip_gfm_table_separators(text: str) -> str:
+    """Drop GFM table alignment rows so Notion does not insert them as data rows.
+
+    Markdown renderers ignore `|:-:|` / `|:-|` / `|-:|` separator lines; Notion's
+    markdown ingest treats them as ordinary table rows.
+    """
+    lines = text.splitlines()
+    out: List[str] = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        fence = _FENCE_LINE_RE.match(line)
+        if fence:
+            marker = fence.group(2)
+            ch = marker[0]
+            n = len(marker)
+            out.append(line)
+            i += 1
+            while i < len(lines):
+                out.append(lines[i])
+                close = _FENCE_LINE_RE.match(lines[i])
+                if (
+                    close
+                    and close.group(2)[0] == ch
+                    and len(close.group(2)) >= n
+                    and close.group(3).strip() == ""
+                ):
+                    i += 1
+                    break
+                i += 1
+            continue
+        if is_gfm_table_separator_row(line):
+            i += 1
+            continue
+        out.append(line)
+        i += 1
+    return "\n".join(out)
+
+
 def convert_markdown_file(
     file_path: Path,
     site_url: str,
@@ -714,6 +774,7 @@ def convert_markdown_file(
     body = convert_inline_math(body)
     body = convert_images(body, file_path, site_url, upload_local=upload_local)
     body = convert_links(body, file_path, page_map)
+    body = strip_gfm_table_separators(body)
     body = re.sub(r"\n{3,}", "\n\n", body).strip()
     return title, body, meta
 

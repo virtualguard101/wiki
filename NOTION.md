@@ -146,8 +146,9 @@ flowchart TD
 2. **`!!!example`（无空格）** 与 **`!!! note inline end "标题"`**：放宽 header 解析。  
 3. **callout 空行**：嵌套时用缩进的 `<empty-block/>`，避免空行打断 Notion 缩进树。  
 4. **`.ipynb`**：按 cell 导出为 Markdown/代码块，不再把原始 JSON 写入 Notion。  
+5. **表格对齐行**：GFM 的 `|:-:|` / `|:-|` / `|-:|` / `|---|` 分隔行在推送到 Notion 前会丢弃，避免多出一行对齐元数据。  
 
-含空格的路径请用 `--paths-file`，避免 shell 拆词。
+含空格的路径请用 `--paths-file`（路径含空格时 `--paths` 会被 shell 拆开）。
 
 ## 相关文件
 
