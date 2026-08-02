@@ -134,6 +134,9 @@ flowchart TD
 - rebuild state 时，同父同标题页面可能匹配错误。  
 - 本地删除默认不 prune Notion 页面。  
 - 全量且含大量本地图时仍然较慢；日常应依赖 git diff 增量。  
+- 所有 `index.md` 不同步到 Notion。  
+- frontmatter `tags` / `tag` 会写入 Notion multi_select 属性「标签」（可用 `NOTION_TAGS_PROPERTY` 覆盖）。  
+  Wiki 对**尚未出现在 schema 中的选项**赋值会静默失败（HTTP 200 但标签仍空），同步时会先把缺失选项合并进 data source，再写页面属性。  
 
 ## 兼容性修复（admonition / ipynb）
 
@@ -143,8 +146,9 @@ flowchart TD
 2. **`!!!example`（无空格）** 与 **`!!! note inline end "标题"`**：放宽 header 解析。  
 3. **callout 空行**：嵌套时用缩进的 `<empty-block/>`，避免空行打断 Notion 缩进树。  
 4. **`.ipynb`**：按 cell 导出为 Markdown/代码块，不再把原始 JSON 写入 Notion。  
+5. **表格对齐行**：GFM 的 `|:-:|` / `|:-|` / `|-:|` / `|---|` 分隔行在推送到 Notion 前会丢弃，避免多出一行对齐元数据。  
 
-含空格的路径请用 `--paths-file`，避免 shell 拆词。
+含空格的路径请用 `--paths-file`（路径含空格时 `--paths` 会被 shell 拆开）。
 
 ## 相关文件
 
