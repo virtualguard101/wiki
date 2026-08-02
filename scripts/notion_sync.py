@@ -1324,8 +1324,11 @@ class DiffSet:
     nav_changed: bool = False
 
 def _run_git(*args: str) -> str:
+    # core.quotepath=false: non-ASCII paths must be raw UTF-8. Default quoting
+    # emits `"docs/...\350\256..."` which fails startswith("docs/") and empties
+    # the incremental diff for almost all Chinese note paths.
     result = subprocess.run(
-        ["git", *args],
+        ["git", "-c", "core.quotepath=false", *args],
         cwd=ROOT,
         check=False,
         capture_output=True,
