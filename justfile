@@ -47,7 +47,7 @@ mv-image dest:
 #   just notion-sync --dry-run
 #   just notion-sync --base HEAD~3 --section obsidian/
 #   just notion-sync-full --section obsidian/
-notion-sync *args:
+notion-sync args="":
     uvx mkdocs-note ns {{ args }}
 notion-sync-full:
     uvx mkdocs-note ns --full
