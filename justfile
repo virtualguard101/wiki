@@ -30,12 +30,12 @@ obsidian:
 update:
     just ob
     uv run scripts/update.py
-    just ns
 
 usync:
     just u
     just sc
     just ob
+    just ns
 
 newblog title="":
     cp templates/blog.md "docs/blog/posts/{{ title }}.md"
