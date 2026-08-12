@@ -19,15 +19,27 @@ def main() -> int:
         print("No image files (.jpg, .png, .webp) in ~/Downloads")
         return 0
 
-    moved: list[Path] = []
-    for path in sorted(DOWNLOADS.iterdir()):
-        if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS:
-            shutil.move(path, dest / path.name)
-            moved.append(path)
+    candidates = [
+        path
+        for path in sorted(DOWNLOADS.iterdir())
+        if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS
+    ]
 
-    if not moved:
+    if not candidates:
         print("No image files (.jpg, .png, .webp) in ~/Downloads")
         return 0
+
+    collisions = [dest / path.name for path in candidates if (dest / path.name).exists()]
+    if collisions:
+        print("Refusing to overwrite existing file(s):", file=sys.stderr)
+        for path in collisions:
+            print(f"  {path}", file=sys.stderr)
+        return 1
+
+    moved: list[Path] = []
+    for path in candidates:
+        shutil.move(path, dest / path.name)
+        moved.append(path)
 
     print(f"Moved {len(moved)} file(s):")
     for path in moved:
