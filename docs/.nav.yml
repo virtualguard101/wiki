@@ -188,6 +188,7 @@ nav:
         - 组合逻辑电路: "obsidian/计算机系统与体系结构/组合逻辑电路.md"
         - 组合逻辑电路的设计原理: "obsidian/计算机系统与体系结构/组合逻辑电路的设计原理.md"
         - 时序逻辑电路: "obsidian/计算机系统与体系结构/时序逻辑电路.md"
+        # - 同步时序逻辑电路设计原理: "obsidian/计算机系统与体系结构/同步时序逻辑电路设计原理.md"
       - CS61C:
         - Number Representation: "obsidian/计算机系统与体系结构/cs61c/Number Representation.md"
         - Floating Point: "obsidian/计算机系统与体系结构/cs61c/Floating Point.md"
