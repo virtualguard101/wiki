@@ -3,7 +3,7 @@ import shutil
 import sys
 from pathlib import Path
 
-IMAGE_EXTENSIONS = {".jpg", ".png", ".webp"}
+IMAGE_EXTENSIONS = {".jpg", ".png", ".webp", ".gif"}
 DOWNLOADS = Path.home() / "Downloads"
 
 
