@@ -139,6 +139,7 @@ plugins:
         data_source_id: "3aba3d42-6eec-80e9-8a37-000be17e3045"
         allow_cursor_mcp_token: true
         silence_mcp_token_warning: true
+        local_images: site
 
 extra_css:
   - assets/webfonts/Cascadia Mono/font.css
