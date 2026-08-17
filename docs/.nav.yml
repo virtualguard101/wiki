@@ -83,7 +83,7 @@ nav:
         - Java接口: "obsidian/编程语言/java/Java接口.md"
     - 数学:
       - 离散数学:
-        - CS70:
+        - UC Berkeley CS70:
           - 集合 & 数学符号与逻辑命题: "obsidian/数学/离散数学/集合 & 数学符号与逻辑命题.md"
           - 证明: "obsidian/数学/离散数学/证明.md"
         - 命题逻辑的基本概念: "obsidian/数学/离散数学/legacy/命题逻辑的基本概念.md"
@@ -175,7 +175,7 @@ nav:
         - 各种内部排序算法的比较及应用: "obsidian/数据结构与算法/408/各种内部排序算法的比较及应用.md"
         - 外部排序: "obsidian/数据结构与算法/408/外部排序.md"
     - 计算机系统与体系结构:
-      - "408":
+      - 408考研大纲:
         - 计算机系统概述:
           - 计算机系统层次结构: "obsidian/计算机系统与体系结构/408/计算机系统层次结构.md"
           - 计算机性能指标: "obsidian/计算机系统与体系结构/408/计算机性能指标.md"
@@ -183,7 +183,7 @@ nav:
           - 数制与编码: "obsidian/计算机系统与体系结构/408/数制与编码.md"
           - 运算方法和运算电路: "obsidian/计算机系统与体系结构/408/运算方法和运算电路.md"
           - 浮点数表示与运算: "obsidian/计算机系统与体系结构/408/浮点数表示与运算.md"
-      - CS61C:
+      - UC Berkeley CS61C:
         - Number Representation: "obsidian/计算机系统与体系结构/cs61c/Number Representation.md"
         - Floating Point: "obsidian/计算机系统与体系结构/cs61c/Floating Point.md"
         # - Synchronous Digital Systems:
@@ -199,8 +199,9 @@ nav:
       - 计算机系统的状态机模型:
         - 处理器组成及工作原理: "obsidian/计算机系统与体系结构/处理器组成及工作原理.md"
         - 指令集架构的状态机模型: "obsidian/计算机系统与体系结构/指令集架构的状态机模型.md"
+      - 支持数列求和的sCPU: "obsidian/计算机系统与体系结构/支持数列求和的sCPU.md"
     - 操作系统:
-      - "408":
+      - 408考研大纲:
         - 操作系统概述:
           - 操作系统基本特性: "obsidian/操作系统/408/操作系统基本特性.md"
           - 操作系统发展历程: "obsidian/操作系统/408/操作系统发展历程.md"
@@ -221,7 +222,7 @@ nav:
           - 输入输出管理概述: "obsidian/操作系统/408/输入输出管理概述.md"
           - 设备独立性缓存: "obsidian/操作系统/408/设备独立性缓存.md"
           - 磁盘和固态硬盘: "obsidian/操作系统/408/磁盘和固态硬盘.md"
-      - OSTEP:
+      - "Operating Systems: Three Easy Pieces":
         - 绪论:
           - 操作系统简易模型: "obsidian/操作系统/intro/操作系统简易模型.md"
           - Introduction to Operating Systems: "obsidian/操作系统/intro/Introduction to Operating Systems.md"
@@ -230,7 +231,7 @@ nav:
           - "Process API": "obsidian/操作系统/virtualization/Process API.md"
       - Linux环境下的进程创建与进程通信: "obsidian/操作系统/Linux环境下的进程创建与进程通信.md"
     - 计算机网络:
-      - "408":
+      - 408考研大纲:
         - 计算机网络体系结构:
           - 计算机网络概述: "obsidian/计算机网络/408/计算机网络概述.md"
           - 计算机网络体系结构与参考模型: "obsidian/计算机网络/408/计算机网络体系结构与参考模型.md"
@@ -257,7 +258,7 @@ nav:
           - 传输层提供的服务: "obsidian/计算机网络/408/传输层提供的服务.md"
           - UDP: "obsidian/计算机网络/408/UDP.md"
           - TCP: "obsidian/计算机网络/408/TCP.md"
-      - CS168:
+      - UC Berkeley CS168:
         - Introduction:
           - Layers of the Internet: "obsidian/计算机网络/cs168/Layers of the Internet.md"
           - Design Principles: "obsidian/计算机网络/cs168/Design Principle.md"
