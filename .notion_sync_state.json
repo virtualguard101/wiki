@@ -1290,6 +1290,42 @@
     "obsidian/计算机系统与体系结构/处理器组成及工作原理.md": {
       "id": "3bea3d42-6eec-8140-8bc6-e130201f5862",
       "url": "https://app.notion.com/p/3bea3d426eec81408bc6e130201f5862"
+    },
+    "obsidian/计算机系统与体系结构/指令集架构的状态机模型.md": {
+      "id": "3bfa3d42-6eec-818d-b029-df41fb566c64",
+      "url": "https://app.notion.com/p/3bfa3d426eec818db029df41fb566c64"
+    },
+    "Projects": {
+      "id": "3bfa3d42-6eec-81ac-a6a1-c2939a7c1ffd",
+      "url": "https://app.notion.com/p/Projects-3bfa3d426eec81aca6a1c2939a7c1ffd"
+    },
+    "projects/vocalplayer.md": {
+      "id": "3bfa3d42-6eec-81fc-a163-fc5b5278db40",
+      "url": "https://app.notion.com/p/vocalplayer-A-CLI-music-player-with-real-time-rhythm-visualization-3bfa3d426eec81fca163fc5b5278db40"
+    },
+    "projects/haruhiloop.md": {
+      "id": "3bfa3d42-6eec-81d8-9b9b-e6602ca48f85",
+      "url": "https://app.notion.com/p/haruhiloop-3bfa3d426eec81d89b9be6602ca48f85"
+    },
+    "projects/ForyoClassifierCNN.ipynb": {
+      "id": "3bfa3d42-6eec-8182-aa28-eafef493da22",
+      "url": "https://app.notion.com/p/ForyoClassifierCNN-A-music-classification-project-based-on-PyTorch-3bfa3d426eec8182aa28eafef493da22"
+    },
+    "projects/MkDocs-Note.md": {
+      "id": "3bfa3d42-6eec-81bf-8cf9-c362c3869481",
+      "url": "https://app.notion.com/p/MkDocs-Note-A-MkDocs-plugin-to-add-note-boxes-to-your-documentation-3bfa3d426eec81bf8cf9c362c3869481"
+    },
+    "projects/3BodySimulator.md": {
+      "id": "3bfa3d42-6eec-81d1-9180-e7a0dff2f660",
+      "url": "https://app.notion.com/p/3BodySimulator-Python-C-3bfa3d426eec81d19180e7a0dff2f660"
+    },
+    "projects/SpaceCaculator.md": {
+      "id": "3bfa3d42-6eec-812c-b713-f8b731c47d69",
+      "url": "https://app.notion.com/p/SpaceCaculator-Python3-3bfa3d426eec812cb713f8b731c47d69"
+    },
+    "credits.md": {
+      "id": "3bfa3d42-6eec-81ca-97e6-deb5ec9c3cd2",
+      "url": "https://app.notion.com/p/Credits-3bfa3d426eec81ca97e6deb5ec9c3cd2"
     }
   }
 }
