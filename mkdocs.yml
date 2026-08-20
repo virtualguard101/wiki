@@ -114,6 +114,7 @@ plugins:
         - assets/stylesheets/temp-patch.css
   - git-revision-date-localized:
       enable_creation_date: true
+      enable_git_follow: false
   - mkdocs-jupyter:
       theme: dark
       ignore_h1_titles: false
