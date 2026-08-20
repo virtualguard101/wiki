@@ -186,10 +186,10 @@ nav:
       - UC Berkeley CS61C:
         - Number Representation: "obsidian/计算机系统与体系结构/cs61c/Number Representation.md"
         - Floating Point: "obsidian/计算机系统与体系结构/cs61c/Floating Point.md"
+        - RISC-V Introduction: "obsidian/计算机系统与体系结构/cs61c/RISC-V Introduction.md"
         # - Synchronous Digital Systems:
-        #   - 
-        # - RISC-V:
-        #   - 
+      - RISC-V:
+        - RV32I Reference Card: "obsidian/计算机系统与体系结构/cs61c/RV32I Reference Card.md"
       - 数字逻辑电路基础:
         - 晶体管与门电路: "obsidian/计算机系统与体系结构/晶体管与门电路.md"
         - 组合逻辑电路: "obsidian/计算机系统与体系结构/组合逻辑电路.md"
