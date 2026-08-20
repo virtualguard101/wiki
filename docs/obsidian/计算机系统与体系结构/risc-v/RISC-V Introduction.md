@@ -141,7 +141,7 @@ Bitwise ops work **bit by bit** on the whole register (AND / OR / XOR). Each has
 
 ##### Pseudoinstruction `NOT`
 
-There is **no** hardware `not` opcode. Flip every bit by XORing with all-ones (`-1` in [two’s complement](Number%20Representation.md#Twos-Complement)):
+There is **no** hardware `not` opcode. Flip every bit by XORing with all-ones (`-1` in [two’s complement](../cs61c/Number%20Representation.md#Twos-Complement)):
 
 | Pseudo | Meaning | Expands to |
 |:-------|:--------|:-----------|
