@@ -61,20 +61,22 @@ tags:
 
         - **I\*** (shifts by a constant, e.g. `slli`): still the I “form”, but a few bits that would normally be part of the immediate are reused to say *which kind of shift*. Treat it as a footnote to I, not a 7th layout.
 
-- **Immediates are sign-extended** to 32 bits (except where noted). Integers use [two’s complement](Number%20Representation.md#Twos-Complement); arithmetic overflow wraps, no trap in the base ISA[^imm].
+- **Immediates are sign-extended** to 32 bits (except where noted). Integers use [two’s complement](../cs61c/Number%20Representation.md#Twos-Complement); arithmetic overflow wraps, no trap in the base ISA[^imm].
 
-    !!! info "Wrap and Trap"
-        - **Wrap** ([integer overflow](Number%20Representation.md#Integer-Overflow)): the true result does not fit in 32 bits, so only the low 32 bits are kept, like a binary odometer rolling over. For example, in 8-bit unsigned, `255 + 1` will wrap to `0`.
+#### Wrap and Trap {#Wrap-and-Trap}
 
-        - **Trap**: a *synchronous* jump to a trap handler (usually in a more privileged mode). In RISC-V jargon[^trap]:
+!!! info
+    - **Wrap** ([integer overflow](../cs61c/Number%20Representation.md#Integer-Overflow)): the true result does not fit in 32 bits, so only the low 32 bits are kept, like a binary odometer rolling over. For example, in 8-bit unsigned, `255 + 1` will wrap to `0`.
 
-            - **Exception**: unusual condition tied to the *current* instruction (illegal opcode, page fault, `ecall`, …).
+    - **Trap**: a *synchronous* jump to a trap handler (usually in a more privileged mode). In RISC-V jargon[^trap]:
 
-            - **Interrupt**: *asynchronous* external event (timer, device); hardware picks some instruction to “take” it.
+        - **Exception**: unusual condition tied to the *current* instruction (illegal opcode, page fault, `ecall`, …).
 
-            - **Trap**: the control-transfer itself: leave normal flow and turn to run the handler.
+        - **Interrupt**: *asynchronous* external event (timer, device); hardware picks some instruction to “take” it.
 
-        Base RV32I integer arithmetic (**does not** trap on overflow): it just wraps. If you care about overflow, check it in software (e.g. compare after `add`), or use an extension later, the hardware will not stop for you.
+        - **Trap**: the control-transfer itself: leave normal flow and turn to run the handler.
+
+    Base RV32I integer arithmetic (**does not** trap on overflow): it just wraps. If you care about overflow, check it in software (e.g. compare after `add`), or use an extension later, the hardware will not stop for you.
 
 ## Instruction Format by Type
 
