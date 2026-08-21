@@ -28,7 +28,7 @@ tags:
 
 - **Registers**: 32 × 32-bit. `x0` is [hardwired to 0](https://en.wikipedia.org/wiki/Zero_register) (writes are ignored). [ABI (Application Binary Interface)](https://en.wikipedia.org/wiki/Application_binary_interface) names (`ra`, `sp`, `a0`, …) are software convention, not extra hardware, see [Register Convention](#Register-Convention) and [RV32I Registers](RISC-V%20Introduction.md#RV32I-Registers) for more details.
 
-- **Load–store architecture (存储-加载架构)**: only **load/store** touch memory; ALU ops use registers only. Address form: `base + offset` → `imm(rs1)`.
+- **Load–store architecture (加载-存储架构)**: only **load/store** touch memory; ALU ops use registers only. Address form: `base + offset` → `imm(rs1)`.
 
 - **Fixed 32-bit instructions**, 4-byte aligned. There are six layouts: **R / I / S / B / U / J** (plus **I\*** for shifts). Fields `rs1`, `rs2`, `rd` stay in the same bit positions across formats to simplify decode[^fmt].
 
@@ -156,6 +156,21 @@ Opcodes / funct fields below match the [CS 61C green card](https://notes.cs61c.o
 | `sltiu rd, rs1, imm` | unsigned compare vs imm | I | `0010011` | `011` | — |
 
 Shift amount: lower **5** bits of `rs2` / imm (0–31).
+
+!!! info "Why use multiple fields to encode an instruction?"
+    In [sISA](../支持数列求和的sCPU.md#引入新指令后的sISA约定), a short **opcode** (e.g. `00` / `10` / `11`) already names the *exact* instruction: see `00` → `ADD`, `10` → `LI`. One field, one meaning.
+
+    RV32I has far more instructions, so it uses a **layered** ID:
+
+    1. **`opcode`**: which *family*? (e.g. R-type ALU, I-type ALU, load, store, …)
+
+    2. **`funct3`**: which op inside that family? (e.g. `add` vs `sll` vs `and` …)
+
+    3. **`funct7`**: only when `funct3` is still shared (classic: `add` vs `sub`, `srl` vs `sra`)
+
+    Example from the table above: `add` and `sub` share `opcode = 0110011` and `funct3 = 000`; only **`funct7`** differs. 
+    
+    Hardware must read **all** of these fields when decoding an instruction, not just the opcode.
 
 ### Memory
 

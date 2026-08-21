@@ -188,8 +188,6 @@ nav:
         - Floating Point: "obsidian/计算机系统与体系结构/cs61c/Floating Point.md"
         - RISC-V Introduction: "obsidian/计算机系统与体系结构/risc-v/RISC-V Introduction.md"
         # - Synchronous Digital Systems:
-      - RISC-V:
-        - RV32I Reference Card: "obsidian/计算机系统与体系结构/risc-v/RV32I Reference Card.md"
       - 数字逻辑电路基础:
         - 晶体管与门电路: "obsidian/计算机系统与体系结构/晶体管与门电路.md"
         - 组合逻辑电路: "obsidian/计算机系统与体系结构/组合逻辑电路.md"
@@ -199,7 +197,10 @@ nav:
       - 计算机系统的状态机模型:
         - 处理器组成及工作原理: "obsidian/计算机系统与体系结构/处理器组成及工作原理.md"
         - 指令集架构的状态机模型: "obsidian/计算机系统与体系结构/指令集架构的状态机模型.md"
+      - RISC-V:
+        - RV32I Reference Card: "obsidian/计算机系统与体系结构/risc-v/RV32I Reference Card.md"
       - 支持数列求和的sCPU: "obsidian/计算机系统与体系结构/支持数列求和的sCPU.md"
+      - minirv32处理器: "obsidian/计算机系统与体系结构/minirv32 CPU.md"
     - 操作系统:
       - 408考研大纲:
         - 操作系统概述:
