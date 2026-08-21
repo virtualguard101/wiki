@@ -1346,6 +1346,10 @@
     "obsidian/计算机系统与体系结构/risc-v/RV32I Reference Card.md": {
       "id": "3c2a3d42-6eec-8172-a12d-fe9bc4247e86",
       "url": "https://app.notion.com/p/RV32I-Reference-Card-3c2a3d426eec8172a12dfe9bc4247e86"
+    },
+    "obsidian/计算机系统与体系结构/minirv32 CPU.md": {
+      "id": "3c3a3d42-6eec-819e-a83a-ea52b62fd8e8",
+      "url": "https://app.notion.com/p/minirv32-3c3a3d426eec819ea83aea52b62fd8e8"
     }
   }
 }
