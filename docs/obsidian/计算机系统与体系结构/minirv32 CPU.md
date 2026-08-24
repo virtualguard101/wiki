@@ -392,7 +392,7 @@ ffa00513  addi a0, zero, -6
 
     - 即便到了 `0xc`, `jalr zero, 12(zero)` 也会污染 `x0`, 导致下一拍跳出自旋
 
-### I型指令汇总
+### I型指令汇总解码
 
 随着指令数量的叠加, 电路也会越来越复杂. 倘若还是将所有的电路全部全部挤在main电路中, 布线难度会急剧攀升, 因此从实现第三条指令开始, 我们应该开始考虑将电路进行模块化处理.
 
@@ -471,13 +471,46 @@ ffa00513  addi a0, zero, -6
 
     - 四条指令均包含`rd`字段, 均需要**写入**通用寄存器.
     
-    - `jalr`指令还需要**写入PC寄存器**, **从PC寄存器读取地址**并**写回**通用寄存器.
+    - `jalr`指令还需要**写入PC寄存器**, **从PC寄存器读取地址**并**写回**通用寄存器:
+        
+        $$
+        GPRs \cdot wdata = \begin{cases}
+            is\_jalr \cdot (PC + 4) \\
+            \overline{is\_jalr} \cdot (imm + R[rs1])
+        \end{cases}
+        $$
+
+        $$
+        PC \cdot D = \begin{cases}
+            is\_jalr \cdot (imm + R[rs1]) \\
+            \overline{is\_jalr} \cdot (PC + 4)
+        \end{cases}
+        $$
+
 
 - 加载-存储操作
 
     - `lbu`和`lw`指令均需要**从内存中读取数据**, 并将其**写入**通用寄存器.
 
-    - 加载时的内存地址为基址`R[rs1]`加上立即数`imm`, 这个结果**不经过寄存器**, 而是直接作为内存地址输入到内存模块中.
+    - 加载时的内存地址为均为基址加上立即数(`R[rs1] + imm`), 这个结果**不经过寄存器**, 而是直接作为内存地址输入到内存模块中.
+
+- 对解码结果进行分类, 有如下几种输出:
+
+    - 指向GPRs写使能的`GPRwe`
+
+    - GPRs的写地址`GPRwaddr`
+
+    - GPRs`rs1`的读地址`GPRraddr0`
+
+    - 经过解析与处理后将写入GPRs的数据`GPRwdata`
+
+    - 经过解析与处理后得出的RAM地址信息`RAMaddr`
+
+    - `jalr`指令中经过处理后的PC信息`PCdata`
+
+电路实现如下:
+
+![](assets/minirv32-cpu/8.png)
 
 
 [^addi-opc-dec]: [只有两条指令的minirv处理器 - F6 功能完备的迷你RISC-V处理器 | 一生一芯 v24.07 学习讲义](https://ysyx.oscc.cc/docs/2407/f/6.html#%E8%BF%B7%E4%BD%A0risc-v%E6%8C%87%E4%BB%A4%E9%9B%86)
