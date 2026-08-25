@@ -1,5 +1,5 @@
 ---
-date: 2026-08-23 15:20:43
+date: 2026-08-26 03:38:43
 title: minirv32处理器
 permalink: minirv32-cpu
 publish: true
