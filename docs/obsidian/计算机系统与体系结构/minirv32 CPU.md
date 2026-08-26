@@ -775,6 +775,10 @@ $$
     
     在[一生一芯提供的验证程序](https://ysyx.oscc.cc/slides/resources/archive/logisim-bin.tar.bz2)中, `_start` 里 `addi ra, zero, 556` (`0x22c` 的 LSB 是 0) 会把 `ra` 写成 0, 随后 `jalr ra, 0(ra)` 跳回地址 0, 表现为在 `_start` 里死循环.
 
+交互模块的电路实现如下:
+
+![](assets/minirv32-cpu/12.png)
+
 写发生在时钟沿, 读是组合的, 本拍写入的值下一拍才能读到, 单周期 CPU 正需要这样.
 
 ## 验证
