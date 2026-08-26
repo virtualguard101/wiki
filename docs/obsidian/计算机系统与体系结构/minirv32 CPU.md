@@ -1,5 +1,5 @@
 ---
-date: 2026-08-26 03:38:43
+date: 2026-08-26 15:38:43
 title: minirv32处理器
 permalink: minirv32-cpu
 publish: true
@@ -496,23 +496,27 @@ ffa00513  addi a0, zero, -6
 
 - 四条指令均包含`rd`字段, 均需要**写入**通用寄存器.
 
-- `jalr`指令还需要**写入PC寄存器**, **从PC寄存器读取地址**并**写回**通用寄存器. I 型四条指令的写回是两级选择; `lbu` 只改 load 那一路的数据, `addi` / `jalr` 不用动:
+- `jalr`指令还需要**写入PC寄存器**, **从PC寄存器读取地址**并**写回**通用寄存器.
+
+- I 型四条指令的写回是两级选择:
 
     $$
-    \textit{load\_data} =
+    \textit{load_data} =
     \begin{cases}
     \{24'b0,\; M[31:0]\langle addr[1:0]\rangle\} & lbu \\
     M[31:0]                                      & lw
     \end{cases}
     $$
+
     $$
     \textit{GPRwdata} =
     \begin{cases}
-    \textit{load\_data}     & lbu \lor lw \\
+    \textit{load_data}     & lbu \lor lw \\
     PC+4                    & jalr \\
     R[rs1]+\textit{imm}     & addi
     \end{cases}
     $$
+
     $$
     PC\cdot D =
     \begin{cases}
@@ -527,7 +531,7 @@ ffa00513  addi a0, zero, -6
 
 - 加载时的内存地址均为基址加上立即数 (`R[rs1] + imm`), 这个结果**不经过寄存器**, 而是直接作为内存地址用.
 
-- 地址抽象必须与 ROM 对齐: RAM 字地址取 `(R[rs1]+imm)[17:2]`, 也就是 `>> 2`, **不是** `<< 2`. 低 2 位 `addr[1:0]` 留下给 `lbu` 做字节选择.
+- 地址抽象必须与 ROM 对齐: RAM 字地址取 `(R[rs1]+imm)[17:2]`, 也就是 `>> 2`. 低 2 位 `addr[1:0]` 留下给下面提到的`lbu`字节访存做字节选择.
 
 - **字节访存**
 
@@ -775,17 +779,13 @@ $$
     
     在[一生一芯提供的验证程序](https://ysyx.oscc.cc/slides/resources/archive/logisim-bin.tar.bz2)中, `_start` 里 `addi ra, zero, 556` (`0x22c` 的 LSB 是 0) 会把 `ra` 写成 0, 随后 `jalr ra, 0(ra)` 跳回地址 0, 表现为在 `_start` 里死循环.
 
-交互模块的电路实现如下:
+交互控制模块的电路实现如下:
 
 ![](assets/minirv32-cpu/12.png)
 
 写发生在时钟沿, 读是组合的, 本拍写入的值下一拍才能读到, 单周期 CPU 正需要这样.
 
-## 验证
-
-下面几段都可以直接贴进 ROM (字地址连续, 不要按字节地址留空). 每段最后一条都是 `jalr zero, imm(zero)` 跳转至自身, 即自旋指令, 相当于停机. **若这段不能停住、PC 继续往 ROM 后面走, 说明 `jalr` 没有改 PC**.
-
-观察时看字节 PC, 以及 ABI 名 `a0` (`x10`).
+## 处理器功能验证
 
 ### 基础测试
 
@@ -1005,7 +1005,11 @@ fec22203  lw    tp, -20(tp)
 
 ## I/O设备
 
-通过上面的所有测试后, 目前我们就已经实现了一个完整的minirv32处理器了. 原则上来说, RV32I指令集能完成的功能, 这个处理器也可以完成.
+通过上面的所有测试后, 目前我们就已经实现了一个完整的minirv32处理器了.
+
+![如图是添加了外设后的电路实现, 在添加外设前没有VGA屏幕与VGA解码模块](assets/minirv32-cpu/13.png)
+
+原则上来说, RV32I指令集能完成的功能, 这个处理器也可以完成.
 
 为了能够将它的功能具象化, 接下来我们可以考虑为其添加一个显示屏让其渲染一些图片, 这就要用到一个Input/Output(输入/输出)元件: RGB Video.
 
@@ -1015,6 +1019,31 @@ fec22203  lw    tp, -20(tp)
 
 ### VGA编码
 
+为了实现所谓"基于访存地址范围决定访问对象"的特性, 需要在存储器的地址通路上添加一个控制模块来控制数据1是写入内存还是写入外设; 同时, 为了简化处理, 我们考虑只允许[`sw`指令](#SW指令)写入VGA显示模块.
+
+VGA屏幕的配置如下:
+
+- Cursor(光标) - No Cursor
+
+- Reset Behavior(重置行为) - Asynchronous
+
+- Color Model(颜色模式) - 888 RGB (24 bit)
+
+- Width(宽度) - 256
+
+- Height(高度) - 256
+
+对图片编码稍有了解的话, 应该知道在888 RGB编码中, 一个像素占3个字节(即上面配置中提到的24 bit). 为了方便处理, 我们将其视为4字节以对齐内存字位宽. 这样, 整个屏幕所能呈现的数据大小就为 $256 \times 256 \times 4 = 256KB$.
+
+电路实现上, 了解了上面**内存映射**的本质和像素坐标在指令中的表示方式(即寻址原理), 实现起来就没有难度了:
+
+![](assets/minirv32-cpu/14.png)
+
+实现完成后, 就可以将其组装到前面实现的处理器中, 并进行验证了.
+
+一生一芯官方提供了一个验证程序`vga`, 最终会在VGA屏幕上显示一生一芯的logo图标, 并陷入自旋:
+
+![](assets/minirv32-cpu/vga.gif)
 
 
 [^addi-opc-dec]: [只有两条指令的minirv处理器 - F6 功能完备的迷你RISC-V处理器 | 一生一芯 v24.07 学习讲义](https://ysyx.oscc.cc/docs/2407/f/6.html#%E8%BF%B7%E4%BD%A0risc-v%E6%8C%87%E4%BB%A4%E9%9B%86)
