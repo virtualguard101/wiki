@@ -5,6 +5,7 @@ alias sc := sync
 alias ob := obsidian
 alias u := update
 alias us := usync
+alias v := verify
 alias nb := newblog
 alias mi := mv-image
 alias ns := notion-sync
@@ -36,6 +37,9 @@ usync:
     just sc
     just ob
     just ns
+
+verify:
+    uv run mkdocs build
 
 newblog title="":
     cp templates/blog.md "docs/blog/posts/{{ title }}.md"
