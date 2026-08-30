@@ -40,7 +40,8 @@ nav:
         - C Pointers, Arrays, and Strings: "obsidian/编程语言/c/C-Pointers-Arrays-and-Strings.md"
         - C Memory Management: "obsidian/编程语言/c/C Memory Management.md"
         # - C Generics, Function Pointers: "obsidian/编程语言/c/C Generics and Function Pointers.md"
-        # - C Odds and Ends: "obsidian/编程语言/c/C Odds and Ends.md"
+        # - C Odds and Ends: "obsidian/编程语言/c/C Odds and End.md"
+        - 整数除法的表达式取值: "obsidian/编程语言/c/整数除法的表达式取值.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/编程语言/cpp/cs106l/基础类型与结构体.md"
