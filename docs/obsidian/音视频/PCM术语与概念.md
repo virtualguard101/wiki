@@ -4,7 +4,7 @@ title: PCM术语与概念
 permalink: pcm-terminology-and-concepts
 publish: true
 tags:
-  - Audio
+  - 音视频
 ---
 
 # PCM术语与概念
