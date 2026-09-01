@@ -42,6 +42,7 @@ nav:
         # - C Generics, Function Pointers: "obsidian/编程语言/c/C Generics and Function Pointers.md"
         # - C Odds and Ends: "obsidian/编程语言/c/C Odds and End.md"
         - 整数除法的表达式取值: "obsidian/编程语言/c/整数除法的表达式取值.md"
+        - switch语句: "obsidian/编程语言/c/switch语句.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/编程语言/cpp/cs106l/基础类型与结构体.md"
@@ -304,6 +305,7 @@ nav:
       - UML图: "obsidian/软件工程/UML图.md"
       - 开发流程与开发规范: "obsidian/软件工程/开发流程与开发规范.md"
       - 语义化版本: "obsidian/软件工程/语义化版本.md"
+      - 增量型开发: "obsidian/软件工程/增量型开发.md"
     - 人工智能:
       - 机器学习:
         - "入门":
