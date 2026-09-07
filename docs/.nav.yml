@@ -43,6 +43,7 @@ nav:
         # - C Odds and Ends: "obsidian/编程语言/c/C Odds and End.md"
         - 整数除法的表达式取值: "obsidian/编程语言/c/整数除法的表达式取值.md"
         - switch语句: "obsidian/编程语言/c/switch语句.md"
+        - C语言编码风格: "obsidian/编程语言/c/内核编码约定.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/编程语言/cpp/cs106l/基础类型与结构体.md"
@@ -334,8 +335,7 @@ nav:
       - CSS要点: "obsidian/Misc/CSS要点.md"
       - 安全要点: "obsidian/Misc/Web安全要点.md"
     - 音视频:
-      - 编曲:
-        - 乐理基础: "obsidian/音视频/乐理基础.md"
+      - 乐理基础: "obsidian/音视频/乐理基础.md"
       - PCM术语与概念: "obsidian/音视频/PCM术语与概念.md"
     - Misc:
       - 解决方案:
