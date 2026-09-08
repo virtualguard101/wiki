@@ -52,6 +52,6 @@ mv-image dest:
 #   just notion-sync --base HEAD~3 --section obsidian/
 #   just notion-sync-full --section obsidian/
 notion-sync args="":
-    uvx mkdocs-note ns {{ args }}
+    uvx mkdocs-note ns {{ args }} --continue-on-error
 notion-sync-full:
     uvx mkdocs-note ns --full
