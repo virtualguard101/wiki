@@ -9,10 +9,6 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
-[*.{c,h,cc,hh,cpp,hpp,cu,cuh}]
-indent_style = space
-indent_size = 2
-
 [.editorconfig]
 indent_style = space
 indent_size = 4
