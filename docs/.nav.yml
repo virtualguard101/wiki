@@ -7,6 +7,7 @@ nav:
       - 学术资源: "obsidian/Misc/resources/学术资源.md"
       - 工程、求职、杂项资源: "obsidian/Misc/resources/工程、求职、杂项资源.md"
     - 工具:
+      - 远程服务器使用基础: "obsidian/Tools/远程服务器使用基础.md"
       - Linux:
         - Linux杂项/基础: "obsidian/Tools/linux/Linux基础、杂项.md"
         - Linux定时任务: "obsidian/Tools/linux/Linux定时任务.md"
@@ -17,19 +18,19 @@ nav:
         - ufw: "obsidian/Tools/linux/ufw.md"
         - Linux软件包管理: "obsidian/Tools/linux/Linux软件包管理.md"
         - Man pages: "obsidian/Tools/linux/Man pages.md"
-      - 远程服务器使用基础: "obsidian/Tools/远程服务器使用基础.md"
-      - Git: "obsidian/Tools/Git.md"
-      - Just: "obsidian/Tools/Just.md"
-      - Astral uv: "obsidian/Tools/Astral uv.md"
-      - Conda: "obsidian/Tools/Conda.md"
-      - Jupyter Notebook: "obsidian/Tools/jupyter.ipynb"
-      - chezmoi: "obsidian/Tools/chezmoi.md"
       - 构建工具:
         - GNU Make: "obsidian/Tools/构建工具/GNU Make.md"
         - CMake: "obsidian/Tools/构建工具/CMake.md"
         - vcpkg: "obsidian/Tools/构建工具/vcpkg.md"
         - SCons: "obsidian/Tools/构建工具/SCons.md"
         - xmake: "obsidian/Tools/构建工具/xmake.md"
+      - Git: "obsidian/Tools/Git.md"
+      - Just: "obsidian/Tools/Just.md"
+      - Astral uv: "obsidian/Tools/Astral uv.md"
+      - Conda: "obsidian/Tools/Conda.md"
+      - Jupyter Notebook: "obsidian/Tools/jupyter.ipynb"
+      - chezmoi: "obsidian/Tools/chezmoi.md"
+      - 调试器: "obsidian/Tools/调试器.md"
     - 编程语言:
       - Python:
         - Python包管理: "obsidian/编程语言/python/Python包管理.md"
