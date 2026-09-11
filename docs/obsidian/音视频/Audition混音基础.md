@@ -10,7 +10,7 @@ tags:
 # Audition混音基础
 
 <div class="responsive-video-container">
-    <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=115970710444028&bvid=BV1Pe67BsEyk&cid=35655386454&p=1"
+    <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=115970710444028&bvid=BV1Pe67BsEyk&cid=35655386454&p=1&autoplay=0"
     scrolling="no" 
     border="0" 
     frameborder="no" 
