@@ -1,5 +1,5 @@
 ---
-date: 2026-09-10 16:51:47
+date: 2026-09-11 00:51:47
 title: Audition混音基础
 permalink: audition-mix
 publish: true
@@ -43,5 +43,7 @@ tags:
     现代 DAW 的求和大多足够干净; 听感差距几乎都来自编排, 增益结构, 以及[掩蔽](调音混音背后的声学理论基础.md#心理声学). AU 自带的修复 / 降噪 / 频谱编辑, 对人声干声甚至更顺手.
 
     换软件的理由应是某件事**做不到**, 而不是还不知道该听什么, 如果是后者换了 Cubase 也会同样卡住.
+
+## AU的基本操作
 
 [^1]: [Adobe Audition | Wikipedia](https://en.wikipedia.org/wiki/Adobe_Audition)
