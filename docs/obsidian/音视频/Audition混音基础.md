@@ -11,7 +11,7 @@ tags:
 
 ## 混音的基本概念
 
-混音的一个核心目的就是让编曲和调音调出的干声更好听.
+简单来说, 混音的核心目的就是让编曲和调音调出的干声更好听.
 
 <div class="responsive-video-container">
     <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=1500117390&bvid=BV17U421Z7zN&cid=1428909342&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
