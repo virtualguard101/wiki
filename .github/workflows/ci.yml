@@ -26,4 +26,6 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r requirements.txt
+      # gh-deploy --force replaces gh-pages with site/. CNAME must be in the build.
+      - run: cp CNAME docs/CNAME
       - run: mkdocs gh-deploy --force
