@@ -9,16 +9,6 @@ tags:
 
 # Audition混音基础
 
-## 混音的基本概念
-
-简单来说, 混音的核心目的就是让编曲和调音调出的干声更好听.
-
-<div class="responsive-video-container">
-    <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=1500117390&bvid=BV17U421Z7zN&cid=1428909342&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-</div>
-
-## Audition简介
-
 <div class="responsive-video-container">
     <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=115970710444028&bvid=BV1Pe67BsEyk&cid=35655386454&p=1&autoplay=0"
     scrolling="no" 
@@ -28,6 +18,8 @@ tags:
     allowfullscreen="true"> 
     </iframe>
 </div>
+
+## Audition简介
 
 **Adobe Audition**(以下简称AU)是由Adobe公司开发的DAW（数字音频工作站）, 具备多轨, 非破坏性混音/编辑环境以及破坏性波形编辑视图[^1].
 
