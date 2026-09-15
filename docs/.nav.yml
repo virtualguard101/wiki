@@ -178,7 +178,7 @@ nav:
         - 其他内部排序: "obsidian/数据结构与算法/408/其他内部排序.md"
         - 各种内部排序算法的比较及应用: "obsidian/数据结构与算法/408/各种内部排序算法的比较及应用.md"
         - 外部排序: "obsidian/数据结构与算法/408/外部排序.md"
-      # - k-th Order Statistics: "obsidian/数据结构与算法/408/k-th-Order-Statistics.md"
+      - 顺序统计量: "obsidian/数据结构与算法/408/k-th-Order-Statistics.md"
     - 计算机系统与体系结构:
       - 408考研大纲:
         - 计算机系统概述:
@@ -276,35 +276,34 @@ nav:
         - Traceroute: "obsidian/计算机网络/cs168/Traceroute.md"
       - 套接字接口: "obsidian/计算机网络/套接字接口.md"
     - 数据库系统:
-      - Legacy:
-        - 数据库系统概述:
-          - 数据库系统的基本概念: "obsidian/数据库系统/数据库系统的基本概念.md"
-          - 数据库系统的特点与组成: "obsidian/数据库系统/数据库系统的特点与组成.md"
-          - 数据库系统结构: "obsidian/数据库系统/数据库系统结构.md"
-        - 信息与数据模型:
-          - 信息的三种世界及描述: "obsidian/数据库系统/信息的三种世界及描述.md"
-          - 数据模型: "obsidian/数据库系统/数据模型.md"
-          - 概念模型: "obsidian/数据库系统/概念模型.md"
-          - 逻辑模型: "obsidian/数据库系统/逻辑模型.md"
-          - 概念模型向逻辑模型的转换: "obsidian/数据库系统/概念模型向逻辑模型的转换.md"
-          - 关系模型: "obsidian/数据库系统/关系模型.md"
-        - 关系代数与关系数据库理论:
-          - 关系的数学定义: "obsidian/数据库系统/关系的数学定义.md"
-          - 关系代数及其演算: "obsidian/数据库系统/关系代数及其演算.md"
-          - 关系数据库理论: "obsidian/数据库系统/关系数据库理论.md"
-          - 关系模式的分解: "obsidian/数据库系统/关系模式的分解.md"
-        - SQL操作要点:
-          - 建表: "obsidian/数据库系统/SQL操作要点-建表.md"
-          - 查询: "obsidian/数据库系统/SQL操作要点-查询.md"
-          - 辅助索引: "obsidian/数据库系统/SQL操作要点-辅助索引.md"
-          - 视图: "obsidian/数据库系统/SQL操作要点-视图.md"
-          - 函数与存储过程: "obsidian/数据库系统/SQL操作要点-函数与存储过程.md"
-          - 事务管理与并发控制: "obsidian/数据库系统/SQL操作要点-事务管理与并发控制.md"
-          - 触发器与事件调度: "obsidian/数据库系统/SQL操作要点-触发器与事件调度.md"
-        - MongoDB操作要点: "obsidian/数据库系统/MongoDB操作要点.md"
       - CMU 15-445:
         - Relational Model & Algebra: "obsidian/数据库系统/cmu15-445/Relational Model & Algebra.md"
         # - Modern SQL: "obsidian/数据库系统/cmu15-445/Modern SQL.md"
+      - 数据库系统概述:
+        - 数据库系统的基本概念: "obsidian/数据库系统/数据库系统的基本概念.md"
+        - 数据库系统的特点与组成: "obsidian/数据库系统/数据库系统的特点与组成.md"
+        - 数据库系统结构: "obsidian/数据库系统/数据库系统结构.md"
+      - 信息与数据模型:
+        - 信息的三种世界及描述: "obsidian/数据库系统/信息的三种世界及描述.md"
+        - 数据模型: "obsidian/数据库系统/数据模型.md"
+        - 概念模型: "obsidian/数据库系统/概念模型.md"
+        - 逻辑模型: "obsidian/数据库系统/逻辑模型.md"
+        - 概念模型向逻辑模型的转换: "obsidian/数据库系统/概念模型向逻辑模型的转换.md"
+        - 关系模型: "obsidian/数据库系统/关系模型.md"
+      - 关系代数与关系数据库理论:
+        - 关系的数学定义: "obsidian/数据库系统/关系的数学定义.md"
+        - 关系代数及其演算: "obsidian/数据库系统/关系代数及其演算.md"
+        - 关系数据库理论: "obsidian/数据库系统/关系数据库理论.md"
+        - 关系模式的分解: "obsidian/数据库系统/关系模式的分解.md"
+      - SQL操作要点:
+        - 建表: "obsidian/数据库系统/SQL操作要点-建表.md"
+        - 查询: "obsidian/数据库系统/SQL操作要点-查询.md"
+        - 辅助索引: "obsidian/数据库系统/SQL操作要点-辅助索引.md"
+        - 视图: "obsidian/数据库系统/SQL操作要点-视图.md"
+        - 函数与存储过程: "obsidian/数据库系统/SQL操作要点-函数与存储过程.md"
+        - 事务管理与并发控制: "obsidian/数据库系统/SQL操作要点-事务管理与并发控制.md"
+        - 触发器与事件调度: "obsidian/数据库系统/SQL操作要点-触发器与事件调度.md"
+      - MongoDB操作要点: "obsidian/数据库系统/MongoDB操作要点.md"
     - 软件工程:
       - UML图: "obsidian/软件工程/UML图.md"
       - 开发流程与开发规范: "obsidian/软件工程/开发流程与开发规范.md"
@@ -312,7 +311,7 @@ nav:
       - 增量型开发: "obsidian/软件工程/增量型开发.md"
     - 人工智能:
       - 机器学习:
-        - "入门":
+        - 基础概念:
           - 监督学习与非监督学习: "obsidian/机器学习/coursera/监督学习与非监督学习.md"
           - 回归:
             - 回归模型概述: "obsidian/机器学习/coursera/回归模型概述.md"
