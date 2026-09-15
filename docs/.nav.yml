@@ -178,6 +178,7 @@ nav:
         - 其他内部排序: "obsidian/数据结构与算法/408/其他内部排序.md"
         - 各种内部排序算法的比较及应用: "obsidian/数据结构与算法/408/各种内部排序算法的比较及应用.md"
         - 外部排序: "obsidian/数据结构与算法/408/外部排序.md"
+      # - k-th Order Statistics: "obsidian/数据结构与算法/408/k-th-Order-Statistics.md"
     - 计算机系统与体系结构:
       - 408考研大纲:
         - 计算机系统概述:
@@ -300,9 +301,10 @@ nav:
           - 函数与存储过程: "obsidian/数据库系统/SQL操作要点-函数与存储过程.md"
           - 事务管理与并发控制: "obsidian/数据库系统/SQL操作要点-事务管理与并发控制.md"
           - 触发器与事件调度: "obsidian/数据库系统/SQL操作要点-触发器与事件调度.md"
+        - MongoDB操作要点: "obsidian/数据库系统/MongoDB操作要点.md"
       - CMU 15-445:
         - Relational Model & Algebra: "obsidian/数据库系统/cmu15-445/Relational Model & Algebra.md"
-        # [ ] - Modern SQL: "obsidian/数据库系统/cmu15-445/Modern SQL.md"
+        # - Modern SQL: "obsidian/数据库系统/cmu15-445/Modern SQL.md"
     - 软件工程:
       - UML图: "obsidian/软件工程/UML图.md"
       - 开发流程与开发规范: "obsidian/软件工程/开发流程与开发规范.md"
