@@ -103,7 +103,7 @@ nav:
           - 微积分: "obsidian/数学/微积分/overview/微积分的本质-微积分.md"
           - 泰勒级数: "obsidian/数学/微积分/overview/微积分的本质-泰勒级数.md"
       - 线性代数:
-        - Legacy:
+        - 速通:
           - 行列式: "obsidian/数学/线性代数/行列式.md"
           - 行列式的展开: "obsidian/数学/线性代数/行列式的展开.md"
           - 矩阵: "obsidian/数学/线性代数/矩阵.md"
