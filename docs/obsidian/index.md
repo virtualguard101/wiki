@@ -13,7 +13,7 @@ publish: true
 
 <!-- ![](../assets/images/berkeley-eecs.png) -->
 
-![](../assets/images/index_miku.jpg)
+![](../assets/images/2233.jpg)
 
 <!-- <div>
   <p>
