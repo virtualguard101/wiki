@@ -339,8 +339,10 @@ nav:
       - CSS要点: "obsidian/Misc/CSS要点.md"
       - 安全要点: "obsidian/Misc/Web安全要点.md"
     - 音视频:
+      - 音频工具概述: "obsidian/音视频/音频工具概述.md"
       - PCM术语与概念: "obsidian/音视频/PCM术语与概念.md"
       - 调音混音背后的声学理论基础: "obsidian/音视频/调音混音背后的声学理论基础.md"
+      - 乐理基础: "obsidian/音视频/乐理基础.md"
       - Audition混音基础: "obsidian/音视频/Audition混音基础.md"
     - Misc:
       - 解决方案:
