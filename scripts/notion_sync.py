@@ -367,6 +367,43 @@ def notion_indent_block(text: str, tabs: int = 1) -> str:
     return "\n".join(out)
 
 
+# Skip regions where $var / markdown must stay literal (fences before inline `...`).
+_CODE_RE = re.compile(r"```[\s\S]*?```|~~~[\s\S]*?~~~|`[^`\n]+`")
+# Also skip links/images so math does not rewrite $@ / $* inside labels or URLs.
+_CODE_OR_LINK_RE = re.compile(
+    r"```[\s\S]*?```|~~~[\s\S]*?~~~|"
+    r"!\[[^\]]*\]\([^)]*\)|\[[^\]]*\]\([^)]*\)|"
+    r"`[^`\n]+`"
+)
+
+
+def map_outside_code(
+    text: str,
+    transform: Any,
+    *,
+    also_skip_links: bool = False,
+) -> str:
+    """Run ``transform`` outside fenced/inline code (and optionally links/images)."""
+    slots: List[str] = []
+    pattern = _CODE_OR_LINK_RE if also_skip_links else _CODE_RE
+
+    def stash(match: re.Match[str]) -> str:
+        slots.append(match.group(0))
+        return f"⟦CODECHUNK:{len(slots) - 1}⟧"
+
+    masked = pattern.sub(stash, text)
+    transformed = transform(masked)
+
+    def restore(match: re.Match[str]) -> str:
+        return slots[int(match.group(1))]
+
+    return re.sub(r"⟦CODECHUNK:(\d+)⟧", restore, transformed)
+
+
+# Back-compat alias used by older call sites / tests.
+map_outside_fences = map_outside_code
+
+
 _ADMON_LINE_RE = re.compile(
     r"^(?P<indent>[ \t]*)"
     r"(?P<markers>[!?]{3})(?P<expanded>\+?)"
@@ -446,12 +483,16 @@ def convert_admonitions_and_tabs(text: str) -> str:
 
 
 def convert_inline_math(text: str) -> str:
-    def repl_block(match: re.Match[str]) -> str:
-        return f"$`{match.group(1).strip()}`$"
+    def transform(chunk: str) -> str:
+        def repl_block(match: re.Match[str]) -> str:
+            return f"$`{match.group(1).strip()}`$"
 
-    text = re.sub(r"\$\$([\s\S]+?)\$\$", lambda m: f"$${m.group(1)}$$", text)
-    text = re.sub(r"(?<!\$)\$(?!\$)([^$\n]+?)\$(?!\$)", repl_block, text)
-    return text
+        chunk = re.sub(r"\$\$([\s\S]+?)\$\$", lambda m: f"$${m.group(1)}$$", chunk)
+        chunk = re.sub(r"(?<!\$)\$(?!\$)([^$\n]+?)\$(?!\$)", repl_block, chunk)
+        return chunk
+
+    # $0 / $uri / $@ inside ``` / `inline` / [links](...) must stay literal.
+    return map_outside_code(text, transform, also_skip_links=True)
 
 
 def convert_html_blocks(text: str) -> str:
@@ -520,21 +561,25 @@ def convert_images(
     site_url: str,
     upload_local: Optional[Any] = None,
 ) -> str:
-    def repl(match: re.Match[str]) -> str:
-        alt = match.group(1) or ""
-        src = match.group(2).strip()
-        if upload_local is not None and not src.startswith(("http://", "https://")):
-            local = resolve_local_asset_path(src, source_file)
-            if local is not None:
-                uploaded = upload_local(local)
-                if uploaded:
-                    if str(uploaded).startswith("file-upload://"):
-                        return f'<image src="{uploaded}">{alt}</image>'
-                    return f"\n\n{uploaded}\n\n"
-        url = resolve_image_url(src, source_file, site_url)
-        return f"![{alt}]({url})"
+    def transform(chunk: str) -> str:
+        def repl(match: re.Match[str]) -> str:
+            alt = match.group(1) or ""
+            src = match.group(2).strip()
+            if upload_local is not None and not src.startswith(("http://", "https://")):
+                local = resolve_local_asset_path(src, source_file)
+                if local is not None:
+                    uploaded = upload_local(local)
+                    if uploaded:
+                        if str(uploaded).startswith("file-upload://"):
+                            return f'<image src="{uploaded}">{alt}</image>'
+                        return f"\n\n{uploaded}\n\n"
+            url = resolve_image_url(src, source_file, site_url)
+            return f"![{alt}]({url})"
 
-    return re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", repl, text)
+        return re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", repl, chunk)
+
+    # Still rewrite real images; only skip fenced/inline code examples.
+    return map_outside_code(text, transform)
 
 
 def convert_links(
@@ -542,27 +587,30 @@ def convert_links(
     source_file: Path,
     page_map: Dict[str, Dict[str, str]],
 ) -> str:
-    def repl(match: re.Match[str]) -> str:
-        label = match.group(1)
-        raw = match.group(2)
-        if raw.startswith(("http://", "https://")):
-            return match.group(0)
-        anchor = ""
-        if "#" in raw:
-            path_part, anchor = raw.split("#", 1)
-        else:
-            path_part = raw
-        if not path_part:
-            return match.group(0)
-        rel = resolve_internal_target(path_part, source_file)
-        if rel in page_map and page_map[rel].get("url"):
-            url = page_map[rel]["url"]
-            if anchor:
-                url = f"{url}#{anchor}"
-            return f'<mention-page url="{url}">{label}</mention-page>'
-        return f"[{label}]({raw})"
+    def transform(chunk: str) -> str:
+        def repl(match: re.Match[str]) -> str:
+            label = match.group(1)
+            raw = match.group(2)
+            if raw.startswith(("http://", "https://")):
+                return match.group(0)
+            anchor = ""
+            if "#" in raw:
+                path_part, anchor = raw.split("#", 1)
+            else:
+                path_part = raw
+            if not path_part:
+                return match.group(0)
+            rel = resolve_internal_target(path_part, source_file)
+            if rel in page_map and page_map[rel].get("url"):
+                url = page_map[rel]["url"]
+                if anchor:
+                    url = f"{url}#{anchor}"
+                return f'<mention-page url="{url}">{label}</mention-page>'
+            return f"[{label}]({raw})"
 
-    return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", repl, text)
+        return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", repl, chunk)
+
+    return map_outside_code(text, transform)
 
 
 def ipynb_to_markdown(path: Path) -> Tuple[Dict[str, Any], str]:
