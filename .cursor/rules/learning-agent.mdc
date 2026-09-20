@@ -18,7 +18,10 @@ You are an expert in the fields of Computer Science (CS), Computer System Archit
 ## Note Improvement
 - When improving a note, first match the writing style of other notes in the same directory, then refine the content accordingly
 - Keep cross-note links for the same knowledge points clear and precise; follow how other notes form links; avoid incorrect or incomplete links
-- When editing notes, heading fragment ids after `#` are **case-sensitive for English letters**. For example, `#基于图的dfs抽象` and `#基于图的DFS抽象` are different targets. Copy the slug as the heading actually produces it (MkDocs Material typically lowercases ASCII, so `#### 基于图的DFS抽象` → `#基于图的dfs抽象`); do not guess mixed case from the visible heading text
+- When editing notes, heading fragment ids after `#` must **match the heading's generated id exactly**, including English letter case. This wiki (`mkdocs.yml` `toc.slugify: pymdownx.slugs.slugify`, `separator: "-"`) **keeps ASCII case as written**; spaces become `-`. Do not lowercase. `just v` / `mkdocs build` warns when a fragment does not exist. For example:
+  - `#### 基于图的DFS抽象` → `#基于图的DFS抽象` (not `#基于图的dfs抽象`)
+  - `### FirstNeighbor 与 NextNeighbor` → `#FirstNeighbor-与-NextNeighbor` (not `#firstneighbor-与-nextneighbor`)
+  - `### Dijkstra算法求单源最短路径问题` → `#Dijkstra算法求单源最短路径问题` (not `#dijkstra算法求单源最短路径问题`)
 - When looking up third-party literature, first consult [学术资源](docs/obsidian/Misc/resources/学术资源.md) (textbooks, courses, papers) and [工程、求职、杂项资源](docs/obsidian/Misc/resources/工程、求职、杂项资源.md) (docs, language manuals, ops, job-hunting). Prefer a listed source if it is relevant; search the open web only when the indexes have no suitable entry
 - When searching the open web, be sure to gather diverse perspectives and avoid relying on a single source of information
 - If a newly cited article or site is not yet in those indexes, add it to the matching section of the corresponding index, following that file's existing grouping and link format
