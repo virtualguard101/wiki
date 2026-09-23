@@ -47,6 +47,7 @@ nav:
         - 整数除法的表达式取值: "obsidian/编程语言/c/整数除法的表达式取值.md"
         - switch语句: "obsidian/编程语言/c/switch语句.md"
         - C语言编码风格: "obsidian/编程语言/c/内核编码约定.md"
+        - 数据类型详解: "obsidian/编程语言/c/数据类型详解.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/编程语言/cpp/cs106l/基础类型与结构体.md"
@@ -334,6 +335,7 @@ nav:
       - 智能体:
         - 智能体概述: "obsidian/人工智能/智能体概述.md"
         - 智能体发展史: "obsidian/人工智能/智能体发展史.md"
+        - Computer Use: "obsidian/人工智能/Computer-Use.md"
     - Web:
       - HTML要点: "obsidian/Misc/HTML要点.md"
       - CSS要点: "obsidian/Misc/CSS要点.md"
