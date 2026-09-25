@@ -48,6 +48,7 @@ nav:
         - switch语句: "obsidian/编程语言/c/switch语句.md"
         - C语言编码风格: "obsidian/编程语言/c/内核编码约定.md"
         - 数据类型详解: "obsidian/编程语言/c/数据类型详解.md"
+        - 位运算和其他运算符: "obsidian/编程语言/c/位运算和其他运算符.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/编程语言/cpp/cs106l/基础类型与结构体.md"
