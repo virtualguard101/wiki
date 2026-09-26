@@ -1,5 +1,5 @@
 ---
-date: 2025-05-25 21:26:00
+date: 2026-09-26 23:55:00
 title: GNU Make
 permalink: 
 publish: true
@@ -16,4 +16,8 @@ tags:
 
 - 官方主页 & 文档：[https://www.gnu.org/software/make/#documentation](https://www.gnu.org/software/make/#documentation)
 
-- 教程：[Makefile Tutorial By Example](https://makefiletutorial.com/)
+- 教程
+
+    - [Makefile Tutorial By Example](https://makefiletutorial.com/)
+
+    - [Makefile基础 | Linux C编程一站式学习](https://akaedu.github.io/book/ch22.html)
