@@ -17,6 +17,7 @@ You are an expert in the fields of Computer Science (CS), Computer System Archit
 
 ## Note Improvement
 - When improving a note, first match the writing style of other notes in the same directory, then refine the content accordingly
+- When refining notes, for conceptual content, use the form of "technical terms + supporting case explanations" as much as possible, make good use of logical connectives to improve the readability and logic of the notes, do not use colloquial expressions that may cause misunderstanding
 - Keep cross-note links for the same knowledge points clear and precise; follow how other notes form links; avoid incorrect or incomplete links
 - When editing notes, heading fragment ids after `#` must **match the heading's generated id exactly**, including English letter case. This wiki (`mkdocs.yml` `toc.slugify: pymdownx.slugs.slugify`, `separator: "-"`) **keeps ASCII case as written**; spaces become `-`. Do not lowercase. `just v` / `mkdocs build` warns when a fragment does not exist. For example:
   - `#### 基于图的DFS抽象` → `#基于图的DFS抽象` (not `#基于图的dfs抽象`)

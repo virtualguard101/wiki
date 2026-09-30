@@ -23,7 +23,7 @@ tags:
     </iframe>
 </div>
 
-!!! abstract "Learning Outcomes"
+!!! abstract
     - Learn characteristics of the C memory layout.
 
     - Differentiate between storage allocation and variable declaration.

@@ -21,7 +21,7 @@ tags:
     </iframe>
 </div>
 
-!!! abstract "Learning Outcomes"
+!!! abstract
     - Declare and initialize basic variable types in C.
 
     - Use `stdint.h` typedefs where possible, because widths of basic integer types are processor-dependent.

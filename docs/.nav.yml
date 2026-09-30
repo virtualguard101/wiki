@@ -39,17 +39,19 @@ nav:
         - Python虚拟环境: "obsidian/编程语言/python/Python虚拟环境.md"
         - PEP8格式化: "obsidian/编程语言/python/PEP8格式化.md"
       - C:
-        - C Basics: "obsidian/编程语言/c/C Basics.md"
-        - C Pointers, Arrays, and Strings: "obsidian/编程语言/c/C-Pointers-Arrays-and-Strings.md"
-        - C Memory Management: "obsidian/编程语言/c/C Memory Management.md"
-        # - C Generics, Function Pointers: "obsidian/编程语言/c/C Generics and Function Pointers.md"
-        # - C Odds and Ends: "obsidian/编程语言/c/C Odds and End.md"
+        - CS61C:
+          - C Basics: "obsidian/编程语言/c/C-Basics.md"
+          - C Pointers, Arrays, and Strings: "obsidian/编程语言/c/C-Pointers-Arrays-and-Strings.md"
+          - C Memory Management: "obsidian/编程语言/c/C-Memory-Management.md"
+          - C Generics and Function Pointers: "obsidian/编程语言/c/C-Generics-and-Function-Pointers.md"
+          - C Odds and Ends: "obsidian/编程语言/c/C-Odds-and-Ends.md"
         - 整数除法的表达式取值: "obsidian/编程语言/c/整数除法的表达式取值.md"
         - switch语句: "obsidian/编程语言/c/switch语句.md"
         - C语言编码风格: "obsidian/编程语言/c/内核编码约定.md"
         - 数据类型详解: "obsidian/编程语言/c/数据类型详解.md"
         - 位运算和其他运算符: "obsidian/编程语言/c/位运算和其他运算符.md"
         - 预处理: "obsidian/编程语言/c/预处理.md"
+        - 指针详解: "obsidian/编程语言/c/指针详解.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/编程语言/cpp/cs106l/基础类型与结构体.md"
