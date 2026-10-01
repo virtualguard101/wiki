@@ -140,6 +140,14 @@ plugins:
         allow_cursor_mcp_token: true
         silence_mcp_token_warning: true
         local_images: site
+      preview_config:
+        enabled: true
+        mode: excerpt
+        delay_ms: 300
+        max_chars: 200
+        include_fragments: true
+        mobile: false
+        scope: linked_only
 
 extra_css:
   - assets/webfonts/Cascadia Mono/font.css
