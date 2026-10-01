@@ -1378,6 +1378,30 @@
     "obsidian/编程语言/c/预处理.md": {
       "id": "3e7a3d42-6eec-8114-b92b-cfeb60aec025",
       "url": "https://app.notion.com/p/3e7a3d426eec8114b92bcfeb60aec025"
+    },
+    "Notebook/编程语言/C/CS61C": {
+      "id": "3eba3d42-6eec-81ac-8866-deddd2d50088",
+      "url": "https://app.notion.com/p/CS61C-3eba3d426eec81ac8866deddd2d50088"
+    },
+    "obsidian/编程语言/c/C-Basics.md": {
+      "id": "3eba3d42-6eec-8165-833e-fe5b9277217e",
+      "url": "https://app.notion.com/p/C-Basics-3eba3d426eec8165833efe5b9277217e"
+    },
+    "obsidian/编程语言/c/C-Generics-and-Function-Pointers.md": {
+      "id": "3eba3d42-6eec-81f8-908b-ef02117bbf29",
+      "url": "https://app.notion.com/p/C-Generics-and-Function-Pointers-3eba3d426eec81f8908bef02117bbf29"
+    },
+    "obsidian/编程语言/c/C-Memory-Management.md": {
+      "id": "3eba3d42-6eec-8104-8069-c4e0efc35445",
+      "url": "https://app.notion.com/p/C-Memory-Management-3eba3d426eec81048069c4e0efc35445"
+    },
+    "obsidian/编程语言/c/C-Odds-and-Ends.md": {
+      "id": "3eba3d42-6eec-81ed-8a3d-e3dc5fcaf239",
+      "url": "https://app.notion.com/p/C-Odds-and-Ends-3eba3d426eec81ed8a3de3dc5fcaf239"
+    },
+    "obsidian/编程语言/c/指针详解.md": {
+      "id": "3eba3d42-6eec-8177-9f6b-c8615c41b4d0",
+      "url": "https://app.notion.com/p/3eba3d426eec81779f6bc8615c41b4d0"
     }
   }
 }
