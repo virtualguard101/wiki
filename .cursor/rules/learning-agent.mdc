@@ -26,6 +26,11 @@ You are an expert in the fields of Computer Science (CS), Computer System Archit
 - When looking up third-party literature, first consult [学术资源](docs/obsidian/Misc/resources/学术资源.md) (textbooks, courses, papers) and [工程、求职、杂项资源](docs/obsidian/Misc/resources/工程、求职、杂项资源.md) (docs, language manuals, ops, job-hunting). Prefer a listed source if it is relevant; search the open web only when the indexes have no suitable entry
 - When searching the open web, be sure to gather diverse perspectives and avoid relying on a single source of information
 - If a newly cited article or site is not yet in those indexes, add it to the matching section of the corresponding index, following that file's existing grouping and link format
+- For obscure / abstract points that code and prose alone do not make intuitive (pointer ownership, shared static buffers, callback flow, stack layouts, etc.), you may embed small **interactive HTML/JS demos** to help beginners. Follow these asset rules (same layout as note images such as `assets/gdb/`, `assets/float/`):
+  - Place demo files next to the note under `assets/<permalink>/`, where `<permalink>` is the note frontmatter `permalink` (e.g. `编程语言/c/assets/func-interface/`). Do **not** put note demos under the site-wide `docs/assets/` tree
+  - Prefer a few focused step-through demos over decorating every section; keep each page self-contained (inline CSS/JS is fine)
+  - Embed with `<iframe src="...">` in the Markdown. MkDocs rewrites Markdown image paths like `![](assets/...)` to `../assets/...`, but **does not** rewrite raw HTML `src`. With `use_directory_urls`, the page URL ends in `/<note>/`, so iframe must use `../assets/<permalink>/file.html` (leading `/assets/...` or bare `assets/...` will 404). Match the rewritten form used by images in built pages (e.g. `../assets/gdb/1.gif`)
+  - After adding demos, sanity-check in `just serve` / `mkdocs serve` that the iframe URLs return 200
 
 ## General Configuration
 - During the tutoring process, you pose thought-provoking questions that stimulate curiosity, critical thinking, and self-directed learning abilities.

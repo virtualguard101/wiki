@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>回调函数</title>
+<style>
+  :root { --font: "LXGW WenKai Screen", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; --mono: "Cascadia Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; }
+  :root, [data-theme="dark"] { --card: #232631; --sub: #1b1e27; --line: rgba(255,255,255,.08); --line2: rgba(255,255,255,.16); --text: #e3e5ea; --muted: #9ba2ae; --faint: #6c7380; --accent: #8c9eff; --hl: rgba(140,158,255,.16); --blue: #7aa7ff; --green: #5fcf8f; --amber: #f2b552; --red: #f07a83; --cyan: #5fd0dc; --violet: #c59cf0; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.18); }
+  [data-theme="light"] { --card: #ffffff; --sub: #f5f6f8; --line: rgba(0,0,0,.08); --line2: rgba(0,0,0,.16); --text: #1f2328; --muted: #59616b; --faint: #8b929c; --accent: #3f51b5; --hl: rgba(63,81,181,.10); --blue: #2f6fde; --green: #1b9a55; --amber: #b7770a; --red: #d43f55; --cyan: #0e8fa1; --violet: #8b4fd1; --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: transparent; }
+  body { padding: 4px 4px 12px; font: 14px/1.6 var(--font); color: var(--text); }
+  code { font-family: var(--mono); font-size: .92em; }
+  .demo { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .head { padding: 14px 18px 10px; }
+  .eyebrow { font-size: 11px; letter-spacing: .14em; color: var(--accent); font-weight: 700; }
+  .head h1 { margin: 2px 0 4px; font-size: 16px; }
+  .lead { margin: 0; color: var(--muted); font-size: 13px; }
+  .tabs { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; padding: 3px; border-radius: 10px; background: var(--sub); border: 1px solid var(--line); }
+  .tab { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 13px; padding: 4px 12px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .tab.on { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.18); }
+  .tab .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .body { display: grid; gap: 12px; padding: 0 18px 14px; }
+  .pane { background: var(--sub); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; position: relative; min-width: 0; }
+  .pane-t { font-size: 12px; color: var(--muted); margin-bottom: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+  .pane-t b { color: var(--text); font-weight: 600; }
+  pre.code { margin: 0; font: 12.5px/1.8 var(--mono); overflow-x: auto; }
+  .ln { display: block; padding-right: 8px; border-left: 3px solid transparent; border-radius: 4px; white-space: pre; transition: background .2s; }
+  .ln i { display: inline-block; width: 1.8em; margin-right: 10px; text-align: right; color: var(--faint); font-style: normal; user-select: none; }
+  .ln.cur { background: var(--hl); border-left-color: var(--accent); }
+  .ln.cur i { color: var(--accent); }
+  .tk-k { color: var(--violet); } .tk-t { color: var(--cyan); } .tk-s { color: var(--green); } .tk-n { color: var(--amber); } .tk-c { color: var(--faint); font-style: italic; } .tk-f { color: var(--blue); }
+  .narr { flex: 1; padding: 12px 18px; border-top: 1px solid var(--line); }
+  .meta { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); }
+  .badge { padding: 0 8px; border-radius: 999px; background: var(--hl); color: var(--accent); font-weight: 600; }
+  .narr h2 { margin: 4px 0; font-size: 15px; }
+  .narr p { margin: 0; font-size: 13.5px; line-height: 1.8; }
+  .key { margin-top: 8px; padding: 7px 10px; border-radius: 8px; font-size: 13px; background: var(--hl); border-left: 3px solid var(--accent); }
+  .key b { color: var(--accent); margin-right: 8px; }
+  .key.warn { background: color-mix(in srgb, var(--red) 12%, transparent); border-left-color: var(--red); }
+  .key.warn b { color: var(--red); }
+  .ctl { display: flex; align-items: center; gap: 8px; padding: 10px 18px 14px; flex-wrap: wrap; border-top: 1px solid var(--line); }
+  .btn { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--line2); background: var(--card); color: var(--text); font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 8px; cursor: pointer; transition: border-color .15s, opacity .15s; }
+  .btn:hover:not(:disabled) { border-color: var(--accent); }
+  .btn:disabled { opacity: .4; cursor: default; }
+  .btn.pri { background: var(--accent); border-color: var(--accent); color: #fff; }
+  [data-theme="dark"] .btn.pri { color: #14172a; }
+  .dots { display: flex; gap: 6px; margin: 0 4px; }
+  .dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: var(--line2); cursor: pointer; transition: all .2s; }
+  .dots button.done { background: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .dots button.on { width: 22px; background: var(--accent); }
+  .hint { margin-left: auto; font-size: 12px; color: var(--faint); }
+  kbd { font: 11px var(--mono); padding: 0 5px; margin-right: 2px; border: 1px solid var(--line2); border-bottom-width: 2px; border-radius: 4px; }
+  svg.arrows { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; z-index: 3; }
+  svg.arrows .new { animation: fadein .45s ease; }
+  @keyframes fadein { from { opacity: 0; } }
+  .flash { animation: glow .9s ease; }
+  @keyframes glow { 0% { box-shadow: 0 0 0 2px var(--accent), 0 0 0 6px var(--hl); } 100% { box-shadow: 0 0 0 0 transparent; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+  .body { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }
+  @media (max-width: 700px) { .body { grid-template-columns: minmax(0, 1fr); } }
+  .lg { display: inline-flex; align-items: center; gap: 5px; }
+  .lg::before { content: ""; width: 9px; height: 9px; border-radius: 3px; background: color-mix(in srgb, var(--c) 35%, transparent); border: 1px solid var(--c); }
+  .lg.u, .own.u { --c: var(--blue); }
+  .lg.l, .own.l { --c: var(--green); }
+  .ln.own-u:not(.cur) { background: color-mix(in srgb, var(--blue) 8%, transparent); }
+  .ln.own-l:not(.cur) { background: color-mix(in srgb, var(--green) 8%, transparent); }
+  .mem { position: relative; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); column-gap: 28px; padding-left: 24px; }
+  .col-t { font-size: 11px; color: var(--faint); margin-bottom: 4px; }
+  .col-t + .col-t, .blk + .col-t { margin-top: 12px; }
+  .frame { border: 1px solid var(--line2); border-left: 3px solid var(--c); border-radius: 10px; padding: 6px 8px 8px; background: var(--card); transition: opacity .35s; }
+  .frame.u { --c: var(--blue); }
+  .frame.l { --c: var(--green); }
+  .frame + .frame { margin-top: 8px; }
+  .frame.hidden { visibility: hidden; }
+  .ft { display: flex; justify-content: space-between; align-items: center; gap: 6px; font: 600 12px var(--mono); }
+  .ft + .var, .ft + .none { margin-top: 6px; }
+  .own { font: 11px var(--font); padding: 0 7px; border-radius: 99px; color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); white-space: nowrap; }
+  .none { font-size: 11px; color: var(--faint); }
+  .var { border: 1px solid var(--line); border-radius: 8px; padding: 3px 8px 5px; background: var(--sub); }
+  .var + .var { margin-top: 5px; }
+  .vh { display: flex; align-items: baseline; gap: 6px; font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .vh code { font-size: 13px; font-weight: 700; color: var(--text); }
+  .vh .va { margin-left: auto; font: 10.5px var(--mono); color: var(--faint); }
+  .vv { display: inline-block; margin-top: 2px; padding: 0 8px; border-radius: 6px; font: 600 12.5px var(--mono); background: var(--card); border: 1px solid var(--line2); }
+  .blk { padding: 6px 10px; border-radius: 10px; font-size: 12px; line-height: 1.5; background: var(--card); border: 1px solid var(--line2); }
+  .blk + .blk { margin-top: 8px; }
+  .blk .ha { font: 10.5px var(--mono); color: var(--faint); }
+  .blk b { font-family: var(--mono); }
+  .blk.fn { border-color: color-mix(in srgb, var(--violet) 55%, transparent); }
+  .blk.fn b { color: var(--violet); }
+  .blk.str b { color: var(--amber); }
+  .term { border-radius: 8px; padding: 6px 10px; min-height: 92px; background: #15171d; color: #d6d9df; font: 12.5px/1.7 var(--mono); border: 1px solid var(--line); }
+  .term .pr, .term .wait { color: #7c8492; }
+  .term .wait { font-style: italic; }
+  .term .new { color: #5fcf8f; }
+  .hist { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+  .hist span { font: 600 13px var(--mono); padding: 0 8px; border-radius: 6px; border: 1px solid var(--line2); background: var(--card); color: var(--faint); }
+  .hist span.now { color: var(--green); border-color: color-mix(in srgb, var(--green) 55%, transparent); }
+  .hist em { color: var(--faint); font-style: normal; }
+</style>
+</head>
+<body>
+<div class="demo">
+  <div class="head">
+    <div class="eyebrow">交互演示</div>
+    <h1>回调: 库决定「何时调用」, 调用者决定「做什么」</h1>
+    <p class="lead">同一个 <code>repeat_three_times</code>, 换两种回调和数据. 留意执行流如何在调用者与库之间来回跳转.</p>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="body">
+    <div class="pane">
+      <div class="pane-t"><b>代码</b><span class="lg u">调用者写的</span><span class="lg l">库提供的</span></div>
+      <pre class="code" id="code"></pre>
+    </div>
+    <div class="pane">
+      <div class="pane-t"><b>运行时</b> 地址为示意</div>
+      <div class="mem" id="mem"></div>
+    </div>
+  </div>
+  <div class="narr" id="narr"></div>
+  <div class="ctl" id="ctl"></div>
+</div>
+<script>
+var D = (function () {
+  var NS = 'http://www.w3.org/2000/svg', root = document.documentElement, P = null;
+  try { if (parent !== window && parent.document.body) P = parent.document; } catch (e) {}
+  function theme() {
+    var s = P && P.body.getAttribute('data-md-color-scheme');
+    var dark = s ? s === 'slate' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'dark' : 'light';
+  }
+  theme();
+  if (P) {
+    new MutationObserver(theme).observe(P.body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
+    P.querySelectorAll('link[rel="stylesheet"][href*="webfonts"]').forEach(function (l) {
+      var n = document.createElement('link'); n.rel = 'stylesheet'; n.href = l.href; document.head.appendChild(n);
+    });
+  }
+  function $(q) { return document.querySelector(q); }
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var RE = /(\/\*.*?\*\/|\/\/.*)|("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')|\b(void|int|char|size_t|unit_t|callback_t|va_list|const)\b|\b(static|return|if|while|switch|case|break|default|typedef|sizeof|NULL)\b|\b(0x[0-9a-fA-F]+|\d+)\b|\b([A-Za-z_]\w*)(?=\s*\()/g;
+  function hl(line) {
+    var out = '', last = 0, m; RE.lastIndex = 0;
+    while ((m = RE.exec(line))) {
+      out += esc(line.slice(last, m.index));
+      out += '<span class="tk-' + (m[1] ? 'c' : m[2] ? 's' : m[3] ? 't' : m[4] ? 'k' : m[5] ? 'n' : 'f') + '">' + esc(m[0]) + '</span>';
+      last = RE.lastIndex;
+    }
+    return out + esc(line.slice(last));
+  }
+  function code(pre, src) {
+    pre.innerHTML = src.split('\n').map(function (l, k) {
+      return '<span class="ln" data-n="' + (k + 1) + '"><i>' + (k + 1) + '</i>' + hl(l) + '</span>';
+    }).join('');
+  }
+  var V = { l: [-1, 0], r: [1, 0], t: [0, -1], b: [0, 1] };
+  function pt(r, h, side, dx) {
+    var x = r.left - h.left, y = r.top - h.top;
+    if (side === 'l') return [x, y + r.height / 2];
+    if (side === 'r') return [x + r.width, y + r.height / 2];
+    if (side === 't') return [x + r.width / 2 + (dx || 0), y];
+    return [x + r.width / 2 + (dx || 0), y + r.height];
+  }
+  function draw(host, list, anim) {
+    var svg = host.querySelector(':scope > svg.arrows');
+    if (!svg) { svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'arrows'); host.appendChild(svg); }
+    svg.setAttribute('width', host.scrollWidth); svg.setAttribute('height', host.scrollHeight);
+    var h = host.getBoundingClientRect(), prev = host._keys || {}, keys = {}, colors = {}, html = '';
+    list.forEach(function (a) {
+      var f = document.getElementById(a.from), t = document.getElementById(a.to);
+      if (!f || !t) return;
+      var fs = a.fs || 'r', ts = a.ts || 'l', b = a.bend == null ? 40 : a.bend, d, p, q;
+      if (a.from === a.to) {
+        p = pt(f.getBoundingClientRect(), h, fs, -7); q = pt(t.getBoundingClientRect(), h, ts, 7);
+        d = 'M' + p + 'C' + (p[0] - 18) + ',' + (p[1] - 32) + ' ' + (q[0] + 18) + ',' + (q[1] - 32) + ' ' + q;
+      } else {
+        p = pt(f.getBoundingClientRect(), h, fs, a.fdx); q = pt(t.getBoundingClientRect(), h, ts, a.tdx);
+        d = 'M' + p + 'C' + (p[0] + V[fs][0] * b) + ',' + (p[1] + V[fs][1] * b) + ' ' + (q[0] + V[ts][0] * b) + ',' + (q[1] + V[ts][1] * b) + ' ' + q;
+      }
+      var c = a.color || 'accent', k = a.key || (a.from + '>' + a.to + c);
+      colors[c] = 1; keys[k] = 1;
+      html += '<g class="' + (anim && !prev[k] ? 'new' : '') + '" style="color:var(--' + c + ')">' +
+        '<path d="' + d + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"' + (a.dash ? ' stroke-dasharray="5 4"' : '') + ' marker-end="url(#mk-' + c + ')"/>' +
+        '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="3" fill="currentColor"/></g>';
+    });
+    var defs = Object.keys(colors).map(function (c) {
+      return '<marker id="mk-' + c + '" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1 L9,5 L0,9 z" style="fill:var(--' + c + ')"/></marker>';
+    }).join('');
+    svg.innerHTML = '<defs>' + defs + '</defs>' + html;
+    host._keys = keys;
+  }
+  var queued = null;
+  function arrows(host, list, anim) {
+    var first = !queued; queued = { host: host, list: list, anim: anim };
+    if (first) requestAnimationFrame(function () { var q = queued; queued = null; draw(q.host, q.list, q.anim); q.host._last = q; });
+  }
+  function redraw() { document.querySelectorAll('.mem').forEach(function (h) { if (h._last) draw(h._last.host, h._last.list, false); }); }
+  function fit() { try { if (frameElement) frameElement.style.height = Math.ceil(document.documentElement.getBoundingClientRect().height) + 'px'; } catch (e) {} }
+  function run(cfg) {
+    var keys = Object.keys(cfg.modes), mode = keys[0], i = 0, timer = 0, lastW = -1;
+    var demo = $('.demo'), pre = $('#code'), tabs = $('#tabs'), ctl = $('#ctl'), narr = $('#narr');
+    if (tabs && keys.length > 1) {
+      tabs.innerHTML = keys.map(function (k) {
+        var m = cfg.modes[k];
+        return '<button class="tab" data-m="' + k + '"><span class="dot" style="color:var(--' + (m.tone || 'accent') + ')"></span>' + m.label + '</button>';
+      }).join('');
+      tabs.onclick = function (e) { var b = e.target.closest('.tab'); if (b && b.dataset.m !== mode) { stop(); mode = b.dataset.m; i = 0; build(); show(true); } };
+    } else if (tabs) tabs.remove();
+    ctl.innerHTML = '<button class="btn" data-a="prev">‹ 上一步</button><button class="btn pri" data-a="next">下一步 ›</button>' +
+      '<button class="btn" data-a="play"></button><div class="dots"></div><button class="btn" data-a="reset">↺ 重置</button>' +
+      '<span class="hint"><kbd>←</kbd><kbd>→</kbd>切换步骤</span>';
+    ctl.onclick = function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      var a = b.dataset.a;
+      if (b.dataset.i) { stop(); go(+b.dataset.i); }
+      else if (a === 'play') { timer ? stop() : play(); }
+      else { stop(); go(a === 'prev' ? i - 1 : a === 'next' ? i + 1 : 0); }
+    };
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault(); stop(); go(i + (e.key === 'ArrowRight' ? 1 : -1));
+    });
+    function steps() { return cfg.modes[mode].steps; }
+    function go(k) { k = Math.max(0, Math.min(steps().length - 1, k)); if (k !== i) { i = k; show(true); } }
+    function play() {
+      if (i >= steps().length - 1) { i = 0; show(true); }
+      timer = setInterval(function () { if (i >= steps().length - 1) stop(); else go(i + 1); }, cfg.interval || 3200);
+      sync();
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = 0; sync(); } }
+    function build() {
+      if (pre) D.code(pre, cfg.modes[mode].code);
+      if (tabs) tabs.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t.dataset.m === mode); });
+      ctl.querySelector('.dots').innerHTML = steps().map(function (_, k) { return '<button data-i="' + k + '" aria-label="第 ' + (k + 1) + ' 步"></button>'; }).join('');
+    }
+    function sync() {
+      var n = steps().length;
+      ctl.querySelectorAll('.dots button').forEach(function (d, k) { d.className = k === i ? 'on' : k < i ? 'done' : ''; });
+      ctl.querySelector('[data-a="prev"]').disabled = i === 0;
+      ctl.querySelector('[data-a="next"]').disabled = i === n - 1;
+      ctl.querySelector('[data-a="play"]').textContent = timer ? '❚❚ 暂停' : '▶ 自动播放';
+    }
+    function show(anim) {
+      var s = steps()[i], lines = [].concat(s.line || []);
+      if (pre) pre.querySelectorAll('.ln').forEach(function (el) { el.classList.toggle('cur', lines.indexOf(+el.dataset.n) >= 0); });
+      narr.innerHTML = '<div class="meta"><span>第 ' + (i + 1) + ' 步 / 共 ' + steps().length + ' 步</span>' +
+        (s.phase ? '<span class="badge">' + s.phase + '</span>' : '') + '</div><h2>' + s.title + '</h2><p>' + s.text + '</p>' +
+        (s.key ? '<div class="key"><b>要点</b>' + s.key + '</div>' : '') + (s.warn ? '<div class="key warn"><b>注意</b>' + s.warn + '</div>' : '');
+      cfg.render(s, mode, anim);
+      sync();
+    }
+    function measure() {
+      var m0 = mode, i0 = i, max = 0;
+      demo.style.minHeight = '';
+      keys.forEach(function (m) {
+        mode = m; build();
+        steps().forEach(function (_, k) { i = k; show(false); max = Math.max(max, demo.offsetHeight); });
+      });
+      mode = m0; i = i0; build(); show(false);
+      demo.style.minHeight = max + 'px';
+      fit();
+    }
+    function onResize() { if (innerWidth !== lastW) { lastW = innerWidth; measure(); } else redraw(); }
+    addEventListener('resize', onResize);
+    onResize();
+    if (document.fonts) document.fonts.ready.then(measure);
+  }
+  return { $: $, code: code, arrows: arrows, run: run, fit: fit };
+})();
+</script>
+<script>
+(function () {
+  var $ = D.$;
+  var LIB = 'typedef void (*callback_t)(void *);\n\nvoid repeat_three_times(callback_t f, void *para)\n{\n    f(para);\n    f(para);\n    f(para);\n}\n\n';
+  var HELLO = LIB + 'void say_hello(void *str)\n{\n    printf("Hello %s\\n", (const char *)str);\n}\n\nrepeat_three_times(say_hello, "Guys");';
+  var COUNT = LIB + 'void count(void *p)\n{\n    (*(int *)p)++;\n}\n\nint n = 0;\nrepeat_three_times(count, &n);';
+
+  var CFG = {
+    hello: { fn: 'say_hello', fa: '0x401136', param: 'str', pa: '0x4006a0', user: [10, 11, 12, 13, 15] },
+    count: { fn: 'count', fa: '0x401150', param: 'p', pa: '0x7ffc', user: [10, 11, 12, 13, 15, 16] }
+  };
+
+  var hello = [
+    { line: 15, lib: false, cb: 0, out: 0, title: '调用者把「一段行为」交给库函数',
+      text: 'say_hello 是调用者自己写的函数. 函数名作实参时会转换成函数的<b>入口地址</b> (这里假设是 <code>0x401136</code>), <code>"Guys"</code> 则转换成字符串的首地址. 两者都按值传递.' },
+    { line: [15, 3], lib: true, cb: 0, out: 0, phase: '进入库函数', title: '库函数收到 f 和 para', flash: ['fr-lib'],
+      text: 'f 的类型是 callback_t, 即「指向 <code>void (void *)</code> 函数的指针」, 里面存着 say_hello 的地址. para 是 <code>void *</code>: 库函数不知道它指向什么, 也不需要知道, 只负责原样转交.',
+      key: 'repeat_three_times 编写时根本不知道 say_hello 的存在, 它只认识 callback_t 这个函数指针类型.' },
+    { line: [5, 12], lib: true, cb: 1, out: 1, phase: '回调 第 1 次', title: '第 1 次 f(para): 执行流回到调用者的代码', flash: ['fr-cb'],
+      text: '通过函数指针 f 发起调用, 程序跳到 say_hello 执行, 形参 str 收到 para 的值. 库函数又「调回」了调用者写的代码, 这就是<b>回调</b>名字的由来. say_hello 把 <code>void *</code> 转回 <code>const char *</code>, 打印 Hello Guys.',
+      key: 'para 的真实类型只有调用者知道, 所以由回调函数 (调用者一方) 负责把 <code>void *</code> 转回原来的类型.' },
+    { line: [6, 12], lib: true, cb: 2, out: 2, phase: '回调 第 2 次', title: '第 2 次 f(para)', flash: ['fr-cb'],
+      text: 'say_hello 返回后, 回到库函数的下一行, 再次调用 f. 每次回调都会新建一个 say_hello 栈帧, 返回时销毁.' },
+    { line: [7, 12], lib: true, cb: 3, out: 3, phase: '回调 第 3 次', title: '第 3 次 f(para)', flash: ['fr-cb'],
+      text: '调几次, 什么时候调, 完全由库函数决定. 调用者只提供了「每次要做什么」.' },
+    { line: 15, lib: false, cb: 0, out: 3, phase: '返回', title: '库函数返回, 回到 main',
+      text: 'repeat_three_times 执行完毕, 栈帧销毁, 程序回到调用点. 终端里留下三行 Hello Guys.',
+      key: '换一个回调, 同一个库函数就能做完全不同的事. 切到下一个标签看看.' }
+  ];
+  var count = [
+    { line: 15, lib: false, cb: 0, n: [0], title: 'main 定义计数器 n',
+      text: '这次调用者想让库函数帮它数数: 写一个回调 count, 每被调用一次就把计数器加 1. n 是 main 的局部变量, 假设地址为 <code>0x7ffc</code>.' },
+    { line: [16, 3], lib: true, cb: 0, n: [0], phase: '进入库函数', title: '同一个库函数, 这次 para 装的是 int *', flash: ['fr-lib'],
+      text: 'f 存的是 count 的地址, para 存的是 n 的地址 <code>&amp;n</code>. 对库函数来说它仍然只是一个 <code>void *</code>, repeat_three_times 的代码一个字都不用改.' },
+    { line: [5, 12], lib: true, cb: 1, n: [0, 1], phase: '回调 第 1 次', title: '第 1 次回调: count 把 void * 转成 int * 再加 1', flash: ['fr-cb', 'vv-n'],
+      text: '<code>(int *)p</code> 先把 <code>void *</code> 转回 <code>int *</code>, 解引用得到 n, 再自增. n 从 0 变成 1.',
+      key: '<code>void *</code> 不能直接解引用, 必须先转换成具体类型的指针. 转成什么类型, 只有写回调的调用者知道.' },
+    { line: [6, 12], lib: true, cb: 2, n: [0, 1, 2], phase: '回调 第 2 次', title: '第 2 次回调: n = 2', flash: ['fr-cb', 'vv-n'],
+      text: '回调改的是 main 里的 n 本身, 因为 p 指向它. 这其实就是前面讲过的「传出参数」.' },
+    { line: [7, 12], lib: true, cb: 3, n: [0, 1, 2, 3], phase: '回调 第 3 次', title: '第 3 次回调: n = 3', flash: ['fr-cb', 'vv-n'],
+      text: '库函数按自己的节奏调了第三次, 对 n 的含义一无所知.' },
+    { line: 16, lib: false, cb: 0, n: [0, 1, 2, 3], phase: '返回', title: '回到 main: n 等于 3',
+      text: 'repeat_three_times 返回后, main 读到 n 为 3.',
+      key: '库函数只负责「调三次」, para 指向字符串还是计数器由调用者决定. qsort 能排序任意类型的数组, 靠的也是这一套: <code>void *</code> 数据 + 调用者提供的比较回调.' }
+  ];
+
+  function v(id, name, type, addr, val) {
+    return '<div class="var" id="v-' + id + '"><div class="vh"><code>' + name + '</code><span>' + type + '</span><span class="va">' + (addr || '') + '</span></div>' +
+      '<span class="vv" id="vv-' + id + '">' + val + '</span></div>';
+  }
+
+  function render(s, mode, anim) {
+    var c = CFG[mode], isHello = mode === 'hello', list = [];
+    $('#code').querySelectorAll('.ln').forEach(function (el) {
+      var n = +el.dataset.n;
+      el.classList.toggle('own-l', n >= 3 && n <= 8);
+      el.classList.toggle('own-u', c.user.indexOf(n) >= 0);
+    });
+    var nNow = s.n ? s.n[s.n.length - 1] : 0;
+    var cb = '<div class="frame u' + (s.cb ? '' : ' hidden') + '" id="fr-cb"><div class="ft"><span>' + c.fn + '()' + (s.cb ? ' · 第 ' + s.cb + ' 次' : '') + '</span><span class="own u">调用者</span></div>' +
+      v('cbp', c.param, 'void *', '', c.pa) + '</div>';
+    var lib = '<div class="frame l' + (s.lib ? '' : ' hidden') + '" id="fr-lib"><div class="ft"><span>repeat_three_times()</span><span class="own l">库</span></div>' +
+      v('f', 'f', 'callback_t', '', c.fa) + v('para', 'para', 'void *', '', c.pa) + '</div>';
+    var main = '<div class="frame u" id="fr-main"><div class="ft"><span>main()</span><span class="own u">调用者</span></div>' +
+      (isHello ? '<div class="none">没有局部变量</div>' : v('n', 'n', 'int', '0x7ffc', nNow)) + '</div>';
+    var right = '<div class="col-t">代码区' + (isHello ? ' / 常量区' : '') + '</div>' +
+      '<div class="blk fn" id="fn"><div class="ha">' + c.fa + '</div><b>' + c.fn + '</b><div>调用者写的函数 (机器码)</div></div>' +
+      (isHello ? '<div class="blk str" id="str"><div class="ha">' + c.pa + '</div><b>"Guys"</b><div>字符串常量</div></div>' : '');
+    if (isHello) {
+      var lines = [];
+      for (var k = 0; k < s.out; k++) lines.push('<span class="' + (anim && k === s.out - 1 && s.cb ? 'new' : '') + '">Hello Guys</span>');
+      right += '<div class="col-t">终端输出</div><div class="term"><span class="pr">$ ./a.out</span><br>' + (lines.length ? lines.join('<br>') : '<span class="wait">(还没有输出)</span>') + '</div>';
+    } else {
+      right += '<div class="col-t">n 的变化</div><div class="hist">' + s.n.map(function (x, k) {
+        return (k ? '<em>→</em>' : '') + '<span class="' + (k === s.n.length - 1 ? 'now' : '') + '">' + x + '</span>';
+      }).join('') + '</div>';
+    }
+    $('#mem').innerHTML = '<div><div class="col-t">调用栈 (新的调用压在上面)</div>' + cb + lib + main + '</div><div>' + right + '</div>';
+    if (anim) (s.flash || []).forEach(function (id) { var el = document.getElementById(id); if (el) el.classList.add('flash'); });
+
+    if (s.lib) {
+      list.push({ from: 'vv-f', to: 'fn', color: 'violet', bend: 30 });
+      list.push(isHello ? { from: 'vv-para', to: 'str', color: 'amber', bend: 30 } : { from: 'v-para', to: 'v-n', fs: 'l', ts: 'l', bend: 22, color: 'amber' });
+    }
+    if (s.cb) list.push(isHello ? { from: 'vv-cbp', to: 'str', color: 'amber', bend: 30, tdx: 0 } : { from: 'v-cbp', to: 'v-n', fs: 'l', ts: 'l', bend: 40, color: 'amber' });
+    D.arrows($('#mem'), list, anim);
+  }
+
+  D.run({
+    modes: {
+      hello: { label: '打印字符串', tone: 'blue', code: HELLO, steps: hello },
+      count: { label: '累加计数', tone: 'green', code: COUNT, steps: count }
+    },
+    render: render,
+    interval: 3600
+  });
+})();
+</script>
+</body>
+</html>

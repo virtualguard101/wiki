@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>可变参数</title>
+<style>
+  :root { --font: "LXGW WenKai Screen", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; --mono: "Cascadia Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; }
+  :root, [data-theme="dark"] { --card: #232631; --sub: #1b1e27; --line: rgba(255,255,255,.08); --line2: rgba(255,255,255,.16); --text: #e3e5ea; --muted: #9ba2ae; --faint: #6c7380; --accent: #8c9eff; --hl: rgba(140,158,255,.16); --blue: #7aa7ff; --green: #5fcf8f; --amber: #f2b552; --red: #f07a83; --cyan: #5fd0dc; --violet: #c59cf0; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.18); }
+  [data-theme="light"] { --card: #ffffff; --sub: #f5f6f8; --line: rgba(0,0,0,.08); --line2: rgba(0,0,0,.16); --text: #1f2328; --muted: #59616b; --faint: #8b929c; --accent: #3f51b5; --hl: rgba(63,81,181,.10); --blue: #2f6fde; --green: #1b9a55; --amber: #b7770a; --red: #d43f55; --cyan: #0e8fa1; --violet: #8b4fd1; --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: transparent; }
+  body { padding: 4px 4px 12px; font: 14px/1.6 var(--font); color: var(--text); }
+  code { font-family: var(--mono); font-size: .92em; }
+  .demo { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .head { padding: 14px 18px 10px; }
+  .eyebrow { font-size: 11px; letter-spacing: .14em; color: var(--accent); font-weight: 700; }
+  .head h1 { margin: 2px 0 4px; font-size: 16px; }
+  .lead { margin: 0; color: var(--muted); font-size: 13px; }
+  .tabs { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; padding: 3px; border-radius: 10px; background: var(--sub); border: 1px solid var(--line); }
+  .tab { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 13px; padding: 4px 12px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .tab.on { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.18); }
+  .tab .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .body { display: grid; gap: 12px; padding: 0 18px 14px; }
+  .pane { background: var(--sub); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; position: relative; min-width: 0; }
+  .pane-t { font-size: 12px; color: var(--muted); margin-bottom: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+  .pane-t b { color: var(--text); font-weight: 600; }
+  pre.code { margin: 0; font: 12.5px/1.8 var(--mono); overflow-x: auto; }
+  .ln { display: block; padding-right: 8px; border-left: 3px solid transparent; border-radius: 4px; white-space: pre; transition: background .2s; }
+  .ln i { display: inline-block; width: 1.8em; margin-right: 10px; text-align: right; color: var(--faint); font-style: normal; user-select: none; }
+  .ln.cur { background: var(--hl); border-left-color: var(--accent); }
+  .ln.cur i { color: var(--accent); }
+  .tk-k { color: var(--violet); } .tk-t { color: var(--cyan); } .tk-s { color: var(--green); } .tk-n { color: var(--amber); } .tk-c { color: var(--faint); font-style: italic; } .tk-f { color: var(--blue); }
+  .narr { flex: 1; padding: 12px 18px; border-top: 1px solid var(--line); }
+  .meta { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); }
+  .badge { padding: 0 8px; border-radius: 999px; background: var(--hl); color: var(--accent); font-weight: 600; }
+  .narr h2 { margin: 4px 0; font-size: 15px; }
+  .narr p { margin: 0; font-size: 13.5px; line-height: 1.8; }
+  .key { margin-top: 8px; padding: 7px 10px; border-radius: 8px; font-size: 13px; background: var(--hl); border-left: 3px solid var(--accent); }
+  .key b { color: var(--accent); margin-right: 8px; }
+  .key.warn { background: color-mix(in srgb, var(--red) 12%, transparent); border-left-color: var(--red); }
+  .key.warn b { color: var(--red); }
+  .ctl { display: flex; align-items: center; gap: 8px; padding: 10px 18px 14px; flex-wrap: wrap; border-top: 1px solid var(--line); }
+  .btn { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--line2); background: var(--card); color: var(--text); font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 8px; cursor: pointer; transition: border-color .15s, opacity .15s; }
+  .btn:hover:not(:disabled) { border-color: var(--accent); }
+  .btn:disabled { opacity: .4; cursor: default; }
+  .btn.pri { background: var(--accent); border-color: var(--accent); color: #fff; }
+  [data-theme="dark"] .btn.pri { color: #14172a; }
+  .dots { display: flex; gap: 6px; margin: 0 4px; }
+  .dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: var(--line2); cursor: pointer; transition: all .2s; }
+  .dots button.done { background: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .dots button.on { width: 22px; background: var(--accent); }
+  .hint { margin-left: auto; font-size: 12px; color: var(--faint); }
+  kbd { font: 11px var(--mono); padding: 0 5px; margin-right: 2px; border: 1px solid var(--line2); border-bottom-width: 2px; border-radius: 4px; }
+  svg.arrows { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; z-index: 3; }
+  svg.arrows .new { animation: fadein .45s ease; }
+  @keyframes fadein { from { opacity: 0; } }
+  .flash { animation: glow .9s ease; }
+  @keyframes glow { 0% { box-shadow: 0 0 0 2px var(--accent), 0 0 0 6px var(--hl); } 100% { box-shadow: 0 0 0 0 transparent; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+  .body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  @media (max-width: 700px) { .body { grid-template-columns: minmax(0, 1fr); } }
+  .mem { position: relative; }
+  .sect + .sect { margin-top: 14px; }
+  .st { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 11px; color: var(--faint); margin-bottom: 5px; }
+  .st code { color: var(--text); font-size: 12px; }
+  .fmt { display: flex; gap: 4px; }
+  .fc { width: 38px; display: flex; flex-direction: column; align-items: center; padding: 3px 0 1px; border-radius: 6px; border: 1px solid var(--line); background: var(--card); transition: all .25s; }
+  .fc b { font: 600 14px/1.3 var(--mono); }
+  .fc b.z { color: var(--faint); font-weight: 400; font-size: 12px; }
+  .fc i { font: 9px var(--mono); color: var(--faint); font-style: normal; }
+  .fc.done { opacity: .45; }
+  .fc.cur { border-color: var(--accent); background: var(--hl); box-shadow: 0 0 0 2px var(--hl); }
+  .fc.cur b { color: var(--accent); }
+  .fc.spec b { text-decoration: underline 2px color-mix(in srgb, var(--accent) 60%, transparent); text-underline-offset: 3px; }
+  .slots, .aprow { display: grid; gap: 6px; }
+  .slot { border: 1px solid var(--line2); border-radius: 8px; padding: 5px 7px; background: var(--card); min-width: 0; transition: opacity .3s; }
+  .slot .sl { display: block; font-size: 10.5px; color: var(--faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .slot .sv { display: block; font: 600 13px var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .slot .sy { display: block; font-size: 10.5px; color: var(--muted); }
+  .slot.named { border-style: solid; background: var(--sub); }
+  .slot.named .sv { color: var(--cyan); }
+  .slot.used { opacity: .5; }
+  .slot.used .sl::after { content: " · 已读取"; color: var(--green); }
+  .slot.ghost { border-style: dashed; background: transparent; }
+  .slot.ghost .sv { color: var(--faint); }
+  .slot.bad { border-color: var(--red); background: color-mix(in srgb, var(--red) 10%, var(--card)); opacity: 1; }
+  .slot.bad .sv { color: var(--red); }
+  .aprow { margin-top: 20px; height: 24px; }
+  .apc { justify-self: center; padding: 0 10px; border-radius: 99px; font: 600 12px/22px var(--mono); color: var(--amber); border: 1px solid color-mix(in srgb, var(--amber) 55%, transparent); background: color-mix(in srgb, var(--amber) 12%, var(--card)); }
+  .apc.off { visibility: hidden; }
+  .term { border-radius: 8px; padding: 6px 10px; min-height: 64px; background: #15171d; color: #d6d9df; font: 12.5px/1.7 var(--mono); border: 1px solid var(--line); white-space: pre; tab-size: 4; }
+  .term .pr, .term .wait, .term .ws { color: #7c8492; }
+  .term .wait { font-style: italic; }
+  .term .err { color: #f07a83; }
+</style>
+</head>
+<body>
+<div class="demo">
+  <div class="head">
+    <div class="eyebrow">交互演示</div>
+    <h1>可变参数: <code>va_list</code> 是一个按约定前进的游标</h1>
+    <p class="lead">函数原型里看不到 <code>...</code> 部分的个数和类型. myprintf 只能边读格式串边用 <code>va_arg</code> 逐个取参数.</p>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="body">
+    <div class="pane">
+      <div class="pane-t"><b>代码</b> 高亮行 = 正在执行</div>
+      <pre class="code" id="code"></pre>
+    </div>
+    <div class="pane">
+      <div class="pane-t"><b>运行时</b> 参数区为示意, 真实 ABI 可能用寄存器传参</div>
+      <div class="mem" id="mem"></div>
+    </div>
+  </div>
+  <div class="narr" id="narr"></div>
+  <div class="ctl" id="ctl"></div>
+</div>
+<script>
+var D = (function () {
+  var NS = 'http://www.w3.org/2000/svg', root = document.documentElement, P = null;
+  try { if (parent !== window && parent.document.body) P = parent.document; } catch (e) {}
+  function theme() {
+    var s = P && P.body.getAttribute('data-md-color-scheme');
+    var dark = s ? s === 'slate' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'dark' : 'light';
+  }
+  theme();
+  if (P) {
+    new MutationObserver(theme).observe(P.body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
+    P.querySelectorAll('link[rel="stylesheet"][href*="webfonts"]').forEach(function (l) {
+      var n = document.createElement('link'); n.rel = 'stylesheet'; n.href = l.href; document.head.appendChild(n);
+    });
+  }
+  function $(q) { return document.querySelector(q); }
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var RE = /(\/\*.*?\*\/|\/\/.*)|("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')|\b(void|int|char|size_t|unit_t|callback_t|va_list|const)\b|\b(static|return|if|while|switch|case|break|default|typedef|sizeof|NULL)\b|\b(0x[0-9a-fA-F]+|\d+)\b|\b([A-Za-z_]\w*)(?=\s*\()/g;
+  function hl(line) {
+    var out = '', last = 0, m; RE.lastIndex = 0;
+    while ((m = RE.exec(line))) {
+      out += esc(line.slice(last, m.index));
+      out += '<span class="tk-' + (m[1] ? 'c' : m[2] ? 's' : m[3] ? 't' : m[4] ? 'k' : m[5] ? 'n' : 'f') + '">' + esc(m[0]) + '</span>';
+      last = RE.lastIndex;
+    }
+    return out + esc(line.slice(last));
+  }
+  function code(pre, src) {
+    pre.innerHTML = src.split('\n').map(function (l, k) {
+      return '<span class="ln" data-n="' + (k + 1) + '"><i>' + (k + 1) + '</i>' + hl(l) + '</span>';
+    }).join('');
+  }
+  var V = { l: [-1, 0], r: [1, 0], t: [0, -1], b: [0, 1] };
+  function pt(r, h, side, dx) {
+    var x = r.left - h.left, y = r.top - h.top;
+    if (side === 'l') return [x, y + r.height / 2];
+    if (side === 'r') return [x + r.width, y + r.height / 2];
+    if (side === 't') return [x + r.width / 2 + (dx || 0), y];
+    return [x + r.width / 2 + (dx || 0), y + r.height];
+  }
+  function draw(host, list, anim) {
+    var svg = host.querySelector(':scope > svg.arrows');
+    if (!svg) { svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'arrows'); host.appendChild(svg); }
+    svg.setAttribute('width', host.scrollWidth); svg.setAttribute('height', host.scrollHeight);
+    var h = host.getBoundingClientRect(), prev = host._keys || {}, keys = {}, colors = {}, html = '';
+    list.forEach(function (a) {
+      var f = document.getElementById(a.from), t = document.getElementById(a.to);
+      if (!f || !t) return;
+      var fs = a.fs || 'r', ts = a.ts || 'l', b = a.bend == null ? 40 : a.bend, d, p, q;
+      if (a.from === a.to) {
+        p = pt(f.getBoundingClientRect(), h, fs, -7); q = pt(t.getBoundingClientRect(), h, ts, 7);
+        d = 'M' + p + 'C' + (p[0] - 18) + ',' + (p[1] - 32) + ' ' + (q[0] + 18) + ',' + (q[1] - 32) + ' ' + q;
+      } else {
+        p = pt(f.getBoundingClientRect(), h, fs, a.fdx); q = pt(t.getBoundingClientRect(), h, ts, a.tdx);
+        d = 'M' + p + 'C' + (p[0] + V[fs][0] * b) + ',' + (p[1] + V[fs][1] * b) + ' ' + (q[0] + V[ts][0] * b) + ',' + (q[1] + V[ts][1] * b) + ' ' + q;
+      }
+      var c = a.color || 'accent', k = a.key || (a.from + '>' + a.to + c);
+      colors[c] = 1; keys[k] = 1;
+      html += '<g class="' + (anim && !prev[k] ? 'new' : '') + '" style="color:var(--' + c + ')">' +
+        '<path d="' + d + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"' + (a.dash ? ' stroke-dasharray="5 4"' : '') + ' marker-end="url(#mk-' + c + ')"/>' +
+        '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="3" fill="currentColor"/></g>';
+    });
+    var defs = Object.keys(colors).map(function (c) {
+      return '<marker id="mk-' + c + '" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1 L9,5 L0,9 z" style="fill:var(--' + c + ')"/></marker>';
+    }).join('');
+    svg.innerHTML = '<defs>' + defs + '</defs>' + html;
+    host._keys = keys;
+  }
+  var queued = null;
+  function arrows(host, list, anim) {
+    var first = !queued; queued = { host: host, list: list, anim: anim };
+    if (first) requestAnimationFrame(function () { var q = queued; queued = null; draw(q.host, q.list, q.anim); q.host._last = q; });
+  }
+  function redraw() { document.querySelectorAll('.mem').forEach(function (h) { if (h._last) draw(h._last.host, h._last.list, false); }); }
+  function fit() { try { if (frameElement) frameElement.style.height = Math.ceil(document.documentElement.getBoundingClientRect().height) + 'px'; } catch (e) {} }
+  function run(cfg) {
+    var keys = Object.keys(cfg.modes), mode = keys[0], i = 0, timer = 0, lastW = -1;
+    var demo = $('.demo'), pre = $('#code'), tabs = $('#tabs'), ctl = $('#ctl'), narr = $('#narr');
+    if (tabs && keys.length > 1) {
+      tabs.innerHTML = keys.map(function (k) {
+        var m = cfg.modes[k];
+        return '<button class="tab" data-m="' + k + '"><span class="dot" style="color:var(--' + (m.tone || 'accent') + ')"></span>' + m.label + '</button>';
+      }).join('');
+      tabs.onclick = function (e) { var b = e.target.closest('.tab'); if (b && b.dataset.m !== mode) { stop(); mode = b.dataset.m; i = 0; build(); show(true); } };
+    } else if (tabs) tabs.remove();
+    ctl.innerHTML = '<button class="btn" data-a="prev">‹ 上一步</button><button class="btn pri" data-a="next">下一步 ›</button>' +
+      '<button class="btn" data-a="play"></button><div class="dots"></div><button class="btn" data-a="reset">↺ 重置</button>' +
+      '<span class="hint"><kbd>←</kbd><kbd>→</kbd>切换步骤</span>';
+    ctl.onclick = function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      var a = b.dataset.a;
+      if (b.dataset.i) { stop(); go(+b.dataset.i); }
+      else if (a === 'play') { timer ? stop() : play(); }
+      else { stop(); go(a === 'prev' ? i - 1 : a === 'next' ? i + 1 : 0); }
+    };
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault(); stop(); go(i + (e.key === 'ArrowRight' ? 1 : -1));
+    });
+    function steps() { return cfg.modes[mode].steps; }
+    function go(k) { k = Math.max(0, Math.min(steps().length - 1, k)); if (k !== i) { i = k; show(true); } }
+    function play() {
+      if (i >= steps().length - 1) { i = 0; show(true); }
+      timer = setInterval(function () { if (i >= steps().length - 1) stop(); else go(i + 1); }, cfg.interval || 3200);
+      sync();
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = 0; sync(); } }
+    function build() {
+      if (pre) D.code(pre, cfg.modes[mode].code);
+      if (tabs) tabs.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t.dataset.m === mode); });
+      ctl.querySelector('.dots').innerHTML = steps().map(function (_, k) { return '<button data-i="' + k + '" aria-label="第 ' + (k + 1) + ' 步"></button>'; }).join('');
+    }
+    function sync() {
+      var n = steps().length;
+      ctl.querySelectorAll('.dots button').forEach(function (d, k) { d.className = k === i ? 'on' : k < i ? 'done' : ''; });
+      ctl.querySelector('[data-a="prev"]').disabled = i === 0;
+      ctl.querySelector('[data-a="next"]').disabled = i === n - 1;
+      ctl.querySelector('[data-a="play"]').textContent = timer ? '❚❚ 暂停' : '▶ 自动播放';
+    }
+    function show(anim) {
+      var s = steps()[i], lines = [].concat(s.line || []);
+      if (pre) pre.querySelectorAll('.ln').forEach(function (el) { el.classList.toggle('cur', lines.indexOf(+el.dataset.n) >= 0); });
+      narr.innerHTML = '<div class="meta"><span>第 ' + (i + 1) + ' 步 / 共 ' + steps().length + ' 步</span>' +
+        (s.phase ? '<span class="badge">' + s.phase + '</span>' : '') + '</div><h2>' + s.title + '</h2><p>' + s.text + '</p>' +
+        (s.key ? '<div class="key"><b>要点</b>' + s.key + '</div>' : '') + (s.warn ? '<div class="key warn"><b>注意</b>' + s.warn + '</div>' : '');
+      cfg.render(s, mode, anim);
+      sync();
+    }
+    function measure() {
+      var m0 = mode, i0 = i, max = 0;
+      demo.style.minHeight = '';
+      keys.forEach(function (m) {
+        mode = m; build();
+        steps().forEach(function (_, k) { i = k; show(false); max = Math.max(max, demo.offsetHeight); });
+      });
+      mode = m0; i = i0; build(); show(false);
+      demo.style.minHeight = max + 'px';
+      fit();
+    }
+    function onResize() { if (innerWidth !== lastW) { lastW = innerWidth; measure(); } else redraw(); }
+    addEventListener('resize', onResize);
+    onResize();
+    if (document.fonts) document.fonts.ready.then(measure);
+  }
+  return { $: $, code: code, arrows: arrows, run: run, fit: fit };
+})();
+</script>
+<script>
+(function () {
+  var $ = D.$;
+  var FN = 'void myprintf(const char *format, ...)\n{\n    va_list ap;\n    char c;\n\n    va_start(ap, format);\n    while ((c = *format++)) {\n        switch (c) {\n' +
+    '        case \'c\':   /* char 经 ... 提升为 int */\n            putchar((char)va_arg(ap, int));\n            break;\n' +
+    '        case \'s\':\n            fputs(va_arg(ap, char *), stdout);\n            break;\n        default:\n            putchar(c);\n        }\n    }\n    va_end(ap);\n}\n\n';
+  var OK = FN + 'myprintf("c\\ts\\n", \'1\', "hello");';
+  var BAD = FN + 'myprintf("s\\n", 42);   /* 类型不匹配 */';
+
+  var GHOST = { lab: '没有传入', val: '?', ty: '内容未知', ghost: true };
+  var MODES = {
+    ok: {
+      fmt: ['c', '\\t', 's', '\\n', '\\0'], spec: [0, 2],
+      slots: [
+        { lab: '具名参数 format', val: '"c\\ts\\n"', ty: 'const char *', named: true },
+        { lab: '可变参数 1', val: '49', ty: "int ('1' 提升而来)" },
+        { lab: '可变参数 2', val: '0x4006b0', ty: 'char * ("hello")' },
+        GHOST
+      ]
+    },
+    bad: {
+      fmt: ['s', '\\n', '\\0'], spec: [0],
+      slots: [
+        { lab: '具名参数 format', val: '"s\\n"', ty: 'const char *', named: true },
+        { lab: '可变参数 1', val: '42', ty: 'int' },
+        GHOST
+      ]
+    }
+  };
+
+  /* fmt: 当前字符下标 (-1 = 尚未开始); ap: ap 指向的参数槽 (-1 = 未初始化); used: 已被 va_arg 读走的槽; out: 终端输出 */
+  var ok = [
+    { line: 22, fmt: -1, ap: -1, used: [], out: '', title: '调用 myprintf: 1 个具名参数 + 2 个可变参数',
+      text: '<code>\'1\'</code> 是 char, 传给 <code>...</code> 时按<b>默认实参提升</b>变成 int, 值为 49; <code>"hello"</code> 传的是字符串首地址. 函数原型里看不到这两个参数的类型和个数, 只有格式串知道.',
+      key: '编译器对 <code>...</code> 部分不做类型检查, 只做默认提升: char / short 变成 int, float 变成 double.' },
+    { line: 6, fmt: -1, ap: 1, used: [], out: '', phase: 'va_start', title: 'va_start: 把 ap 放到最后一个具名参数之后',
+      text: '<code>va_start(ap, format)</code> 要知道最后一个具名参数是谁, 才能确定可变参数从哪里开始. 现在 ap 指向第 1 个可变参数.' },
+    { line: [7, 9], fmt: 0, ap: 1, used: [], out: '', phase: "c = 'c'", title: "读到格式字符 'c'",
+      text: "while 每轮从格式串取一个字符放进 c, 同时 format 前进一格. 这里取到 <code>'c'</code>, 按约定表示「下一个参数是字符」, 于是进入 <code>case 'c'</code>." },
+    { line: 10, fmt: 0, ap: 2, used: [1], out: '1', phase: 'va_arg(ap, int)', title: 'va_arg(ap, int): 取出一个 int, ap 前进', flash: ['sl-1'],
+      text: "类型要写 int 而不是 char, 因为 <code>'1'</code> 传入时已经提升成 int. va_arg 返回 49, 转回 char 就是 <code>'1'</code>, 由 putchar 输出.",
+      key: 'va_arg 一次做两件事: 按给定类型解释 ap 当前指向的参数, 再把 ap 移到下一个参数.' },
+    { line: [7, 16], fmt: 1, ap: 2, used: [1], out: '1\t', phase: "c = '\\t'", title: '普通字符原样输出',
+      text: "<code>'\\t'</code> 不是约定的格式字符, 走 default 分支直接 putchar. 注意 ap 没有动: 只有 va_arg 才会消耗参数." },
+    { line: [7, 12, 13], fmt: 2, ap: 3, used: [1, 2], out: '1\thello', phase: 'va_arg(ap, char *)', title: "读到 's': 取出一个 char * 并打印", flash: ['sl-2'],
+      text: '<code>va_arg(ap, char *)</code> 取出 "hello" 的地址, fputs 打印字符串. ap 再次前移, 现在指向的位置已经<b>没有</b>调用者传入的参数了.',
+      warn: "如果格式串里还有一个 <code>'c'</code> 或 <code>'s'</code>, va_arg 会照样读这块位置, 拿到垃圾值, 而函数自己无从察觉." },
+    { line: [7, 16], fmt: 3, ap: 3, used: [1, 2], out: '1\thello\n', phase: "c = '\\n'", title: "换行符同样原样输出",
+      text: "<code>'\\n'</code> 也走 default 分支. 终端换行." },
+    { line: [7, 19], fmt: 4, ap: -1, used: [1, 2], out: '1\thello\n', phase: 'va_end', title: "读到 '\\0': 循环结束, va_end 收尾",
+      text: "<code>c = *format++</code> 取到字符串结尾的 <code>'\\0'</code>, 赋值表达式的值为 0, while 退出. <code>va_end(ap)</code> 做清理, 每个 va_start 都必须配对一个 va_end.",
+      key: '函数靠格式串得知「取几个参数, 每个是什么类型」. printf 的 <code>%d</code>, <code>%s</code> 用的就是同一套约定.' }
+  ];
+  var bad = [
+    { line: 22, fmt: -1, ap: -1, used: [], out: '', title: '调用者传错了类型',
+      text: '格式串里的 <code>s</code> 表示「下一个参数是字符串」, 调用者却传了整数 42. 对 myprintf 这种自定义函数, 编译器不会报错 (对 printf, gcc / clang 会专门检查格式串并给出警告).' },
+    { line: 6, fmt: -1, ap: 1, used: [], out: '', phase: 'va_start', title: 'va_start: ap 指向第 1 个可变参数',
+      text: '和正确调用时一样, ap 被放到 format 之后.' },
+    { line: [7, 12], fmt: 0, ap: 1, used: [], out: '', phase: "c = 's'", title: "读到格式字符 's'",
+      text: "myprintf 相信格式串, 认定下一个参数是 <code>char *</code>." },
+    { line: 13, fmt: 0, ap: 2, used: [], bad: 1, out: 'ERR', phase: 'va_arg(ap, char *)', title: '把 42 当成地址去读: 未定义行为', flash: ['sl-1'],
+      text: 'va_arg 只会按你写的类型解释这块内存: 整数 42 被当成地址 <code>0x2a</code>. fputs 去这个地址读字符串, 通常直接触发段错误.',
+      warn: '实现者<b>无法</b>验证调用者传入的类型和个数. 可变参数的类型安全完全靠调用者遵守约定.' }
+  ];
+
+  function term(out) {
+    if (!out) return '<span class="wait">(还没有输出)</span>';
+    if (out === 'ERR') return '<span class="err">Segmentation fault (core dumped)</span>';
+    return out.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\t/g, '<span class="ws">⇥</span>\t').replace(/\n/g, '<span class="ws">↵</span>\n');
+  }
+
+  function render(s, mode, anim) {
+    var m = MODES[mode], n = m.slots.length, cols = 'grid-template-columns:repeat(' + n + ',minmax(0,1fr))';
+    var cur = s.fmt >= 0 ? m.fmt[s.fmt] : null;
+    var fmt = m.fmt.map(function (c, k) {
+      var cls = 'fc' + (k === s.fmt ? ' cur' : k < s.fmt ? ' done' : '') + (m.spec.indexOf(k) >= 0 ? ' spec' : '');
+      return '<span class="' + cls + '"><b' + (c === '\\0' ? ' class="z"' : '') + '>' + c + '</b><i>' + k + '</i></span>';
+    }).join('');
+    var slots = m.slots.map(function (sl, k) {
+      var cls = 'slot' + (sl.named ? ' named' : '') + (sl.ghost ? ' ghost' : '') + (s.used.indexOf(k) >= 0 ? ' used' : '') + (s.bad === k ? ' bad' : '');
+      var val = s.bad === k ? '0x2a ?' : sl.val, ty = s.bad === k ? '被当作 char *' : sl.ty;
+      return '<div class="' + cls + '" id="sl-' + k + '"><span class="sl">' + sl.lab + '</span><span class="sv">' + val + '</span><span class="sy">' + ty + '</span></div>';
+    }).join('');
+    var ap = '<span class="apc' + (s.ap < 0 ? ' off' : '') + '" id="apc" style="grid-column:' + (Math.max(s.ap, 0) + 1) + '">ap</span>';
+    $('#mem').innerHTML =
+      '<div class="sect"><div class="st"><span>格式串 format · 下划线 = 约定的格式字符</span>' + (cur ? '<span>当前 <code>c = \'' + cur + '\'</code></span>' : '') + '</div><div class="fmt">' + fmt + '</div></div>' +
+      '<div class="sect"><div class="st"><span>传入的参数 (按顺序排开)</span></div><div class="slots" style="' + cols + '">' + slots + '</div>' +
+      '<div class="aprow" style="' + cols + '">' + ap + '</div></div>' +
+      '<div class="sect"><div class="st"><span>终端输出</span></div><div class="term"><span class="pr">$ ./a.out</span>\n' + term(s.out) + '</div></div>';
+    if (anim) (s.flash || []).forEach(function (id) { var el = document.getElementById(id); if (el) el.classList.add('flash'); });
+    D.arrows($('#mem'), s.ap >= 0 ? [{ from: 'apc', to: 'sl-' + s.ap, fs: 't', ts: 'b', bend: 10, color: 'amber' }] : [], anim);
+  }
+
+  D.run({
+    modes: {
+      ok: { label: '正确调用', tone: 'green', code: OK, steps: ok },
+      bad: { label: '类型不匹配', tone: 'red', code: BAD, steps: bad }
+    },
+    render: render,
+    interval: 3600
+  });
+})();
+</script>
+</body>
+</html>
