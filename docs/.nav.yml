@@ -342,16 +342,16 @@ nav:
         - 智能体发展史: "obsidian/人工智能/智能体发展史.md"
         - Computer Use: "obsidian/人工智能/Computer-Use.md"
         - 大模型测评: "obsidian/人工智能/大模型测评.md"
-    - Web:
-      - HTML要点: "obsidian/Misc/HTML要点.md"
-      - CSS要点: "obsidian/Misc/CSS要点.md"
-      - 安全要点: "obsidian/Misc/Web安全要点.md"
     - 音视频:
       - 音频工具概述: "obsidian/音视频/音频工具概述.md"
       - PCM术语与概念: "obsidian/音视频/PCM术语与概念.md"
       - 调音混音背后的声学理论基础: "obsidian/音视频/调音混音背后的声学理论基础.md"
       - 乐理基础: "obsidian/音视频/乐理基础.md"
       - Audition混音基础: "obsidian/音视频/Audition混音基础.md"
+    - Web:
+      - HTML要点: "obsidian/Misc/HTML要点.md"
+      - CSS要点: "obsidian/Misc/CSS要点.md"
+      - 安全要点: "obsidian/Misc/Web安全要点.md"
     - Misc:
       - 解决方案:
         - 透明代理: "obsidian/Misc/科学上网/透明代理.md"
