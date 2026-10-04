@@ -39,7 +39,7 @@ nav:
         - Python虚拟环境: "obsidian/编程语言/python/Python虚拟环境.md"
         - PEP8格式化: "obsidian/编程语言/python/PEP8格式化.md"
       - C:
-        - CS61C:
+        - UC Berkeley CS61C:
           - C Basics: "obsidian/编程语言/c/C-Basics.md"
           - C Pointers, Arrays, and Strings: "obsidian/编程语言/c/C-Pointers-Arrays-and-Strings.md"
           - C Memory Management: "obsidian/编程语言/c/C-Memory-Management.md"
