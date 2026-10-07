@@ -268,7 +268,7 @@ var D = (function () {
 <script>
 (function () {
   var $ = D.$;
-  var FN = 'void myprintf(const char *format, ...)\n{\n    va_list ap;\n    char c;\n\n    va_start(ap, format);\n    while ((c = *format++)) {\n        switch (c) {\n' +
+  var FN = 'void printf_sim(const char *format, ...)\n{\n    va_list ap;\n    char c;\n\n    va_start(ap, format);\n    while ((c = *format++)) {\n        switch (c) {\n' +
     '        case \'c\':   /* char 经 ... 提升为 int */\n            putchar((char)va_arg(ap, int));\n            break;\n' +
     '        case \'s\':\n            fputs(va_arg(ap, char *), stdout);\n            break;\n        default:\n            putchar(c);\n        }\n    }\n    va_end(ap);\n}\n\n';
   var OK = FN + 'myprintf("c\\ts\\n", \'1\', "hello");';
