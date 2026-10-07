@@ -53,6 +53,7 @@ nav:
         - 预处理: "obsidian/编程语言/c/预处理.md"
         - 指针详解: "obsidian/编程语言/c/指针详解.md"
         - 函数接口: "obsidian/编程语言/c/函数接口.md"
+        - C标准库: "obsidian/编程语言/c/C标准库.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "obsidian/编程语言/cpp/cs106l/基础类型与结构体.md"
