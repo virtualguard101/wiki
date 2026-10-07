@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>折半插入排序与回调</title>
+<style>
+  :root { --font: "LXGW WenKai Screen", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; --mono: "Cascadia Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; }
+  :root, [data-theme="dark"] { --card: #232631; --sub: #1b1e27; --line: rgba(255,255,255,.08); --line2: rgba(255,255,255,.16); --text: #e3e5ea; --muted: #9ba2ae; --faint: #6c7380; --accent: #8c9eff; --hl: rgba(140,158,255,.16); --blue: #7aa7ff; --green: #5fcf8f; --amber: #f2b552; --red: #f07a83; --cyan: #5fd0dc; --violet: #c59cf0; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.18); }
+  [data-theme="light"] { --card: #ffffff; --sub: #f5f6f8; --line: rgba(0,0,0,.08); --line2: rgba(0,0,0,.16); --text: #1f2328; --muted: #59616b; --faint: #8b929c; --accent: #3f51b5; --hl: rgba(63,81,181,.10); --blue: #2f6fde; --green: #1b9a55; --amber: #b7770a; --red: #d43f55; --cyan: #0e8fa1; --violet: #8b4fd1; --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: transparent; }
+  body { padding: 4px 4px 12px; font: 14px/1.6 var(--font); color: var(--text); }
+  code { font-family: var(--mono); font-size: .92em; }
+  .demo { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .head { padding: 14px 18px 10px; }
+  .eyebrow { font-size: 11px; letter-spacing: .14em; color: var(--accent); font-weight: 700; }
+  .head h1 { margin: 2px 0 4px; font-size: 16px; }
+  .lead { margin: 0; color: var(--muted); font-size: 13px; }
+  .body { display: grid; gap: 12px; padding: 0 18px 14px; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
+  @media (max-width: 760px) { .body { grid-template-columns: minmax(0, 1fr); } }
+  .pane { background: var(--sub); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; position: relative; min-width: 0; }
+  .pane-t { font-size: 12px; color: var(--muted); margin-bottom: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+  .pane-t b { color: var(--text); font-weight: 600; }
+  pre.code { margin: 0; font: 12.5px/1.8 var(--mono); overflow-x: auto; }
+  .ln { display: block; padding-right: 8px; border-left: 3px solid transparent; border-radius: 4px; white-space: pre; transition: background .2s; }
+  .ln i { display: inline-block; width: 1.8em; margin-right: 10px; text-align: right; color: var(--faint); font-style: normal; user-select: none; }
+  .ln.cur { background: var(--hl); border-left-color: var(--accent); }
+  .ln.cur i { color: var(--accent); }
+  .tk-k { color: var(--violet); } .tk-t { color: var(--cyan); } .tk-s { color: var(--green); } .tk-n { color: var(--amber); } .tk-c { color: var(--faint); font-style: italic; } .tk-f { color: var(--blue); }
+  .ln.own-u:not(.cur) { background: color-mix(in srgb, var(--blue) 8%, transparent); }
+  .ln.own-l:not(.cur) { background: color-mix(in srgb, var(--green) 8%, transparent); }
+  .narr { flex: 1; padding: 12px 18px; border-top: 1px solid var(--line); }
+  .meta { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); }
+  .badge { padding: 0 8px; border-radius: 999px; background: var(--hl); color: var(--accent); font-weight: 600; }
+  .narr h2 { margin: 4px 0; font-size: 15px; }
+  .narr p { margin: 0; font-size: 13.5px; line-height: 1.8; }
+  .key { margin-top: 8px; padding: 7px 10px; border-radius: 8px; font-size: 13px; background: var(--hl); border-left: 3px solid var(--accent); }
+  .key b { color: var(--accent); margin-right: 8px; }
+  .ctl { display: flex; align-items: center; gap: 8px; padding: 10px 18px 14px; flex-wrap: wrap; border-top: 1px solid var(--line); }
+  .btn { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--line2); background: var(--card); color: var(--text); font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 8px; cursor: pointer; transition: border-color .15s, opacity .15s; }
+  .btn:hover:not(:disabled) { border-color: var(--accent); }
+  .btn:disabled { opacity: .4; cursor: default; }
+  .btn.pri { background: var(--accent); border-color: var(--accent); color: #fff; }
+  [data-theme="dark"] .btn.pri { color: #14172a; }
+  .dots { display: flex; gap: 5px; margin: 0 4px; flex-wrap: wrap; }
+  .dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: var(--line2); cursor: pointer; transition: all .2s; }
+  .dots button.done { background: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .dots button.on { width: 22px; background: var(--accent); }
+  .hint { margin-left: auto; font-size: 12px; color: var(--faint); }
+  kbd { font: 11px var(--mono); padding: 0 5px; margin-right: 2px; border: 1px solid var(--line2); border-bottom-width: 2px; border-radius: 4px; }
+  svg.arrows { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; z-index: 3; }
+  svg.arrows .new { animation: fadein .45s ease; }
+  @keyframes fadein { from { opacity: 0; } }
+  .flash { animation: glow .9s ease; }
+  @keyframes glow { 0% { box-shadow: 0 0 0 2px var(--accent), 0 0 0 6px var(--hl); } 100% { box-shadow: 0 0 0 0 transparent; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+  .mem { position: relative; display: grid; gap: 10px; }
+  .col-t { font-size: 11px; color: var(--faint); margin-bottom: 4px; }
+  .cells { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  .cell { position: relative; border: 1px solid var(--line2); border-radius: 8px; background: var(--card); text-align: center; padding: 6px 2px 4px; font: 700 14px var(--mono); transition: background .2s, border-color .2s; }
+  .cell small { display: block; font: 10px var(--mono); color: var(--faint); font-weight: 400; }
+  .cell.sent { border-style: dashed; color: var(--faint); }
+  .cell.sorted { border-color: color-mix(in srgb, var(--green) 45%, transparent); background: color-mix(in srgb, var(--green) 9%, var(--card)); }
+  .cell.range { border-color: color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 10%, var(--card)); }
+  .cell.mid { border-color: var(--violet); box-shadow: 0 0 0 2px color-mix(in srgb, var(--violet) 30%, transparent); }
+  .cell.key { border-color: var(--amber); background: color-mix(in srgb, var(--amber) 14%, var(--card)); color: var(--amber); }
+  .chips { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; min-height: 20px; margin-top: 4px; }
+  .chips > div { text-align: center; }
+  .chip { display: inline-block; font: 10.5px var(--mono); padding: 0 6px; border-radius: 99px; border: 1px solid; white-space: nowrap; }
+  .chip.lo, .chip.hi { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+  .chip.mid { color: var(--violet); border-color: color-mix(in srgb, var(--violet) 50%, transparent); }
+  .chip.pos { color: var(--amber); border-color: color-mix(in srgb, var(--amber) 55%, transparent); }
+  .lower { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+  @media (max-width: 560px) { .lower { grid-template-columns: 1fr; } }
+  .lower > * { min-width: 0; }
+  .frame { border: 1px solid var(--line2); border-left: 3px solid var(--c); border-radius: 10px; padding: 6px 8px 8px; background: var(--card); min-width: 0; overflow: hidden; }
+  .frame.u { --c: var(--blue); }
+  .frame.l { --c: var(--green); }
+  .frame + .frame { margin-top: 8px; }
+  .ft { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 4px 8px; font: 600 11.5px/1.35 var(--mono); }
+  .ft .fn { min-width: 0; flex: 1 1 8em; overflow-wrap: anywhere; word-break: break-word; }
+  .ft + .var { margin-top: 6px; }
+  .own { flex: 0 0 auto; font: 11px var(--font); padding: 0 7px; border-radius: 99px; color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); white-space: nowrap; }
+  .var { border: 1px solid var(--line); border-radius: 8px; padding: 3px 8px 5px; background: var(--sub); }
+  .var + .var { margin-top: 5px; }
+  .vh { display: flex; align-items: baseline; gap: 6px; font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .vh code { font-size: 13px; font-weight: 700; color: var(--text); }
+  .vv { display: inline-block; margin-top: 2px; padding: 0 8px; border-radius: 6px; font: 600 12.5px var(--mono); background: var(--card); border: 1px solid var(--line2); }
+  .blk { padding: 6px 10px; border-radius: 10px; font-size: 12px; line-height: 1.5; background: var(--card); border: 1px solid var(--line2); min-width: 0; overflow: hidden; }
+  .blk + .blk { margin-top: 8px; }
+  .blk .ha { font: 10.5px var(--mono); color: var(--faint); }
+  .blk b { font-family: var(--mono); }
+  .blk.fn-l { border-color: color-mix(in srgb, var(--green) 55%, transparent); }
+  .blk.fn-l b { color: var(--green); }
+  .blk.fn-u { border-color: color-mix(in srgb, var(--blue) 55%, transparent); }
+  .blk.fn-u b { color: var(--blue); }
+  .term { border-radius: 8px; padding: 6px 10px; min-height: 74px; max-height: 132px; overflow-y: auto; background: #15171d; color: #d6d9df; font: 12px/1.7 var(--mono); border: 1px solid var(--line); }
+  .term .wait { color: #7c8492; font-style: italic; }
+  .term .new { color: #5fcf8f; }
+</style>
+</head>
+<body>
+<div class="demo">
+  <div class="head">
+    <div class="eyebrow">交互演示</div>
+    <h1>折半插入排序: 排序流程固定, 「找插入点」由回调提供</h1>
+    <p class="lead">外层循环与搬移由 <code>binary_insert_sort</code> 负责; 插入位置通过函数指针 <code>bsearch</code> 回调 <code>binary_search_insert</code> 得到. 留意每轮里控制流如何「调出去再调回来」.</p>
+  </div>
+  <div class="body">
+    <div class="pane">
+      <div class="pane-t"><b>代码</b><span style="color:var(--green)">■ 排序流程 (库角色)</span><span style="color:var(--blue)">■ 查找行为 (调用者角色)</span></div>
+      <pre class="code" id="code"></pre>
+    </div>
+    <div class="pane">
+      <div class="pane-t"><b>运行时</b> 哨兵数组 a[0..5], a[0] 暂存待插元素</div>
+      <div class="mem" id="mem"></div>
+    </div>
+  </div>
+  <div class="narr" id="narr"></div>
+  <div class="ctl" id="ctl"></div>
+</div>
+<script>
+var D = (function () {
+  var NS = 'http://www.w3.org/2000/svg', root = document.documentElement, P = null;
+  try { if (parent !== window && parent.document.body) P = parent.document; } catch (e) {}
+  function theme() {
+    var s = P && P.body.getAttribute('data-md-color-scheme');
+    var dark = s ? s === 'slate' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'dark' : 'light';
+  }
+  theme();
+  if (P) {
+    new MutationObserver(theme).observe(P.body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
+    P.querySelectorAll('link[rel="stylesheet"][href*="webfonts"]').forEach(function (l) {
+      var n = document.createElement('link'); n.rel = 'stylesheet'; n.href = l.href; document.head.appendChild(n);
+    });
+  }
+  function $(q) { return document.querySelector(q); }
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var RE = /(\/\*.*?\*\/|\/\/.*)|("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')|\b(void|int|char|size_t|unit_t|callback_t|bsearch_fn|va_list|const)\b|\b(static|return|if|else|while|switch|case|break|default|typedef|sizeof|NULL|for)\b|\b(0x[0-9a-fA-F]+|\d+)\b|\b([A-Za-z_]\w*)(?=\s*\()/g;
+  function hl(line) {
+    var out = '', last = 0, m; RE.lastIndex = 0;
+    while ((m = RE.exec(line))) {
+      out += esc(line.slice(last, m.index));
+      out += '<span class="tk-' + (m[1] ? 'c' : m[2] ? 's' : m[3] ? 't' : m[4] ? 'k' : m[5] ? 'n' : 'f') + '">' + esc(m[0]) + '</span>';
+      last = RE.lastIndex;
+    }
+    return out + esc(line.slice(last));
+  }
+  function code(pre, src) {
+    pre.innerHTML = src.split('\n').map(function (l, k) {
+      return '<span class="ln" data-n="' + (k + 1) + '"><i>' + (k + 1) + '</i>' + hl(l) + '</span>';
+    }).join('');
+  }
+  var V = { l: [-1, 0], r: [1, 0], t: [0, -1], b: [0, 1] };
+  function pt(r, h, side, dx) {
+    var x = r.left - h.left, y = r.top - h.top;
+    if (side === 'l') return [x, y + r.height / 2];
+    if (side === 'r') return [x + r.width, y + r.height / 2];
+    if (side === 't') return [x + r.width / 2 + (dx || 0), y];
+    return [x + r.width / 2 + (dx || 0), y + r.height];
+  }
+  function draw(host, list, anim) {
+    var svg = host.querySelector(':scope > svg.arrows');
+    if (!svg) { svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'arrows'); host.appendChild(svg); }
+    svg.setAttribute('width', host.scrollWidth); svg.setAttribute('height', host.scrollHeight);
+    var h = host.getBoundingClientRect(), prev = host._keys || {}, keys = {}, colors = {}, html = '';
+    list.forEach(function (a) {
+      var f = document.getElementById(a.from), t = document.getElementById(a.to);
+      if (!f || !t) return;
+      var fr = f.getBoundingClientRect(), tr = t.getBoundingClientRect();
+      var fs = a.fs, ts = a.ts;
+      if (!fs || !ts) {
+        var ddx = (tr.left + tr.width / 2) - (fr.left + fr.width / 2), ddy = (tr.top + tr.height / 2) - (fr.top + fr.height / 2);
+        if (Math.abs(ddx) > Math.abs(ddy)) { fs = fs || (ddx > 0 ? 'r' : 'l'); ts = ts || (ddx > 0 ? 'l' : 'r'); }
+        else { fs = fs || (ddy > 0 ? 'b' : 't'); ts = ts || (ddy > 0 ? 't' : 'b'); }
+      }
+      var b = a.bend == null ? 40 : a.bend, d, p, q;
+      if (a.from === a.to) {
+        p = pt(fr, h, fs, -7); q = pt(tr, h, ts, 7);
+        d = 'M' + p + 'C' + (p[0] - 18) + ',' + (p[1] - 32) + ' ' + (q[0] + 18) + ',' + (q[1] - 32) + ' ' + q;
+      } else {
+        p = pt(fr, h, fs, a.fdx); q = pt(tr, h, ts, a.tdx);
+        if (a.elbow) {
+          var mx = (Math.max(fr.left, tr.left) + Math.min(fr.right, tr.right)) / 2 - h.left;
+          d = 'M' + p + ' L' + mx + ',' + p[1] + ' L' + mx + ',' + q[1] + ' L' + q;
+        } else {
+        var ux = q[0] - p[0], uy = q[1] - p[1], dist = Math.sqrt(ux * ux + uy * uy) || 1; ux /= dist; uy /= dist;
+        if (V[fs][0] * ux + V[fs][1] * uy > 0.85 && -(V[ts][0] * ux + V[ts][1] * uy) > 0.85) {
+          var bow = a.bow || 0, nx = -uy, ny = ux, s3 = dist / 3;
+          d = 'M' + p + 'C' + (p[0] + ux * s3 + nx * bow) + ',' + (p[1] + uy * s3 + ny * bow) + ' ' + (q[0] - ux * s3 + nx * bow) + ',' + (q[1] - uy * s3 + ny * bow) + ' ' + q;
+        } else {
+          b = a.bend == null ? Math.min(80, Math.max(24, dist * 0.35)) : a.bend;
+          d = 'M' + p + 'C' + (p[0] + V[fs][0] * b) + ',' + (p[1] + V[fs][1] * b) + ' ' + (q[0] + V[ts][0] * b) + ',' + (q[1] + V[ts][1] * b) + ' ' + q;
+        }
+        }
+      }
+      var c = a.color || 'accent', k = a.key || (a.from + '>' + a.to + c);
+      colors[c] = 1; keys[k] = 1;
+      html += '<g class="' + (anim && !prev[k] ? 'new' : '') + '" style="color:var(--' + c + ')">' +
+        '<path d="' + d + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"' + (a.dash ? ' stroke-dasharray="5 4"' : '') + ' marker-end="url(#mk-' + c + ')"/>' +
+        '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="3" fill="currentColor"/></g>';
+    });
+    var defs = Object.keys(colors).map(function (c) {
+      return '<marker id="mk-' + c + '" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1 L9,5 L0,9 z" style="fill:var(--' + c + ')"/></marker>';
+    }).join('');
+    svg.innerHTML = '<defs>' + defs + '</defs>' + html;
+    host._keys = keys;
+  }
+  var queued = null;
+  function arrows(host, list, anim) {
+    var first = !queued; queued = { host: host, list: list, anim: anim };
+    if (first) requestAnimationFrame(function () { var q = queued; queued = null; draw(q.host, q.list, q.anim); q.host._last = q; });
+  }
+  function redraw() { document.querySelectorAll('.mem, .viz').forEach(function (h) { if (h._last) draw(h._last.host, h._last.list, false); }); }
+  function fit() { try { if (frameElement) frameElement.style.height = Math.ceil(document.documentElement.getBoundingClientRect().height) + 'px'; } catch (e) {} }
+  function run(cfg) {
+    var keys = Object.keys(cfg.modes), mode = keys[0], i = 0, timer = 0, lastW = -1;
+    var demo = $('.demo'), pre = $('#code'), tabs = $('#tabs'), ctl = $('#ctl'), narr = $('#narr');
+    if (tabs && keys.length > 1) {
+      tabs.innerHTML = keys.map(function (k) {
+        var m = cfg.modes[k];
+        return '<button class="tab" data-m="' + k + '"><span class="dot" style="color:var(--' + (m.tone || 'accent') + ')"></span>' + m.label + '</button>';
+      }).join('');
+      tabs.onclick = function (e) { var b = e.target.closest('.tab'); if (b && b.dataset.m !== mode) { stop(); mode = b.dataset.m; i = 0; build(); show(true); } };
+    } else if (tabs) tabs.remove();
+    ctl.innerHTML = '<button class="btn" data-a="prev">‹ 上一步</button><button class="btn pri" data-a="next">下一步 ›</button>' +
+      '<button class="btn" data-a="play"></button><div class="dots"></div><button class="btn" data-a="reset">↺ 重置</button>' +
+      '<span class="hint"><kbd>←</kbd><kbd>→</kbd>切换步骤</span>';
+    ctl.onclick = function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      var a = b.dataset.a;
+      if (b.dataset.i) { stop(); go(+b.dataset.i); }
+      else if (a === 'play') { timer ? stop() : play(); }
+      else { stop(); go(a === 'prev' ? i - 1 : a === 'next' ? i + 1 : 0); }
+    };
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault(); stop(); go(i + (e.key === 'ArrowRight' ? 1 : -1));
+    });
+    function steps() { return cfg.modes[mode].steps; }
+    function go(k) { k = Math.max(0, Math.min(steps().length - 1, k)); if (k !== i) { i = k; show(true); } }
+    function play() {
+      if (i >= steps().length - 1) { i = 0; show(true); }
+      timer = setInterval(function () { if (i >= steps().length - 1) stop(); else go(i + 1); }, cfg.interval || 2600);
+      sync();
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = 0; sync(); } }
+    function build() {
+      if (pre) D.code(pre, cfg.modes[mode].code);
+      if (tabs) tabs.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t.dataset.m === mode); });
+      ctl.querySelector('.dots').innerHTML = steps().map(function (_, k) { return '<button data-i="' + k + '" aria-label="第 ' + (k + 1) + ' 步"></button>'; }).join('');
+    }
+    function sync() {
+      var n = steps().length;
+      ctl.querySelectorAll('.dots button').forEach(function (d, k) { d.className = k === i ? 'on' : k < i ? 'done' : ''; });
+      ctl.querySelector('[data-a="prev"]').disabled = i === 0;
+      ctl.querySelector('[data-a="next"]').disabled = i === n - 1;
+      ctl.querySelector('[data-a="play"]').textContent = timer ? '❚❚ 暂停' : '▶ 自动播放';
+    }
+    function show(anim) {
+      var s = steps()[i], lines = [].concat(s.line || []);
+      if (pre) pre.querySelectorAll('.ln').forEach(function (el) { el.classList.toggle('cur', lines.indexOf(+el.dataset.n) >= 0); });
+      narr.innerHTML = '<div class="meta"><span>第 ' + (i + 1) + ' 步 / 共 ' + steps().length + ' 步</span>' +
+        (s.phase ? '<span class="badge">' + s.phase + '</span>' : '') + '</div><h2>' + s.title + '</h2><p>' + s.text + '</p>' +
+        (s.key ? '<div class="key"><b>要点</b>' + s.key + '</div>' : '') + (s.warn ? '<div class="key warn"><b>注意</b>' + s.warn + '</div>' : '');
+      cfg.render(s, mode, anim);
+      sync();
+    }
+    function measure() {
+      var m0 = mode, i0 = i, max = 0;
+      demo.style.minHeight = '';
+      keys.forEach(function (m) {
+        mode = m; build();
+        steps().forEach(function (_, k) { i = k; show(false); max = Math.max(max, demo.offsetHeight); });
+      });
+      mode = m0; i = i0; build(); show(false);
+      demo.style.minHeight = max + 'px';
+      fit();
+    }
+    function onResize() { if (innerWidth !== lastW) { lastW = innerWidth; measure(); } else redraw(); }
+    addEventListener('resize', onResize);
+    onResize();
+    if (document.fonts) document.fonts.ready.then(measure);
+  }
+  return { $: $, code: code, arrows: arrows, run: run, fit: fit };
+})();
+</script>
+<script>
+(function () {
+  var $ = D.$;
+  var CODE = [
+    'typedef int (*bsearch_fn)(const int *array, int lo, int hi, int key);',
+    '',
+    'int binary_search_insert(const int *array, int lo, int hi, int key)',
+    '{',
+    '    while (lo <= hi) {',
+    '        int mid = lo + (hi - lo) / 2;',
+    '        if (array[mid] <= key)',
+    '            lo = mid + 1;',
+    '        else',
+    '            hi = mid - 1;',
+    '    }',
+    '    return lo;',
+    '}',
+    '',
+    'void binary_insert_sort(bsearch_fn bsearch, int *array, int n)',
+    '{',
+    '    int i, j, pos;',
+    '    for (i = 2; i <= n; i++) {',
+    '        array[0] = array[i];',
+    '        pos = bsearch(array, 1, i - 1, array[0]);',
+    '        for (j = i - 1; j >= pos; j--)',
+    '            array[j + 1] = array[j];',
+    '        array[pos] = array[0];',
+    '    }',
+    '}',
+    '',
+    'int main(void)',
+    '{',
+    '    int a[] = { 0, 5, 2, 4, 1, 3 };',
+    '    binary_insert_sort(binary_search_insert, a, 5);',
+    '}'
+  ].join('\n');
+
+  var N = 5, FA_CB = '0x401180';
+  var steps = [], trace = [];
+
+  function push(o) {
+    o.trace = trace.slice();
+    steps.push(o);
+  }
+  function gen() {
+    var a = [0, 5, 2, 4, 1, 3];
+    function snap(o) { o.arr = a.slice(); push(o); }
+    snap({ line: 29, sortedTo: 1, key0: null, phase: '准备', title: '哨兵数组: a[1..5] 是数据, a[0] 留空',
+      text: '折半插入排序沿用直接插入排序的哨兵约定: 下标 0 不存数据, 每轮把待插元素暂存在 <code>a[0]</code>, 有序区从 <code>a[1]</code> (单个元素天然有序) 开始向右扩.',
+      key: '哨兵让「搬移循环」不必额外判断越界: 比较与暂存共用 a[0].' });
+    for (var i = 2; i <= N; i++) {
+      var key = a[i];
+      snap({ line: 19, sortedTo: i - 1, key0: key, phase: '第 ' + (i - 1) + ' 轮 · 取元素', title: 'a[0] = a[' + i + '] = ' + key,
+        text: '把本轮待插元素 ' + key + ' 取出暂存到哨兵位, 原位置稍后会被搬移覆盖. 当前有序区为 a[1..' + (i - 1) + '].' });
+      var lo = 1, hi = i - 1;
+      snap({ line: 20, sortedTo: i - 1, key0: key, cb: true, lo: lo, hi: hi, mid: null, phase: '回调 · 进入', title: '通过函数指针 bsearch 调出: 进入 binary_search_insert',
+        text: '排序函数自己不写查找逻辑, 而是调用传进来的 <code>bsearch</code>. 实参是 <code>binary_search_insert</code> 的入口地址, 查找区间为有序区 [1, ' + (i - 1) + '], key = ' + key + '.',
+        key: 'bsearch 的类型是 bsearch_fn: 「在有序区间上返回插入下标」的函数指针. 类型必须与被指向函数一致.' });
+      while (lo <= hi) {
+        var mid = lo + ((hi - lo) >> 1);
+        snap({ line: [5, 6], sortedTo: i - 1, key0: key, cb: true, lo: lo, hi: hi, mid: mid, phase: '回调 · 折半', title: 'mid = ' + mid + ' (区间 [' + lo + ', ' + hi + '])',
+          text: '取中点 <code>mid = lo + (hi - lo) / 2</code> = ' + mid + ', 准备比较 <code>a[' + mid + '] = ' + a[mid] + '</code> 与 key = ' + key + '.' });
+        if (a[mid] <= key) {
+          trace.push('a[' + mid + ']=' + a[mid] + ' <= ' + key + ' → lo=' + (mid + 1));
+          lo = mid + 1;
+          snap({ line: [7, 8], sortedTo: i - 1, key0: key, cb: true, lo: lo, hi: hi, mid: mid, phase: '回调 · 折半', title: 'a[' + mid + '] <= key: 插入点在右半, lo = ' + lo,
+            text: '中点不大于 key, 说明插入位置 (含相等时插右侧) 在 mid 右边, 收缩为 [' + lo + ', ' + hi + '].' });
+        } else {
+          trace.push('a[' + mid + ']=' + a[mid] + ' > ' + key + ' → hi=' + (mid - 1));
+          hi = mid - 1;
+          snap({ line: [9, 10], sortedTo: i - 1, key0: key, cb: true, lo: lo, hi: hi, mid: mid, phase: '回调 · 折半', title: 'a[' + mid + '] > key: 插入点在左半, hi = ' + hi,
+            text: '中点比 key 大, key 应插到它左边, 收缩为 [' + lo + ', ' + hi + '].' });
+        }
+      }
+      snap({ line: 12, sortedTo: i - 1, key0: key, cb: true, lo: lo, hi: hi, mid: null, ret: lo, phase: '回调 · 返回', title: 'lo > hi 循环结束, return lo = ' + lo,
+        text: '区间收空时 lo 恰好停在「第一个比 key 大的元素」位置, 即插入下标. 相等元素都被 lo 越过, 故新元素插在同值右侧, 排序<b>稳定</b>.',
+        key: '插入排序要的是「插入位置」, 不是「找到 / 没找到」: 回调返回循环结束后的 lo, 而不是 -1.' });
+      var pos = lo;
+      snap({ line: 20, sortedTo: i - 1, key0: key, cb: false, pos: pos, phase: '回到排序', title: '返回值写入 pos = ' + pos,
+        text: '回调返回后控制流回到 binary_insert_sort, 插入位置记在 pos. 接下来由排序函数负责搬移.' });
+      if (i - 1 >= pos) {
+        for (var j = i - 1; j >= pos; j--) a[j + 1] = a[j];
+        snap({ line: [21, 22], sortedTo: i - 1, key0: key, pos: pos, shift: [pos, i], phase: '搬移', title: 'a[' + pos + '..' + (i - 1) + '] 整体右移一格',
+          text: '从后往前把有序区中 [' + pos + ', ' + (i - 1) + '] 的元素各右移一位, 腾出 a[' + pos + ']. 哨兵 a[0] 里的 ' + key + ' 不受影响.' });
+      } else {
+        snap({ line: [21, 22], sortedTo: i - 1, key0: key, pos: pos, phase: '搬移', title: 'pos == i: 无需搬移',
+          text: '插入点就在当前末尾之后, 搬移循环一次都不执行.' });
+      }
+      a[pos] = key;
+      snap({ line: 23, sortedTo: i, key0: null, pos: pos, phase: '插入', title: 'a[' + pos + '] = a[0] = ' + key,
+        text: '把暂存的 ' + key + ' 放入插入位置, 有序区扩到 a[1..' + i + ']. 哨兵位重新空出, 等待下一轮.' });
+    }
+    snap({ line: 30, sortedTo: N, key0: null, phase: '完成', title: '排序完成: a[1..5] 有序',
+      text: '四轮插入结束. 整个过程中排序函数从未写过「怎么找位置」, 查找行为完全由回调提供 —— 换一个回调 (例如线性查找), 排序主体一行不用改.',
+      key: '与 qsort 同构: 流程固定, 行为注入. C 里靠函数指针, JS 里靠函数值 / 闭包.' });
+  }
+  gen();
+
+  function v(id, name, type, val) {
+    return '<div class="var" id="v-' + id + '"><div class="vh"><code>' + name + '</code><span>' + type + '</span></div>' +
+      '<span class="vv" id="vv-' + id + '">' + val + '</span></div>';
+  }
+
+  function render(s, mode, anim) {
+    var cells = '', chips = '';
+    for (var k = 0; k <= N; k++) {
+      var cls = 'cell';
+      if (k === 0) cls += ' sent';
+      else if (k <= s.sortedTo) cls += ' sorted';
+      if (s.cb && k >= s.lo && k <= s.hi) cls += ' range';
+      if (s.cb && s.mid === k) cls += ' mid';
+      if (k === 0 && s.key0 != null) cls += ' key';
+      var val = k === 0 ? (s.key0 != null ? s.key0 : '—') : s.arr[k];
+      cells += '<div class="' + cls + '" id="c-' + k + '">' + val + '<small>a[' + k + ']</small></div>';
+      var ch = '';
+      if (s.cb) {
+        if (k === s.lo) ch += '<span class="chip lo">lo</span>';
+        if (k === s.hi) ch += '<span class="chip hi">hi</span>';
+        if (s.mid === k) ch += '<span class="chip mid">mid</span>';
+      }
+      if (s.pos != null && k === s.pos) ch += '<span class="chip pos">pos</span>';
+      chips += '<div>' + ch + '</div>';
+    }
+    var sortFr = '<div class="frame l" id="fr-sort"><div class="ft"><span class="fn">binary_insert_sort()</span><span class="own l">排序流程</span></div>' +
+      v('i', 'i', 'int', s.line === 29 ? '—' : Math.min(N, Math.max(2, s.sortedTo + (s.phase === '插入' ? 0 : 1)))) +
+      v('pos', 'pos', 'int', s.pos != null ? s.pos : '—') +
+      v('bsearch', 'bsearch', 'bsearch_fn', FA_CB) + '</div>';
+    var cbFr = s.cb ? '<div class="frame u" id="fr-cb"><div class="ft"><span class="fn">binary_search_insert()' + (s.ret != null ? ' · return ' + s.ret : '') + '</span><span class="own u">回调</span></div>' +
+      v('lo', 'lo', 'int', s.lo) + v('hi', 'hi', 'int', s.hi) +
+      v('mid', 'mid', 'int', s.mid != null ? s.mid : '—') + v('key', 'key', 'int', s.key0) + '</div>' : '';
+    var fns = '<div class="blk fn-l" id="fn-sort"><div class="ha">排序主体</div><b>binary_insert_sort</b><div>取元素 → 定位 → 搬移 → 插入</div></div>' +
+      '<div class="blk fn-u" id="fn-cb"><div class="ha">' + FA_CB + '</div><b>binary_search_insert</b><div>调用者提供的查找行为</div></div>';
+    var term = '<div class="term" id="trace">' + (s.trace.length
+      ? s.trace.map(function (t, idx) { return '<span class="' + (anim && idx === s.trace.length - 1 ? 'new' : '') + '">' + t + '</span>'; }).join('<br>')
+      : '<span class="wait">(还没有比较)</span>') + '</div>';
+    $('#mem').innerHTML =
+      '<div><div class="col-t">数组 (绿 = 已有序, 紫框 = mid, 琥珀 = 哨兵暂存)</div><div class="cells">' + cells + '</div><div class="chips">' + chips + '</div></div>' +
+      '<div class="lower"><div><div class="col-t">调用栈</div>' + cbFr + sortFr + '</div>' +
+      '<div><div class="col-t">函数与比较记录</div>' + fns + '<div class="col-t" style="margin-top:8px">比较轨迹</div>' + term + '</div></div>';
+    if (anim && s.key0 != null && s.line === 19) { var c0 = document.getElementById('c-0'); if (c0) c0.classList.add('flash'); }
+
+    var list = [{ from: 'vv-bsearch', to: 'fn-cb', color: 'violet', fs: 'r', ts: 'l' }];
+    if (s.cb && s.ret != null) list.push({ from: 'vv-lo', to: 'vv-pos', color: 'amber', fs: 'l', ts: 'l' });
+    D.arrows($('#mem'), list, anim);
+  }
+
+  D.run({
+    modes: { bisort: { label: '折半插入排序', tone: 'accent', code: CODE, steps: steps } },
+    render: render,
+    interval: 2400
+  });
+})();
+</script>
+</body>
+</html>
