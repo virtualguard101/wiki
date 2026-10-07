@@ -63,6 +63,8 @@ C 标准把语言本身与**标准库**分开规定: 语言管语法与语义, �
 ### 初始化与长度
 
 ```c
+#include <string.h>
+
 void *memset(void *s, int c, size_t n);   /* 把 n 字节都写成 (unsigned char)c, 常用于清零 */
 size_t strlen(const char *s);             /* 到 '\0' 为止的字符数, 不含 '\0' */
 ```
@@ -84,6 +86,8 @@ POSIX 另有 `strdup`: 内部 `malloc` 再拷贝整串, 返回新指针, 用完�
 ### 连接, 比较, 搜索
 
 ```c
+#include <string.h>
+
 char *strcat(char *dest, const char *src);
 char *strncat(char *dest, const char *src, size_t n);  /* 最多再接 n 个字符, 且总会写 '\0' */
 int strcmp(const char *s1, const char *s2);            /* <0 / 0 / >0 */
@@ -100,6 +104,8 @@ POSIX 的 `strcasecmp` / `strncasecmp` 在比较时忽略大小写, 不属于 IS
 ### 分割: `strtok` 与可重入
 
 ```c
+#include <string.h>
+
 char *strtok(char *str, const char *delim);
 char *strtok_r(char *str, const char *delim, char **saveptr);  /* POSIX */
 ```
@@ -115,6 +121,8 @@ char *strtok_r(char *str, const char *delim, char **saveptr);  /* POSIX */
 第一次调用传入待分割串, 后续传入 `NULL` 表示「接着上次」:
 
 ```c
+#include <string.h>
+
 char str[] = "root:x:0:0:root:/root:/bin/bash";
 char *tok = strtok(str, ":");
 while (tok != NULL) {
@@ -186,7 +194,7 @@ char *strerror(int errnum);           /* 返回指向静态说明串的指针 */
 
 定位用 `fseek` / `ftell` / `rewind`. 读到流末尾时, 面向字符的接口常返回 `EOF` (值为 `-1`); 应用 `feof` / `ferror` 区分「真结束」与「出错」.
 
-拼串优先 `snprintf(buf, sizeof buf, ...)`, 避免 `sprintf` 不知缓冲区长度而溢出. 可变参数与格式串类型必须一致, 见[函数接口 · 可变参数](函数接口.md#可变参数).
+拼串优先 `snprintf(buf, sizeof buf, ...)`, 避免 `sprintf` 不知缓冲区长度而溢出. [可变参数与格式串类型必须一致](函数接口.md#可变参数).
 
 打印已有字符串时写 `printf("%s", s)`, 不要写 `printf(s)`: 若 `s` 含 `%`, 会被当成转换说明并从栈上误取参数.
 
@@ -204,9 +212,11 @@ char *strerror(int errnum);           /* 返回指向静态说明串的指针 */
 
 因此 `printf("hello");` 后若进程被信号杀掉且没有换行、也未 `fflush`/`exit`, 终端上可能什么都看不到; `printf("hello\n");` 或正常 `return` 经 `exit` 刷新后才会出现. 需要立刻看到输出时显式 `fflush(stdout)`.
 
-## 数值字符串转换 (`<stdlib.h>`)
+## 数值字符串转换
 
 ```c
+#include <stdlib.h>
+
 int atoi(const char *nptr);                              /* 简便, 几乎无法区分「真是 0」与「解析失败」 */
 long strtol(const char *nptr, char **endptr, int base);  /* 可检查范围与未解析后缀 */
 double strtod(const char *nptr, char **endptr);
@@ -224,9 +234,11 @@ double strtod(const char *nptr, char **endptr);
 
 `base` 为 `0` 时按 C 字面量规则认前缀 (`0` → 八进制, `0x` → 十六进制); 显式传 `10` / `16` 等则按该进制解析.
 
-## 分配内存 (`<stdlib.h>`)
+## 分配内存
 
 ```c
+#include <stdlib.h>
+
 void *malloc(size_t size);                      /* 未初始化 */
 void *calloc(size_t nmemb, size_t size);        /* nmemb * size 字节, 并清零 */
 void *realloc(void *ptr, size_t size);          /* 调整大小, 可能搬迁 */
