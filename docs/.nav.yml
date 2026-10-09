@@ -96,6 +96,7 @@ nav:
         - Java接口: "obsidian/编程语言/java/Java接口.md"
     - 硬件描述语言:
       - Verilog入门要点: "obsidian/硬件描述语言/Verilog入门要点.md"
+      - Icarus Verilog: "obsidian/硬件描述语言/Icarus-Verilog.md"
     - 数学:
       - 离散数学:
         - UC Berkeley CS70:
