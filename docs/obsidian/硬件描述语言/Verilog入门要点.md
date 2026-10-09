@@ -13,6 +13,8 @@ tags:
 > [Verilog 语法入门 | USTC数字电路教程](https://vlab.ustc.edu.cn/guide/doc_verilog.html)
 >
 > [Verilog Tutorial | ASIC World](https://www.asic-world.com/verilog/veritut.html)
+>
+> [HDLBits — Verilog Practice](https://hdlbits.01xz.net/wiki/Main_Page)
 
 !!! abstract
     - Verilog 是 **HDL** (*Hardware Description Language*), 用文本描述电路结构与行为, 供仿真与综合, 不是在 CPU 上逐行执行的程序.
@@ -238,7 +240,7 @@ endmodule
 
 为门级仿真加延迟时, 输入变化瞬间输出可能仍为旧值或 `x`, 需等组合路径稳定后再采样. FSM 测试应尽量覆盖**每个状态对每种输入的转移**.
 
-开源仿真常用 [Icarus Verilog](https://steveicarus.github.io/iverilog/): `iverilog -o sim.vvp dut.v tb.v && vvp sim.vvp`, 波形可用 GTKWave 查看.
+开源仿真常用[Icarus Verilog](Icarus-Verilog.md)进行, 配合[GTKWave](https://gtkwave.sourceforge.net/)或[Surfer](https://surfer-project.org/)查看波形.
 
 ## 参数化
 
