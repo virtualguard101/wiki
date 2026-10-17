@@ -36,7 +36,7 @@ usync:
     just u
     just sc
     just ob
-    just ns
+    # just ns
 
 verify:
     uv run mkdocs build

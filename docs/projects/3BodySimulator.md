@@ -18,9 +18,9 @@ tags:
 
 通过本次项目你会了解到：
 
-- 1. [C++](../obsidian/编程语言/cpp/cs106l/初始化与引用操作.md)项目标准化基础
+- 1. [C++](../note/lang/cpp/cs106l/初始化与引用操作.md)项目标准化基础
 
-- 2. [CMake](../obsidian/Tools/构建工具/CMake.md)、[vcpkg](../obsidian/Tools/构建工具/vcpkg.md)等C++构建工具的基本使用
+- 2. [CMake](../note/tools/builder/CMake.md)、[vcpkg](../note/tools/builder/vcpkg.md)等C++构建工具的基本使用
 
 - 3. 多语言配合构建（C++ & Python）
 
@@ -28,7 +28,7 @@ tags:
 
 - C++ 编译器
 
-- [Git](../obsidian/Tools/Git.md)：版本控制
+- [Git](../note/tools/Git.md)：版本控制
 
 - [CMake(*>= v3.22*)](https://cmake.org/documentation/)：C++构建工具
 
@@ -36,7 +36,7 @@ tags:
 
 - [Python(*>= v3.12*)](https://www.python.org/)：可视化模块
 
-- [uv](../obsidian/Tools/Astral%20uv.md)：Python包管理工具
+- [uv](../note/tools/Astral%20uv.md)：Python包管理工具
 
 文中的构建平台为**Ubuntu22.04**
 
