@@ -9,7 +9,7 @@ tags:
 
 # 使用SSH访问GitHub远程仓库
 
-> [SSH](../Tools/远程服务器使用基础.md)
+> [SSH](../tools/远程服务器使用基础.md)
 >
 > [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 

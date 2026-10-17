@@ -11,7 +11,7 @@ tags:
 
 **触发器**（Trigger）在特定表发生 `INSERT`、`UPDATE` 或 `DELETE` 时**自动执行**一段 SQL，常用于维护关联数据、写入审计日志等。
 
-**事件调度器**（Event Scheduler）则按预定时间**周期性或一次性**执行 SQL，类似数据库内置的定时任务（可类比Linux的[cron](../Tools/linux/Linux定时任务.md)）。
+**事件调度器**（Event Scheduler）则按预定时间**周期性或一次性**执行 SQL，类似数据库内置的定时任务（可类比Linux的[cron](../tools/linux/Linux定时任务.md)）。
 
 ---
 

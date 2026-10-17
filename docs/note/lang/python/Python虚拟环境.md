@@ -18,13 +18,13 @@ tags:
 
 ## 创建虚拟环境
 
-- 使用 [Astral uv](../../Tools/Astral%20uv.md)
+- 使用 [Astral uv](../../tools/Astral%20uv.md)
 
     ```bash
     uv venv [ENV_NAME] --python=[PYTHON_VERSION]
     ```
 
-- 使用 [Conda](../../Tools/Conda.md)
+- 使用 [Conda](../../tools/Conda.md)
 
     ```bash
     conda create -n [ENV_NAME] python=[PYTHON_VERSION]

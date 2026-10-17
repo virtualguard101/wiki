@@ -44,7 +44,7 @@ tags:
 
 ![](assets/rv-intro/2.png)
 
-Based on the Principle of Locality([局部性原理](../../操作系统/408/虚拟内存管理.md#局部性原理)), the memory hierarchy is designed to trade off between cost and performance. The higher the level, the more expensive and slower the memory, but the larger the capacity and the faster the access speed.
+Based on the Principle of Locality([局部性原理](../../os/408/虚拟内存管理.md#局部性原理)), the memory hierarchy is designed to trade off between cost and performance. The higher the level, the more expensive and slower the memory, but the larger the capacity and the faster the access speed.
 
 ## RISC-V ISA
 

@@ -99,7 +99,7 @@ nav:
     - 数学:
       - 离散数学:
         - UC Berkeley CS70:
-          - 集合 & math符号与逻辑命题: "note/math/discret/集合 & math符号与逻辑命题.md"
+          - 集合 & 数学符号与逻辑命题: "note/math/discret/集合 & 数学符号与逻辑命题.md"
           - 证明: "note/math/discret/证明.md"
         - 命题逻辑的基本概念: "note/math/discret/legacy/命题逻辑的基本概念.md"
         - 命题逻辑等值演算: "note/math/discret/legacy/命题逻辑等值演算.md"
@@ -126,13 +126,13 @@ nav:
           - 相似矩阵: "note/math/linear/相似矩阵.md"
           - 二次型: "note/math/linear/二次型.md"
         - 线性代数的本质:
-          - 向量: "note/math/linear/overview/linear的本质-向量.md"
-          - 矩阵与线性变换: "note/math/linear/overview/linear的本质-矩阵与线性变换.md"
-          - 矩阵乘法与复合线性变换: "note/math/linear/overview/linear的本质-矩阵乘法与复合线性变换.md"
-          - 行列式: "note/math/linear/overview/linear的本质-行列式.md"
-          - 求解线性方程组: "note/math/linear/overview/linear的本质-求解线性方程组.md"
-          - 点积与对偶性: "note/math/linear/overview/linear的本质-点积与对偶性.md"
-          - 叉积: "note/math/linear/overview/linear的本质-叉积.md"
+          - 向量: "note/math/linear/overview/线性代数的本质-向量.md"
+          - 矩阵与线性变换: "note/math/linear/overview/线性代数的本质-矩阵与线性变换.md"
+          - 矩阵乘法与复合线性变换: "note/math/linear/overview/线性代数的本质-矩阵乘法与复合线性变换.md"
+          - 行列式: "note/math/linear/overview/线性代数的本质-行列式.md"
+          - 求解线性方程组: "note/math/linear/overview/线性代数的本质-求解线性方程组.md"
+          - 点积与对偶性: "note/math/linear/overview/线性代数的本质-点积与对偶性.md"
+          - 叉积: "note/math/linear/overview/线性代数的本质-叉积.md"
       - 概率论与数理统计:
         - 概率初步:
           - 事件的运算及概率: "note/math/probability/事件的运算及概率.md"
@@ -148,8 +148,8 @@ nav:
           - 边缘分布: "note/math/probability/边缘分布.md"
         - 抽样分布: "note/math/probability/抽样分布.md"
         - 参数估计: "note/math/probability/参数估计.md"
-      - math建模:
-        - 部分资源: "note/math/math建模/math建模部分资源.md"
+      - 数学建模:
+        - 部分资源: "note/math/modeling/数学建模部分资源.md"
     - 数据结构与算法:
       - 绪论:
         - 算法和算法评价: "note/dsa/408/算法和算法评价.md"
@@ -220,9 +220,9 @@ nav:
     - 操作系统:
       - 408考研大纲:
         - os概述:
-          - os基本特性: "note/os/408/os基本特性.md"
-          - os发展历程: "note/os/408/os发展历程.md"
-          - os运行环境: "note/os/408/os运行环境.md"
+          - 操作系统基本特性: "note/os/408/操作系统基本特性.md"
+          - 操作系统发展历程: "note/os/408/操作系统发展历程.md"
+          - 操作系统运行环境: "note/os/408/操作系统运行环境.md"
         - 进程管理:
           - 进程的描述与控制: "note/os/408/进程的描述与控制.md"
           - 处理机调度: "note/os/408/处理机调度.md"
@@ -241,7 +241,7 @@ nav:
           - 磁盘和固态硬盘: "note/os/408/磁盘和固态硬盘.md"
       - "Operating Systems: Three Easy Pieces":
         - 绪论:
-          - os简易模型: "note/os/intro/os简易模型.md"
+          - 操作系统简易模型: "note/os/intro/操作系统简易模型.md"
           - Introduction to Operating Systems: "note/os/intro/Introduction to Operating Systems.md"
         - 虚拟化:
           - "The Abstraction: The Process": "note/os/virtualization/The Abstraction - The Process.md"
