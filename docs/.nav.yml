@@ -355,6 +355,8 @@ nav:
       - HTML要点: "note/misc/HTML要点.md"
       - CSS要点: "note/misc/CSS要点.md"
       - 安全要点: "note/misc/Web安全要点.md"
+    # - cyber:
+
     - misc:
       - 解决方案:
         - 透明代理: "note/misc/科学上网/透明代理.md"
