@@ -351,7 +351,7 @@ nav:
       - 调音混音背后的声学理论基础: "note/audio/调音混音背后的声学理论基础.md"
       - 乐理基础: "note/audio/乐理基础.md"
       - Audition混音基础: "note/audio/Audition混音基础.md"
-    - Web:
+    - web:
       - HTML要点: "note/misc/HTML要点.md"
       - CSS要点: "note/misc/CSS要点.md"
       - 安全要点: "note/misc/Web安全要点.md"

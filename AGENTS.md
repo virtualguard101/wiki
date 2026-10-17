@@ -7,7 +7,7 @@ This file provides guidance to AI coding agents (Claude Code, Copilot, Cursor, e
 This repository is a personal wiki built with [MkDocs](https://www.mkdocs.org/) and the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme. It uses [uv](https://docs.astral.sh/uv/) for Python dependency management and [just](https://github.com/casey/just) for task automation.
 
 The wiki contains three main content sections:
-- **docs/obsidian/** – Learning notes organized by topic (Computer Science, Machine Learning, etc.), designed to be readable in Obsidian.
+- **docs/note/** – Learning notes organized by topic (Computer Science, Machine Learning, etc.), designed to be readable in Obsidian.
 - **docs/blog/** – Blog posts with RSS feed support.
 - **docs/projects/** – Project logs and documentation.
 
@@ -36,11 +36,11 @@ Under the hood:
 ## Branch Strategy
 
 - **`main`** – The deployed branch. Contains the fully built MkDocs site (HTML, CSS, JS). Never edit content directly here; use `just sync` to merge from `obsidian`.
-- **`obsidian`** – The content branch. All notes, blog posts, and project logs are edited here. The `docs/obsidian/` directory is structured for optimal viewing in Obsidian.
+- **`obsidian`** – The content branch. All notes, blog posts, and project logs are edited here. The `docs/note/` directory is structured for optimal viewing in Obsidian.
 
 To make changes:
 1. `just obsidian` – switch to the content branch.
-2. Edit files in `docs/obsidian/`, `docs/blog/`, or `docs/projects/`.
+2. Edit files in `docs/note/`, `docs/blog/`, or `docs/projects/`.
 3. `just sync` – merge into `main` and deploy.
 
 ## Architecture
@@ -63,9 +63,10 @@ The site is configured in `mkdocs.yml`. Key plugins include:
 - **`scripts/update.py`** – Updates the `obsidian` branch with external changes (e.g., pulling from upstream templates).
 
 ### Content Structure
-- **`docs/obsidian/`** – Notes are grouped by topic (`MachineLearning/`, `Math/`, `OperatingSystem/`, etc.). Each topic folder contains Markdown files and optionally notebooks.
+- **`docs/note/`** – Notes are grouped under lowercase topic directories such as `ai/`, `audio/`, `csa/`, `dbs/`, `dsa/`, `hdl/`, `lang/`, `math/`, `misc/`, `ml/`, `net/`, `os/`, `se/`, and `tools/`. Each topic folder contains Markdown files and may contain assets or notebooks.
 - **`docs/blog/posts/`** – Blog posts in Markdown, with front‑matter for dates, categories, and tags.
 - **`docs/projects/`** – Project logs and related assets.
+- **`docs/.nav.yml`** – MkDocs navigation tree. Its page paths are relative to `docs/` and must match the current files under `docs/`.
 
 ### Styling and Extensions
 - Custom CSS files in `docs/assets/stylesheets/` (theme.css, feature.css, temp-patch.css, home.css, admonitions.css).
@@ -76,10 +77,11 @@ The site is configured in `mkdocs.yml`. Key plugins include:
 ## Development Workflow
 
 1. **Setup** – Run `uv sync` to install dependencies.
-2. **Edit content** – Navigate to `docs/obsidian/` or `docs/blog/` and modify Markdown/notebook files.
+2. **Edit content** – Navigate to `docs/note/`, `docs/blog/`, or `docs/projects/` and modify Markdown/notebook files.
 3. **Preview** – Run `just serve` and open http://127.0.0.1:8000.
-4. **Deploy** – After testing, run `just sync` to merge changes into `main` and deploy.
-5. **Blogging** – Use `just newblog title="My Post"` to create a new blog post template.
+4. **Verify** – Run `just verify` (or `just v`) to build the site and catch broken navigation and links.
+5. **Deploy** – After testing, run `just sync` to merge changes into `main` and deploy.
+6. **Blogging** – Use `just newblog title="My Post"` to create a new blog post template.
 
 ## Agents Rules
 
