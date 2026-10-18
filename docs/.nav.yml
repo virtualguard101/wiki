@@ -52,6 +52,12 @@ nav:
         - 指针详解: "note/lang/c/指针详解.md"
         - 函数接口: "note/lang/c/函数接口.md"
         - C标准库: "note/lang/c/C标准库.md"
+      # [ ] - Assembly:
+      #   - x86:
+      #   - MIPS:
+      #   - ARM:
+      #   - RISC-V:
+
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "note/lang/cpp/cs106l/基础类型与结构体.md"
@@ -77,7 +83,7 @@ nav:
         - Rust变量: "note/lang/rust/Rust变量.md"
         - Rust数据类型: "note/lang/rust/Rust数据类型.md"
         - Rust函数: "note/lang/rust/Rust函数.md"
-        # [ ] - 所有权与借用: "note/lang/rust/所有权与借用.md"
+        # - 所有权与借用: "note/lang/rust/所有权与借用.md"
       - Golang:
         - Golang入门要点: "note/lang/golang/Golang入门要点.md"
         - 基础:
@@ -289,7 +295,7 @@ nav:
     - 数据库系统:
       - CMU 15-445:
         - Relational Model & Algebra: "note/dbs/cmu15-445/Relational Model & Algebra.md"
-        # - Modern SQL: "note/dbs/cmu15-445/Modern SQL.md"
+        # - Modern SQL: "note/dbs/cmu15-445/Modern-SQL.md"
       - 数据库系统概述:
         - 数据库系统的基本概念: "note/dbs/数据库系统的基本概念.md"
         - 数据库系统的特点与组成: "note/dbs/数据库系统的特点与组成.md"
@@ -351,13 +357,14 @@ nav:
       - 调音混音背后的声学理论基础: "note/audio/调音混音背后的声学理论基础.md"
       - 乐理基础: "note/audio/乐理基础.md"
       - Audition混音基础: "note/audio/Audition混音基础.md"
-    - web:
+    - Web:
       - HTML要点: "note/misc/HTML要点.md"
       - CSS要点: "note/misc/CSS要点.md"
       - 安全要点: "note/misc/Web安全要点.md"
-    # - cyber:
+      - Vue3要点: "note/misc/Vue3开发要点.md"
+    # - Cyber:
 
-    - misc:
+    - Misc:
       - 解决方案:
         - 透明代理: "note/misc/科学上网/透明代理.md"
         - Python脚本绕过socks报错: "note/lang/python/Python脚本绕过socks报错.md"
