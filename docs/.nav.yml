@@ -52,8 +52,8 @@ nav:
         - 指针详解: "note/lang/c/指针详解.md"
         - 函数接口: "note/lang/c/函数接口.md"
         - C标准库: "note/lang/c/C标准库.md"
-      # [ ] - Assembly:
-      #   - x86:
+      - Assembly:
+        - x86_64汇编基础: "note/lang/asm/x86-64汇编基础.md"
       #   - MIPS:
       #   - ARM:
       #   - RISC-V:
