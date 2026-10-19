@@ -54,4 +54,4 @@ mv-image dest:
 notion-sync args="":
     uvx mkdocs-note ns {{ args }} --continue-on-error
 notion-sync-full:
-    uvx mkdocs-note ns --full
+    uvx mkdocs-note ns --full --continue-on-error
