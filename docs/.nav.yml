@@ -55,7 +55,7 @@ nav:
       - Assembly:
         - x86_64汇编基础: "note/lang/asm/x86-64汇编基础.md"
         - ARM汇编基础: "note/lang/asm/arm汇编基础.md"
-      #   - RISC-V:
+        - RISC-V汇编基础: "note/lang/asm/risc-v汇编基础.md"
 
       - C++:
         - "Standard C++ Programming":

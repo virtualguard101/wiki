@@ -17,11 +17,11 @@ tags:
 > [GNU Assembler: Using as](https://sourceware.org/binutils/docs/as/)
 
 !!! abstract
-  - ARM 是一系列指令集架构的名称, 本文以**AArch32**为主, 介绍传统 `r0`-`r15` 寄存器和 ARM / Thumb 指令状态.
+    - ARM 是一系列指令集架构的名称, 本文以**AArch32**为主, 介绍传统 `r0`-`r15` 寄存器和 ARM / Thumb 指令状态.
 
-  - 汇编指令直接操作寄存器、内存和条件标志. 读代码时先看操作数方向, 再跟踪数据如何流动.
+    - 汇编指令直接操作寄存器、内存和条件标志. 读代码时先看操作数方向, 再跟踪数据如何流动.
 
-  - 函数之间如何传参、保存寄存器和使用栈由**AAPCS**规定, 并不是 `BL` 指令自动完成的.
+    - 函数之间如何传参、保存寄存器和使用栈由**AAPCS**规定, 并不是 `BL` 指令自动完成的.
 
 ## AArch32 与 AArch64
 
@@ -320,7 +320,7 @@ add:
 
 这是这份 `-O0` 输出的布局, 不是 AAPCS32 要求所有函数都使用的固定模板.
 
-### `main` 调用 `add`
+### 函数调用
 
 `main` 的关键指令如下:
 
@@ -354,25 +354,103 @@ main: 从 r0 取回结果, 保存到 res
 
 `main` 不是叶子函数, 因为它调用了 `add`. 因此入口处用 `push {fp, lr}` 保存 `main` 原来的返回地址; `BL add` 会将新的返回地址写入 `LR`, 最后 `pop {fp, pc}` 从栈中恢复帧指针, 并通过 `PC` 返回.
 
-### `add.o` 反汇编
+### 目标文件反汇编
 
-目录中的 `disasm.s` 由 `arm-linux-gnueabihf-objdump -d add.o` 生成. 每行包含机器码和对应助记符, 例如:
+使用如下代码生成 C 目标文件并对其进行反汇编, 同时查看目标文件的 ELF 头信息:
 
-```text
-0000001c: e0823003    add r3, r2, r3
-00000020: e1a00003    mov r0, r3
-0000002c: e12fff1e    bx  lr
+```bash
+arm-linux-gnueabihf-gcc -S -O0 -marm add.c -o add.s
+arm-linux-gnueabihf-gcc -c add.s -o add.o
+arm-linux-gnueabihf-objdump -d add.o
+arm-linux-gnueabihf-readelf -h -A -s add.o
 ```
 
-左边是指令在 `.text` 节中的偏移, 中间是 32 位 ARM 指令编码, 右边是反汇编器解码出的助记符. 这里 `add r3, r2, r3` 与源汇编一致; `push` / `pop` 等伪指令或别名也可能被反汇编成对应的 `STR` / `LDR` 或多寄存器指令.
+输出开头的 `elf32-littlearm` 表示目标文件是 32 位小端 ARM ELF. `Disassembly of section .text` 说明下面是代码节, `00000000 <add>:` 和 `00000030 <main>:` 是符号及其在 `.text` 中的偏移. 因为是未链接的 `.o`, 地址从 0 开始, 不是运行时的最终地址.
 
-`readelf -h -A -s add.o` 还能验证目标文件是 `ELF32`、架构为 `ARM`, 并查看 ARM ISA、VFP 参数约定和符号表. 这些信息用于确认“文件确实是面向哪个 ARM 目标生成的”, 不能仅凭文件扩展名 `.o` 判断.
+每条指令一行, 格式为 `偏移: 机器码 助记符 操作数`:
+
+```text
+  1c:	e0823003 	add	r3, r2, r3
+  2c:	e12fff1e 	bx	lr
+```
+
+ARM state 的指令定长 4 字节, 所以偏移每行加 4. `add` 从 `0x00` 到 `0x2c` 共 12 条指令, `main` 从 `0x30` 开始, 到 `0x58` 的 `pop {fp, pc}` 结束, 共 11 条, 与符号表中 `add` 大小 48 字节、`main` 大小 44 字节一致.
+
+#### 机器码对照
+
+ARM 指令的最高 4 位是条件码, `e` (`1110`) 表示 `AL`, 即总是执行. 以几条指令为例拆分各字段:
+
+| 偏移 | 机器码 | 类别 | 拆分 | 汇编 |
+|:-----|:-------|:-----|:-----|:-----|
+| `0x1c` | `e0823003` | 数据处理 | cond=`e`, opcode=`0100` (ADD), `Rn=2`, `Rd=3`, `Rm=3` | `add r3, r2, r3` |
+| `0x3c` | `e3a01003` | 数据处理, 立即数 | cond=`e`, I=1, opcode=`1101` (MOV), `Rd=1`, imm=`3` | `mov r1, #3` |
+| `0x0c` | `e50b0008` | 单寄存器存储 | `P=1, U=0, W=0, L=0`, `Rn=11`, `Rd=0`, offset=`8` | `str r0, [fp, #-8]` |
+| `0x14` | `e51b2008` | 单寄存器加载 | `P=1, U=0, W=0, L=1`, `Rn=11`, `Rd=2`, offset=`8` | `ldr r2, [fp, #-8]` |
+| `0x2c` | `e12fff1e` | 分支并交换 | `BX`, `Rm=14` | `bx lr` |
+
+- 寄存器在机器码里是编号, 汇编里常显示别名: `r11` 是 `fp`, `r13` 是 `sp`, `r14` 是 `lr`, `r15` 是 `pc`. 可用 `objdump -M reg-names-std` 把 `fp` 显示成 `r11`.
+
+- `str` / `ldr` 中 `U=0` 表示偏移取负, 所以编码里的 `8` 对应 `[fp, #-8]`; `L` 位区分存储和加载.
+
+- `add r3, r2, r3` 的低 12 位 `003` 表示第二个操作数是寄存器 `r3` 且没有移位. `mov r1, #3` 的 `I=1`, 低 12 位 `003` 则按立即数解释. ARM 的立即数是 8 位值加 4 位旋转量, 所以并非任意 32 位常数都能直接写在 `mov` 里.
+
+#### 别名与多寄存器指令
+
+`objdump` 会把某些指令显示成别名, 并用 `@` 注释标出实际编码对应的形式:
+
+```text
+   0:	e52db004 	push	{fp}		@ (str fp, [sp, #-4]!)
+  28:	e49db004 	pop	{fp}		@ (ldr fp, [sp], #4)
+  30:	e92d4800 	push	{fp, lr}
+  58:	e8bd8800 	pop	{fp, pc}
+```
+
+- `push {fp}` 在机器码里就是前索引的 `str fp, [sp, #-4]!`, `pop {fp}` 是后索引的 `ldr fp, [sp], #4`. 对单个寄存器, 汇编器 / 反汇编器把它们显示为 `push` / `pop`.
+
+- `push {fp, lr}` 和 `pop {fp, pc}` 是多寄存器的 `STMDB sp!` / `LDMIA sp!`. 它们的低 16 位是寄存器位图: `e92d4800` 的 `0x4800` 置位了第 11 位 (`fp`) 和第 14 位 (`lr`); `e8bd8800` 的 `0x8800` 置位了第 11 位 (`fp`) 和第 15 位 (`pc`).
+
+- `pop {fp, pc}` 把栈中保存的返回地址装入 `pc`, 效果等同于 `bx lr`, 不需要再单独返回.
+
+#### `BL` 与重定位
+
+`main` 中调用 `add` 的指令是:
+
+```text
+  44:	ebfffffe 	bl	0 <add>
+```
+
+`ebfffffe` 中 `eb` 是 cond=`AL` 加 `BL` 的编码, 低 24 位 `fffffe` 是有符号偏移. 它只是汇编器写入的占位值, 里面没有 `add` 的最终地址: 因为 `bl` 在源汇编里写的是 `bl add(PLT)`, 目标由链接器通过**重定位**决定. 加上 `-r` 可以看到重定位记录:
+
+```bash
+arm-linux-gnueabihf-objdump -dr add.o
+```
+
+在 `0x44` 处会多出 `R_ARM_CALL add`, 表示链接器要在这里填入 `add` 的位置. 在最终可执行文件里, 偏移值会被替换为真实的相对距离 (以字为单位). 与 RISC-V 的 `call` 展开成 `auipc` + `jalr` 两条指令不同, ARM 的 `bl` 只用单条指令, 但分支范围受 24 位偏移限制; 目标太远时, 链接器可能插入跳板代码 (veneer).
+
+#### 查看目标文件属性
+
+`disasm.s` 后半部分是 `readelf -h -A -s add.o` 的结果:
+
+| 字段 | 含义 |
+|:-----|:-----|
+| `类别: ELF32`, `系统架构: ARM` | 32 位 ARM 目标文件 |
+| `数据: ... 小端序` | 小端字节序 |
+| `类型: REL (可重定位文件)` | 这是 `.o`, 尚未链接, 入口点地址为 0 |
+| `标志: 0x5000000, Version5 EABI` | 使用 ARM EABI 版本 5 |
+| `Tag_CPU_arch: v6` | 目标架构 ARMv6 |
+| `Tag_ARM_ISA_use` / `Tag_THUMB_ISA_use` | 使用 ARM 指令, 并允许 Thumb-1 |
+| `Tag_FP_arch: VFPv2`, `Tag_ABI_VFP_args: VFP registers` | 使用 VFPv2 浮点, 参数通过 VFP 寄存器传递 (hard-float) |
+| `Tag_ABI_align_needed: 8-byte` | 栈需要 8 字节对齐 |
+
+符号表里 `add` 与 `main` 都是 `FUNC GLOBAL`, 位于第 1 节 (`.text`), 值分别是 `0x0` 和 `0x30`. `$a` 是 ARM 的映射符号, 标记其后是 ARM 指令, 供反汇编器区分 ARM / Thumb 代码和数据. 这些信息用于确认文件确实面向哪个 ARM 目标, 不能仅凭 `.o` 扩展名判断.
 
 ## 交叉编译与调试
 
-如果当前机器本身是 32 位 ARM Linux, 可以用本机 GCC 生成汇编. 在 x86-64 Linux 上, 需要安装目标为 ARM Linux 的交叉工具链; 不同发行版的包名可能不同:
+如果当前机器本身是 32 位 ARM Linux, 可以用本机 GCC 生成汇编. 在 x86-64 Linux 上, 需要安装目标为 ARM Linux 的交叉工具链. 不同发行版的包名可能不同.
 
-```sh
+常用命令如下(上面的示例用到的交叉编译工具链命令):
+
+```bash
 # 由 C 生成 AArch32 汇编, -marm 选择 ARM state
 arm-linux-gnueabihf-gcc -S -O0 -marm add.c -o add.s
 
