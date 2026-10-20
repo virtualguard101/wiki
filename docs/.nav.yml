@@ -54,8 +54,7 @@ nav:
         - C标准库: "note/lang/c/C标准库.md"
       - Assembly:
         - x86_64汇编基础: "note/lang/asm/x86-64汇编基础.md"
-      #   - MIPS:
-      #   - ARM:
+        - ARM汇编基础: "note/lang/asm/arm汇编基础.md"
       #   - RISC-V:
 
       - C++:
