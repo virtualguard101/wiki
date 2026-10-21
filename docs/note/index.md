@@ -56,7 +56,7 @@ publish: true
 
     - ⚡ Meanwhile an open source amateur.
 
-    - 🌱 Currently researching **Computer System and Architecture** and some fields related to **AI Infrastructure**, and exploring basic theory of Computer Science, also engaging in some research activities ~~and some meaningless tricks~~.
+    - 🌱 Currently researching **Computer System and Architecture**, and exploring basic theory of Computer Science, also engaging in some research activities ~~and some meaningless tricks~~.
 
     - 📫 Contact information and other sites are available on my [Homepage](https://virtualguard101.com/).
 
