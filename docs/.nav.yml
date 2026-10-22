@@ -253,6 +253,7 @@ nav:
           - "The Abstraction: The Process": "note/os/virtualization/The Abstraction - The Process.md"
           - "Process API": "note/os/virtualization/Process API.md"
       - Linux环境下的进程创建与进程通信: "note/os/Linux环境下的进程创建与进程通信.md"
+      - 可执行文件: "note/os/可执行文件.md"
     - 计算机网络:
       - 408考研大纲:
         - 计算机网络体系结构:
