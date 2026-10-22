@@ -377,6 +377,7 @@ nav:
       - 查看端口占用情况: "note/misc/查看端口占用情况.md"
       - 正则表达式: "note/misc/正则表达式.md"
       - 开源协议: "note/misc/开源协议.md"
+      - Box Drawing: "note/misc/box-drawing.md"
 
   - Blog:
     - blog/index.md
