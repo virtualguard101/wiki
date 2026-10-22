@@ -53,11 +53,11 @@ nav:
         - 函数接口: "note/lang/c/函数接口.md"
         - C标准库: "note/lang/c/C标准库.md"
       - Assembly:
+        - 最简汇编: "note/lang/asm/最简汇编.md"
         - x86_64汇编基础: "note/lang/asm/x86-64汇编基础.md"
         - ARM汇编基础: "note/lang/asm/arm汇编基础.md"
         - RISC-V汇编基础: "note/lang/asm/risc-v汇编基础.md"
         - 汇编中的程序控制流: "note/lang/asm/汇编中的程序控制流.md"
-
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "note/lang/cpp/cs106l/基础类型与结构体.md"
