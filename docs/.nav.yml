@@ -53,7 +53,10 @@ nav:
         - 函数接口: "note/lang/c/函数接口.md"
         - C标准库: "note/lang/c/C标准库.md"
       - Assembly:
-        - 最简汇编: "note/lang/asm/最简汇编.md"
+        - Computing 101. - vg101 Extended:
+          - 最简汇编: "note/lang/asm/最简汇编.md"
+          - 指针访存的汇编描述: "note/lang/asm/指针访存的汇编描述.md"
+
         - x86_64汇编基础: "note/lang/asm/x86-64汇编基础.md"
         - ARM汇编基础: "note/lang/asm/arm汇编基础.md"
         - RISC-V汇编基础: "note/lang/asm/risc-v汇编基础.md"
