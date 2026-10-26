@@ -56,7 +56,7 @@ nav:
         - Computing 101. - vg101 Extended:
           - 最简汇编: "note/lang/asm/最简汇编.md"
           - 指针访存的汇编描述: "note/lang/asm/指针访存的汇编描述.md"
-          - 栈与参数: "note/lang/asm/栈与参数.md"
+          - 栈与程序参数: "note/lang/asm/栈与程序参数.md"
 
         - x86_64汇编基础: "note/lang/asm/x86-64汇编基础.md"
         - ARM汇编基础: "note/lang/asm/arm汇编基础.md"
