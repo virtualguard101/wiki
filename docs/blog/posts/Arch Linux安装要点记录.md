@@ -2,7 +2,7 @@
 title: Arch Linux安装要点记录
 categories:
   - Misc
-date: 2026-10-28 23:35:48
+date: 2026-10-29 01:59:48
 excerpt: 记录一下在可移动设备/真机上安装和配置Arch Linux的过程安装过程中遇到的一些问题
 authors:
   - virtualguard101
@@ -115,6 +115,39 @@ ESP 上无主的 `EFI/<id>/` 目录（如 `EFI/kali`、`EFI/Microsoft`）也可�
 sudo grub-mkconfig -o /boot/grub/grub.cfg   # os-prober 才会把新系统加进 GRUB 菜单
 sudo efibootmgr -o 0005,2001,2002,2003      # 重排启动顺序（新安装器常把自己排到第一位）
 ```
+
+### 引导问题的修复
+
+#### 快速修复旧系统引导
+
+若遇到引导无法进入旧系统的问题, 且时间紧迫无法进行完整排查，可尝试以下快速修复旧系统的引导:
+
+- 使用安装介质进入安装系统环境
+    
+- 然后挂载旧系统的根分区到 `/mnt`，ESP 挂载到 `/mnt/boot`，必要时挂载 `/home` 等其他分区:
+
+    ```bash
+    mkdir -p /mnt/boot
+    mount /dev/nvmen1p1 /mnt/boot   # 挂载 ESP
+    mount -o subvol=@ /dev/nvmen1px /mnt   # 挂载根分区(btrfs文件系统)
+    ```
+
+- 删除新引导项（NVRAM 中的孤儿项）和 ESP 上无主的 `EFI/<id>/` 目录，确保旧系统的引导优先:
+
+    ```bash
+    rm -rf /mnt/boot/EFI/<id>   # 删除无主的 EFI 目录
+    rm -rf /mnt/boot/EFI/<new>  # 删除新引导的 EFI 目录
+    ```
+
+- 切换到旧系统的根分区后重新生成 GRUB 配置并更新 NVRAM 启动顺序:
+
+    ```bash
+    arch-chroot /mnt   # 切换到旧系统的根目录
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+    sudo efibootmgr -o 0005,2001,2002,2003
+    ```
+
+但这种方式显然无法修复新分区的启动问题, 但是可以保证旧系统的引导优先，从而在紧急情况下快速恢复可用的启动环境.
 
 ---
 **[参考文献]：**
