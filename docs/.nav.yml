@@ -53,7 +53,7 @@ nav:
         - 函数接口: "note/lang/c/函数接口.md"
         - C标准库: "note/lang/c/C标准库.md"
       - Assembly:
-        - Computing 101. - vg101 Extended:
+        - pwn.college Computing 101.:
           - 最简汇编: "note/lang/asm/最简汇编.md"
           - 指针访存的汇编描述: "note/lang/asm/指针访存的汇编描述.md"
           - 栈与程序参数: "note/lang/asm/栈与程序参数.md"
@@ -367,8 +367,8 @@ nav:
       - CSS要点: "note/misc/CSS要点.md"
       - 安全要点: "note/misc/Web安全要点.md"
       - Vue3要点: "note/misc/Vue3开发要点.md"
-    # - Cyber:
-
+    - Cyber:
+      - 数字签名: "note/cyber/数字签名.md"
     - Misc:
       - 解决方案:
         - 透明代理: "note/misc/科学上网/透明代理.md"
