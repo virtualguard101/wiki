@@ -2,7 +2,7 @@
 title: Arch Linux安装要点记录
 categories:
   - Misc
-date: 2025-05-19 08:52:48
+date: 2026-10-28 23:35:48
 excerpt: 记录一下在可移动设备/真机上安装和配置Arch Linux的过程安装过程中遇到的一些问题
 authors:
   - virtualguard101
@@ -47,6 +47,74 @@ Arch Linux是一个支持高度定制化的[Linux](../../note/tools/linux/Linux�
 该部分可参考[将Arch Linux系统安装在可移动设备上的要点 | ToBeHonest's BLOG](https://b2og.com/archives/23)。
 
 第一次安装中，我就将Arch装在了一个256G、使用USB3.1的U盘上，同时由于使用[虚拟机](https://arch.icekylin.online/guide/rookie/pre-virt.html)运行安装镜像，所以并没有碰到什么大问题。
+
+## 多系统共存
+
+在已有一个 Arch（btrfs，`@` / `@home` 子卷，ESP 挂载在 `/boot`）的本机上，往另一个分区再加装一个 Arch 时，几个可能遇到的坑：
+
+### 共享 swap 分区：重复 `mkswap` 会让旧系统的 UUID 失效
+
+新旧系统若共用同一个 swap 分区，新装时再次 `mkswap` 会重新生成 UUID，旧系统 `/etc/fstab` 与 GRUB 的 `resume=` 随即指向一个不存在的 UUID，表现为开机后 `swapon --show` 为空、swap 为 0B。
+
+- 不要对共享 swap 重复 `mkswap`；
+- 或装完后回旧系统，同步新的 swap UUID：
+
+```bash
+lsblk -f            # 确认 swap 现在的分区与 UUID
+sudo sed -i 's/<旧UUID>/<新UUID>/g' /etc/fstab
+sudo sed -i 's/<旧UUID>/<新UUID>/g' /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo swapon -a && swapon --show
+```
+
+### `grub-install`：ESP 挂在 `/boot` 时，`--efi-directory` 就写 `/boot`
+
+```bash
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ARCH
+```
+
+把 `--efi-directory` 写成 `/boot/efi` 或 `/boot/EFI` 会生成 `EFI/EFI/…` 的错误嵌套（如 `/boot/EFI/EFI/GRUB/grubx64.efi`），引导路径错乱且极具迷惑性。`--bootloader-id` 用唯一名字（如 `ARCH`），别与已有项冲突。
+
+### 多系统：复用原 ESP，不要重新格式化
+
+新装时把现有 ESP 挂到 `/mnt/boot` 复用即可，**不要** `mkfs.fat` 格式化它——这会清掉其它系统（Windows/Kali 等）的引导文件与 NVRAM 项。这和前面提到的[把Windows的引导给扬了](#格式化EFI分区前未备份原有系统启动引导双系统)是同一个问题。
+
+### fstab 用 `genfstab -U` 生成，且先挂完再生成
+
+挂载顺序：根(`subvol=/@`) → `/home`(`subvol=/@home`) → `/boot`，再 `swapon`；都挂好后再：
+
+```bash
+genfstab -U /mnt > /mnt/etc/fstab
+```
+
+手写或沿用旧注释（如 `# /dev/nvme0n1p6`）在分区表变化后容易对不上号。
+
+### 清理多余的 UEFI 启动项
+
+固件菜单容易残留孤儿项（`Linpus lite`、`kali`、`Windows`、`rEFInd` 等）：
+
+```bash
+efibootmgr -v                        # 先看 BootCurrent 和各项，确认哪些是孤儿
+sudo efibootmgr -b 0000 -B           # 按编号删除孤儿项
+sudo efibootmgr -o 0005,2001,2002,2003   # 重排启动顺序，保留 U 盘/网络项
+```
+
+ESP 上无主的 `EFI/<id>/` 目录（如 `EFI/kali`、`EFI/Microsoft`）也可一并删除；删前先确认整盘没有对应系统的数据分区。
+
+### 重新安装被删掉引导的系统
+
+引导被删不影响日后重装：ESP 本身没有被格式化，只是删掉了几个子目录和 NVRAM 项，结构完好。重装时用对应安装映像引导、把 ESP 挂上（**别格式化**）即可，installer 会自动重建各自的引导文件并重新写 NVRAM 项。**真正的约束在数据分区，不在引导。**
+
+- **Windows**：会自动写回 `\EFI\Microsoft\Boot\bootmgfw.efi` 并重建 `Windows Boot Manager` 项；但需要一块 **NTFS** 分区放系统，外加 **MSR(16MB)** 和 **Recovery** 分区。整盘若已分满，要先腾空间（缩容某个 btrfs 或加盘）。
+
+- **Kali / 其它 Linux**：装到已有 ESP 即可，grub 会自动写 `\EFI\kali\...` 并注册 NVRAM 项；需要一块 **ext4** 分区。swap 可与现有系统共用，但**别再 `mkswap`**（否则又是 UUID 失效的老问题）。
+
+重装后记得两件事：
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg   # os-prober 才会把新系统加进 GRUB 菜单
+sudo efibootmgr -o 0005,2001,2002,2003      # 重排启动顺序（新安装器常把自己排到第一位）
+```
 
 ---
 **[参考文献]：**
