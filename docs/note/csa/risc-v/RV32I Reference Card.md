@@ -158,7 +158,7 @@ Opcodes / funct fields below match the [CS 61C green card](https://notes.cs61c.o
 Shift amount: lower **5** bits of `rs2` / imm (0–31).
 
 !!! info "Why use multiple fields to encode an instruction?"
-    In [sISA](../支持数列求和的sCPU.md#引入新指令后的sISA约定), a short **opcode** (e.g. `00` / `10` / `11`) already names the *exact* instruction: see `00` → `ADD`, `10` → `LI`. One field, one meaning.
+    In [sISA](../../../blog/posts/支持数列求和的sCPU.md#引入新指令后的sISA约定), a short **opcode** (e.g. `00` / `10` / `11`) already names the *exact* instruction: see `00` → `ADD`, `10` → `LI`. One field, one meaning.
 
     RV32I has far more instructions, so it uses a **layered** ID:
 

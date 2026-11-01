@@ -225,8 +225,6 @@ nav:
         - 指令集架构的状态机模型: "note/csa/指令集架构的状态机模型.md"
       - RISC-V:
         - RV32I Reference Card: "note/csa/risc-v/RV32I Reference Card.md"
-      - 支持数列求和的sCPU: "note/csa/支持数列求和的sCPU.md"
-      - minirv32处理器: "note/csa/minirv32 CPU.md"
     - 操作系统:
       - 408考研大纲:
         - 操作系统概述:

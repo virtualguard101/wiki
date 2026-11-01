@@ -1,24 +1,30 @@
 ---
+title: 支持数列求和的sCPU
+categories:
+  - Misc
 date: 2026-08-26 15:38:43
-title: minirv32处理器
-permalink: minirv32-cpu
-publish: true
+excerpt: 一生一芯 F6 功能完备的迷你RISC-V处理器学习笔记, 记录实现与设计思路
+authors:
+  - virtualguard101
 tags:
+  - Blog
   - 计算机系统与体系结构
   - RISC-V
 ---
 
 # minirv32处理器
 
-> [F6 功能完备的迷你RISC-V处理器 | 一生一芯 v24.07 学习讲义](https://ysyx.oscc.cc/docs/2407/f/6.html)
+[一生一芯 F6](https://ysyx.oscc.cc/docs/2407/f/6.html) 从 RV32I 中抽出**8条**指令，组成迷你指令集**minirv**。用它们组合即可模拟其余 RV32I 功能，从而无需一次实现完整的四十多条指令。
+
+本文将介绍我个人实现的 minirv32 处理器的 ISA 约定、寄存器规格以及支持的指令，并基于**门级电路**实现的思路进行分析。
+
+<!-- more -->
 
 ## minirv32 ISA
 
-[一生一芯 F6](https://ysyx.oscc.cc/docs/2407/f/6.html) 从 RV32I 中抽出**8条**指令，组成迷你指令集**minirv**。用它们组合即可模拟其余 RV32I 功能，从而不必一次实现完整的四十多条指令。
+在实现前，需要先明确计算机[各个部件](../../note/csa/risc-v/RISC-V%20Introduction.md#Conceptual-Layout-of-a-Computer)的规格与约定，以及指令集的编码规则。
 
-在实现前，需要先明确计算机[各个部件](risc-v/RISC-V%20Introduction.md#Conceptual-Layout-of-a-Computer)的规格与约定，以及指令集的编码规则。
-
-除下面出现的特别约定外，**其余细节与 RV32I 相同**（定长 32 位指令、字节编址、立即数符号扩展、`x0` 恒为 0 等）。完整的 RV32I ISA 可参考[RV32I Reference Card](risc-v/RV32I%20Reference%20Card.md)。
+除下面出现的特别约定外，**其余细节与 RV32I 相同**（定长 32 位指令、字节编址、立即数符号扩展、`x0` 恒为 0 等）。完整的 RV32I ISA 可参考[RV32I Reference Card](../../note/csa/risc-v/RV32I%20Reference%20Card.md)。
 
 ### PC
 
@@ -30,7 +36,7 @@ tags:
 
 ### GPR
 
-- 数量上不采用[RV32I](risc-v/RV32I%20Reference%20Card.md#Register-Convention)的32个，而是与[RV32E](risc-v/RV32I%20Reference%20Card.md#Other-Base-in-RISC-V)一致：**16** 个，原始命名为 `x0`–`x15`。
+- 数量上不采用[RV32I](../../note/csa/risc-v/RV32I%20Reference%20Card.md#Register-Convention)的32个，而是与[RV32E](../../note/csa/risc-v/RV32I%20Reference%20Card.md#Other-Base-in-RISC-V)一致：**16** 个，原始命名为 `x0`–`x15`。
 
 - 每个寄存器的数据位宽为 **32 bit**。
 
@@ -67,7 +73,7 @@ tags:
 +------------+--------+-------+--------+-----------+----------+
 ```
 
-涉及的指令布局类型有：**R**（`add`）、**I**（`addi` / `lw` / `lbu` / `jalr`）、**S**（`sw` / `sb`）、**U**（`lui`）。格式总览见 [Instruction Format by Type](risc-v/RV32I%20Reference%20Card.md#Instruction-Format-by-Type)。
+涉及的指令布局类型有：**R**（`add`）、**I**（`addi` / `lw` / `lbu` / `jalr`）、**S**（`sw` / `sb`）、**U**（`lui`）。格式总览见 [Instruction Format by Type](../../note/csa/risc-v/RV32I%20Reference%20Card.md#Instruction-Format-by-Type)。
 
 #### 算术运算指令
 
@@ -81,7 +87,7 @@ tags:
 
 #### 加载-存储指令
 
-实际就是[操作内存](risc-v/RV32I%20Reference%20Card.md#Memory)的指令，之所以称之为加载-存储指令，是因为RISC-V采用[加载-存储架构](risc-v/RV32I%20Reference%20Card.md#Core-Concepts)，只有load和store指令可以访问内存，ALU指令只能访问寄存器。
+实际就是[操作内存](../../note/csa/risc-v/RV32I%20Reference%20Card.md#Memory)的指令，之所以称之为加载-存储指令，是因为RISC-V采用[加载-存储架构](../../note/csa/risc-v/RV32I%20Reference%20Card.md#Core-Concepts)，只有load和store指令可以访问内存，ALU指令只能访问寄存器。
 
 | Instruction | Description | Type | Opcode | funct3 |
 |:------------|:------------|:----:|:------:|:------:|
@@ -220,7 +226,7 @@ minirv32的`lw`、`lbu`、`sw`、`sb`指令都访问它；只有取指用ROM不�
 
 - `inst[14:12]` 的**funct3**: `000`
 
-至于为什么还有个 `funct3` 字段, 参考RV32I Reference Card 的 [Why use multiple fields to encode an instruction?](risc-v/RV32I%20Reference%20Card.md#Arithmetic)信息栏.
+至于为什么还有个 `funct3` 字段, 参考RV32I Reference Card 的 [Why use multiple fields to encode an instruction?](../../note/csa/risc-v/RV32I%20Reference%20Card.md#Arithmetic)信息栏.
 
 由于minirv32实现的指令只有8种, 操作码编码较为稀疏, 使用译码器反而会带来一些不便. 因此可以考虑直接使用**比较器**直接比较指令中的操作码字段是否与`addi`指令的编码一致[^addi-opc-dec]:
 
@@ -238,10 +244,10 @@ is_addi = (inst[6:0] == `0x13`) && (inst[14:12] == `0x00`)
 
 1. 一种是称为**零扩展**(zero extension), 就是简单粗暴的**高位补零**, 我们在实现[sCPU](支持数列求和的sCPU.md#执行)时就是采用的这种方式.
 
-2. 另外一种叫**符号扩展**(sign extension), 这种方式是在高位添加[补码](cs61c/Number%20Representation.md#Twos-Complement)的符号位.
+2. 另外一种叫**符号扩展**(sign extension), 这种方式是在高位添加[补码](../../note/csa/cs61c/Number%20Representation.md#Twos-Complement)的符号位.
 
     !!! note "符号扩展的数学原理"
-        符号扩展前后，[补码](cs61c/Number%20Representation.md#Twos-Complement)解释下的**真值不变**。能证明多扩 1 位，即可利用数学归纳法扩展到任意位。
+        符号扩展前后，[补码](../../note/csa/cs61c/Number%20Representation.md#Twos-Complement)解释下的**真值不变**。能证明多扩 1 位，即可利用数学归纳法扩展到任意位。
 
         设 $k$ 位补码
 
@@ -366,7 +372,7 @@ ffa00513  addi a0, zero, -6
     调试时若盯着 ROM 面板, 会看到字地址 `0x1` / `0x5`; 文档对照应该采用字节 PC `0x4` / `0x14`. 两者相差的就是那个 `<< 2`, 不是程序本身装错了.
 
 !!! info
-    注意这里采用的寄存器名称并不是ISA中的原始命名, 而是[ABI助记符](risc-v/RV32I%20Reference%20Card.md#Register-Convention).
+    注意这里采用的寄存器名称并不是ISA中的原始命名, 而是[ABI助记符](../../note/csa/risc-v/RV32I%20Reference%20Card.md#Register-Convention).
 
     这里用到的寄存器有:
 
@@ -404,7 +410,7 @@ ffa00513  addi a0, zero, -6
 
     ![](assets/minirv32-cpu/5.gif)
 
-    除此之外还要考虑[零寄存器 `x0`](risc-v/RISC-V%20Introduction.md#The-Zero-Register)与其他通用寄存器的区别, **读恒为 0, 写忽略**:
+    除此之外还要考虑[零寄存器 `x0`](../../note/csa/risc-v/RISC-V%20Introduction.md#The-Zero-Register)与其他通用寄存器的区别, **读恒为 0, 写忽略**:
 
     ![](assets/minirv32-cpu/7.png)
     
