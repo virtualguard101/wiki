@@ -378,7 +378,7 @@ riscv32-unknown-elf-readelf -h -A -s add.o
 | `-march` 示例 | 可搭配的 `-mabi` | 说明 |
 |:--------------|:-----------------|:-----|
 | `rv32i` | `ilp32` | 无硬件浮点 |
-| `rv32e` | `ilp32e` | 只有 `x0`-`x15`, 常用于微小核, 如 [minirv32 CPU](../../csa/minirv32%20CPU.md) 使用的 RV32E |
+| `rv32e` | `ilp32e` | 只有 `x0`-`x15`, 常用于微小核, 如 [minirv32 CPU](../../../blog/posts/minirv32-cpu.md) 使用的 RV32E |
 | `rv32imac` | `ilp32` | 含乘除、原子和压缩指令, 仍然使用软浮点 ABI |
 | `rv32imafc` | `ilp32f` | 单精度硬件浮点 |
 | `rv32imafdc` | `ilp32d` | 单、双精度硬件浮点 |
