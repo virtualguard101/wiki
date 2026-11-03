@@ -58,6 +58,7 @@ nav:
           - 指针访存的汇编描述: "note/lang/asm/指针访存的汇编描述.md"
           - 栈与程序参数: "note/lang/asm/栈与程序参数.md"
           - I/O与系统调用: "note/lang/asm/IO与系统调用.md"
+
         - x86_64汇编基础: "note/lang/asm/x86-64汇编基础.md"
         - ARM汇编基础: "note/lang/asm/arm汇编基础.md"
         - RISC-V汇编基础: "note/lang/asm/risc-v汇编基础.md"
