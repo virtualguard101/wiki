@@ -58,11 +58,11 @@ nav:
           - 指针访存的汇编描述: "note/lang/asm/指针访存的汇编描述.md"
           - 栈与程序参数: "note/lang/asm/栈与程序参数.md"
           - I/O与系统调用: "note/lang/asm/IO与系统调用.md"
+          - 控制流详解: "note/lang/asm/控制流详解.md"
 
         - x86_64汇编基础: "note/lang/asm/x86-64汇编基础.md"
         - ARM汇编基础: "note/lang/asm/arm汇编基础.md"
         - RISC-V汇编基础: "note/lang/asm/risc-v汇编基础.md"
-        - 汇编中的程序控制流: "note/lang/asm/汇编中的程序控制流.md"
       - C++:
         - "Standard C++ Programming":
           - 基础类型与结构体: "note/lang/cpp/cs106l/基础类型与结构体.md"
@@ -367,6 +367,8 @@ nav:
       - 安全要点: "note/misc/Web安全要点.md"
       - Vue3要点: "note/misc/Vue3开发要点.md"
     - Cyber:
+      - 逆向工程:
+        - 程序控制流的逆向分析: "note/lang/asm/程序控制流的逆向分析.md"
       - 数字签名: "note/cyber/数字签名.md"
     - Misc:
       - 解决方案:
