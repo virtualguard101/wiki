@@ -6,6 +6,7 @@ nav:
     - 通用资源:
       - 学术资源: "note/misc/resources/学术资源.md"
       - 工程、求职、杂项资源: "note/misc/resources/工程、求职、杂项资源.md"
+      - 11408考研复习规划: "note/misc/resources/11408考研复习规划.md"
     - 工具:
       - 远程服务器使用基础: "note/tools/远程服务器使用基础.md"
       - Linux:
@@ -89,6 +90,7 @@ nav:
         - Rust数据类型: "note/lang/rust/Rust数据类型.md"
         - Rust函数: "note/lang/rust/Rust函数.md"
         # - 所有权与借用: "note/lang/rust/所有权与借用.md"
+
       - Golang:
         - Golang入门要点: "note/lang/golang/Golang入门要点.md"
         - 基础:
@@ -369,6 +371,7 @@ nav:
     - Cyber:
       - 逆向工程:
         - 程序控制流的逆向分析: "note/cyber/re/程序控制流的逆向分析.md"
+
       - 数字签名: "note/cyber/数字签名.md"
     - Misc:
       - 解决方案:
