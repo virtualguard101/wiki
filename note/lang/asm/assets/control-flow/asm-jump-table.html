@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>汇编跳转表</title>
+<style>
+  :root { --font: "LXGW WenKai Screen", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; --mono: "Cascadia Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; }
+  :root, [data-theme="dark"] { --card: #232631; --sub: #1b1e27; --line: rgba(255,255,255,.08); --line2: rgba(255,255,255,.16); --text: #e3e5ea; --muted: #9ba2ae; --faint: #6c7380; --accent: #8c9eff; --hl: rgba(140,158,255,.16); --green: #5fcf8f; --amber: #f2b552; --red: #f07a83; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.18); }
+  [data-theme="light"] { --card: #ffffff; --sub: #f5f6f8; --line: rgba(0,0,0,.08); --line2: rgba(0,0,0,.16); --text: #1f2328; --muted: #59616b; --faint: #8b929c; --accent: #3f51b5; --hl: rgba(63,81,181,.10); --green: #1b9a55; --amber: #b7770a; --red: #d43f55; --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: transparent; }
+  body { padding: 4px 4px 12px; font: 14px/1.6 var(--font); color: var(--text); }
+  code { font-family: var(--mono); font-size: .92em; }
+  .demo { background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .head { padding: 14px 18px 6px; }
+  .eyebrow { font-size: 11px; letter-spacing: .14em; color: var(--accent); font-weight: 700; }
+  .head h1 { margin: 2px 0 4px; font-size: 16px; }
+  .lead { margin: 0; color: var(--muted); font-size: 13px; }
+  .lead input { font: 13px var(--mono); width: 3em; text-align: center; padding: 1px 6px; color: var(--text); background: var(--sub); border: 1px solid var(--line2); border-radius: 6px; }
+  .body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 12px; padding: 8px 18px 12px; }
+  @media (max-width: 700px) { .body { grid-template-columns: 1fr; } }
+  .pane { background: var(--sub); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; min-width: 0; }
+  .pane-t { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  pre.code { margin: 0; font: 12.5px/1.8 var(--mono); overflow-x: auto; }
+  .ln { display: block; padding-right: 8px; border-left: 3px solid transparent; border-radius: 4px; white-space: pre; transition: background .2s; }
+  .ln.cur { background: var(--hl); border-left-color: var(--accent); }
+  .ln .c { color: var(--faint); font-style: italic; }
+  .regs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; }
+  .reg { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; font: 12px var(--mono); word-break: break-all; }
+  .reg b { display: block; color: var(--muted); font-weight: 600; }
+  .reg.chg { border-color: var(--accent); background: var(--hl); }
+  table.grid { border-collapse: separate; border-spacing: 2px; font: 10.5px var(--mono); width: 100%; table-layout: fixed; }
+  .grid th { color: var(--faint); font-weight: 500; }
+  .grid td { text-align: center; padding: 3px 0; border-radius: 4px; background: var(--card); color: var(--muted); cursor: pointer; border: 1px solid transparent; }
+  .grid td.sp { background: color-mix(in srgb, var(--green) 22%, transparent); color: var(--green); font-weight: 700; }
+  .grid td.sel { border-color: var(--accent); box-shadow: 0 0 0 2px var(--hl); color: var(--text); }
+  .legend { margin-top: 8px; font-size: 12px; color: var(--muted); }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin: 0 4px 0 8px; vertical-align: -1px; }
+  .narr { padding: 10px 18px; border-top: 1px solid var(--line); }
+  .narr h2 { margin: 0 0 2px; font-size: 14.5px; }
+  .narr p { margin: 0; font-size: 13.5px; line-height: 1.8; }
+  .ctl { display: flex; align-items: center; gap: 8px; padding: 10px 18px 14px; flex-wrap: wrap; border-top: 1px solid var(--line); }
+  .btn { border: 1px solid var(--line2); background: var(--card); color: var(--text); font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 8px; cursor: pointer; }
+  .btn:hover:not(:disabled) { border-color: var(--accent); }
+  .btn:disabled { opacity: .4; cursor: default; }
+  .btn.pri { background: var(--accent); border-color: var(--accent); color: #fff; }
+  [data-theme="dark"] .btn.pri { color: #14172a; }
+  .cnt { font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="demo">
+  <div class="head">
+    <div class="eyebrow">CONTROL FLOW</div>
+    <h1>跳转表: 用字符值直接当数组下标</h1>
+    <p class="lead">argv[1][0] = <input id="inp" maxlength="1" spellcheck="false"> 也可以直接点右侧表格. 示例表中只有 <code>'b'</code> (98) 指向 <code>success</code>, 其余 255 项都指向 <code>fail</code>.</p>
+  </div>
+  <div class="body">
+    <div class="pane">
+      <div class="pane-t">汇编 (Intel 语法)</div>
+      <pre class="code" id="code"></pre>
+      <div class="regs" id="regs"></div>
+    </div>
+    <div class="pane">
+      <div class="pane-t">跳转表: 256 项, 每项 8 字节地址 (表基址 0x401088). 单元格是该下标对应的字符, 行列为下标的十六进制</div>
+      <table class="grid" id="grid"></table>
+      <div class="legend"><i style="background:var(--card);border:1px solid var(--line2)"></i>→ fail<i style="background:color-mix(in srgb,var(--green) 40%,transparent)"></i>→ success</div>
+    </div>
+  </div>
+  <div class="narr"><h2 id="nt"></h2><p id="nb"></p></div>
+  <div class="ctl">
+    <button class="btn" id="prev">← 上一步</button>
+    <button class="btn pri" id="next">下一步 →</button>
+    <button class="btn" id="reset">重置</button>
+    <span class="cnt" id="cnt"></span>
+  </div>
+</div>
+<script>
+(function () {
+  var root = document.documentElement, P = null;
+  try { if (parent !== window && parent.document.body) P = parent.document; } catch (e) {}
+  function theme() {
+    var s = P && P.body.getAttribute('data-md-color-scheme');
+    root.dataset.theme = (s ? s === 'slate' : matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  theme();
+  if (P) new MutationObserver(theme).observe(P.body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
+
+  var TB = 0x401088, SPECIAL = 98, FAIL = 0x401078, OK = 0x401013;
+  var CODE = [
+    '_start:',
+    '    mov rcx, [rsp+16]        # rcx = argv[1]',
+    '    xor eax, eax             # 清零 rax, 高位全为 0',
+    '    mov al, BYTE PTR [rcx]   # al = 第一个字符',
+    '    mov rax, [rax*8+0x401088]  # 查表, 每项 8 字节',
+    '    jmp rax                  # 跳到表项给出的地址'
+  ];
+  var idx = 98, step = 0, $ = function (id) { return document.getElementById(id); };
+  var hex = function (n) { return '0x' + n.toString(16); };
+
+  function narr(s) {
+    var ch = idx >= 32 && idx < 127 ? "'" + String.fromCharCode(idx) + "'" : '不可见字符';
+    var slot = TB + idx * 8, tgt = idx === SPECIAL ? OK : FAIL;
+    return [
+      ['初始状态', '程序刚进入 <code>_start</code>. 点击右侧表格或输入一个字符, 再逐步执行.'],
+      ['rcx = argv[1]', '<code>rcx</code> 保存的是字符串的<b>地址</b>.'],
+      ['rax = 0', '先清零整个 <code>rax</code>. 只写 <code>al</code> 不会改动高 56 位, 不清零就可能残留旧数据, 下标会出错.'],
+      ['al = ' + ch, '读取 1 字节, 现在 <code>rax</code> = <b>' + idx + '</b> (' + hex(idx) + '). 字符值直接成了下标 (0-255).'],
+      ['查表: rax = [表基址 + rax*8]', '表项地址 = 0x401088 + ' + idx + ' × 8 = <b>' + hex(slot) + '</b>. 这一项里存的 8 字节是 <code>' + hex(tgt) + '</code>, 读入 <code>rax</code>.'],
+      ['jmp rax', '没有任何 <code>cmp</code> 和 <code>jcc</code>, 直接跳到 <code>' + hex(tgt) + '</code> (' + (tgt === OK ? '<b>success</b>' : 'fail') + ').' + (idx === SPECIAL ? '' : ' 试试点击标记为绿色的单元格.')]
+    ][s];
+  }
+  function regs(s) {
+    var rcx = s >= 1 ? '指向 argv[1]' : '—', rax = '—';
+    if (s >= 2) rax = '0';
+    if (s >= 3) rax = idx + ' (' + hex(idx) + ')';
+    if (s >= 4) rax = hex(idx === SPECIAL ? OK : FAIL);
+    return [['rcx', rcx, s === 1], ['rax', rax, s >= 2 && s <= 4], ['表项地址', s >= 4 ? hex(TB + idx * 8) : '—', s === 4], ['跳转目标', s >= 5 ? (idx === SPECIAL ? 'success' : 'fail') : '—', s === 5]];
+  }
+  function render() {
+    $('code').innerHTML = CODE.map(function (t, i) {
+      var h = t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/(#.*)$/, '<span class="c">$1</span>');
+      return '<span class="ln' + (i === step ? ' cur' : '') + '">' + h + '</span>';
+    }).join('');
+    $('regs').innerHTML = regs(step).map(function (r) { return '<div class="reg' + (r[2] ? ' chg' : '') + '"><b>' + r[0] + '</b>' + r[1] + '</div>'; }).join('');
+    var h = '<tr><th></th>';
+    for (var c = 0; c < 16; c++) h += '<th>' + c.toString(16) + '</th>';
+    h += '</tr>';
+    for (var r = 0; r < 16; r++) {
+      h += '<tr><th>' + r.toString(16) + '_</th>';
+      for (c = 0; c < 16; c++) {
+        var n = r * 16 + c;
+        h += '<td data-i="' + n + '" class="' + (n === SPECIAL ? 'sp ' : '') + (n === idx ? 'sel' : '') + '">' + (n >= 33 && n < 127 ? String.fromCharCode(n) : '·') + '</td>';
+      }
+      h += '</tr>';
+    }
+    $('grid').innerHTML = h;
+    var n = narr(step); $('nt').textContent = n[0]; $('nb').innerHTML = n[1];
+    $('cnt').textContent = (step + 1) + ' / 6';
+    $('prev').disabled = step === 0; $('next').disabled = step === 5;
+    var ip = $('inp'); if (document.activeElement !== ip) ip.value = idx >= 32 && idx < 127 ? String.fromCharCode(idx) : '';
+  }
+  $('grid').onclick = function (e) { var t = e.target.closest('td'); if (t) { idx = +t.dataset.i; step = 0; render(); } };
+  $('inp').oninput = function () { var v = this.value; if (v) { idx = v.charCodeAt(0) & 255; step = 0; render(); } };
+  $('prev').onclick = function () { if (step > 0) { step--; render(); } };
+  $('next').onclick = function () { if (step < 5) { step++; render(); } };
+  $('reset').onclick = function () { step = 0; render(); };
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>call, ret 与寄存器保存</title>
+<style>
+  :root { --font: "LXGW WenKai Screen", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; --mono: "Cascadia Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; }
+  :root, [data-theme="dark"] { --card: #232631; --sub: #1b1e27; --line: rgba(255,255,255,.08); --line2: rgba(255,255,255,.16); --text: #e3e5ea; --muted: #9ba2ae; --faint: #6c7380; --accent: #8c9eff; --hl: rgba(140,158,255,.16); --green: #5fcf8f; --amber: #f2b552; --red: #f07a83; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.18); }
+  [data-theme="light"] { --card: #ffffff; --sub: #f5f6f8; --line: rgba(0,0,0,.08); --line2: rgba(0,0,0,.16); --text: #1f2328; --muted: #59616b; --faint: #8b929c; --accent: #3f51b5; --hl: rgba(63,81,181,.10); --green: #1b9a55; --amber: #b7770a; --red: #d43f55; --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: transparent; }
+  body { padding: 4px 4px 12px; font: 14px/1.6 var(--font); color: var(--text); }
+  code { font-family: var(--mono); font-size: .92em; }
+  .demo { background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .head { padding: 14px 18px 6px; }
+  .eyebrow { font-size: 11px; letter-spacing: .14em; color: var(--accent); font-weight: 700; }
+  .head h1 { margin: 2px 0 4px; font-size: 16px; }
+  .lead { margin: 0; color: var(--muted); font-size: 13px; }
+  .tabs { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; padding: 3px; border-radius: 10px; background: var(--sub); border: 1px solid var(--line); }
+  .tab { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 13px; padding: 4px 12px; border-radius: 8px; cursor: pointer; }
+  .tab.on { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.18); }
+  .body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 12px; padding: 8px 18px 12px; }
+  @media (max-width: 820px) { .body { grid-template-columns: 1fr; } }
+  .pane { background: var(--sub); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; min-width: 0; }
+  .pane-t { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  pre.code { margin: 0; font: 12.5px/1.75 var(--mono); overflow-x: auto; }
+  .ln { display: block; padding-right: 8px; border-left: 3px solid transparent; border-radius: 4px; white-space: pre; transition: background .2s; }
+  .ln.cur { background: var(--hl); border-left-color: var(--accent); }
+  .ln .c { color: var(--faint); font-style: italic; }
+  .regs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; }
+  .reg { background: var(--card); border: 1px solid var(--line); border-radius: 7px; padding: 2px 8px; font: 12px var(--mono); display: flex; justify-content: space-between; gap: 6px; }
+  .reg b { color: var(--muted); font-weight: 600; }
+  .reg.chg { border-color: var(--accent); background: var(--hl); }
+  .reg.bad { border-color: var(--red); }
+  .stk { font: 12px var(--mono); }
+  .slot { display: flex; justify-content: space-between; gap: 8px; border: 1px solid var(--line2); border-top-width: 0; padding: 2px 8px; background: var(--card); }
+  .slot:first-child { border-top-width: 1px; border-radius: 6px 6px 0 0; }
+  .slot:last-child { border-radius: 0 0 6px 6px; }
+  .slot.top { border-color: var(--accent); background: var(--hl); }
+  .slot .a { color: var(--faint); }
+  .slot .m { color: var(--accent); font-weight: 700; margin-left: 4px; }
+  .empty { color: var(--faint); font-size: 12px; padding: 6px 0; }
+  .chips { margin-top: 8px; font-size: 12px; }
+  .chip { display: inline-block; padding: 0 8px; border-radius: 99px; background: var(--hl); color: var(--accent); font-weight: 600; margin-right: 6px; }
+  .chip.bad { background: color-mix(in srgb, var(--red) 15%, transparent); color: var(--red); }
+  .chip.ok { background: color-mix(in srgb, var(--green) 18%, transparent); color: var(--green); }
+  .narr { padding: 10px 18px; border-top: 1px solid var(--line); }
+  .narr h2 { margin: 0 0 2px; font-size: 14.5px; }
+  .narr p { margin: 0; font-size: 13.5px; line-height: 1.8; }
+  .ctl { display: flex; align-items: center; gap: 8px; padding: 10px 18px 14px; flex-wrap: wrap; border-top: 1px solid var(--line); }
+  .btn { border: 1px solid var(--line2); background: var(--card); color: var(--text); font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 8px; cursor: pointer; }
+  .btn:hover:not(:disabled) { border-color: var(--accent); }
+  .btn:disabled { opacity: .4; cursor: default; }
+  .btn.pri { background: var(--accent); border-color: var(--accent); color: #fff; }
+  [data-theme="dark"] .btn.pri { color: #14172a; }
+  .cnt { font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="demo">
+  <div class="head">
+    <div class="eyebrow">CONTROL FLOW</div>
+    <h1>call / ret 与寄存器保存</h1>
+    <p class="lead">右侧是栈 (上方为低地址, 栈向低地址增长), <code>rsp</code> 指向栈顶. 蓝框是刚被改动的内容, 红框表示和调用者原值不一致.</p>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="body">
+    <div class="pane"><div class="pane-t" id="ct">solve</div><pre class="code" id="code"></pre></div>
+    <div class="pane"><div class="pane-t">寄存器</div><div class="regs" id="regs"></div><div class="chips" id="chips"></div></div>
+    <div class="pane"><div class="pane-t">栈 (低地址 → 高地址)</div><div class="stk" id="stk"></div></div>
+  </div>
+  <div class="narr"><h2 id="nt"></h2><p id="nb"></p></div>
+  <div class="ctl">
+    <button class="btn" id="prev">← 上一步</button>
+    <button class="btn pri" id="next">下一步 →</button>
+    <button class="btn" id="reset">重置</button>
+    <span class="cnt" id="cnt"></span>
+  </div>
+</div>
+<script>
+(function () {
+  var root = document.documentElement, P = null;
+  try { if (parent !== window && parent.document.body) P = parent.document; } catch (e) {}
+  function theme() {
+    var s = P && P.body.getAttribute('data-md-color-scheme');
+    root.dataset.theme = (s ? s === 'slate' : matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  theme();
+  if (P) new MutationObserver(theme).observe(P.body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
+
+  var ENTRY = 0x7ffd0f08, RET = '返回地址 → harness';
+  var SC = {
+    ret: {
+      name: '返回值 (ret)',
+      regs: ['rax', 'rdi'], init: { rax: 0, rdi: 0x5ec7e7 },
+      code: ['solve:', '    mov rax, rdi    # 返回值放进 rax', '    ret             # 弹出返回地址并跳回'],
+      intro: '调用者执行 <code>call solve</code>: 先把 <b>call 之后下一条指令的地址</b>压栈, 再跳进 <code>solve</code>. <code>rdi</code> 是挑战给的随机秘密值.'
+    },
+    cb: {
+      name: '调用回调 (callib)',
+      regs: ['rax', 'rdi'], init: { rax: 0, rdi: 'cb' },
+      code: ['solve:', '    sub rsp, 8      # 补齐 16 字节对齐', '    mov rax, rdi    # 先保存函数指针', '    mov rdi, 1337   # 再写第一个参数', '    call rax', '    add rsp, 8', '    ret'],
+      ext: { cb: { name: 'cb', fx: {} } },
+      intro: '<code>rdi</code> 里是回调函数的地址. 如果直接 <code>mov rdi, 1337</code>, 指针就丢了, 所以先挪到 <code>rax</code>.'
+    },
+    caller: {
+      name: 'caller-saved (caller)',
+      regs: ['rax', 'rcx', 'rdx', 'rsi', 'rdi', 'r8', 'r9', 'r10', 'r11'],
+      init: { rax: 1, rcx: 3, rdx: 2, rsi: 'flag', rdi: 'clobber', r8: 4, r9: 5, r10: 6, r11: 7 },
+      code: ['solve:', '    push rax', '    push rcx', '    push rdx', '    push rsi', '    push rdi', '    push r8', '    push r9', '    push r10', '    push r11', '    call rdi        # clobber 会弄脏它们', '    pop r11', '    pop r10', '    pop r9', '    pop r8', '    pop rdi', '    pop rsi', '    pop rdx', '    pop rcx', '    pop rax', '    sub rsp, 8', '    call rsi        # flag 要求寄存器完好', '    add rsp, 8', '    ret'],
+      ext: { clobber: { name: 'clobber', fx: { rax: 0xdead, rcx: 0xdead, rdx: 0xdead, rsi: 0xdead, rdi: 0xdead, r8: 0xdead, r9: 0xdead, r10: 0xdead, r11: 0xdead } }, flag: { name: 'flag', fx: {} } },
+      intro: '调用者自己负责保存 caller-saved 寄存器. 被调函数 <code>clobber</code> 会把它们全部改写, 不保存就无法恢复.'
+    },
+    callee: {
+      name: 'callee-saved (callee)',
+      regs: ['rbx', 'rbp', 'r12', 'r13', 'r14', 'r15', 'rdi'],
+      init: { rbx: 0xa1, rbp: 0xa2, r12: 0xa3, r13: 0xa4, r14: 0xa5, r15: 0xa6, rdi: 'check' },
+      code: ['solve:', '    push rbx', '    push rbp', '    push r12', '    push r13', '    push r14', '    push r15', '    mov rbx, 0x1337', '    mov rbp, 0x1337', '    mov r12, 0x1337', '    mov r13, 0x1337', '    mov r14, 0x1337', '    mov r15, 0x1337', '    sub rsp, 8', '    call rdi        # check 确认已被改写', '    add rsp, 8', '    pop r15', '    pop r14', '    pop r13', '    pop r12', '    pop rbp', '    pop rbx', '    ret'],
+      ext: { check: { name: 'check', fx: {} } },
+      intro: '这次 <code>solve</code> 是被调用者, 想借用 <code>rbx</code>, <code>rbp</code>, <code>r12</code>-<code>r15</code>, 必须先压栈, 返回前原样弹回.'
+    }
+  };
+  var cur = 'ret', steps = [], idx = 0, $ = function (id) { return document.getElementById(id); };
+  var hex = function (v) { return typeof v === 'number' ? '0x' + v.toString(16) : v; };
+
+  function simulate(sc) {
+    var R = {}, S = [], rsp = ENTRY, st = [], init = sc.init, orig = JSON.parse(JSON.stringify(init));
+    sc.regs.forEach(function (r) { R[r] = init[r]; });
+    S.push({ ln: -1, rsp: rsp, stk: [], R: JSON.parse(JSON.stringify(R)), chg: [], t: '进入 solve', b: sc.intro, ok: null });
+    S[0].stk = [{ a: rsp, v: RET }];
+    var stack = [{ a: rsp, v: RET }];
+    function snap(ln, t, b, chg, ok) { S.push({ ln: ln, rsp: rsp, stk: stack.map(function (x) { return { a: x.a, v: x.v, n: x.n }; }), R: JSON.parse(JSON.stringify(R)), chg: chg || [], t: t, b: b, ok: ok === undefined ? null : ok }); }
+    var after = {};
+    for (var i = 1; i < sc.code.length; i++) {
+      var ins = sc.code[i].replace(/#.*/, '').trim(), m;
+      if ((m = /^push (\w+)$/.exec(ins))) {
+        rsp -= 8; stack.push({ a: rsp, v: R[m[1]], n: m[1] });
+        snap(i, ins, '<code>rsp</code> 减 8, 把 <code>' + m[1] + '</code> 的值 (' + hex(R[m[1]]) + ') 写进新栈顶.', []);
+      } else if ((m = /^pop (\w+)$/.exec(ins))) {
+        var top = stack.pop(); R[m[1]] = top.v; rsp += 8;
+        snap(i, ins, '从栈顶取回 ' + hex(top.v) + ' 放进 <code>' + m[1] + '</code>, <code>rsp</code> 加 8. 弹出顺序必须与压入相反.', [m[1]]);
+      } else if ((m = /^mov (\w+), (\w+)$/.exec(ins))) {
+        R[m[1]] = /^(0x)?[0-9a-f]+$/i.test(m[2]) && !(m[2] in R) ? parseInt(m[2]) : R[m[2]];
+        snap(i, ins, m[1] + ' ← ' + hex(R[m[1]]) + '.', [m[1]]);
+      } else if ((m = /^(sub|add) rsp, 8$/.exec(ins))) {
+        rsp += m[1] === 'sub' ? -8 : 8;
+        if (m[1] === 'sub') stack.push({ a: rsp, v: '(对齐空位)', n: 'pad' }); else stack.pop();
+        snap(i, ins, m[1] === 'sub' ? '多留 8 字节, 让下一次 <code>call</code> 之前 <code>rsp</code> 满足 16 字节对齐.' : '回收对齐空位, 让栈顶重新指向返回地址.', []);
+      } else if ((m = /^call (\w+)$/.exec(ins))) {
+        var tgt = R[m[1]], ext = sc.ext[tgt], aligned = rsp % 16 === 0;
+        rsp -= 8; stack.push({ a: rsp, v: '返回地址 → solve', n: 'ret' });
+        snap(i, ins + '  (进入 ' + tgt + ')', '<code>call</code> 压入返回地址并跳进 <b>' + tgt + '</b>. 压栈前 <code>rsp % 16 = ' + ((rsp + 8) % 16) + '</code>' + (aligned ? ', 满足对齐要求.' : ', 未对齐!'), [], aligned);
+        var chg = [];
+        Object.keys(ext.fx).forEach(function (k) { if (k in R) { R[k] = ext.fx[k]; chg.push(k); } });
+        stack.pop(); rsp += 8;
+        snap(i, tgt + ' 执行并 ret', chg.length ? '<b>' + tgt + '</b> 把 ' + chg.join(', ') + ' 全部改写成了 ' + hex(ext.fx[chg[0]]) + ', 然后 <code>ret</code> 回到 <code>solve</code>.' : '<b>' + tgt + '</b> 执行完毕, <code>ret</code> 弹出返回地址, 回到 <code>solve</code>.', chg);
+      } else if (ins === 'ret') {
+        stack.pop(); rsp += 8;
+        snap(i, 'ret', '<code>ret</code> 弹出栈顶的返回地址并跳到那里. 此时 <code>rsp</code> 必须正好指向它, 所以前面的 push / pop 必须配对.', []);
+      }
+    }
+    S.orig = orig;
+    return S;
+  }
+
+  function render() {
+    var sc = SC[cur], s = steps[idx], orig = steps.orig;
+    $('tabs').innerHTML = Object.keys(SC).map(function (k) { return '<button class="tab' + (k === cur ? ' on' : '') + '" data-k="' + k + '">' + SC[k].name + '</button>'; }).join('');
+    $('code').innerHTML = sc.code.map(function (t, i) {
+      var h = t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/(#.*)$/, '<span class="c">$1</span>');
+      return '<span class="ln' + (i === s.ln ? ' cur' : '') + '">' + h + '</span>';
+    }).join('');
+    $('regs').innerHTML = sc.regs.map(function (r) {
+      var bad = s.R[r] !== orig[r] && s.ln >= 0;
+      return '<div class="reg' + (s.chg.indexOf(r) >= 0 ? ' chg' : '') + (bad ? ' bad' : '') + '"><b>' + r + '</b><span>' + hex(s.R[r]) + '</span></div>';
+    }).join('');
+    var al = s.rsp % 16 === 0;
+    $('chips').innerHTML = '<span class="chip">rsp ' + hex(s.rsp) + '</span><span class="chip ' + (al ? 'ok' : '') + '">rsp % 16 = ' + (s.rsp % 16) + '</span>' + (s.ok === true ? '<span class="chip ok">call 前已对齐</span>' : s.ok === false ? '<span class="chip bad">call 前未对齐</span>' : '');
+    var st = s.stk.slice().reverse();
+    $('stk').innerHTML = st.length ? st.map(function (x, i) {
+      return '<div class="slot' + (i === 0 ? ' top' : '') + '"><span><span class="a">' + hex(x.a).slice(-4) + '</span>' + (i === 0 ? '<span class="m">◂ rsp</span>' : '') + '</span><span>' + hex(x.v) + (x.n && x.n !== 'ret' && x.n !== 'pad' ? ' <span class="a">(' + x.n + ')</span>' : '') + '</span></div>';
+    }).join('') : '<div class="empty">栈为空</div>';
+    $('nt').textContent = s.t; $('nb').innerHTML = s.b;
+    $('cnt').textContent = (idx + 1) + ' / ' + steps.length;
+    $('prev').disabled = idx === 0; $('next').disabled = idx === steps.length - 1;
+  }
+  function load(k) { cur = k; steps = simulate(SC[k]); idx = 0; render(); }
+  $('tabs').onclick = function (e) { var t = e.target.closest('.tab'); if (t) load(t.dataset.k); };
+  $('prev').onclick = function () { if (idx > 0) { idx--; render(); } };
+  $('next').onclick = function () { if (idx < steps.length - 1) { idx++; render(); } };
+  $('reset').onclick = function () { load(cur); };
+  document.onkeydown = function (e) { if (e.key === 'ArrowRight') $('next').click(); if (e.key === 'ArrowLeft') $('prev').click(); };
+  load('ret');
+})();
+</script>
+</body>
+</html>
