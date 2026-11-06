@@ -148,6 +148,12 @@ plugins:
         include_fragments: true
         mobile: false
         scope: linked_only
+      # Page encryption: per-note opt-in via `encrypt: true`.
+      encryption_config:
+        remember: none       # session | local | none
+        strict: auto            # auto = fail closed in CI
+        rerender: true          # re-init MathJax, fancybox, links after unlock
+        audit: true             # scan the built site for plaintext leaks
 
 extra_css:
   - assets/webfonts/Cascadia Mono/font.css

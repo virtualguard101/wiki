@@ -20,10 +20,14 @@ deploy:
 jupyter:
     uv run jupyter-lab
 
+# Publish the obsidian branch to main and deploy.
 sync:
+    # Sync the environment first: the encrypted-notes git filter runs from it.
+    uv sync
     git checkout main
     git merge obsidian -m "Sync from obsidian"
-    just d
+    # Do not let uv re-sync mid-flow; the filter environment must stay stable.
+    uv run --no-sync scripts/deploy.py
 
 obsidian:
     git checkout obsidian
