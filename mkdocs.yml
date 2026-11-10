@@ -218,6 +218,8 @@ markdown_extensions:
       # 生成可读的 unicode slug
       # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#+toc.slugify
       slugify: !!python/object/apply:pymdownx.slugs.slugify {}
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - toc:
       # https://python-markdown.github.io/extensions/toc/
       permalink: true
