@@ -11,7 +11,7 @@ publish: true
 
 <!-- ![](../assets/images/index-power.jpg) -->
 
-<!-- ![](../assets/images/berkeley-eecs.png) -->
+<!-- ![](../assets/images/berkeley-eecs.webp) -->
 
 ![](../assets/images/phi.jpg)
 
@@ -86,6 +86,6 @@ publish: true
 
     欢迎在评论区留下你的见解，如果它有价值，我将感激不尽。
 
-![](../assets/images/berkeley-eecs.png)
+![](../assets/images/berkeley-eecs.webp)
 
 *Image source: [Course Guides | UC berkeley EECS](https://hkn.eecs.berkeley.edu/courseguides)*

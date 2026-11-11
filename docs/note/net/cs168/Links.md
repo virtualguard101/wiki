@@ -26,7 +26,7 @@ tags:
 
 The left bar is the sender, and the right bar is the recipient. Time starts at 0 and increases as we move down the diagram.
 
-![](assets/links/2.png)
+![](assets/links/2.webp)
 
 ## Pipe Diagram
 

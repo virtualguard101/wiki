@@ -41,16 +41,16 @@ Demultiplexing can not only use for choosing the protocol to process the packet 
 
     - **Physical port**: The hole you plug a cable into. Exists in hardware.
 
-        ![](assets/design-principle/physical_port.png)
+        ![](assets/design-principle/physical_port.webp)
 
 !!! note "socket[^1]"
     The term *socket* (**套接字**) refers to an [OS mechanism](../../os/408/进程的描述与控制.md#套接字) for connecting an application to the networking stack in the OS. When an application opens a socket, that socket is associated with a logical port number. When the OS receives a packet, it uses the port number to direct that packet to the associated socket.
 
 In general, demultiplexing helps the operating system pass packets to the correct application, based on the [Layers Abstraction](Layers%20of%20the%20Internet.md#Layers-of-the-Internet) we've discussed previously.
 
-![](assets/design-principle/demultiplexing_4.png)
+![](assets/design-principle/demultiplexing_4.webp)
 
-![](assets/design-principle/demultiplexing_5.png)
+![](assets/design-principle/demultiplexing_5.webp)
 
 ### End-to-End Principle
 

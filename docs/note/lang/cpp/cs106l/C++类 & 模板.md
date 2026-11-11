@@ -61,9 +61,9 @@ tags:
 
 简单来说，头文件用于定义类的结构，源文件用于实现类的定义细节。
 
-![](assets/05-classes-template/head-source_1.png)
+![](assets/05-classes-template/head-source_1.webp)
 
-![](assets/05-classes-template/head-source_2.png)
+![](assets/05-classes-template/head-source_2.webp)
 
 *以上图片来源于[CS106L](https://web.stanford.edu/class/cs106l/)的课程幻灯片。*
 
@@ -181,7 +181,7 @@ Student::~Student() {
 
 下图展示的是`stream`的继承关系。
 
-![](assets/05-classes-template/iostream_inheritance.png)
+![](assets/05-classes-template/iostream_inheritance.webp)
 
 *以上图片来源于[CS106L](https://web.stanford.edu/class/cs106l/)的课程幻灯片。*
 

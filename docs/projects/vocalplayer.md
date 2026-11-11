@@ -14,7 +14,7 @@ tags:
 
 # vocalplayer
 
-![](assets/vocalplayer.png)
+![](assets/vocalplayer.webp)
 
 - Repository: [vocalplayer | GitHub](https://github.com/virtualguard101/vocalplayer)
 

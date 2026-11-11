@@ -16,6 +16,6 @@ tags:
 
 To simply, Distance-Vector Protocols can be summarized as: *if you hear about a path to a destination, tell all your neighbors* for each router.
 
-![](assets/distance-vector-protocols/1.png)
+![](assets/distance-vector-protocols/1.webp)
 
 ![](assets/distance-vector-protocols/2.png)

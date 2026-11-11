@@ -10,13 +10,13 @@ tags:
 
 # htop
 
-![](assets/htop/htop_demo.png)
+![](assets/htop/htop_demo.webp)
 
 `htop` 是一个常用的系统监控工具，可以显示系统的进程、CPU、内存等信息。
 
 ## 基本使用
 
-![](assets/htop/usage.png)
+![](assets/htop/usage.webp)
 
 - 默认模式（进程列表模式）
 

@@ -98,9 +98,9 @@ Three concepts of relational model:
 
 - *Foreign Key*（**外码**）: The identifier that specifies that an attribute from one relation maps to a tuple in another relation.
 
-    ![](assets/relation-model-and-algebra/4.png)
+    ![](assets/relation-model-and-algebra/4.webp)
 
-    ![](assets/relation-model-and-algebra/5.png)
+    ![](assets/relation-model-and-algebra/5.webp)
 
 - *Constraints*（**约束**）: Rules that ensure the data in the database is accurate and consistent.
 
@@ -377,7 +377,7 @@ The vector data model represents one-dimensional arrays used for nearest-neighbo
 
 At their core, these systems use specialized indexes to perform NN searches quickly.
 
-![](assets/relation-model-and-algebra/17.png)
+![](assets/relation-model-and-algebra/17.webp)
 
 
 [^1]: [Lecture #01: Relational Model & Algebra | CMU 15-445/645 Notes](https://15445.courses.cs.cmu.edu/spring2026/notes/01-relationalmodel.pdf)

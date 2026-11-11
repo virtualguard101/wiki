@@ -1049,7 +1049,7 @@ VGA屏幕的配置如下:
 
 一生一芯官方提供了一个验证程序`vga`, 最终会在VGA屏幕上显示一生一芯的logo图标, 并陷入自旋:
 
-![](assets/minirv32-cpu/vga.gif)
+<video autoplay loop muted playsinline style="max-width:100%;height:auto"><source src="assets/minirv32-cpu/vga.mp4" type="video/mp4"></video>
 
 ### 泛用扩展
 
