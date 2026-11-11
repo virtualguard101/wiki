@@ -252,7 +252,7 @@ make menuconfig
 
 ## 编译内核
 
-![](assets/kernel-build/build.png)
+![](assets/kernel-build/build.webp)
 
 ```bash
 cd src   # 如果当前已经在 src/, 可以跳过
@@ -301,7 +301,7 @@ make -j"$(nproc)"
 make CONFIG_PREFIX="$PWD/../busybox-install" install
 ```
 
-![](assets/kernel-build/busybox.png)
+![](assets/kernel-build/busybox.webp)
 
 `CONFIG_STATIC=y` 是这里最关键的设置. ELF 可执行文件分静态链接和动态链接: 动态链接的 ELF 在程序头表里记录了一个 `PT_INTERP`, 告诉内核先加载 `ld-linux-x86-64.so.2`, 再由它加载 libc; initramfs 里没有这些文件, `execve()` 找不到解释器, 就会返回 `ENOENT`, 表现成一句很难看懂的 `not found`. 静态链接把 libc 一起放进二进制, 问题就消失了. 关于 ELF 的段、程序头和装入过程, 可以看[可执行文件](../../note/os/可执行文件.md#ELF的装入与启动).
 
@@ -384,7 +384,7 @@ QEMU 在这里充当了引导器: `-kernel` 让它直接把内核镜像装进 gu
 
 启动后的典型输出:
 
-![QEMU 启动自定义内核并进入 BusyBox shell](assets/kernel-build/qemu.png)
+![QEMU 启动自定义内核并进入 BusyBox shell](assets/kernel-build/qemu.webp)
 
 ```text
 Memory KASLR using RDRAND RDTSC...

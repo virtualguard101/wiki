@@ -176,6 +176,7 @@ hooks:
   - scripts/hooks/copyright.py
   - scripts/hooks/rss.py
   - scripts/hooks/fancybox.py
+  - scripts/hooks/media.py
   - scripts/hooks/links.py
   - scripts/hooks/cname.py
   # - scripts/hooks/

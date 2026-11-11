@@ -160,11 +160,11 @@ sISA 只有 $4$ 个 GPR、寄存器号 $2\,\text{bit}$，每个 $8\,\text{bit}$�
 
 可以通过修改RAM最下方的读地址输入来选择对应的GPR并观察RAM的输出来判断是否符合预期：
 
-![](assets/sCPU/6.png)
+![](assets/sCPU/6.webp)
 
-![](assets/sCPU/7.png)
+![](assets/sCPU/7.webp)
 
-![](assets/sCPU/8.png)
+![](assets/sCPU/8.webp)
 
 ## 完整的sCPU
 
@@ -275,7 +275,7 @@ sISA 只有 $4$ 个 GPR、寄存器号 $2\,\text{bit}$，每个 $8\,\text{bit}$�
 
 可以在 `Ctrl-1` 模式下点击对应组件输出的线路观察其中的值：
 
-![](assets/sCPU/11.gif)
+<video autoplay loop muted playsinline style="max-width:100%;height:auto"><source src="assets/sCPU/11.mp4" type="video/mp4"></video>
 
 ## 扩展新指令
 
@@ -322,7 +322,7 @@ OUT rs → 读取GPRs中的 rs 寄存器，并将其译码输出到数码管
 
 实现后的整体电路就是这样的：
 
-![](assets/sCPU/16.gif)
+<video autoplay loop muted playsinline style="max-width:100%;height:auto"><source src="assets/sCPU/16.mp4" type="video/mp4"></video>
 
 可以看出实际只添加了译码输出到数码管的逻辑，同时这里为了体现 `OUT` 指令的实行时机，把指令译码器的 $Y_1$ 接到了数码管译码器的使能端，也就是说只有在执行 `OUT` 指令时数码管才会显示信息；
 
@@ -379,7 +379,7 @@ OUT rs → 读取GPRs中的 rs 寄存器，并将其译码输出到数码管
 
 写入ROM并执行：
 
-![](assets/sCPU/17.gif)
+<video autoplay loop muted playsinline style="max-width:100%;height:auto"><source src="assets/sCPU/17.mp4" type="video/mp4"></video>
 
 ![](assets/sCPU/18.png)
 

@@ -108,7 +108,7 @@ void rawPtrFn() {
 !!! note
     共享指针解决了 std::unique_ptr 不能复制的限制，它通过引用计数机制确保只有当所有指向某块内存的共享指针都离开作用域后，才会释放该内存。
 
-    ![](assets/11-smart_pointer-RAII/share_pointer.png)
+    ![](assets/11-smart_pointer-RAII/share_pointer.webp)
 
 - `std::weak_ptr`
 

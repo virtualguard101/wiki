@@ -82,7 +82,7 @@ tags:
 
 二者是互通的, 在某个轨道的编辑器上变换声响旋钮, 亦或是在混音器上移动推子, 都会实时同步到另一个面板上:
 
-![](assets/audition-mix/7.gif)
+<video autoplay loop muted playsinline style="max-width:100%;height:auto"><source src="assets/audition-mix/7.mp4" type="video/mp4"></video>
 
 ## 声音信号的路由
 

@@ -107,7 +107,7 @@ Next, think about those steps:
 
 4. Repeat the process until the letter reaches the CEO of company B.
 
-    ![](assets/Internet-layers/4.png)
+    ![](assets/Internet-layers/4.webp)
 
 In a similar way, the experience of a packet traveling through the Internet are also "wrapping" and "unwrapping" packets processes like the letter we discussed above:
 
@@ -121,7 +121,7 @@ In a similar way, the experience of a packet traveling through the Internet are 
 
 ![](assets/Internet-layers/9.png)
 
-![](assets/Internet-layers/10.png)
+![](assets/Internet-layers/10.webp)
 
 
 [^1]: [Layers of the Internet | CS168 Textbook](https://textbook.cs168.io/intro/layers.html)
