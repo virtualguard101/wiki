@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>汇编循环: 计算字符串长度</title>
+<style>
+  :root { --font: "LXGW WenKai Screen", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; --mono: "Cascadia Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; }
+  :root, [data-theme="dark"] { --card: #232631; --sub: #1b1e27; --line: rgba(255,255,255,.08); --line2: rgba(255,255,255,.16); --text: #e3e5ea; --muted: #9ba2ae; --faint: #6c7380; --accent: #8c9eff; --hl: rgba(140,158,255,.16); --green: #5fcf8f; --amber: #f2b552; --red: #f07a83; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.18); }
+  [data-theme="light"] { --card: #ffffff; --sub: #f5f6f8; --line: rgba(0,0,0,.08); --line2: rgba(0,0,0,.16); --text: #1f2328; --muted: #59616b; --faint: #8b929c; --accent: #3f51b5; --hl: rgba(63,81,181,.10); --green: #1b9a55; --amber: #b7770a; --red: #d43f55; --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: transparent; }
+  body { padding: 4px 4px 12px; font: 14px/1.6 var(--font); color: var(--text); }
+  code { font-family: var(--mono); font-size: .92em; }
+  .demo { background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .head { padding: 14px 18px 6px; }
+  .eyebrow { font-size: 11px; letter-spacing: .14em; color: var(--accent); font-weight: 700; }
+  .head h1 { margin: 2px 0 4px; font-size: 16px; }
+  .lead { margin: 0; color: var(--muted); font-size: 13px; }
+  .lead input { font: 13px var(--mono); width: 9em; padding: 1px 6px; color: var(--text); background: var(--sub); border: 1px solid var(--line2); border-radius: 6px; }
+  .body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; padding: 8px 18px 12px; }
+  @media (max-width: 640px) { .body { grid-template-columns: 1fr; } }
+  .pane { background: var(--sub); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; min-width: 0; }
+  .pane-t { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  pre.code { margin: 0; font: 12.5px/1.8 var(--mono); overflow-x: auto; }
+  .ln { display: block; padding-right: 8px; border-left: 3px solid transparent; border-radius: 4px; white-space: pre; transition: background .2s; }
+  .ln.cur { background: var(--hl); border-left-color: var(--accent); }
+  .ln .c { color: var(--faint); font-style: italic; }
+  .cells { display: flex; gap: 6px; flex-wrap: wrap; }
+  .cell { width: 54px; text-align: center; font: 12px var(--mono); }
+  .cell .ch { border: 1px solid var(--line2); border-radius: 6px; padding: 4px 0; font-size: 15px; background: var(--card); }
+  .cell .ad { color: var(--faint); font-size: 10px; margin-top: 2px; }
+  .cell .pt { height: 18px; color: var(--accent); font-weight: 700; }
+  .cell.on .ch { border-color: var(--accent); background: var(--hl); }
+  .cell.nul .ch { color: var(--red); }
+  .regs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+  .reg { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; font: 12px var(--mono); }
+  .reg b { display: block; color: var(--muted); font-weight: 600; }
+  .reg.chg { border-color: var(--accent); background: var(--hl); }
+  .narr { padding: 10px 18px; border-top: 1px solid var(--line); }
+  .narr h2 { margin: 0 0 2px; font-size: 14.5px; }
+  .narr p { margin: 0; font-size: 13.5px; line-height: 1.8; }
+  .ctl { display: flex; align-items: center; gap: 8px; padding: 10px 18px 14px; flex-wrap: wrap; border-top: 1px solid var(--line); }
+  .btn { border: 1px solid var(--line2); background: var(--card); color: var(--text); font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 8px; cursor: pointer; }
+  .btn:hover:not(:disabled) { border-color: var(--accent); }
+  .btn:disabled { opacity: .4; cursor: default; }
+  .btn.pri { background: var(--accent); border-color: var(--accent); color: #fff; }
+  [data-theme="dark"] .btn.pri { color: #14172a; }
+  .cnt { font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="demo">
+  <div class="head">
+    <div class="eyebrow">CONTROL FLOW</div>
+    <h1>循环: 逐字节计算 argv[1] 的长度</h1>
+    <p class="lead">argv[1] = <input id="inp" value="pwn" maxlength="8" spellcheck="false"> 改动后自动重置. 注意 <code>cmp</code> 只判断当前字节是不是 <code>0</code>.</p>
+  </div>
+  <div class="body">
+    <div class="pane"><div class="pane-t">汇编 (Intel 语法)</div><pre class="code" id="code"></pre></div>
+    <div class="pane">
+      <div class="pane-t">argv[1] 指向的字符串 (内存)</div>
+      <div class="cells" id="cells"></div>
+      <div class="regs" id="regs"></div>
+    </div>
+  </div>
+  <div class="narr"><h2 id="nt"></h2><p id="nb"></p></div>
+  <div class="ctl">
+    <button class="btn" id="prev">← 上一步</button>
+    <button class="btn pri" id="next">下一步 →</button>
+    <button class="btn" id="reset">重置</button>
+    <span class="cnt" id="cnt"></span>
+  </div>
+</div>
+<script>
+(function () {
+  var root = document.documentElement, P = null;
+  try { if (parent !== window && parent.document.body) P = parent.document; } catch (e) {}
+  function theme() {
+    var s = P && P.body.getAttribute('data-md-color-scheme');
+    root.dataset.theme = (s ? s === 'slate' : matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  theme();
+  if (P) new MutationObserver(theme).observe(P.body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
+
+  var CODE = [
+    ['_start:', null],
+    ['    mov rax, [rsp+16]', 'a'],
+    ['    mov rdi, 0', 'b'],
+    ['loop:', null],
+    ['    cmp BYTE PTR [rax], 0', 'c'],
+    ['    je  done            # 当前字节为 0 就跳出', 'd'],
+    ['    inc rax             # 指针前进', 'e'],
+    ['    inc rdi             # 计数 +1', 'f'],
+    ['    jmp loop            # 向后跳转', 'g'],
+    ['done:', null],
+    ['    mov rax, 60', 'h'],
+    ['    syscall             # exit(rdi)', 'i']
+  ];
+  var BASE = 0x7ffe3a10, steps = [], idx = 0;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function build(str) {
+    var s = str + '\0', st = [], rax = 0, rdi = 0, zf = null;
+    function push(line, t, b, chg) { st.push({ line: line, t: t, b: b, rax: rax, rdi: rdi, zf: zf, chg: chg || '' }); }
+    st.push({ line: -1, t: '初始状态', b: '程序刚进入 <code>_start</code>, 寄存器尚未被本段代码使用. 栈上 <code>[rsp+16]</code> 存着 <code>argv[1]</code> 的地址.', rax: null, rdi: null, zf: null, chg: '' });
+    rax = BASE; push(1, 'rax = argv[1]', '读取栈上的指针, <code>rax</code> 现在指向字符串的第一个字节. 它是<b>地址</b>, 不是字符.', 'rax');
+    rdi = 0; push(2, 'rdi = 0', '计数器清零. 它同时也是最后要传给 <code>exit</code> 的退出码.', 'rdi');
+    for (var i = 0; i < s.length; i++) {
+      var ch = s.charCodeAt(i);
+      zf = ch === 0 ? 1 : 0;
+      push(4, '检查当前字节', '<code>BYTE PTR [rax]</code> 读出 1 个字节 (' + (ch ? "'" + s[i] + "'" : '<code>\\0</code>') + '), 与 0 相减, 只更新标志位: <code>ZF=' + zf + '</code>.', 'zf');
+      if (ch === 0) { push(5, 'je 跳转成立', '<code>ZF=1</code>, 说明走到了字符串结尾, 跳到 <code>done</code>.', ''); break; }
+      push(5, 'je 不跳转', '<code>ZF=0</code>, 还没到结尾, 继续执行下一条.', '');
+      rax++; push(6, '指针前进', '<code>rax</code> 指向下一个字节.', 'rax');
+      rdi++; push(7, '计数 +1', '已经数过 ' + rdi + ' 个字符.', 'rdi');
+      push(8, '向后跳转', '无条件 <code>jmp</code> 回到 <code>loop</code>, 形成循环.', '');
+    }
+    rax = 60; push(10, 'rax = 60', '准备 <code>exit</code> 系统调用号.', 'rax');
+    push(11, 'syscall: exit(' + rdi + ')', '退出码 = <code>rdi</code> = <b>' + rdi + '</b>, 恰好是字符串长度.', '');
+    return st;
+  }
+
+  function render() {
+    var s = steps[idx], str = $('inp').value + '\0';
+    $('code').innerHTML = CODE.map(function (l, i) {
+      var t = l[0].replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/(#.*)$/, '<span class="c">$1</span>');
+      return '<span class="ln' + (i === s.line ? ' cur' : '') + '">' + t + '</span>';
+    }).join('');
+    var off = s.rax === null ? -1 : s.rax - BASE;
+    $('cells').innerHTML = str.split('').map(function (c, i) {
+      return '<div class="cell' + (i === off ? ' on' : '') + (c === '\0' ? ' nul' : '') + '"><div class="pt">' + (i === off ? '▼ rax' : '') + '</div><div class="ch">' + (c === '\0' ? '\\0' : c) + '</div><div class="ad">+' + i + '</div></div>';
+    }).join('');
+    function r(n, v, k) { return '<div class="reg' + (s.chg.indexOf(k) >= 0 ? ' chg' : '') + '"><b>' + n + '</b>' + v + '</div>'; }
+    $('regs').innerHTML =
+      r('rax', s.rax === null ? '—' : s.rax >= 60 && s.rax < BASE ? s.rax : '0x' + s.rax.toString(16), 'rax') +
+      r('rdi (计数)', s.rdi === null ? '—' : s.rdi, 'rdi') +
+      r('ZF', s.zf === null ? '—' : s.zf, 'zf');
+    $('nt').textContent = s.t; $('nb').innerHTML = s.b;
+    $('cnt').textContent = (idx + 1) + ' / ' + steps.length;
+    $('prev').disabled = idx === 0; $('next').disabled = idx === steps.length - 1;
+  }
+  function reset() { steps = build($('inp').value); idx = 0; render(); }
+  $('prev').onclick = function () { if (idx > 0) { idx--; render(); } };
+  $('next').onclick = function () { if (idx < steps.length - 1) { idx++; render(); } };
+  $('reset').onclick = reset;
+  $('inp').oninput = reset;
+  document.onkeydown = function (e) { if (e.key === 'ArrowRight') $('next').click(); if (e.key === 'ArrowLeft') $('prev').click(); };
+  reset();
+})();
+</script>
+</body>
+</html>
